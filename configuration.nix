@@ -117,6 +117,7 @@
     gnumake
     openssl
     pkgconfig
+    xclip
   ];
 
   # Spice vda for shared clipboard in vm
