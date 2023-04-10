@@ -118,6 +118,7 @@
     openssl
     pkgconfig
     xclip
+    syncthing
   ];
 
   # Spice vda for shared clipboard in vm
