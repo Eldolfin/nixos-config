@@ -119,6 +119,7 @@
     pkgconfig
     xclip
     syncthing
+    armcord
   ];
 
   # Spice vda for shared clipboard in vm
