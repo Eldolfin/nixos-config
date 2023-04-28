@@ -11,12 +11,16 @@
       ./hardware-configuration.nix
     ];
 
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Bootloader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-tour"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -44,9 +48,9 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver = {
-    layout = "us";
+    # Configure keymap in X11
+    layout = "fr";
     xkbVariant = "";
 
     enable = true;
@@ -57,6 +61,13 @@
 
     displayManager = {
       defaultSession = "none+i3";
+      # set correct scale 
+      sessionCommands = ''
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
+          Xcursor.theme: Adwaita
+          Xcursor.size: 64
+        ''}
+      '';
     };
 
     windowManager.i3 = {
@@ -68,21 +79,30 @@
         i3lock
       ];
     };
+
+    videoDrivers = [ "nvidia" ];
   };
+
+
+  hardware.opengl.enable = true;
+
+  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar Le Dauphin";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ ];
+    /* packages = with pkgs; [ ]; */
   };
+
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "oscar";
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
-
-  # Enable automatic login for the user.
-  services.getty.autologinUser = "oscar";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -109,7 +129,6 @@
     gcc12
     lazygit
     feh
-    alsa-utils
     flameshot
     clipit
     emote
@@ -120,7 +139,36 @@
     xclip
     syncthing
     armcord
+    bluez
+    blueman
+    dunst
+    steam
+    thunderbird
+    redshift
+    killall
   ];
+
+  # bluetooth/audio setup
+  sound.enable = true;
+
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
+  };
+  services.blueman.enable = true;
+
+  # fix for steam
+  hardware.opengl.driSupport32Bit = true;
 
   # Spice vda for shared clipboard in vm
   services.spice-vdagentd.enable = true;
