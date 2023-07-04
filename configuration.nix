@@ -4,11 +4,6 @@
 
 { config, pkgs, ... }:
 
-let
-  unstableTarball =
-    fetchTarball
-      "https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz";
-in
 {
   imports =
     [
@@ -85,23 +80,32 @@ in
 
     desktopManager = {
       xterm.enable = false;
+
+      # gnome.enable = true;
+      # xfce = {
+      #   enable = true;
+      #   noDesktop = true;
+      #   enableXfwm = false;
+      # };
     };
 
     displayManager = {
       defaultSession = "none+i3";
+      # defaultSession = "gdm";
       # set correct scale 
       sessionCommands = ''
         ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
           Xcursor.theme: Adwaita
             ''}
       '';
+
+      # gdm.enable = true;
+      # startx.enable = true;
     };
 
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3;
-      #      extraPackages = with pkgs; [
-      #      ];
     };
 
     videoDrivers = [ "nvidia" ];
@@ -190,6 +194,9 @@ in
     dnsmasq
     python310.pkgs.psutil
     mullvad-vpn
+    noisetorch
+    python3Packages.psutil
+    opensnitch-ui
 
     # steam fix ?? 
     pango
@@ -197,6 +204,10 @@ in
     libthai
 
   ];
+
+  programs.firejail.enable = true;
+
+  programs.noisetorch.enable = true;
 
   # enable mullvad-vpn
   services.mullvad-vpn.enable = true;
@@ -213,6 +224,10 @@ in
   services.udev.extraRules = ''
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
+
+  # make nixos rebuild faster, using more ram and less disk
+  # boot.tmp.useTmpfs = true;
+  # boot.tmp.tmpfsSize = "95%";
 
   # tailscale
   services.tailscale.enable = true;
