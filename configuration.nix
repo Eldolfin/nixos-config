@@ -10,7 +10,16 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # GPU Passthrough
-      ./gpu-passthrough.nix
+      # ./gpu-passthrough.nix
+
+
+      (
+        let rev = "main"; in
+        import (builtins.fetchTarball {
+          url = "https://gitlab.com/VandalByte/darkmatter-grub-theme/-/archive/${rev}/darkmatter-grub-theme-${rev}.tar.gz";
+          sha256 = "1i6dwmddjh0cbrp6zgafdrji202alkz52rjisx0hs1bgjbrbwxdj";
+        })
+      )
     ];
 
 
@@ -23,18 +32,42 @@
   # Bootloader.
 
   # grub
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/nvme0n1";
-  # boot.loader.grub.useOSProber = true;
-
   # systemd
   boot.loader = {
-    systemd-boot.enable = true;
+    # systemd-boot.enable = true;
+
+    grub = {
+      enable = true;
+      useOSProber = true;
+      efiSupport = true;
+      efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
+      devices = [ "nodev" ];
+      extraEntriesBeforeNixOS = false;
+      extraEntries = ''
+        menuentry "Reboot" {
+          reboot
+        }
+        menuentry "Poweroff" {
+          halt
+        }
+      '';
+
+      darkmatter-theme = {
+        enable = true;
+        style = "nixos";
+        icon = "color";
+        resolution = "1080p";
+      };
+    };
+
     efi = {
-      canTouchEfiVariables = true;
+      # canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
   };
+
+  # for gpu in docker containers
+  systemd.enableUnifiedCgroupHierarchy = false;
 
   #  boot.initrd.luks.devices = {
   #    name = "nixos";
@@ -43,7 +76,7 @@
   #  };
 
   networking.hostName = "nixos-tour"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -79,8 +112,6 @@
     enable = true;
 
     desktopManager = {
-      xterm.enable = false;
-
       # gnome.enable = true;
       # xfce = {
       #   enable = true;
@@ -91,7 +122,7 @@
 
     displayManager = {
       defaultSession = "none+i3";
-      # defaultSession = "gdm";
+      # defaultSession = "gnome";
       # set correct scale 
       sessionCommands = ''
         ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
@@ -101,6 +132,12 @@
 
       # gdm.enable = true;
       # startx.enable = true;
+      lightdm = {
+        enable = true;
+        greeter.enable = true;
+        # greeters.pantheon.enable = true;
+        greeters.gtk.enable = true;
+      };
     };
 
     windowManager.i3 = {
@@ -109,6 +146,10 @@
     };
 
     videoDrivers = [ "nvidia" ];
+
+
+    autoRepeatDelay = 250;
+    autoRepeatInterval = 20;
   };
 
   # fix for i3blocks
@@ -118,17 +159,18 @@
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = false; # users cannot change password
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar Le Dauphin";
     extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" ];
+    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
     /* packages = with pkgs; [ ]; */
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "oscar";
+  # services.xserver.displayManager.autoLogin.enable = true;
+  # services.xserver.displayManager.autoLogin.user = "oscar";
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
@@ -205,6 +247,8 @@
 
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   programs.firejail.enable = true;
 
   programs.noisetorch.enable = true;
@@ -244,15 +288,15 @@
 
   # something something qemu single gpu passthrough blah blah blah
   systemd.services.libvirtd.preStart = ''
-    mkdir -p /var/lib/libvirt
+        mkdir -p /var/lib/libvirt
     # mkdir -p /var/lib/libvirt/vgabios
 
 
-    rm -r /var/lib/libvirt/hooks
-    ln -sf /etc/nixos/git-repo/hooks/ /var/lib/libvirt/
+        rm -r /var/lib/libvirt/hooks
+        ln -sf /etc/nixos/git-repo/hooks/ /var/lib/libvirt/
     # ln -sf /etc/nixos/git-repo/patched.rom /var/lib/libvirt/vgabios/patched.rom
 
-    chmod -R +x /var/lib/libvirt/hooks/
+        chmod -R +x /var/lib/libvirt/hooks/
     # chmod +x /var/lib/libvirt/hooks/kvm.conf
   '';
 
@@ -272,11 +316,16 @@
         };
       };
     };
+    ckb-next.enable = true;
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      setLdLibraryPath = true;
+    };
   };
   services.blueman.enable = true;
 
   # fix for steam
-  hardware.opengl.driSupport32Bit = true;
 
   # zsh as default shell
   programs.zsh.enable = true;
@@ -287,11 +336,25 @@
     (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
   ];
 
-  # docker setup
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
+  virtualisation = {
+    docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      # dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
+    };
   };
 
   # List services that you want to enable:
