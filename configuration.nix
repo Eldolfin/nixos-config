@@ -169,8 +169,8 @@
   };
 
   # Enable automatic login for the user.
-  # services.xserver.displayManager.autoLogin.enable = true;
-  # services.xserver.displayManager.autoLogin.user = "oscar";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "oscar";
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
@@ -239,6 +239,7 @@
     noisetorch
     python3Packages.psutil
     opensnitch-ui
+    cudatoolkit
 
     # steam fix ?? 
     pango
@@ -250,17 +251,15 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs.firejail.enable = true;
-
+  programs.kdeconnect.enable = true;
   programs.noisetorch.enable = true;
+  programs.dconf.enable = true;
 
   # enable mullvad-vpn
   services.mullvad-vpn.enable = true;
 
   # polkit
   security.polkit.enable = true;
-
-  # hyprland (wm)
-  # programs.hyprland.enable = true;
 
   # external display brightness control requires
   # i2c to be enabled
@@ -284,7 +283,6 @@
     qemu.ovmf.enable = true;
     qemu.runAsRoot = true;
   };
-  programs.dconf.enable = true;
 
   # something something qemu single gpu passthrough blah blah blah
   systemd.services.libvirtd.preStart = ''
@@ -324,6 +322,8 @@
     };
   };
   services.blueman.enable = true;
+  # multimedia server (for play pause keys)
+  services.mmsd.enable = true;
 
   # fix for steam
 
@@ -343,6 +343,7 @@
         enable = true;
         setSocketVariable = true;
       };
+      enableNvidia = true;
     };
     podman = {
       enable = true;
@@ -354,7 +355,11 @@
       defaultNetwork.settings = {
         dns_enabled = true;
       };
+
+      enableNvidia = true;
     };
+
+    waydroid.enable = true;
   };
 
   # List services that you want to enable:
