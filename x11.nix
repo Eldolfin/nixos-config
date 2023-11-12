@@ -3,7 +3,6 @@
 {
   services.xserver = {
     # Configure keymap in X11
-    layout = "fr";
     xkbVariant = "";
     xkbOptions = "caps:swapescape";
 

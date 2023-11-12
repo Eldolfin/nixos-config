@@ -1,20 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
+# this file is common between tour and laptor
 { pkgs, ... }:
-
 {
   imports =
     [
-      # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      # GPU Passthrough
-      # /etc/nixos/git-repo/gpu-passthrough.nix
-
-      # musnix for jack mic
-      /etc/nixos/git-repo/musnix
-
       /etc/nixos/git-repo/bootloader.nix
       /etc/nixos/git-repo/x11.nix
       /etc/nixos/git-repo/sddm.nix
@@ -30,9 +19,6 @@
       )
     ];
 
-  musnix.enable = true;
-
-  services.xserver.layout = "fr";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -42,7 +28,6 @@
   # for gpu in docker containers
   systemd.enableUnifiedCgroupHierarchy = false;
 
-  networking.hostName = "nixos-tour"; # Define your hostname.
   networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -52,8 +37,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  networking.interfaces.enp5s0.wakeOnLan.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -77,8 +60,6 @@
   environment.pathsToLink = [ "/libexec" ];
 
 
-  # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   users.mutableUsers = false; # users cannot change password
   users.users.oscar = {
@@ -212,9 +193,6 @@
   };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Enable syncthing daemon
   services =

@@ -21,7 +21,7 @@
       '';
 
       darkmatter-theme = {
-        enable = true;
+        enable = false;
         style = "nixos";
         icon = "color";
         resolution = "1080p";
