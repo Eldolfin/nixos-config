@@ -52,7 +52,7 @@
   #     wireless.networks.IONIS.auth = ''
   #         eap=PEAP
   #         identity="oscar.le-dauphin@epita.fr"
-  #         password="vnzpeBAL"
+  #         password="#####"
   #         '';
   # };
 
