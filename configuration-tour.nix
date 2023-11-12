@@ -8,6 +8,8 @@
 
   musnix.enable = true;
 
+  boot.loader.efi.efiSysMountPoint = "/boot";
+
   services.xserver.layout = "fr";
   networking.hostName = "nixos-tour"; # Define your hostname.
   networking.interfaces.enp5s0.wakeOnLan.enable = true;

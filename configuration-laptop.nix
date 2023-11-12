@@ -12,6 +12,7 @@
     ];
 
   services.xserver.displayManager.autoLogin.enable = false;
+  boot.loader.efi.efiSysMountPoint = "/boot/EFI";
 
   # Wifi EPITA
   # networking = {

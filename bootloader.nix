@@ -34,10 +34,5 @@
         resolution = "1080p";
       };
     };
-
-    efi = {
-      # canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
   };
 }
