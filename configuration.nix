@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -10,7 +10,13 @@
       # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       # GPU Passthrough
-      # ./gpu-passthrough.nix
+      # /etc/nixos/git-repo/gpu-passthrough.nix
+
+      # musnix for jack mic
+      /etc/nixos/git-repo/musnix
+
+      /etc/nixos/git-repo/bootloader.nix
+      /etc/nixos/git-repo/x11.nix
 
 
       (
@@ -22,74 +28,16 @@
       )
     ];
 
-# pin docker to older nixpkgs: https://github.com/NixOS/nixpkgs/issues/244159
-# TODO: remove when fixed
-  nixpkgs.overlays = [
-    (let
-      pinnedPkgs = import(pkgs.fetchFromGitHub {
-        owner = "NixOS";
-        repo = "nixpkgs";
-        rev = "b6bbc53029a31f788ffed9ea2d459f0bb0f0fbfc";
-        sha256 = "sha256-JVFoTY3rs1uDHbh0llRb1BcTNx26fGSLSiPmjojT+KY=";
-      }) {};
-    in
-    final: prev: {
-      docker = pinnedPkgs.docker;
-    })
-  ];
+  musnix.enable = true;
 
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
   # enable cuda
   nixpkgs.config.cudaSupport = true;
 
-  # Bootloader.
-
-  # grub
-  # systemd
-  boot.loader = {
-    # systemd-boot.enable = true;
-
-    grub = {
-      enable = true;
-      useOSProber = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated
-      devices = [ "nodev" ];
-      extraEntriesBeforeNixOS = false;
-      extraEntries = ''
-        menuentry "Reboot" {
-          reboot
-        }
-        menuentry "Poweroff" {
-          halt
-        }
-      '';
-
-      darkmatter-theme = {
-        enable = true;
-        style = "nixos";
-        icon = "color";
-        resolution = "1080p";
-      };
-    };
-
-    efi = {
-      # canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-  };
-
   # for gpu in docker containers
   systemd.enableUnifiedCgroupHierarchy = false;
-
-  #  boot.initrd.luks.devices = {
-  #    name = "nixos";
-  #    device = "/dev/disk/by-uuid/9ACA-8EC6";
-  #    preLVM = true;
-  #  };
 
   networking.hostName = "nixos-tour"; # Define your hostname.
   networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.
@@ -101,6 +49,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking.interfaces.enp5s0.wakeOnLan.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -120,54 +70,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  services.xserver = {
-    # Configure keymap in X11
-    layout = "fr";
-    xkbVariant = "";
-
-    enable = true;
-
-    desktopManager = {
-      # gnome.enable = true;
-      # xfce = {
-      #   enable = true;
-      #   noDesktop = true;
-      #   enableXfwm = false;
-      # };
-    };
-
-    displayManager = {
-      defaultSession = "none+i3";
-      # defaultSession = "gnome";
-      # set correct scale 
-      sessionCommands = ''
-        ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
-          Xcursor.theme: Adwaita
-            ''}
-      '';
-
-      # gdm.enable = true;
-      # startx.enable = true;
-      lightdm = {
-        enable = true;
-        greeter.enable = true;
-        # greeters.pantheon.enable = true;
-        greeters.gtk.enable = true;
-      };
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3;
-    };
-
-    videoDrivers = [ "nvidia" ];
-
-
-    autoRepeatDelay = 250;
-    autoRepeatInterval = 20;
-  };
-
   # fix for i3blocks
   environment.pathsToLink = [ "/libexec" ];
 
@@ -179,14 +81,16 @@
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar Le Dauphin";
-    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "input"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "input" ];
     hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
-    /* packages = with pkgs; [ ]; */
   };
 
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "oscar";
+  users.users.noconfig = {
+    isNormalUser = true;
+    description = "No Config";
+    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "user-with-access-to-virtualbox" ];
+    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+  };
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
@@ -194,82 +98,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    /* neovim */
-    # unstable.helix
+    sunshine
     git
-    exa
-    fd
-    fzf
-    mpv
-    btop
-    zsh
     alacritty
     librewolf
-    neofetch
-    wget
     chezmoi
-    nodejs
-    unzip
-    rustup
-    zoxide
-    zellij
-    gcc12
-    lazygit
-    feh
-    flameshot
-    emote
-    bat
-    gnumake
-    openssl
-    pkgconfig
-    xclip
-    syncthing
-    armcord
-    bluez
-    blueman
-    dunst
-    steam
-    thunderbird
-    redshift
-    killall
-    cmake
-    clang
-    clang-tools
-    ddccontrol
-    ddcutil
-    ddcui
-    rust-analyzer
-    usbutils
-    android-tools
-    python311
-    python311Packages.pip
-    qbittorrent
-    ripgrep
-    libreoffice
-    nix-index
-    tailscale
-    virt-manager
-    dnsmasq
-    python310.pkgs.psutil
-    mullvad-vpn
-    noisetorch
-    python3Packages.psutil
-    opensnitch-ui
-    cudatoolkit
-
-    # steam fix ?? 
-    pango
-    harfbuzz
-    libthai
-
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  programs.firejail.enable = true;
-  programs.kdeconnect.enable = true;
-  programs.noisetorch.enable = true;
-  programs.dconf.enable = true;
+  programs = {
+    firejail.enable = true;
+    kdeconnect.enable = true;
+    noisetorch.enable = true;
+    dconf.enable = true;
+  };
+
+  # avahi for sunshine to work
+  services.avahi.enable = true;
+  services.avahi.publish.userServices = true;
 
   # enable mullvad-vpn
   services.mullvad-vpn.enable = true;
@@ -284,35 +131,9 @@
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
-  # make nixos rebuild faster, using more ram and less disk
-  # boot.tmp.useTmpfs = true;
-  # boot.tmp.tmpfsSize = "95%";
-
   # tailscale
   services.tailscale.enable = true;
 
-  # virt-manager
-  virtualisation.libvirtd = {
-    enable = true;
-    onBoot = "ignore";
-    onShutdown = "shutdown";
-    qemu.ovmf.enable = true;
-    qemu.runAsRoot = true;
-  };
-
-  # something something qemu single gpu passthrough blah blah blah
-  systemd.services.libvirtd.preStart = ''
-        mkdir -p /var/lib/libvirt
-    # mkdir -p /var/lib/libvirt/vgabios
-
-
-        rm -r /var/lib/libvirt/hooks
-        ln -sf /etc/nixos/git-repo/hooks/ /var/lib/libvirt/
-    # ln -sf /etc/nixos/git-repo/patched.rom /var/lib/libvirt/vgabios/patched.rom
-
-        chmod -R +x /var/lib/libvirt/hooks/
-    # chmod +x /var/lib/libvirt/hooks/kvm.conf
-  '';
 
   # bluetooth/audio setup
   sound.enable = true;
@@ -327,6 +148,10 @@
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
+          FastConnectable = "true";
+        };
+        Policy = {
+          AutoEnable = "true";
         };
       };
     };
@@ -341,12 +166,10 @@
   # multimedia server (for play pause keys)
   services.mmsd.enable = true;
 
-  # fix for steam
-
-  # zsh as default shell
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
+  # fish as default shell
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = with pkgs; [ fish ];
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
@@ -364,9 +187,6 @@
     podman = {
       enable = true;
 
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      # dockerCompat = true;
-
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings = {
         dns_enabled = true;
@@ -374,6 +194,16 @@
 
       enableNvidia = true;
     };
+
+    # virt-manager
+    libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu.ovmf.enable = true;
+      qemu.runAsRoot = true;
+    };
+    virtualbox.host.enable = true;
 
     waydroid.enable = true;
   };
@@ -390,6 +220,10 @@
         enable = true;
         user = "oscar";
       };
+
+
+      printing.enable = true;
+      printing.drivers = [ pkgs.hplip ];
     };
 
   # enable flakes
@@ -413,5 +247,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
