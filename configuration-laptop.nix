@@ -11,8 +11,36 @@
       /etc/nixos/git-repo/common.nix
     ];
 
+  networking.hostName = "nixos-portable";
+  services.xserver.layout = "us";
   services.xserver.displayManager.autoLogin.enable = false;
   boot.loader.efi.efiSysMountPoint = "/boot/EFI";
+  networking.wireless.enable = true;
+  services.xserver.dpi = 200;
+  services.xserver.libinput.enable = false;
+  services.illum.enable = true;
+  services.openssh.enable = false;
+  # lol (800MHz)
+  # powerManagement.cpufreq.max = 800;
+
+  # for firefox to support touchscreen scroll
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
+
+  hardware.nvidia.prime = {
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+
+  # touchscreen maybe
+  services.xserver.synaptics = {
+    enable = true;
+    twoFingerScroll = true;
+    maxSpeed = "4.0";
+    scrollDelta = -75;
+  };
+
 
   # Wifi EPITA
   # networking = {
@@ -28,48 +56,5 @@
   #         '';
   # };
 
-  networking.hostName = "nixos-portable"; # Define your hostname.
-  services.xserver.layout = "us";
-  # for firefox to support touchscreen scroll
-  environment.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1";
-  };
-
-
-  # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.nvidia.prime = {
-
-    # Make sure to use the correct Bus ID values for your system!
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
-
-  services.illum.enable = true;
-
-  # lol (800MHz)
-  # powerManagement.cpufreq.max = 800;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = false;
-
-  # touchscreen maybe
-  services.xserver.synaptics = {
-    enable = true;
-    twoFingerScroll = true;
-    maxSpeed = "4.0";
-    scrollDelta = -75;
-  };
-
-  services.xserver.dpi = 200;
-
-  services.xserver.libinput.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "22.11";
 }
