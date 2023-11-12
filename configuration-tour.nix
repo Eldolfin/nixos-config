@@ -12,6 +12,8 @@
   networking.hostName = "nixos-tour"; # Define your hostname.
   networking.interfaces.enp5s0.wakeOnLan.enable = true;
 
+  hardware.ckb-next.enable = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 }

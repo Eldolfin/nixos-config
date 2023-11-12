@@ -129,7 +129,6 @@
         };
       };
     };
-    ckb-next.enable = true;
     opengl = {
       enable = true;
       driSupport32Bit = true;
