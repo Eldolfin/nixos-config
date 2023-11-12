@@ -11,7 +11,7 @@
 
     displayManager =
       {
-        defaultSession = "none+i3";
+        defaultSession = "none+leftwm";
         sessionCommands = ''
           ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
             Xcursor.theme: Adwaita
@@ -23,7 +23,6 @@
           ${pkgs.xorg.xrandr}/bin/xrandr --output $LEFT --output $RIGHT --right-of $LEFT --pos 1920x-120 
         '';
 
-        # Enable automatic login for the user.
         autoLogin = {
           enable = true;
           user = "oscar";
