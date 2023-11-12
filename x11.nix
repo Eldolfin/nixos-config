@@ -23,7 +23,6 @@
         '';
 
         autoLogin = {
-          enable = true;
           user = "oscar";
         };
       };

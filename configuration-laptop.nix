@@ -11,6 +11,7 @@
       /etc/nixos/git-repo/common.nix
     ];
 
+  services.xserver.displayManager.autoLogin.enable = false;
 
   # Wifi EPITA
   # networking = {
