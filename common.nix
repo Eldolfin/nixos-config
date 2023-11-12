@@ -184,12 +184,6 @@
   # Enable syncthing daemon
   services =
     {
-      syncthing = {
-        enable = true;
-        user = "oscar";
-      };
-
-
       printing.enable = true;
       printing.drivers = [ pkgs.hplip ];
     };

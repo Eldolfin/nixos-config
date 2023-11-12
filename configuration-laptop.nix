@@ -12,14 +12,18 @@
     ];
 
   networking.hostName = "nixos-portable";
-  services.xserver.layout = "us";
-  services.xserver.displayManager.autoLogin.enable = false;
   boot.loader.efi.efiSysMountPoint = "/boot/EFI";
   networking.wireless.enable = true;
-  services.xserver.dpi = 200;
-  services.xserver.libinput.enable = false;
-  services.illum.enable = true;
-  services.openssh.enable = false;
+  services = {
+    illum.enable = true;
+    openssh.enable = false;
+    xserver = {
+      dpi = 200;
+      libinput.enable = false;
+      layout = "us";
+      displayManager.autoLogin.enable = false;
+    };
+  };
   # lol (800MHz)
   # powerManagement.cpufreq.max = 800;
 
