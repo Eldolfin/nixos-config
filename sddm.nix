@@ -15,5 +15,8 @@
           lightdm.greeter.enable = false;
         };
     };
-  cri.sddm = { enable = true; theme = "epita-acu-2024"; };
+  cri.sddm = {
+    enable = true;
+    # theme = "epita-acu-2024"; 
+  };
 }

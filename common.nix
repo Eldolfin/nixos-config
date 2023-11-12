@@ -8,17 +8,7 @@
       /etc/nixos/git-repo/x11.nix
       /etc/nixos/git-repo/sddm.nix
       # /etc/nixos/git-repo/wayland.nix
-
-
-      (
-        let rev = "main"; in
-        import (builtins.fetchTarball {
-          url = "https://gitlab.com/VandalByte/darkmatter-grub-theme/-/archive/${rev}/darkmatter-grub-theme-${rev}.tar.gz";
-          sha256 = "1i6dwmddjh0cbrp6zgafdrji202alkz52rjisx0hs1bgjbrbwxdj";
-        })
-      )
     ];
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
