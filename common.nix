@@ -1,5 +1,7 @@
 # this file is common between tour and laptor
 { pkgs, ... }:
+let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   imports =
     [
@@ -70,11 +72,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    sunshine
+    # sunshine
     git
     alacritty
     librewolf
     chezmoi
+
+    #unstable.codeium
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -84,11 +88,12 @@
     kdeconnect.enable = true;
     noisetorch.enable = true;
     dconf.enable = true;
+    nix-ld.enable = true;
   };
 
   # avahi for sunshine to work
-  services.avahi.enable = true;
-  services.avahi.publish.userServices = true;
+  #  services.avahi.enable = true;
+  #  services.avahi.publish.userServices = true;
 
   # enable mullvad-vpn
   services.mullvad-vpn.enable = true;
@@ -139,10 +144,11 @@
 
   # fish as default shell
   programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
-  environment.shells = with pkgs; [ fish ];
+  users.defaultUserShell = pkgs.nushell;
+  environment.shells = with pkgs; [ nushell fish zsh ];
 
-  fonts.fonts = with pkgs; [
+
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
   ];
 
