@@ -4,6 +4,7 @@
       # musnix for jack mic
       /etc/nixos/git-repo/musnix
       /etc/nixos/git-repo/common.nix
+      /etc/nixos/git-repo/sddm.nix
     ];
   musnix.enable = true;
 

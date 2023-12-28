@@ -9,10 +9,8 @@
         {
           sddm = {
             enable = true;
-            #theme = ;
             autoNumlock = true;
           };
-          lightdm.greeter.enable = false;
         };
     };
   cri.sddm = {

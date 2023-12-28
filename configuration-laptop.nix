@@ -20,6 +20,7 @@
       libinput.enable = false;
       layout = "us";
       displayManager.autoLogin.enable = false;
+      displayManager.gdm.enable = true;
     };
   };
   # lol (800MHz)

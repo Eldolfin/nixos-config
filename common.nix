@@ -1,7 +1,5 @@
 # this file is common between tour and laptor
 { pkgs, ... }:
-let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
 {
   imports =
     [
