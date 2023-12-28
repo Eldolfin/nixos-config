@@ -185,9 +185,7 @@ in
     waydroid.enable = true;
   };
 
-  # List services that you want to enable:
 
-  # Enable syncthing daemon
   services =
     {
       printing.enable = true;
