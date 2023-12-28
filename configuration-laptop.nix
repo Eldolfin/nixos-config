@@ -7,12 +7,10 @@
 {
   imports =
     [
-      <nixos-hardware/dell/xps/15-9560/nvidia>
       /etc/nixos/git-repo/common.nix
     ];
 
   networking.hostName = "nixos-portable";
-  boot.loader.efi.efiSysMountPoint = "/boot/EFI";
   networking.wireless.enable = true;
   services = {
     illum.enable = true;
@@ -32,10 +30,10 @@
     MOZ_USE_XINPUT2 = "1";
   };
 
-  hardware.nvidia.prime = {
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
+  # hardware.nvidia.prime = {
+  #   intelBusId = "PCI:0:2:0";
+  #   nvidiaBusId = "PCI:1:0:0";
+  # };
 
   # touchscreen maybe
   services.xserver.synaptics = {

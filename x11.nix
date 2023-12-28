@@ -31,8 +31,10 @@
       i3.enable = true;
       leftwm.enable = true;
     };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
 
-    videoDrivers = [ "nvidia" ];
+    # videoDrivers = [ "nvidia" ];
 
     autoRepeatDelay = 250;
     autoRepeatInterval = 20;

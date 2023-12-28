@@ -8,7 +8,7 @@ in
       /etc/nixos/hardware-configuration.nix
       /etc/nixos/git-repo/bootloader.nix
       /etc/nixos/git-repo/x11.nix
-      /etc/nixos/git-repo/sddm.nix
+      #/etc/nixos/git-repo/sddm.nix
       # /etc/nixos/git-repo/wayland.nix
     ];
 
