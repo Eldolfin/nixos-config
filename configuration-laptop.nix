@@ -14,11 +14,18 @@
   networking.wireless.enable = true;
   services = {
     illum.enable = true;
+    fprintd = {
+      enable = true;
+      package = pkgs.fprintd-tod;
+      tod = {
+        enable = true;
+        driver = pkgs.libfprint-2-tod1-vfs0090;
+      };
+    };
     openssh.enable = false;
     xserver = {
-      dpi = 200;
       libinput.enable = false;
-      layout = "us";
+      layout = "gb";
       displayManager.autoLogin.enable = false;
       displayManager.gdm.enable = true;
     };
@@ -30,11 +37,6 @@
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
   };
-
-  # hardware.nvidia.prime = {
-  #   intelBusId = "PCI:0:2:0";
-  #   nvidiaBusId = "PCI:1:0:0";
-  # };
 
   # touchscreen maybe
   services.xserver.synaptics = {
