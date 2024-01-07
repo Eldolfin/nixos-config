@@ -142,7 +142,7 @@
 
   # fish as default shell
   programs.fish.enable = true;
-  users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.bash;
   environment.shells = with pkgs; [ nushell fish zsh ];
 
 
