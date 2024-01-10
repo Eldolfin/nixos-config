@@ -14,14 +14,6 @@
   networking.wireless.enable = true;
   services = {
     illum.enable = true;
-    fprintd = {
-      enable = true;
-      package = pkgs.fprintd-tod;
-      tod = {
-        enable = true;
-        driver = pkgs.libfprint-2-tod1-vfs0090;
-      };
-    };
     openssh.enable = false;
     xserver = {
       libinput.enable = false;
