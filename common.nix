@@ -47,8 +47,6 @@
   # fix for i3blocks
   environment.pathsToLink = [ "/libexec" ];
 
-
-
   users.mutableUsers = false; # users cannot change password
   users.users.oscar = {
     isNormalUser = true;
@@ -75,11 +73,11 @@
     alacritty
     librewolf
     chezmoi
-
-    #unstable.codeium
+    comma
+    clang-tools
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs = {
     firejail.enable = true;
@@ -110,8 +108,32 @@
   services.tailscale.enable = true;
 
 
-  # bluetooth/audio setup
+  # pipewire is a newer alternative to alsa/pulseaudio
+  # rtkit is optional but recommended
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   # If you want to use JACK applications, uncomment this
+  #   #jack.enable = true;
+  #   wireplumber.enable = true;
+  # };
+
+  # # bluetooth/audio setup
   sound.enable = true;
+  # pipewire bluetooth
+  # environment.etc = {
+  #   "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+  #     		bluez_monitor.properties = {
+  #     			["bluez5.enable-sbc-xq"] = true,
+  #     			["bluez5.enable-msbc"] = true,
+  #     			["bluez5.enable-hw-volume"] = true,
+  #     			["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+  #     		}
+  #     	'';
+  # };
 
   hardware = {
     pulseaudio = {
@@ -120,13 +142,12 @@
     };
     bluetooth = {
       enable = true;
+      powerOnBoot = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
           FastConnectable = "true";
-        };
-        Policy = {
-          AutoEnable = "true";
+          Experimental = true; # show the headset battery percentage
         };
       };
     };

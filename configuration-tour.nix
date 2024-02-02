@@ -3,11 +3,12 @@
   imports =
     [
       # musnix for jack mic
-      /etc/nixos/git-repo/musnix
+      # /etc/nixos/git-repo/musnix
       /etc/nixos/git-repo/common.nix
       /etc/nixos/git-repo/sddm.nix
     ];
-  musnix.enable = true;
+  # musnix.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
 
   boot.loader.efi.efiSysMountPoint = "/boot";
 
@@ -29,7 +30,7 @@
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # Enable the OpenSSH daemon.
