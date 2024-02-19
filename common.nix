@@ -75,9 +75,10 @@
     chezmoi
     comma
     clang-tools
+    bluez-alsa
   ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs = {
     firejail.enable = true;
@@ -142,12 +143,12 @@
     };
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      # powerOnBoot = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
           FastConnectable = "true";
-          Experimental = true; # show the headset battery percentage
+          # Experimental = true; # show the headset battery percentage
         };
       };
     };
