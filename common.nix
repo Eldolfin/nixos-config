@@ -1,5 +1,8 @@
 # this file is common between tour and laptor
 { pkgs, ... }:
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   imports =
     [
@@ -76,6 +79,7 @@
     comma
     clang-tools
     bluez-alsa
+    unstable.jetbrains.rider
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -164,7 +168,8 @@
 
   # fish as default shell
   programs.fish.enable = true;
-  users.defaultUserShell = pkgs.bash;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ nushell fish zsh ];
 
 
