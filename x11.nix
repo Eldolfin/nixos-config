@@ -38,6 +38,7 @@
     desktopManager =
       {
         plasma5.enable = true;
+        plasma6.enable = true;
         gnome.enable = true;
       };
 
