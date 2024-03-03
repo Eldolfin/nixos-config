@@ -147,11 +147,11 @@ in
     };
     bluetooth = {
       enable = true;
-      # powerOnBoot = true;
+      powerOnBoot = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
-          FastConnectable = "true";
+          # FastConnectable = "true";
           # Experimental = true; # show the headset battery percentage
         };
       };
