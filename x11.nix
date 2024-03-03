@@ -38,7 +38,7 @@
     desktopManager =
       {
         plasma5.enable = true;
-        plasma6.enable = true;
+        # plasma6.enable = true; # not available yet
         gnome.enable = true;
       };
 
