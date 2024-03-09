@@ -44,7 +44,7 @@ in
       };
     };
 
-    environment.systemPackages = with pkgs; [ (callPackage ./sddm/sddm-epita-themes.nix { }) ] ++
+    environment.systemPackages = with pkgs; [ (callPackage ./sddm-epita-themes.nix { }) ] ++
       optionals (hasPrefix "epita-" config.cri.sddm.theme) [ sddmThemeConfigOverride ];
 
     systemd.services.display-manager = {

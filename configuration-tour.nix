@@ -2,13 +2,9 @@
 {
   imports =
     [
-      # musnix for jack mic
-      # /etc/nixos/git-repo/musnix
-      ./git-repo/common.nix
-      ./git-repo/sddm.nix
+      ./common.nix
+      ./pkgs/sddm.nix
     ];
-  # musnix.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
 
   boot.loader.efi.efiSysMountPoint = "/boot";
 

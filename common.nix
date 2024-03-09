@@ -3,9 +3,9 @@
 {
   imports =
     [
-      # ./hardware-configuration.nix
-      ./bootloader.nix
-      ./x11.nix
+      ./pkgs/bootloader.nix
+      ./pkgs/x11.nix
+      ./pkgs/hyprland.nix
     ];
 
   # Allow unfree packages
@@ -203,6 +203,11 @@
     virtualbox.host.enable = true;
 
     waydroid.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
 
