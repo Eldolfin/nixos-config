@@ -12,7 +12,7 @@
 
     displayManager =
       {
-        defaultSession = "none+i3";
+        # defaultSession = "none+i3";
         # sessionCommands = ''
         #   ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
         #     Xcursor.theme: Adwaita
