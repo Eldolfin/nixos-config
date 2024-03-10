@@ -1,15 +1,11 @@
 # this file is common between tour and laptor
 { pkgs, ... }:
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
 {
   imports =
     [
-      home-manager.nixosModules.default
-      /etc/nixos/hardware-configuration.nix
-      /etc/nixos/git-repo/bootloader.nix
-      /etc/nixos/git-repo/x11.nix
+      # ./hardware-configuration.nix
+      ./bootloader.nix
+      ./x11.nix
     ];
 
   # Allow unfree packages
@@ -163,7 +159,7 @@ in
   };
   services.blueman.enable = true;
   # multimedia server (for play pause keys)
-  services.mmsd.enable = true;
+  # services.mmsd.enable = true;
 
   # fish as default shell
   programs.fish.enable = true;
@@ -172,9 +168,9 @@ in
   environment.shells = with pkgs; [ nushell fish zsh ];
 
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
-  ];
+  # fonts.packages = with pkgs; [
+  #   (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
+  # ];
 
   virtualisation = {
     docker = {
@@ -185,16 +181,16 @@ in
       };
       enableNvidia = true;
     };
-    podman = {
-      enable = true;
+    # podman = {
+    #   enable = true;
 
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
+    #   # Required for containers under podman-compose to be able to talk to each other.
+    #   defaultNetwork.settings = {
+    #     dns_enabled = true;
+    #   };
 
-      enableNvidia = true;
-    };
+    #   enableNvidia = true;
+    # };
 
     # virt-manager
     libvirtd = {

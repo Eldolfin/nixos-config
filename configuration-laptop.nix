@@ -7,7 +7,7 @@
 {
   imports =
     [
-      ./git-repo/common.nix
+      ./common.nix
     ];
 
   networking.hostName = "nixos-portable";
