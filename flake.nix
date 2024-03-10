@@ -24,8 +24,17 @@
         inherit system;
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./configuration-laptop.nix
-          ./hardware-configuration-laptop.nix
+          ./hosts/configuration-laptop.nix
+          ./hosts/hardware-configuration-laptop.nix
+        ];
+      };
+
+      nixosConfigurations."oscar-tour" = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ./hosts/configuration-tour.nix
+          ./hosts/hardware-configuration-tour.nix
         ];
       };
     };

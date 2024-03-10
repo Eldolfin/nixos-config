@@ -16,9 +16,6 @@
   # for gpu in docker containers
   systemd.enableUnifiedCgroupHierarchy = false;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   # Enable networking
@@ -63,8 +60,6 @@
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     # sunshine
     git
@@ -159,7 +154,7 @@
   };
   services.blueman.enable = true;
   # multimedia server (for play pause keys)
-  # services.mmsd.enable = true;
+  services.mmsd.enable = true;
 
   # fish as default shell
   programs.fish.enable = true;
@@ -168,9 +163,9 @@
   environment.shells = with pkgs; [ nushell fish zsh ];
 
 
-  # fonts.packages = with pkgs; [
-  #   (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
-  # ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
+  ];
 
   virtualisation = {
     docker = {
