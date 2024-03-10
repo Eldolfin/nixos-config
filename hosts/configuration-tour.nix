@@ -2,8 +2,8 @@
 {
   imports =
     [
-      ./common.nix
-      ./pkgs/sddm.nix
+      ../common.nix
+      ../pkgs/sddm.nix
     ];
 
   boot.loader.efi.efiSysMountPoint = "/boot";

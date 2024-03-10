@@ -7,6 +7,13 @@
       ./pkgs/x11.nix
       ./pkgs/hyprland.nix
     ];
+  # periodic store optimisation
+  nix.optimise.automatic = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
