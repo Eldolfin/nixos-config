@@ -4,8 +4,8 @@
     [
       # musnix for jack mic
       # /etc/nixos/git-repo/musnix
-      /etc/nixos/git-repo/common.nix
-      /etc/nixos/git-repo/sddm.nix
+      ./git-repo/common.nix
+      ./git-repo/sddm.nix
     ];
   # musnix.enable = true;
   # services.xserver.displayManager.gdm.enable = true;
