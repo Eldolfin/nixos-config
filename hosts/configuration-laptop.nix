@@ -8,6 +8,7 @@
   imports =
     [
       ../common.nix
+      ../pkgs/sddm.nix
     ];
 
   networking.hostName = "nixos-portable";
@@ -19,7 +20,7 @@
       libinput.enable = false;
       layout = "gb";
       displayManager.autoLogin.enable = false;
-      displayManager.gdm.enable = true;
+      #displayManager.gdm.enable = true;
     };
   };
   # lol (800MHz)
