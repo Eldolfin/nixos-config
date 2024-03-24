@@ -12,12 +12,7 @@
 
     displayManager =
       {
-        # defaultSession = "none+i3";
-        # sessionCommands = ''
-        #   ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
-        #     Xcursor.theme: Adwaita
-        #       ''}
-        # '';
+        defaultSession = "none+i3";
         setupCommands = ''
           LEFT='HDMI-1'
           RIGHT='DVI-D-1'
@@ -31,9 +26,6 @@
 
     windowManager = {
       i3.enable = true;
-      leftwm.enable = true;
-      qtile.enable = true;
-      xmonad.enable = true;
     };
     desktopManager =
       {
