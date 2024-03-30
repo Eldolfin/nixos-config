@@ -60,7 +60,7 @@
   users.users.noconfig = {
     isNormalUser = true;
     description = "No Config";
-    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "user-with-access-to-virtualbox" ];
+    extraGroups = [ "networkmanager" "docker" "i2c" "libvirtd" ];
     hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
 
