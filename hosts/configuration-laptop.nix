@@ -9,6 +9,7 @@
     [
       ../common.nix
       ../pkgs/sddm.nix
+      ../services/autocpufreq.nix
     ];
 
   networking.hostName = "nixos-portable";
