@@ -107,7 +107,8 @@
   '';
 
   # tailscale
-  services.tailscale.enable = true;
+  # rarely used + slows down boot maybe?
+  # services.tailscale.enable = true;
 
 
   # pipewire is a newer alternative to alsa/pulseaudio
