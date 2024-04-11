@@ -6,7 +6,7 @@
   services.xserver = {
     # Configure keymap in X11
     xkbVariant = "";
-    xkbOptions = "caps:swapescape";
+    xkbOptions = "caps:escape";
 
     enable = true;
 

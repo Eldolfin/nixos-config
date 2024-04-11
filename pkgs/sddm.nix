@@ -10,6 +10,11 @@
           sddm = {
             enable = true;
             autoNumlock = true;
+            settings = {
+              General = {
+                InputMethod = "";
+              };
+            };
           };
         };
     };

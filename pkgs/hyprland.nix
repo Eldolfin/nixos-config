@@ -1,7 +1,7 @@
 {
   programs.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
+    # enableNvidiaPatches = true;
     xwayland.enable = true;
   };
 
@@ -17,6 +17,6 @@
   hardware = {
     opengl.enable = true;
 
-    nvidia.modesetting.enable = true;
+    # nvidia.modesetting.enable = true;
   };
 }
