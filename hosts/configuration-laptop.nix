@@ -12,7 +12,7 @@
       ../services/autocpufreq.nix
     ];
 
-  networking.hostName = "nixos-portable";
+  networking.hostName = "oscar-portable";
   networking.wireless.enable = true;
   services = {
     illum.enable = true;
