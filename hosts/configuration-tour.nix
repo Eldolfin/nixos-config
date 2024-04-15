@@ -31,5 +31,4 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  programs.ssh.forwardX11 = true;
 }
