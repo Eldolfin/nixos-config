@@ -53,7 +53,7 @@
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar Le Dauphin";
-    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "input" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "input" "plugdev" "adbusers" ];
     hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
 
@@ -219,6 +219,8 @@
       printing.enable = true;
       printing.drivers = [ pkgs.hplip ];
     };
+
+  programs.adb.enable = true;
 
   # enable flakes
   nix = {
