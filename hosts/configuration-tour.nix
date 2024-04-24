@@ -4,7 +4,7 @@
     [
       ../common.nix
       ../pkgs/sddm.nix
-      ../services/sunrise.nix
+      ../services/sunshine.nix
     ];
 
   boot.loader.efi.efiSysMountPoint = "/boot";
