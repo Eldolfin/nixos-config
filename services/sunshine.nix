@@ -7,4 +7,6 @@
         { from = 8000; to = 8010; }
     ];
     };
+    services.avahi.publish.enable = true;
+    services.avahi.publish.userServices = true;
 }
