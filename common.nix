@@ -207,7 +207,7 @@
     };
     virtualbox.host.enable = true;
 
-    waydroid.enable = true;
+    # waydroid.enable = true; # wayland only
   };
 
   xdg.portal = {
