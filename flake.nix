@@ -20,7 +20,7 @@
       };
     in
     {
-      nixosConfigurations."oscar-laptop" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
