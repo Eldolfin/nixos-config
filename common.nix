@@ -77,7 +77,7 @@
     comma
     git
     librewolf
-    nh
+    unstable.nh
     unstable.jetbrains.rider
   ];
 
