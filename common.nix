@@ -63,7 +63,7 @@
     extraGroups = [ "networkmanager" "docker" "i2c" "libvirtd" ];
     hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
-  nix.trustedUsers = [ "root" "oscar" ];
+  nix.settings.trusted-users = [ "root" "oscar" ];
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
