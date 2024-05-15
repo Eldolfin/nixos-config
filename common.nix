@@ -78,7 +78,7 @@
     git
     librewolf
     unstable.nh
-    unstable.jetbrains.rider
+    # unstable.jetbrains.rider
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
