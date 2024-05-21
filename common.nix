@@ -232,6 +232,12 @@
     '';
   };
 
+# default apps
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "librewolf.desktop";
+    "text/html" = "librewolf.desktop";
+    "x-scheme-handler/http" = "librewolf.desktop";
+  };
 
   # fix a conflicting value with plasma and something else
   programs.ssh.askPassword = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
