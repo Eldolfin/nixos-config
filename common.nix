@@ -6,6 +6,7 @@
       ./pkgs/bootloader.nix
       ./pkgs/x11.nix
       ./pkgs/hyprland.nix
+      ./pkgs/stylix.nix
     ];
   # periodic store optimisation
   nix.optimise.automatic = true;
@@ -77,8 +78,8 @@
     comma
     git
     librewolf
-    unstable.nh
-    unstable.jetbrains.rider
+    nh
+    jetbrains.rider
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
