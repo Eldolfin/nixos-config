@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
+  # that's not x11...
   programs.sway.enable = true;
+
   # programs.sway.package = pkgs.swayfx;
   services.xserver = {
     # Configure keymap in X11
