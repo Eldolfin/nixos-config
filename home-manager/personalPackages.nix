@@ -10,56 +10,13 @@
     # ./pkgs/editing.nix
     # ./pkgs/nixvim.nix
   ];
+
+  programs.emacs.enable = true;
+  programs.librewolf.enable = true;
+
   home.packages = with pkgs;
     [
       neovim
-
-      # cli tools
-      tealdeer
-      skim
-      hyperfine
-      conda
-      speedcrunch
-      pciutils
-      zip
-      appimage-run
-      nmap
-      ntfs3g
-      wireguard-tools
-      scrcpy
-      xdotool
-      mosquitto
-      dig
-      acpi
-      sysstat
-      jq
-      niv
-      joshuto
-      gnupg
-      dive
-      ncdu
-      bacon
-      gdb
-      testdisk
-      calcurse
-      git-lfs
-      yarn
-      difftastic
-      navi
-      tree
-      dash
-      bear
-      ffmpeg
-      cinnamon.nemo
-      cron
-      sunshine
-      vim
-      unzip
-      emacs
-      xorg.xmodmap
-      ollama
-      pamixer
-      xclip
 
       # graphical programs
       prismlauncher
@@ -119,7 +76,6 @@
       libguestfs
       kdocker
       gitea-actions-runner
-      tmux
 
       # font
       source-code-pro
@@ -130,35 +86,6 @@
 
       fusuma
 
-      # from configuration.nix
-      # cli tools
-      git
-      fd
-      fzf
-      btop
-      zsh
-      wget
-      chezmoi
-      zoxide
-      eza
-      zellij
-      gcc12
-      ninja
-      lazygit
-      feh
-      bat
-      gnumake
-      killall
-      cmake
-      usbutils
-      tailscale
-      ripgrep
-      nix-index
-      ltrace
-      bc
-      apksigner
-      entr
-
       # libs
       nodejs
       openssl
@@ -168,7 +95,6 @@
       gcovr
 
       # gui apps
-      librewolf
       flameshot
       emote
       syncthing
@@ -192,11 +118,5 @@
 
       # graphical programs
       blender
-
-      # cli
-      # neovim
-      podman-compose
-      act
-      bun
     ];
 }

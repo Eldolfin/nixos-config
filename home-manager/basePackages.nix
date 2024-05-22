@@ -4,7 +4,7 @@
     ./pkgs/wm.nix
     ./pkgs/terminal.nix
     ./pkgs/lazyvim.nix
-
+    ./pkgs/essentialCliTools.nix
   ];
   programs.starship.enable = true;
 
@@ -32,20 +32,13 @@
     ncdu
     git-lfs
     fd
-    fzf
-    btop
-    zsh
     fish
     neofetch
     chezmoi
     zoxide
     zellij
-    lazygit
-    bat
     ripgrep
-    cargo-watch
     inotify-tools
-    # scrot # full screen-shot
     cloc
     # wol
 
@@ -56,7 +49,6 @@
     redshift
     neovide
     picom
-    moonlight-embedded
 
     # libraries
     libnotify
@@ -70,8 +62,5 @@
     # font
     meslo-lgs-nf
     fusuma
-
   ];
-
-
 }
