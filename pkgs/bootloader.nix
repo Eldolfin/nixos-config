@@ -1,13 +1,4 @@
 {
-  imports = [
-    (
-      let rev = "main"; in
-      import (builtins.fetchTarball {
-        url = "https://gitlab.com/VandalByte/darkmatter-grub-theme/-/archive/${rev}/darkmatter-grub-theme-${rev}.tar.gz";
-        sha256 = "1i6dwmddjh0cbrp6zgafdrji202alkz52rjisx0hs1bgjbrbwxdj";
-      })
-    )
-  ];
   boot.loader = {
     # systemd-boot.enable = true;
 
@@ -26,13 +17,6 @@
           halt
         }
       '';
-
-      darkmatter-theme = {
-        enable = false;
-        style = "nixos";
-        icon = "color";
-        resolution = "1080p";
-      };
     };
   };
 }
