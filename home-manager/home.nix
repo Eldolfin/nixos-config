@@ -5,6 +5,7 @@
 ./basePackages.nix
   ./services.nix
   ];
+  stylix.autoEnable = true;
 home.username = "oscar";
   home.homeDirectory = "/home/oscar";
 # This value determines the Home Manager release that your
