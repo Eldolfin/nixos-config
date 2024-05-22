@@ -18,6 +18,9 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  # enable cuda
+  nixpkgs.config.cudaSupport = true;
+
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;

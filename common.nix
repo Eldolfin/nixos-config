@@ -17,9 +17,7 @@
   };
 
   # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
-  # enable cuda
-  # nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.allowUnfree = true;
 
   # for gpu in docker containers
   systemd.enableUnifiedCgroupHierarchy = false;
