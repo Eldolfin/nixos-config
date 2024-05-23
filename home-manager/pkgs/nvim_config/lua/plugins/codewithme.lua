@@ -1,5 +1,5 @@
 return {
-	name = "code-with-me",
+	name = "codeWithMe",
 	dir = "~/Prog/Lua/CodeWithMeLua/",
 	dev = true,
 }
