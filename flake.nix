@@ -13,7 +13,6 @@
     let
       system = "x86_64-linux";
     commonModules = [
-        stylix.nixosModules.stylix
       ./common.nix
           home-manager.nixosModules.home-manager
           {
@@ -21,6 +20,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.oscar = import ./home-manager/home.nix;
           }
+        stylix.nixosModules.stylix
       ];
     in
     {
