@@ -14,8 +14,11 @@
 
   services.fprintd = {
       enable = true;
-      tod.enable = true;
-      tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+      package = pkgs.fprintd-tod;
+      tod = {
+        enable = true;
+        driver = pkgs.libfprint-2-tod1-vfs0090;
+      };
   };
 
   networking.hostName = "oscar-portable";
