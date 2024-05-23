@@ -14,11 +14,11 @@
 
   services.fprintd = {
       enable = true;
-      package = pkgs.fprintd-tod;
-      tod = {
-        enable = true;
-        driver = pkgs.libfprint-2-tod1-goodix-550a;
-      };
+      # package = pkgs.fprintd-tod;
+      # tod = {
+      #   enable = true;
+      #   driver = pkgs.libfprint-2-tod1-goodix-550a;
+      # };
   };
 
   networking.hostName = "oscar-portable";
