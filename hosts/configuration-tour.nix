@@ -3,8 +3,8 @@
   imports =
     [
       ../common.nix
-      ../pkgs/sddm.nix
       ../services/sunshine.nix
+      ./pkgs/bootloader.nix
     ];
 
   boot.loader.efi.efiSysMountPoint = "/boot";

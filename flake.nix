@@ -39,5 +39,12 @@
           ./hosts/hardware-configuration-tour.nix
         ];
       };
+
+      nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = commonModules ++ [
+          ./hosts/configuration-iso.nix
+        ];
+      };
     };
 }

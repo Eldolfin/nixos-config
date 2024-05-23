@@ -10,6 +10,7 @@
       ../common.nix
       ../pkgs/sddm.nix
       ../services/autocpufreq.nix
+      ./pkgs/bootloader.nix
     ];
 
   services.fprintd = {

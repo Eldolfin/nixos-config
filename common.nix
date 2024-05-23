@@ -3,10 +3,10 @@
 {
   imports =
     [
-      ./pkgs/bootloader.nix
       ./pkgs/x11.nix
       ./pkgs/hyprland.nix
       ./pkgs/stylix.nix
+      ./pkgs/sddm.nix
     ];
   # periodic store optimisation
   nix.optimise.automatic = true;
