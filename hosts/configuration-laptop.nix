@@ -5,28 +5,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ../common.nix
-      ../pkgs/sddm.nix
-      ../services/autocpufreq.nix
-      ./pkgs/bootloader.nix
-    ];
-
-  services.fprintd = {
-      enable = true;
-      # package = pkgs.fprintd-tod;
-      # tod = {
-      #   enable = true;
-      #   driver = pkgs.libfprint-2-tod1-goodix-550a;
-      # };
-  };
-
+  imports = [
+    ../common.nix
+    ../pkgs/sddm.nix
+    ../services/autocpufreq.nix
+    ../pkgs/bootloader.nix
+  ];
   networking.hostName = "oscar-portable";
   networking.wireless.enable = true;
   services = {
     illum.enable = true;
-    openssh.enable = false;
+    openssh.enable = true;
     xserver = {
       libinput.enable = false;
       layout = "gb";
@@ -38,9 +27,7 @@
   # powerManagement.cpufreq.max = 800;
 
   # for firefox to support touchscreen scroll
-  environment.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1";
-  };
+  environment.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
 
   # touchscreen maybe
   services.xserver.synaptics = {
@@ -49,7 +36,6 @@
     maxSpeed = "4.0";
     scrollDelta = -75;
   };
-
 
   # Wifi EPITA
   # networking = {
