@@ -5,5 +5,6 @@
     autoEnable = true;
     opacity.terminal = 0.9;
     polarity = "dark";
+    targets = { gnome.enable = true; };
   };
 }
