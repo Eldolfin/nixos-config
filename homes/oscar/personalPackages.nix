@@ -46,6 +46,7 @@
 
     # libraries
     glfw
+    wdisplays
     libllvm
     gnumake
     libnotify
