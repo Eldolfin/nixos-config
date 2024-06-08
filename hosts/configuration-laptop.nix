@@ -15,12 +15,11 @@
   networking.wireless.enable = true;
   services = {
     illum.enable = true;
-    openssh.enable = true;
+    openssh.enable = false;
     xserver = {
       libinput.enable = false;
       layout = "gb";
       displayManager.autoLogin.enable = false;
-      # displayManager.gdm.enable = true;
     };
   };
   # lol (800MHz)

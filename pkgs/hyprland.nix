@@ -5,7 +5,6 @@
     xwayland.enable = true;
   };
 
-
   # services.xserver.displayManager.defaultSession = "hyprland";
   environment.sessionVariables = {
     # If your cursor becomes invisible

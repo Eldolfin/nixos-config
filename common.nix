@@ -1,13 +1,12 @@
 # this file is common between tour and laptor
-{ pkgs, ... }:
-{
-  imports =
-    [
-      ./pkgs/x11.nix
-      ./pkgs/hyprland.nix
-      ./pkgs/stylix.nix
-      ./pkgs/sddm.nix
-    ];
+{ pkgs, ... }: {
+  imports = [
+    ./pkgs/x11.nix
+    # ./pkgs/hyprland.nix
+    ./pkgs/stylix.nix
+    ./pkgs/sddm.nix
+    ./pkgs/wayland.nix
+  ];
   # periodic store optimisation
   nix.optimise.automatic = true;
   nix.gc = {
@@ -20,12 +19,12 @@
   nixpkgs.config.allowUnfree = true;
 
   # for gpu in docker containers
-  systemd.enableUnifiedCgroupHierarchy = false;
+  # systemd.enableUnifiedCgroupHierarchy = false;
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -52,15 +51,26 @@
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar Le Dauphin";
-    extraGroups = [ "networkmanager" "wheel" "docker" "i2c" "libvirtd" "input" "plugdev" "adbusers" ];
-    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "i2c"
+      "libvirtd"
+      "input"
+      "plugdev"
+      "adbusers"
+    ];
+    hashedPassword =
+      "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
 
   users.users.noconfig = {
     isNormalUser = true;
     description = "No Config";
     extraGroups = [ "networkmanager" "docker" "i2c" "libvirtd" ];
-    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+    hashedPassword =
+      "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
   nix.settings.trusted-users = [ "root" "oscar" ];
 
@@ -90,13 +100,6 @@
     nix-ld.enable = true;
   };
 
-  # avahi for sunshine to work
-  #  services.avahi.enable = true;
-  #  services.avahi.publish.userServices = true;
-
-  # enable mullvad-vpn
-  services.mullvad-vpn.enable = true;
-
   # polkit
   security.polkit.enable = true;
 
@@ -106,11 +109,6 @@
   services.udev.extraRules = ''
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
-
-  # tailscale
-  # rarely used + slows down boot maybe?
-  services.tailscale.enable = true;
-
 
   # pipewire is a newer alternative to alsa/pulseaudio
   # rtkit is optional but recommended
@@ -161,9 +159,6 @@
       setLdLibraryPath = true;
     };
   };
-  services.blueman.enable = true;
-  # multimedia server (for play pause keys)
-  services.mmsd.enable = true;
 
   # fish as default shell
   programs.fish.enable = true;
@@ -171,10 +166,8 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ nushell fish zsh ];
 
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
-  ];
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
 
   virtualisation = {
     docker = {
@@ -183,30 +176,20 @@
         enable = true;
         setSocketVariable = true;
       };
-      enableNvidia = true;
+      # enableNvidia = true;
     };
-    # podman = {
-    #   enable = true;
-
-    #   # Required for containers under podman-compose to be able to talk to each other.
-    #   defaultNetwork.settings = {
-    #     dns_enabled = true;
-    #   };
-
-    #   enableNvidia = true;
-    # };
 
     # virt-manager
-    libvirtd = {
-      enable = true;
-      onBoot = "ignore";
-      onShutdown = "shutdown";
-      qemu.ovmf.enable = true;
-      qemu.runAsRoot = true;
-    };
-    virtualbox.host.enable = true;
+    # libvirtd = {
+    #   enable = true;
+    #   onBoot = "ignore";
+    #   onShutdown = "shutdown";
+    #   qemu.ovmf.enable = true;
+    #   qemu.runAsRoot = true;
+    # };
+    # virtualbox.host.enable = true;
 
-    # waydroid.enable = true; # wayland only
+    waydroid.enable = true; # wayland only
   };
 
   xdg.portal = {
@@ -214,12 +197,15 @@
     # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-
-  services =
-    {
-      printing.enable = true;
-      printing.drivers = [ pkgs.hplip ];
-    };
+  services = {
+    printing.enable = true;
+    printing.drivers = [ pkgs.hplip ];
+    # tailscale
+    tailscale.enable = true;
+    blueman.enable = true;
+    # multimedia server (for play pause keys)
+    mmsd.enable = true;
+  };
 
   programs.adb.enable = true;
 
@@ -231,7 +217,7 @@
     '';
   };
 
-# default apps
+  # default apps
   xdg.mime.defaultApplications = {
     "application/pdf" = "librewolf.desktop";
     "text/html" = "librewolf.desktop";
