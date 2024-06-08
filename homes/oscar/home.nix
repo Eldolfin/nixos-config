@@ -1,13 +1,8 @@
-{ pkgs, ... }:
-{
-  imports = [
-./personalPackages.nix
-./basePackages.nix
-  ./services.nix
-  ];
-home.username = "oscar";
+{ pkgs, ... }: {
+  imports = [ ./personalPackages.nix ./basePackages.nix ./services.nix ];
+  home.username = "oscar";
   home.homeDirectory = "/home/oscar";
-# This value determines the Home Manager release that your
+  # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
   # incompatible changes.
@@ -20,17 +15,17 @@ home.username = "oscar";
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # fix for something
-#  nixpkgs.overlays = [
-#    (self: super: {
-#      fcitx-engines = pkgs.fcitx5;
-#    })
-#  ];
+  stylix.autoEnable = true;
 
-# firefox + touchscreen
-systemd.user.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1";
-    };
+  # fix for something
+  #  nixpkgs.overlays = [
+  #    (self: super: {
+  #      fcitx-engines = pkgs.fcitx5;
+  #    })
+  #  ];
+
+  # firefox + touchscreen
+  systemd.user.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
 
   # allowUnfree :(
   # nixpkgs.config.allowUnfree = true;
