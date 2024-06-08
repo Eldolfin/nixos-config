@@ -24,7 +24,7 @@
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   # Enable networking
-  networking.networkmanager.enable = false;
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -189,7 +189,7 @@
     # };
     # virtualbox.host.enable = true;
 
-    waydroid.enable = true; # wayland only
+    # waydroid.enable = true; # wayland only
   };
 
   xdg.portal = {
