@@ -12,7 +12,7 @@
     ../pkgs/bootloader.nix
   ];
   networking.hostName = "oscar-portable";
-  networking.wireless.enable = true;
+  # networking.wireless.enable = true;
   services = {
     illum.enable = true;
     openssh.enable = false;
