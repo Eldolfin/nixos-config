@@ -12,18 +12,17 @@
   outputs = { self, nixpkgs, stylix, home-manager, ... }:
     let
       system = "x86_64-linux";
-    commonModules = [
-      ./common.nix
-          # home-manager.nixosModules.home-manager
-          # {
-          #     home-manager.useGlobalPkgs = true;
-          #     home-manager.useUserPackages = true;
-          #     home-manager.users.oscar = import ./home-manager/home.nix;
-          # }
+      commonModules = [
+        ./common.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.oscar = import ./homes/oscar/home.nix;
+        }
         stylix.nixosModules.stylix
       ];
-    in
-    {
+    in {
       nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = commonModules ++ [
@@ -42,9 +41,7 @@
 
       nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = commonModules ++ [
-          ./hosts/configuration-iso.nix
-        ];
+        modules = commonModules ++ [ ./hosts/configuration-iso.nix ];
       };
     };
 }
