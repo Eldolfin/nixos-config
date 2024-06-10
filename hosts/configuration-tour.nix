@@ -7,8 +7,6 @@
       ../pkgs/bootloader.nix
     ];
 
-  boot.loader.efi.efiSysMountPoint = "/boot";
-
   networking.hostName = "oscar-tour";
   services.xserver.xkb.layout = "fr";
   networking.interfaces.enp5s0.wakeOnLan.enable = true;
