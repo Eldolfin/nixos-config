@@ -23,7 +23,7 @@
     modesetting.enable = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-    open = true;
+    # open = true;
   };
 
   # Enable the OpenSSH daemon.
