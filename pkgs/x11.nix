@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  services.displayManager.defaultSession = "sway";
+  services.displayManager = {
+    defaultSession = "sway";
+    autoLogin = { user = "oscar"; };
+  };
   services.desktopManager = {
     # plasma6.enable = true; # useless :)
   };
@@ -12,16 +15,6 @@
     };
 
     enable = true;
-
-    displayManager = {
-      setupCommands = ''
-        LEFT='HDMI-1'
-        RIGHT='DVI-D-1'
-        ${pkgs.xorg.xrandr}/bin/xrandr --output $LEFT --output $RIGHT --right-of $LEFT --pos 1920x-120 
-      '';
-
-      autoLogin = { user = "oscar"; };
-    };
 
     windowManager = { i3.enable = true; };
     desktopManager = {
