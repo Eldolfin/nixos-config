@@ -4,7 +4,6 @@
     ./pkgs/x11.nix
     # ./pkgs/hyprland.nix
     ./pkgs/stylix.nix
-    ./pkgs/sddm.nix
     ./pkgs/wayland.nix
   ];
   # periodic store optimisation

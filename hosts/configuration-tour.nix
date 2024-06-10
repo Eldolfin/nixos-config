@@ -5,6 +5,7 @@
       ../common.nix
       ../services/sunshine.nix
       ../pkgs/bootloader.nix
+      ../pkgs/gdm.nix
     ];
 
   networking.hostName = "oscar-tour";
