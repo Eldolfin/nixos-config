@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
+  services.displayManager.defaultSession = "sway";
   services.desktopManager = {
     # plasma6.enable = true; # useless :)
-      defaultSession = "none+sway";
   };
   services.xserver = { # Configure keymap in X11
     xkb = {
