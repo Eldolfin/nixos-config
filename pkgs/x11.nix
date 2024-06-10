@@ -2,21 +2,27 @@
 
 {
   services.displayManager = {
-    defaultSession = "sway";
-    autoLogin = { user = "oscar"; };
+    # defaultSession = "sway";
+    defaultSession = "hyprland";
+    autoLogin = {
+      user = "oscar";
+    };
   };
   services.desktopManager = {
     # plasma6.enable = true; # useless :)
   };
-  services.xserver = { # Configure keymap in X11
+  services.xserver = {
+    # Configure keymap in X11
     xkb = {
       variant = "";
-       options = "caps:escape";
+      options = "caps:escape";
     };
 
     enable = true;
 
-    windowManager = { i3.enable = true; };
+    windowManager = {
+      i3.enable = true;
+    };
     desktopManager = {
       gnome.enable = true;
     };
