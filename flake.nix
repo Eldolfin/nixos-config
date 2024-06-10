@@ -27,7 +27,7 @@
         inherit system;
         modules = commonModules ++ [
           ./hosts/configuration-laptop.nix
-          ./hosts/hardware-configuration-laptop.nix
+          ./hardware-configuration.nix
         ];
       };
 
@@ -35,7 +35,7 @@
         inherit system;
         modules = commonModules ++ [
           ./hosts/configuration-tour.nix
-          ./hosts/hardware-configuration-tour.nix
+          ./hardware-configuration.nix
         ];
       };
 
