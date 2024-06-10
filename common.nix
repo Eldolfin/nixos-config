@@ -78,16 +78,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
-    # sunshine
-    alacritty
-    bluez-alsa
-    chezmoi
-    clang-tools
-    comma
-    git
-    librewolf
-    nh
-    jetbrains.rider
+    # bluez-alsa
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -160,11 +151,9 @@
     };
   };
 
-  # fish as default shell
-  programs.fish.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ nushell fish zsh ];
+  environment.shells = with pkgs; [ zsh ];
 
   fonts.packages = with pkgs;
     [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
@@ -198,8 +187,8 @@
   };
 
   services = {
-    printing.enable = true;
-    printing.drivers = [ pkgs.hplip ];
+    # printing.enable = true;
+    # printing.drivers = [ pkgs.hplip ];
     # tailscale
     tailscale.enable = true;
     blueman.enable = true;
@@ -225,7 +214,7 @@
   };
 
   # fix a conflicting value with plasma and something else
-  programs.ssh.askPassword = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
+  # programs.ssh.askPassword = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

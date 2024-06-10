@@ -11,6 +11,7 @@
     chezmoi
     cinnamon.nemo
     cmake
+    comma
     conda
     cron
     dash
@@ -42,6 +43,7 @@
     nix-index
     nmap
     ntfs3g
+    nh
     # ollama
     pamixer
     pciutils
