@@ -41,8 +41,8 @@
     # armcord
     # discord
     webcord-vencord
-    obs-studio
-    handbrake
+    # obs-studio
+    # handbrake
 
     # libraries
     glfw
