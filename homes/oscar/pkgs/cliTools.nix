@@ -42,14 +42,14 @@
     nix-index
     nmap
     ntfs3g
-    ollama
+    # ollama
     pamixer
     pciutils
     # podman-compose
     ripgrep
     scrcpy
     skim
-    speedcrunch
+    # speedcrunch
     sunshine
     sysstat
     tailscale
@@ -65,7 +65,6 @@
     xclip
     xdotool
     xorg.xmodmap
-    yarn
     zellij
     zip
     zoxide

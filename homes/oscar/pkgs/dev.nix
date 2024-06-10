@@ -56,6 +56,9 @@
     # jetbrains.rider
     dotnet-sdk_7
 
+    # js
+    yarn
+
     # nix
     nixpkgs-fmt
     nil

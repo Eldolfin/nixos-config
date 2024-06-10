@@ -2,10 +2,7 @@
   imports = [
     ./cri-sddm.nix
   ];
-  services.xserver =
-    {
-      enable = true;
-      displayManager =
+  services.displayManager =
         {
           sddm = {
             enable = true;
@@ -16,7 +13,6 @@
               };
             };
           };
-        };
     };
   cri.sddm = {
     enable = true;

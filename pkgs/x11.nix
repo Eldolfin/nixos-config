@@ -1,15 +1,19 @@
 { pkgs, ... }:
 
 {
-  services.xserver = {
-    # Configure keymap in X11
-    xkbVariant = "";
-    xkbOptions = "caps:escape";
+  services.desktopManager = {
+    # plasma6.enable = true; # useless :)
+      defaultSession = "none+sway";
+  };
+  services.xserver = { # Configure keymap in X11
+    xkb = {
+      variant = "";
+       options = "caps:escape";
+    };
 
     enable = true;
 
     displayManager = {
-      defaultSession = "none+i3";
       setupCommands = ''
         LEFT='HDMI-1'
         RIGHT='DVI-D-1'
@@ -21,8 +25,6 @@
 
     windowManager = { i3.enable = true; };
     desktopManager = {
-      # plasma5.enable = true;
-      plasma6.enable = true; # not available yet
       gnome.enable = true;
     };
 
