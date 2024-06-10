@@ -1,9 +1,7 @@
 {
-  services.displayManager =
-        {
-          gdm = {
-            enable = true;
-            autoNumlock = true;
-          };
+  services.xserver.displayManager = {
+    gdm = {
+      enable = true;
     };
+  };
 }

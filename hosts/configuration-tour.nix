@@ -1,12 +1,11 @@
 { config, ... }:
 {
-  imports =
-    [
-      ../common.nix
-      ../services/sunshine.nix
-      ../pkgs/bootloader.nix
-      ../pkgs/gdm.nix
-    ];
+  imports = [
+    ../common.nix
+    ../services/sunshine.nix
+    ../pkgs/bootloader.nix
+    ../pkgs/gdm.nix
+  ];
 
   networking.hostName = "oscar-tour";
   services.xserver.xkb.layout = "fr";
@@ -24,6 +23,7 @@
     modesetting.enable = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    open = true;
   };
 
   # Enable the OpenSSH daemon.
