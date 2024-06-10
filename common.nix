@@ -1,8 +1,9 @@
 # this file is common between tour and laptor
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./pkgs/x11.nix
-    # ./pkgs/hyprland.nix
+    ./pkgs/hyprland.nix
     ./pkgs/stylix.nix
     ./pkgs/wayland.nix
   ];
@@ -20,7 +21,10 @@
   # for gpu in docker containers
   # systemd.enableUnifiedCgroupHierarchy = false;
 
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -60,18 +64,24 @@
       "plugdev"
       "adbusers"
     ];
-    hashedPassword =
-      "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
 
   users.users.noconfig = {
     isNormalUser = true;
     description = "No Config";
-    extraGroups = [ "networkmanager" "docker" "i2c" "libvirtd" ];
-    hashedPassword =
-      "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+    extraGroups = [
+      "networkmanager"
+      "docker"
+      "i2c"
+      "libvirtd"
+    ];
+    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
-  nix.settings.trusted-users = [ "root" "oscar" ];
+  nix.settings.trusted-users = [
+    "root"
+    "oscar"
+  ];
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
@@ -154,8 +164,7 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
 
   virtualisation = {
     docker = {

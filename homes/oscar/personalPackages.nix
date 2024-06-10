@@ -5,7 +5,7 @@
     ./pkgs/lazyvim.nix # switched to nixvim
     ./pkgs/dev.nix
     ./pkgs/gaming.nix
-    # ./pkgs/hyprland.nix
+    ./pkgs/hyprland.nix
     ./pkgs/movies.nix
     ./pkgs/zsh.nix
     ./pkgs/cliTools.nix
