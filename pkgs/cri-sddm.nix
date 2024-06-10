@@ -37,7 +37,7 @@ in
   };
 
   config = mkIf config.cri.sddm.enable {
-    services.xserver.displayManager = {
+    services.displayManager = {
       sddm = {
         inherit (config.cri.sddm) theme;
         enable = true;

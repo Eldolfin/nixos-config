@@ -19,8 +19,8 @@
     xserver = {
       libinput.enable = false;
       layout = "gb";
-      displayManager.autoLogin.enable = false;
     };
+    displayManager.autoLogin.enable = false;
   };
   # lol (800MHz)
   # powerManagement.cpufreq.max = 800;
