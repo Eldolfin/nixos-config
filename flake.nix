@@ -23,6 +23,7 @@
       system = "x86_64-linux";
       commonModules = [
         nur.nixosModules.nur
+        nur.hmModules.nur
         ./common.nix
         home-manager.nixosModules.home-manager
         {

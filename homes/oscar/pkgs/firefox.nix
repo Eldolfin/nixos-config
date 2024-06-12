@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -23,12 +23,12 @@
           ];
         }
       ];
-      # extensions = with inputs.nur.hmModules.nur.repos.rycee.firefox-addons; [
-      #   bitwarden
-      #   privacy-badger
-      #   sponsorblock
-      #   vimium
-      # ];
+      extensions = with config.nur.repos.rycee.firefox-addons; [
+        bitwarden
+        privacy-badger
+        sponsorblock
+        vimium
+      ];
       search = {
         engines = {
           "Nix Packages" = {
