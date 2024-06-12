@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -16,7 +16,7 @@
           url = "https://invidious.eldolfin.top/feed/subscriptions";
         }
       ];
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions = with config.nur.repos.rycee.firefox-addons; [
         bitwarden
         privacy-badger
         sponsorblock
