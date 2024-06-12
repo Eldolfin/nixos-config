@@ -2,6 +2,9 @@
 {
   programs.firefox = {
     enable = true;
+    settings = {
+      extensions.autoDisableScopes = 0;
+    };
     profiles.homemanager = {
       bookmarks = [
         {
@@ -13,7 +16,12 @@
           url = "https://invidious.eldolfin.top/feed/subscriptions";
         }
       ];
-
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        bitwarden
+        privacy-badger
+        sponsorblock
+        vimium
+      ];
       search = {
         engines = {
           "Nix Packages" = {
