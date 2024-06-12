@@ -5,14 +5,24 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/NUR";
 
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, stylix, home-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      stylix,
+      home-manager,
+      nur,
+      ...
+    }:
     let
       system = "x86_64-linux";
       commonModules = [
+        nur.nixosModules.nur
         ./common.nix
         home-manager.nixosModules.home-manager
         {
@@ -22,7 +32,8 @@
         }
         stylix.nixosModules.stylix
       ];
-    in {
+    in
+    {
       nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = commonModules ++ [
