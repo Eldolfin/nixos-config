@@ -1,8 +1,7 @@
-{pkgs, modulesPath, ...}: {
-    imports = [
-        "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
-    ];
+{ pkgs, modulesPath, ... }:
+{
+  imports = [ "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix" ];
 
-    nixpkgs.hostPlatform = "x86_64-linux";
+  nixpkgs.hostPlatform = "x86_64-linux";
 
 }
