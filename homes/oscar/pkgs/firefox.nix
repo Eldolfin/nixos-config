@@ -32,9 +32,8 @@
         }
       ];
       extensions = with config.nur.repos.rycee.firefox-addons; [
-        automatic-dark
         bitwarden
-        chatgptbox
+        # chatgptbox
         consent-o-matic
         dearrow
         decentraleyes
