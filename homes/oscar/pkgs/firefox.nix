@@ -4,7 +4,15 @@
     enable = true;
     profiles.homemanager = {
       settings = {
-        extensions.autoDisableScopes = 0;
+        "extensions.autoDisableScopes" = 0;
+        "extensions.pocket.enabled" = false;
+        "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter,Wikipedia (en),YouTube,eBay";
+        "browser.urlbar.suggest.engines" = false;
+        "browser.urlbar.suggest.openpage" = false;
+        "browser.urlbar.suggest.bookmark" = false;
+        "browser.urlbar.suggest.addons" = false;
+        "browser.urlbar.suggest.pocket" = false;
+        "browser.urlbar.suggest.topsites" = false;
       };
       bookmarks = [
         {
@@ -28,6 +36,7 @@
         privacy-badger
         sponsorblock
         vimium
+        ublock-origin
       ];
       search = {
         engines = {
