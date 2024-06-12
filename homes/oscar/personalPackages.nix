@@ -31,7 +31,6 @@
     rustdesk
     ungoogled-chromium
     # barrier
-    sunshine
     kdeconnect
     # insomnia # never used
     # freetube

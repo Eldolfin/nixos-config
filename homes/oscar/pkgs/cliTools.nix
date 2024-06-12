@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     acpi
     act
@@ -52,7 +53,6 @@
     scrcpy
     skim
     # speedcrunch
-    sunshine
     sysstat
     tailscale
     tealdeer
