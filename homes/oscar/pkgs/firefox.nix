@@ -1,5 +1,6 @@
-{ pkgs, nur, ... }:
+{ pkgs, inputs, ... }:
 {
+  imports = [ inputs.nur.hmModules.nur ];
   programs.firefox = {
     enable = true;
     profiles.homemanager = {
