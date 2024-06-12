@@ -16,7 +16,7 @@
     capabilities = "cap_sys_admin+p";
     source = "${pkgs.sunshine}/bin/sunshine";
   };
-  systemd.user.services.sunshine = {
+  services.sunshine = {
     openFirewall = true;
     description = "Sunshine self-hosted game stream host for Moonlight";
     startLimitBurst = 5;
