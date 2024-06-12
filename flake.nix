@@ -35,7 +35,7 @@
             stylix.homeManagerModules.stylix
           ];
         }
-        stylix.nixosModules.stylix
+        # stylix.nixosModules.stylix
 
       ];
     in
