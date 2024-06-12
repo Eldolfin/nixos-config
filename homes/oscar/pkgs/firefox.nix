@@ -8,14 +8,19 @@
       };
       bookmarks = [
         {
-          name = "Dashboard";
-          url = "http://192.168.1.1:7575";
+          name = "Bookmarks";
           toolbar = true;
-        }
-        {
-          name = "YT";
-          url = "https://invidious.eldolfin.top/feed/subscriptions";
-          toolbar = true;
+          bookmarks = [
+
+            {
+              name = "Dashboard";
+              url = "http://192.168.1.1:7575";
+            }
+            {
+              name = "YT";
+              url = "https://invidious.eldolfin.top/feed/subscriptions";
+            }
+          ];
         }
       ];
       # extensions = with inputs.nur.hmModules.nur.repos.rycee.firefox-addons; [
