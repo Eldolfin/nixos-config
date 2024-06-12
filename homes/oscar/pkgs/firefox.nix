@@ -17,7 +17,7 @@
           url = "https://invidious.eldolfin.top/feed/subscriptions";
         }
       ];
-      extensions = with nur.repos.rycee.firefox-addons; [
+      extensions = with inputs.nur.hmModules.nur.repos.rycee.firefox-addons; [
         bitwarden
         privacy-badger
         sponsorblock
