@@ -33,7 +33,7 @@
           home-manager.sharedModules = [ nur.hmModules.nur ];
         }
         stylix.nixosModules.stylix
-        stylix.hmModules.stylix
+        stylix.homeManagerModules.stylix
       ];
     in
     {
