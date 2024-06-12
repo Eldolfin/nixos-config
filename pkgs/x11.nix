@@ -30,5 +30,13 @@
 
     autoRepeatDelay = 250;
     autoRepeatInterval = 20;
+
+    xrandrHeads = [
+      {
+        output = "HDMI-0";
+        primary = true;
+      }
+      "DVI-D-0"
+    ];
   };
 }
