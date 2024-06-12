@@ -10,12 +10,12 @@
     ./pkgs/zsh.nix
     ./pkgs/cliTools.nix
     ./pkgs/helix.nix
+    ./pkgs/firefox.nix
     # ./pkgs/editing.nix
     # ./pkgs/nixvim.nix
   ];
 
   programs.emacs.enable = true;
-  programs.librewolf.enable = true;
 
   home.packages = with pkgs; [
     # graphical programs
