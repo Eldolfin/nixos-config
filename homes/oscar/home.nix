@@ -22,7 +22,7 @@
 
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.coloscheme =  base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
 
   # fix for something
   #  nixpkgs.overlays = [
