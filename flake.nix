@@ -22,6 +22,7 @@
     let
       system = "x86_64-linux";
       commonModules = [
+        stylix.nixosModules.stylix
         nur.nixosModules.nur
         ./common.nix
         home-manager.nixosModules.home-manager
@@ -35,8 +36,6 @@
             stylix.homeManagerModules.stylix
           ];
         }
-        # stylix.nixosModules.stylix
-
       ];
     in
     {
