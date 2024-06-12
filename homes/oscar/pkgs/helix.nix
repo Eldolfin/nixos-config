@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [ helix-gpt ];
   programs.helix = {
     enable = true;
@@ -6,7 +7,7 @@
 
     settings = {
       # now in stylix config
-      # theme = "tokyonight_moon";
+      theme = "tokyonight_moon";
       # theme = "gruvbox";
       editor = {
         bufferline = "multiple";
@@ -26,8 +27,18 @@
           display-inlay-hints = true;
         };
       };
-      keys.normal = { X = [ "extend_line_up" "extend_to_line_bounds" ]; };
-      keys.select = { X = [ "extend_line_up" "extend_to_line_bounds" ]; };
+      keys.normal = {
+        X = [
+          "extend_line_up"
+          "extend_to_line_bounds"
+        ];
+      };
+      keys.select = {
+        X = [
+          "extend_line_up"
+          "extend_to_line_bounds"
+        ];
+      };
     };
     languages = {
       language-server = {
@@ -51,19 +62,31 @@
         }
         {
           name = "typescript";
-          language-servers = [ "gpt" "typescript-language-server" ];
+          language-servers = [
+            "gpt"
+            "typescript-language-server"
+          ];
         }
         {
           name = "tsx";
-          language-servers = [ "gpt" "typescript-language-server" ];
+          language-servers = [
+            "gpt"
+            "typescript-language-server"
+          ];
         }
         {
           name = "python";
-          language-servers = [ "gpt" "pylsp" ];
+          language-servers = [
+            "gpt"
+            "pylsp"
+          ];
         }
         {
           name = "javascript";
-          language-servers = [ "gpt" "typescript-language-server" ];
+          language-servers = [
+            "gpt"
+            "typescript-language-server"
+          ];
         }
       ];
     };
