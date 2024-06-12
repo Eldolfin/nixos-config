@@ -8,23 +8,28 @@
   #         { from = 8000; to = 8010; }
   #     ];
   # };
-  services.avahi.publish.enable = true;
-  services.avahi.publish.userServices = true;
-  security.wrappers.sunshine = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_sys_admin+p";
-    source = "${pkgs.sunshine}/bin/sunshine";
-  };
-  systemd.user.services.sunshine = {
+  # services.avahi.publish.enable = true;
+  # services.avahi.publish.userServices = true;
+  # security.wrappers.sunshine = {
+  #   owner = "root";
+  #   group = "root";
+  #   capabilities = "cap_sys_admin+p";
+  #   source = "${pkgs.sunshine}/bin/sunshine";
+  # };
+  services.sunshine = {
+    enable = true;
     openFirewall = true;
-    description = "Sunshine self-hosted game stream host for Moonlight";
-    startLimitBurst = 5;
-    startLimitIntervalSec = 500;
-    serviceConfig = {
-      ExecStart = "${config.security.wrapperDir}/sunshine";
-      Restart = "on-failure";
-      RestartSec = "5s";
-    };
+    capSysAdmin = true;
   };
+  # systemd.user.services.sunshine = {
+  #   openFirewall = true;
+  #   description = "Sunshine self-hosted game stream host for Moonlight";
+  #   startLimitBurst = 5;
+  #   startLimitIntervalSec = 500;
+  #   serviceConfig = {
+  #     ExecStart = "${config.security.wrapperDir}/sunshine";
+  #     Restart = "on-failure";
+  #     RestartSec = "5s";
+  #   };
+  # };
 }
