@@ -32,7 +32,7 @@
     ungoogled-chromium
     # barrier
     kdeconnect
-    # insomnia # never used
+    insomnia # never used
     # freetube
     bitwarden
     # mattermost-desktop
