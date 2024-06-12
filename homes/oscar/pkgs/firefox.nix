@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
-  nur-no-pkgs =
-    import
-      (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/48bac29969e0e9508f6a203f001fe606960cbacd.zip" "")
-      { };
+  nur-no-pkgs = import (builtins.fetchTarball {
+    url = "https://github.com/nix-community/NUR/archive/48bac29969e0e9508f6a203f001fe606960cbacd.zip";
+    sha256 = "";
+  }) { };
 in
 {
   programs.firefox = {
