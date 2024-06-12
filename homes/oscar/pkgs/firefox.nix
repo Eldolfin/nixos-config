@@ -38,6 +38,8 @@
         sponsorblock
         vimium
         ublock-origin
+        libredirect
+        return-youtube-dislikes
       ];
       search = {
         engines = {
