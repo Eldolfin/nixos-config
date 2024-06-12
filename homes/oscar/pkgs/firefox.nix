@@ -1,10 +1,4 @@
-{ pkgs, ... }:
-let
-  nur-no-pkgs = import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/NUR/archive/48bac29969e0e9508f6a203f001fe606960cbacd.tar.gz";
-    sha256 = "0yckdj3sj1wds0hxmbq7mhsch463jd05drairyvis52gv18a0bv7";
-  }) { };
-in
+{ pkgs, nur, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -22,7 +16,7 @@ in
           url = "https://invidious.eldolfin.top/feed/subscriptions";
         }
       ];
-      extensions = with nur-no-pkgs.repos.rycee.firefox-addons; [
+      extensions = with nur.repos.rycee.firefox-addons; [
         bitwarden
         privacy-badger
         sponsorblock

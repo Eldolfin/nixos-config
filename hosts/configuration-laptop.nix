@@ -26,7 +26,9 @@
   # powerManagement.cpufreq.max = 800;
 
   # for firefox to support touchscreen scroll
-  environment.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
 
   # touchscreen maybe
   services.xserver.synaptics = {
