@@ -1,4 +1,8 @@
-{ pkgs, config, ... }:
+let
+  nur-no-pkgs =
+    import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz")
+      { };
+in
 {
   programs.firefox = {
     enable = true;
@@ -16,7 +20,7 @@
           url = "https://invidious.eldolfin.top/feed/subscriptions";
         }
       ];
-      extensions = with config.nur.repos.rycee.firefox-addons; [
+      extensions = with nur-no-pkgs.repos.rycee.firefox-addons; [
         bitwarden
         privacy-badger
         sponsorblock
