@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
-  imports = [ ./personalPackages.nix ./basePackages.nix ./services.nix ];
+{ pkgs, ... }:
+{
+  imports = [
+    ./personalPackages.nix
+    ./basePackages.nix
+    ./services.nix
+  ];
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
   # This value determines the Home Manager release that your
@@ -15,6 +20,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  stylix.enable = true;
   stylix.autoEnable = true;
 
   # fix for something
@@ -25,7 +31,9 @@
   #  ];
 
   # firefox + touchscreen
-  systemd.user.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
+  systemd.user.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
 
   # allowUnfree :(
   # nixpkgs.config.allowUnfree = true;
