@@ -2,8 +2,8 @@
 {
   stylix = {
     enable = true;
-    image = ./images/background.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/autumn.yaml";
+    # image = ./images/background.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
     autoEnable = true;
     opacity.terminal = 0.9;
     polarity = "dark";
