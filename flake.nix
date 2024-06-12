@@ -30,10 +30,13 @@
           home-manager.useUserPackages = true;
           home-manager.users.oscar = import ./homes/oscar/home.nix;
 
-          home-manager.sharedModules = [ nur.hmModules.nur ];
+          home-manager.sharedModules = [
+            nur.hmModules.nur
+            stylix.homeManagerModules.stylix
+          ];
         }
         stylix.nixosModules.stylix
-        stylix.homeManagerModules.stylix
+
       ];
     in
     {
