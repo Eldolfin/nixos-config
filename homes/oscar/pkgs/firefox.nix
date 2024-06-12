@@ -10,10 +10,12 @@
         {
           name = "Dashboard";
           url = "http://192.168.1.1:7575";
+          toolbar = true;
         }
         {
           name = "YT";
           url = "https://invidious.eldolfin.top/feed/subscriptions";
+          toolbar = true;
         }
       ];
       # extensions = with inputs.nur.hmModules.nur.repos.rycee.firefox-addons; [
