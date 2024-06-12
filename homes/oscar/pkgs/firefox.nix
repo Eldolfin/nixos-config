@@ -1,6 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ inputs.nur.hmModules.nur ];
   programs.firefox = {
     enable = true;
     profiles.homemanager = {
@@ -17,12 +16,12 @@
           url = "https://invidious.eldolfin.top/feed/subscriptions";
         }
       ];
-      extensions = with inputs.nur.hmModules.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        privacy-badger
-        sponsorblock
-        vimium
-      ];
+      # extensions = with inputs.nur.hmModules.nur.repos.rycee.firefox-addons; [
+      #   bitwarden
+      #   privacy-badger
+      #   sponsorblock
+      #   vimium
+      # ];
       search = {
         engines = {
           "Nix Packages" = {
