@@ -2,10 +2,10 @@
 {
   programs.firefox = {
     enable = true;
-    settings = {
-      extensions.autoDisableScopes = 0;
-    };
     profiles.homemanager = {
+      settings = {
+        extensions.autoDisableScopes = 0;
+      };
       bookmarks = [
         {
           name = "Dashboard";
