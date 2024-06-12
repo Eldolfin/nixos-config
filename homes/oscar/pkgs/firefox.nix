@@ -34,6 +34,7 @@
       extensions = with config.nur.repos.rycee.firefox-addons; [
         bitwarden
         privacy-badger
+        floccus
         sponsorblock
         vimium
         ublock-origin
