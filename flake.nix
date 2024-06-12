@@ -27,8 +27,7 @@
         ./common.nix
         home-manager.nixosModules.home-manager
         {
-
-          home-manager.backupFileExtension = "bak";
+          home-manager.backupFileExtension = "old";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.oscar = import ./homes/oscar/home.nix;
