@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
     image = ./images/background.jpg;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
     autoEnable = true;
     opacity.terminal = 0.9;
     polarity = "dark";
@@ -12,25 +12,25 @@
     };
 
     fonts = {
-      serif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "UbuntuMono Nerd Font";
-      };
+      # serif = {
+      #   package = pkgs.meslo-lgs-nf;
+      #   name = "UbuntuMono Nerd Font";
+      # };
 
-      sansSerif = {
-        package = pkgs.meslo-lgs-nf;
-        name = "meslo-lgs-nf";
-      };
+      # sansSerif = {
+      #   package = pkgs.meslo-lgs-nf;
+      #   name = "meslo-lgs-nf";
+      # };
 
-      monospace = {
-        package = pkgs.meslo-lgs-nf;
-        name = "meslo-lgs-nf";
-      };
+      # monospace = {
+      #   package = pkgs.meslo-lgs-nf;
+      #   name = "meslo-lgs-nf";
+      # };
 
-      emoji = {
-        package = pkgs.meslo-lgs-nf;
-        name = "meslo-lgs-nf";
-      };
+      # emoji = {
+      #   package = pkgs.meslo-lgs-nf;
+      #   name = "meslo-lgs-nf";
+      # };
 
       sizes.terminal = 20;
     };
