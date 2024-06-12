@@ -34,7 +34,16 @@
       extensions = with config.nur.repos.rycee.firefox-addons; [
         automatic-dark
         bitwarden
+        chatgptbox
+        consent-o-matic
+        dearrow
+        decentraleyes
+        french-dictionary
+        french-language-pack
         floccus
+        jump-cutter
+        github-file-icons
+        gruvbox-dark-theme
         libredirect
         privacy-badger
         return-youtube-dislikes
