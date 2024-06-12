@@ -11,27 +11,22 @@
       gnome.enable = true;
     };
 
+    cursor.package = pkgs.bibata-cursors;
+    cursor.name = "Bibata-Modern-Ice";
+
     fonts = {
-      # serif = {
-      #   package = pkgs.meslo-lgs-nf;
-      #   name = "UbuntuMono Nerd Font";
-      # };
-
-      # sansSerif = {
-      #   package = pkgs.meslo-lgs-nf;
-      #   name = "meslo-lgs-nf";
-      # };
-
-      # monospace = {
-      #   package = pkgs.meslo-lgs-nf;
-      #   name = "meslo-lgs-nf";
-      # };
-
-      # emoji = {
-      #   package = pkgs.meslo-lgs-nf;
-      #   name = "meslo-lgs-nf";
-      # };
-
+      monospace = {
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
       sizes.terminal = 20;
     };
   };
