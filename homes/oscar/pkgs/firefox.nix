@@ -32,14 +32,15 @@
         }
       ];
       extensions = with config.nur.repos.rycee.firefox-addons; [
+        automatic-dark
         bitwarden
-        privacy-badger
         floccus
-        sponsorblock
-        vimium
-        ublock-origin
         libredirect
+        privacy-badger
         return-youtube-dislikes
+        sponsorblock
+        ublock-origin
+        vimium
       ];
       search = {
         engines = {

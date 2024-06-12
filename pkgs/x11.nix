@@ -3,7 +3,8 @@
 {
   services.displayManager = {
     # defaultSession = "sway";
-    defaultSession = "hyprland";
+    # defaultSession = "hyprland";
+    defaultSession = "none+i3";
     autoLogin = {
       user = "oscar";
     };
