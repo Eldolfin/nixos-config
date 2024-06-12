@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  program.firefox = {
+  programs.firefox = {
     package = pkgs.librewolf;
   };
 }
