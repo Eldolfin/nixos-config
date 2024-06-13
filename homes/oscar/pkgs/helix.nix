@@ -7,7 +7,7 @@
 
     settings = {
       # now in stylix config
-      theme = "tokyonight_moon";
+      # theme = "tokyonight_moon";
       # theme = "gruvbox";
       editor = {
         bufferline = "multiple";
