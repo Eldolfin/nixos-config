@@ -49,6 +49,12 @@
 
       language = [
         {
+          name = "c";
+          auto-format = true;
+          formatter.command = "${pkgs.clang-tools}/bin/clang-format";
+          language-servers = [ "clangd" ];
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
