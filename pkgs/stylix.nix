@@ -5,7 +5,7 @@
     image = ./images/background.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     autoEnable = true;
-    opacity.terminal = 0.9;
+    opacity.terminal = 0.99;
     polarity = "dark";
     targets = {
       gnome.enable = true;
