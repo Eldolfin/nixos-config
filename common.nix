@@ -98,6 +98,7 @@
     noisetorch.enable = true;
     dconf.enable = true;
     nix-ld.enable = true;
+    direnv.enable = true;
   };
 
   # polkit
