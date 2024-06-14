@@ -100,7 +100,7 @@
     nix-ld.enable = true;
     direnv = {
       enable = true;
-      direnv.direnvrcExtra = ''
+      direnvrcExtra = ''
         clear
         fastfetch
       '';
