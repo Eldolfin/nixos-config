@@ -75,6 +75,8 @@
         }
         {
           name = "tsx";
+          auto-format = true;
+          formatter.command = "${pkgs.prettierd}/bin/prettierd";
           language-servers = [
             "gpt"
             "typescript-language-server"
