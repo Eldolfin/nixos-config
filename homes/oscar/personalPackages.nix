@@ -40,7 +40,7 @@
     # armcord
     # discord
     webcord-vencord
-    # obs-studio
+    obs-studio
     # handbrake
 
     # libraries
