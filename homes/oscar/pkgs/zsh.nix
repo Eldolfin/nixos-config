@@ -20,8 +20,10 @@
     enableZshIntegration = true;
   };
 
-  home.sessionPath =
-    [ "/home/oscar/bin/scripts/" "/home/oscar/bin/executables/" ];
+  home.sessionPath = [
+    "/home/oscar/bin/scripts/"
+    "/home/oscar/bin/executables/"
+  ];
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
