@@ -84,7 +84,7 @@
       }
 
       # ignore case in completion if no case-sensitive match were found
-      zstyle ':completion:*' matcher-list \'\' 'm:{a-zA-Z}={A-Za-z}'
+      zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
     '';
 
     oh-my-zsh = {
