@@ -19,7 +19,7 @@
     enable = true;
     enableZshIntegration = true;
   };
-  starship = {
+  programs.starship = {
     enable = true;
   };
 
