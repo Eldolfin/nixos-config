@@ -1,26 +1,29 @@
 {
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.atuin = {
-    enableZshIntegration = true;
-    enable = true;
-  };
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.carapace = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.eza = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.starship = {
-    enable = true;
+  programs = {
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    atuin = {
+      enableZshIntegration = true;
+      enable = true;
+    };
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    carapace = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    starship = {
+      enable = true;
+    };
+    thefuck.enable = true;
   };
 
   home.sessionPath = [
