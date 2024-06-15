@@ -43,10 +43,12 @@
     webcord-vencord
     obs-studio
     handbrake
+    wdisplays
+    flameshot
+    emote
 
     # libraries
     glfw
-    wdisplays
     libllvm
     gnumake
     libnotify
@@ -96,8 +98,6 @@
     gcovr
 
     # gui apps
-    flameshot
-    emote
     # syncthing
     dunst
     thunderbird
