@@ -59,7 +59,7 @@
 
     # js
     yarn
-    tsc
+    typescript
 
     # nix
     nixpkgs-fmt
