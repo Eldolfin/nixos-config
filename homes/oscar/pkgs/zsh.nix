@@ -73,7 +73,10 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "fancy-ctrl-z" ];
+      plugins = [
+        "fancy-ctrl-z"
+        "zsh-autopair"
+      ];
     };
   };
 }
