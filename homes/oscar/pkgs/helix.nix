@@ -69,7 +69,13 @@
         {
           name = "typescript";
           auto-format = true;
-          formatter.command = "${pkgs.prettierd}/bin/prettierd";
+          formatter = {
+            command = "${pkgs.prettierd}/bin/prettierd";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
           language-servers = [
             "gpt"
             "typescript-language-server"
@@ -78,7 +84,13 @@
         {
           name = "tsx";
           auto-format = true;
-          formatter.command = "${pkgs.prettierd}/bin/prettierd";
+          formatter = {
+            command = "${pkgs.prettierd}/bin/prettierd";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
           language-servers = [
             "gpt"
             "typescript-language-server"
