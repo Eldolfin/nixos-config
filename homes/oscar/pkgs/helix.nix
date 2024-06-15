@@ -70,7 +70,7 @@
           name = "typescript";
           auto-format = true;
           formatter = {
-            command = "${pkgs.prettierd}/bin/prettierd";
+            command = "${pkgs.prettierd}/bin/prettier";
             args = [
               "--parser"
               "typescript"
@@ -85,7 +85,7 @@
           name = "tsx";
           auto-format = true;
           formatter = {
-            command = "${pkgs.prettierd}/bin/prettierd";
+            command = "${pkgs.prettierd}/bin/prettier";
             args = [
               "--parser"
               "typescript"
