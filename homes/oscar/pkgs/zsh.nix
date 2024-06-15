@@ -74,10 +74,15 @@
       }
     ];
 
-    # initExtra = ''
-    #   bindkey "^[[1;5C" forward-word
-    #   bindkey "^[[1;5D" backward-word
-    # '';
+    initExtra = ''
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+
+      # workaround to give back ctrl+z to fancy-ctrl-z plugin
+      function zvm_after_init() {
+        zvm_bindkey viins '^Z' fancy-ctrl-z
+      }
+    '';
 
     oh-my-zsh = {
       enable = true;
