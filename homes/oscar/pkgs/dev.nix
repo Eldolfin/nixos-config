@@ -98,6 +98,9 @@
     # Language servers
     lua-language-server
     nodePackages_latest.typescript-language-server
+    docker-compose-langserver
+    yaml-language-server
+    docker-langserver
 
     # Arduino
     # arduino
