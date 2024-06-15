@@ -33,6 +33,7 @@
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
     shellAliases = {
       clone = ''alacritty -e zsh -c "cd $(pwd); zsh -i"&!'';
