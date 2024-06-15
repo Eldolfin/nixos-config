@@ -32,7 +32,6 @@
           "extend_line_up"
           "extend_to_line_bounds"
         ];
-        K = [ "signature_help" ];
       };
       keys.select = {
         X = [
