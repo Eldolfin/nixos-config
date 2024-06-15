@@ -3,9 +3,9 @@
 {
   imports = [
     ./pkgs/x11.nix
-    ./pkgs/hyprland.nix
+    # ./pkgs/hyprland.nix
     ./pkgs/stylix.nix
-    ./pkgs/wayland.nix
+    # ./pkgs/wayland.nix
   ];
   # periodic store optimisation
   nix.optimise.automatic = true;
@@ -86,9 +86,7 @@
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
-  environment.systemPackages = with pkgs; [
-    # bluez-alsa
-  ];
+  environment.systemPackages = with pkgs; [ ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
