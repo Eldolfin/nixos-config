@@ -69,6 +69,8 @@
       bindkey '^Z' fancy-ctrl-z 
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
+
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     '';
 
     oh-my-zsh = {
