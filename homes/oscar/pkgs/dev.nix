@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home.packages = with pkgs; [
     vscode-fhs
     # jetbrains
@@ -58,6 +59,7 @@
 
     # js
     yarn
+    tsc
 
     # nix
     nixpkgs-fmt

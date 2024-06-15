@@ -88,7 +88,7 @@
 
   environment.systemPackages = with pkgs; [ ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs = {
     firejail.enable = true;
