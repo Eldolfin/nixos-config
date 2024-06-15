@@ -66,13 +66,18 @@
       editconf = "chezmoi edit --watch --apply --color=true --progress=true";
     };
 
-    initExtra = ''
-      bindkey '^Z' fancy-ctrl-z 
-      bindkey "^[[1;5C" forward-word
-      bindkey "^[[1;5D" backward-word
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    '';
+    # initExtra = ''
+    #   bindkey "^[[1;5C" forward-word
+    #   bindkey "^[[1;5D" backward-word
+    # '';
 
     oh-my-zsh = {
       enable = true;
