@@ -19,6 +19,9 @@
     enable = true;
     enableZshIntegration = true;
   };
+  starship = {
+    enable = true;
+  };
 
   home.sessionPath = [
     "/home/oscar/bin/scripts/"
