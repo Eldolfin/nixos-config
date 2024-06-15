@@ -40,22 +40,22 @@
       nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = commonModules ++ [
-          ./hosts/configuration-laptop.nix
-          ./hosts/hardware-configuration-laptop.nix
+          ./hosts/laptop/configuration.nix
+          ./hosts/laptop/hardware-configuration.nix
         ];
       };
 
       nixosConfigurations."oscar-tour" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = commonModules ++ [
-          ./hosts/configuration-tour.nix
-          ./hosts/hardware-configuration-tour.nix
+          ./hosts/tour/configuration.nix
+          ./hosts/tour/hardware-configuration.nix
         ];
       };
 
       nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = commonModules ++ [ ./hosts/configuration-iso.nix ];
+        modules = commonModules ++ [ ./hosts/iso/configuration.nix ];
       };
     };
 }
