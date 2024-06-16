@@ -165,7 +165,7 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
+  # fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
 
   virtualisation = {
     docker = {
