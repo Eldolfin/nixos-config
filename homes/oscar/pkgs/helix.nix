@@ -32,8 +32,6 @@
           "extend_line_up"
           "extend_to_line_bounds"
         ];
-        H = [ "buffer-previous" ];
-        L = [ "buffer-next" ];
       };
       keys.select = {
         X = [
