@@ -98,10 +98,6 @@
     nix-ld.enable = true;
     direnv = {
       enable = true;
-      direnvrcExtra = ''
-        clear
-        fastfetch
-      '';
     };
   };
 
