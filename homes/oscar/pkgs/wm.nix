@@ -23,6 +23,7 @@
           interval = "once";
           signal = 10;
           label = "VOL";
+          markup = "pango";
         };
         cpu = lib.hm.dag.entryBefore [ "volume" ] {
           command = "~/.config/i3blocks/scripts/cpu_usage";
