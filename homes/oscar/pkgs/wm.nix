@@ -7,7 +7,7 @@
   programs.i3blocks = {
     enable = true;
     bars = {
-      bottom = {
+      config = {
         time = {
           command = "date +%r";
           interval = 1;
