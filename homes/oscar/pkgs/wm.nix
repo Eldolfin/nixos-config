@@ -23,24 +23,24 @@
           command = "~/.config/i3/scripts/i3-volume/volume output i3blocks";
           interval = "once";
           signal = 10;
-          label = "VOL  ";
+          label = "VOL ";
           markup = "pango";
         };
         cpu = lib.hm.dag.entryBefore [ "volume" ] {
           command = "~/.config/i3blocks/scripts/cpu_usage";
           interval = "10";
-          label = "CPU  ";
+          label = "CPU ";
           min_width = "100.00%";
         };
         memory = lib.hm.dag.entryBefore [ "cpu" ] {
-          command = "~/.config/i3/scripts/i3memory";
+          command = "echo $(~/.config/i3/scripts/i3memory)";
           interval = "5";
-          label = "MEM  ";
+          label = "MEM ";
         };
         disk = lib.hm.dag.entryBefore [ "memory" ] {
           command = "~/.config/i3/scripts/i3disk";
           interval = "10";
-          label = "HOME  ";
+          label = "HOME ";
         };
 
       };
