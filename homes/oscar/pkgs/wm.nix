@@ -1,11 +1,14 @@
 { pkgs, ... }:
 
 {
-  programs.rofi.enable = true;
+  programs.rofi = {
+    enable = true;
+
+  };
   programs.swaylock.enable = true;
 
   home.packages = with pkgs; [
-    rofi-bluetooth
+    # rofi-bluetooth # useless
     rofi-power-menu
     slock
     picom
