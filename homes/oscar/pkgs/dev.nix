@@ -42,9 +42,6 @@
     poethepoet
 
     (pkgs.python311Full.withPackages (ppkgs: [
-      ppkgs.pip
-      ppkgs.python-lsp-server
-      ppkgs.bpython
       ppkgs.scipy
       ppkgs.matplotlib
       # ppkgs.notebook
@@ -52,6 +49,8 @@
       ppkgs.pytest
       ppkgs.psutil
     ]))
+    python311Packages.pip
+    python311Packages.bpython
     grip # github markdown preview
 
     # c#
@@ -103,6 +102,7 @@
     docker-compose-language-service
     yaml-language-server
     dockerfile-language-server-nodejs
+    python311Packages.python-lsp-server
 
     # Arduino
     # arduino
