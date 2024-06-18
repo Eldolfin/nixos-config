@@ -40,17 +40,19 @@
     mypy
     poetry
     poethepoet
-    python311Full
-    python311Packages.pip
-    python311Packages.python-lsp-server
-    python311Packages.bpython
-    python311Packages.scipy
-    python311Packages.matplotlib
-    python311Packages.notebook
-    python311Packages.numpy
-    python311Packages.pytest
-    python311Packages.psutil
-    python311Packages.grip # github markdown preview
+
+    (pkgs.python311Full.withPackages (ppkgs: [
+      ppkgs.pip
+      ppkgs.python-lsp-server
+      ppkgs.bpython
+      ppkgs.scipy
+      ppkgs.matplotlib
+      ppkgs.notebook
+      ppkgs.numpy
+      ppkgs.pytest
+      ppkgs.psutil
+      ppkgs.grip # github markdown preview
+    ]))
 
     # c#
     mono
