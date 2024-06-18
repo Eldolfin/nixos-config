@@ -47,12 +47,12 @@
       ppkgs.bpython
       ppkgs.scipy
       ppkgs.matplotlib
-      ppkgs.notebook
+      # ppkgs.notebook
       ppkgs.numpy
       ppkgs.pytest
       ppkgs.psutil
-      ppkgs.grip # github markdown preview
     ]))
+    ppkgs.grip # github markdown preview
 
     # c#
     mono
