@@ -9,7 +9,7 @@
     bars = {
       config = {
         time = {
-          command = "date +%r";
+          command = "date +%R:%S";
           interval = 1;
         };
         # lib.hm.dag.entryBefore
