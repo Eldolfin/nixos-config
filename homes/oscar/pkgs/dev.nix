@@ -55,7 +55,7 @@
         psutil
       ]
     ))
-    ppkgs.grip # github markdown preview
+    grip # github markdown preview
 
     # c#
     mono
