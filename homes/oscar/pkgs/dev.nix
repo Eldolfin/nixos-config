@@ -41,16 +41,16 @@
     poetry
     poethepoet
 
-    (pkgs.python311Full.withPackages (ppkgs: [
-      ppkgs.pip
-      ppkgs.python-lsp-server
-      ppkgs.bpython
-      ppkgs.scipy
-      ppkgs.matplotlib
-      # ppkgs.notebook
-      ppkgs.numpy
-      ppkgs.pytest
-      ppkgs.psutil
+    (pkgs.python311Full.withPackages (with python311Packages: [
+      pip
+      python-lsp-server
+      bpython
+      scipy
+      matplotlib
+      # notebook
+      numpy
+      pytest
+      psutil
     ]))
     ppkgs.grip # github markdown preview
 
