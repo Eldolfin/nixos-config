@@ -41,17 +41,20 @@
     poetry
     poethepoet
 
-    (pkgs.python311Full.withPackages (with python311Packages: [
-      pip
-      python-lsp-server
-      bpython
-      scipy
-      matplotlib
-      # notebook
-      numpy
-      pytest
-      psutil
-    ]))
+    (pkgs.python311Full.withPackages (
+      with python311Packages;
+      [
+        pip
+        python-lsp-server
+        bpython
+        scipy
+        matplotlib
+        # notebook
+        numpy
+        pytest
+        psutil
+      ]
+    ))
     ppkgs.grip # github markdown preview
 
     # c#
