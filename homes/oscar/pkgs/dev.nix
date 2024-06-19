@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     vscode-fhs
     # jetbrains
-    # jetbrains-toolbox
+    jetbrains-toolbox
 
     # java
     # jetbrains.idea-community
