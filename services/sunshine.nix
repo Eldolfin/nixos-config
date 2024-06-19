@@ -21,15 +21,17 @@
     openFirewall = true;
     capSysAdmin = true;
   };
-  # systemd.user.services.sunshine = {
-  #   openFirewall = true;
-  #   description = "Sunshine self-hosted game stream host for Moonlight";
-  #   startLimitBurst = 5;
-  #   startLimitIntervalSec = 500;
-  #   serviceConfig = {
-  #     ExecStart = "${config.security.wrapperDir}/sunshine";
-  #     Restart = "on-failure";
-  #     RestartSec = "5s";
-  #   };
-  # };
+  systemd.user.services.sunshine = {
+    openFirewall = true;
+    description = "Sunshine self-hosted game stream host for Moonlight";
+    startLimitBurst = 5;
+    startLimitIntervalSec = 500;
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      ExecStart = "${config.security.wrapperDir}/sunshine";
+      Restart = "on-failure";
+      RestartSec = "5s";
+    };
+  };
 }
