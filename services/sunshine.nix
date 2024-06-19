@@ -3,7 +3,7 @@
   services.sunshine = {
     enable = true;
     openFirewall = true;
-    capSysAdmin = true;
+    # capSysAdmin = true;
   };
   systemd.user.services.sunshine = {
     wantedBy = [ "multi-user.target" ];
