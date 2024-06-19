@@ -21,11 +21,10 @@
   };
   services.sunshine = {
     enable = true;
-    # openFirewall = true;
+    openFirewall = true;
     capSysAdmin = true;
   };
   systemd.user.services.sunshine = {
-    openFirewall = true;
     description = "Sunshine self-hosted game stream host for Moonlight";
     startLimitBurst = 5;
     startLimitIntervalSec = 500;
