@@ -47,6 +47,7 @@
         gruvbox-dark-theme
         libredirect
         privacy-badger
+        refined-github
         return-youtube-dislikes
         sponsorblock
         ublock-origin
