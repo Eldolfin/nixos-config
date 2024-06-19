@@ -1,31 +1,31 @@
 { config, pkgs, ... }:
 {
-  # networking.firewall = {
-  #   enable = true;
-  #   allowedTCPPorts = [
-  #     47984
-  #     47989
-  #     47990
-  #     48010
-  #   ];
-  #   allowedUDPPortRanges = [
-  #     {
-  #       from = 47998;
-  #       to = 48000;
-  #     }
-  #     {
-  #       from = 8000;
-  #       to = 8010;
-  #     }
-  #   ];
-  # };
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      47984
+      47989
+      47990
+      48010
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 47998;
+        to = 48000;
+      }
+      {
+        from = 8000;
+        to = 8010;
+      }
+    ];
+  };
   services.sunshine = {
     enable = true;
     openFirewall = true;
     capSysAdmin = true;
   };
   systemd.user.services.sunshine = {
-    description = "Sunshine self-hosted game stream host for Moonlight";
+    # description = "Sunshine self-hosted game stream host for Moonlight";
     startLimitBurst = 5;
     startLimitIntervalSec = 500;
     wantedBy = [ "multi-user.target" ];
