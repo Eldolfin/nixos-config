@@ -31,7 +31,7 @@
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
-      ExecStart = "${config.security.wrapperDir}/sunshine";
+      # ExecStart = "${config.security.wrapperDir}/sunshine";
       Restart = "on-failure";
       RestartSec = "5s";
     };
