@@ -56,6 +56,7 @@
       search = {
         force = true;
         default = "selfhosted";
+        privateDefault = "selfhosted";
         engines = {
           "selfhosted" = {
             urls = [ { template = "https://search.eldolfin.top/search?q={searchTerms}"; } ];
