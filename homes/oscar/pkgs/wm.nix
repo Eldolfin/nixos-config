@@ -60,7 +60,6 @@
     i3lock-fancy-rapid
     rofi-power-menu
     slock
-    picom
     wl-clipboard-rs
     swaybg
   ];

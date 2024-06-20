@@ -27,7 +27,6 @@
     # graphical programs
     emote
     dunst
-    picom
 
     # libraries
     libnotify
