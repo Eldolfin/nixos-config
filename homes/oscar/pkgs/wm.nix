@@ -42,7 +42,12 @@
           interval = "10";
           label = "HOME ";
         };
-
+        bandwidth = lib.hm.dag.entryBefore [ "disk" ] {
+          command = "~/.config/i3blocks/scripts/bandwidth";
+          interval = "5";
+          INLABEL = "";
+          OUTLABEL = "";
+        };
       };
     };
   };
