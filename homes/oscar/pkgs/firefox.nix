@@ -55,7 +55,12 @@
       ];
       search = {
         force = true;
+        default = "selfhosted";
         engines = {
+          "selfhosted" = {
+            urls = [ { template = "https://search.eldolfin.top/search?q={searchTerms}"; } ];
+          };
+
           "Nix Packages" = {
             urls = [
               {
