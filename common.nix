@@ -174,12 +174,12 @@
         enable = true;
         setSocketVariable = true;
       };
-      podman = {
-        enable = true;
-      };
       # enableNvidia = true;
     };
 
+    podman = {
+      enable = true;
+    };
     # virt-manager
     # libvirtd = {
     #   enable = true;
