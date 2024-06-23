@@ -21,7 +21,7 @@
         };
         volume = lib.hm.dag.entryBefore [ "date" ] {
           command = "~/.config/i3/scripts/i3-volume/volume output i3blocks";
-          interval = "once";
+          interval = 5;
           signal = 10;
           label = "VOL ";
           markup = "pango";
