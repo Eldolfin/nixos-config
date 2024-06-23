@@ -174,6 +174,9 @@
         enable = true;
         setSocketVariable = true;
       };
+      podman = {
+        enable = true;
+      };
       # enableNvidia = true;
     };
 
