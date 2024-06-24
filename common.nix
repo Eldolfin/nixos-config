@@ -86,7 +86,7 @@
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
-  environment.systemPackages = with pkgs; [ ];
+  # environment.systemPackages = with pkgs; [ ];
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
