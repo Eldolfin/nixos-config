@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    docker-compose
     vscode-fhs
     # jetbrains
     jetbrains-toolbox
