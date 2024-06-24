@@ -44,7 +44,7 @@
           ./hosts/laptop/configuration.nix
           ./hosts/laptop/hardware-configuration.nix
         ];
-        specialArgs = { inherit inputs; }
+        specialArgs = { inherit inputs; };
       };
 
       nixosConfigurations."oscar-tour" = nixpkgs.lib.nixosSystem {
