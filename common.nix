@@ -1,12 +1,18 @@
 # this file is common between tour and laptor
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./pkgs/x11.nix
     # ./pkgs/hyprland.nix
     ./pkgs/stylix.nix
     # ./pkgs/wayland.nix
+    inputs.sops-nix.nixosModules.sops
   ];
+  sops.defaultSopsFile = "./secrets/secrets.yaml";
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyfile = "/home/oscar/.config/sops/age/keys.txt";
+
   # periodic store optimisation
   nix.optimise.automatic = true;
   nix.gc = {

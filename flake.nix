@@ -8,6 +8,7 @@
     nur.url = "github:nix-community/NUR";
 
     stylix.url = "github:danth/stylix";
+    sops-nix.url = "github:Mic92.sios-nix"
   };
 
   outputs =
@@ -18,7 +19,7 @@
       home-manager,
       nur,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       commonModules = [
@@ -43,6 +44,7 @@
           ./hosts/laptop/configuration.nix
           ./hosts/laptop/hardware-configuration.nix
         ];
+        specialArgs = { inherit inputs; }
       };
 
       nixosConfigurations."oscar-tour" = nixpkgs.lib.nixosSystem {
@@ -51,6 +53,7 @@
           ./hosts/tour/configuration.nix
           ./hosts/tour/hardware-configuration.nix
         ];
+        specialArgs = { inherit inputs; }
       };
 
       nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
