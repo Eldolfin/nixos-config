@@ -106,10 +106,10 @@
 
   # external display brightness control requires
   # i2c to be enabled
-  boot.kernelModules = [ "i2c-dev" ];
-  services.udev.extraRules = ''
-    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
+  # boot.kernelModules = [ "i2c-dev" ];
+  # services.udev.extraRules = ''
+  #   KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  # '';
 
   # pipewire is a newer alternative to alsa/pulseaudio
   # rtkit is optional but recommended
