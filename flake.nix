@@ -8,7 +8,7 @@
     nur.url = "github:nix-community/NUR";
 
     stylix.url = "github:danth/stylix";
-    sops-nix.url = "github:Mic92.sios-nix"
+    sops-nix.url = "github:Mic92.sios-nix";
   };
 
   outputs =
