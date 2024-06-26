@@ -22,6 +22,9 @@
         }
       ];
     };
+    settings = {
+      output_name = 1;
+    };
   };
   systemd.user.services.sunshine = {
     wantedBy = [ "multi-user.target" ];
