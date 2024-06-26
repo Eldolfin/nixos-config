@@ -38,5 +38,6 @@
     };
 
     copyq.enable = true;
+    safeeyes.enable = true;
   };
 }
