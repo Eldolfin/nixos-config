@@ -3,7 +3,7 @@
   services.sunshine = {
     enable = true;
     openFirewall = true;
-    # capSysAdmin = true;
+    capSysAdmin = true;
     applications = {
       env = {
         PATH = "$(PATH):$(HOME)/.local/bin";
@@ -18,7 +18,7 @@
           #   }
           # ];
           # exclude-global-prep-cmd = "false";
-          auto-detach = "true";
+          # auto-detach = "true";
         }
       ];
     };
