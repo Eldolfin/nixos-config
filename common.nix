@@ -15,6 +15,7 @@
     age.keyFile = "/home/oscar/.config/sops/age/keys.txt";
     secrets = {
       example-key = { };
+      "myservice/my_subdir/my_secret" = { };
     };
   };
 
