@@ -11,7 +11,7 @@
   sops.defaultSopsFile = "./secrets/secrets.yaml";
   sops.defaultSopsFormat = "yaml";
 
-  sops.age.keyfile = "/home/oscar/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/oscar/.config/sops/age/keys.txt";
 
   # periodic store optimisation
   nix.optimise.automatic = true;
