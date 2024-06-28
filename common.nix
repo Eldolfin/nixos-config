@@ -8,10 +8,15 @@
     # ./pkgs/wayland.nix
     inputs.sops-nix.nixosModules.sops
   ];
-  sops.defaultSopsFile = "./secrets/secrets.yaml";
-  sops.defaultSopsFormat = "yaml";
 
-  sops.age.keyFile = "/home/oscar/.config/sops/age/keys.txt";
+  sops = {
+    defaultSopsFile = "./secrets/secrets.yaml";
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/oscar/.config/sops/age/keys.txt";
+    secrets = {
+      example-key = { };
+    };
+  };
 
   # periodic store optimisation
   nix.optimise.automatic = true;

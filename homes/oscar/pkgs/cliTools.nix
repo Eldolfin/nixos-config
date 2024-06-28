@@ -52,6 +52,7 @@
     ripgrep
     scrcpy
     skim
+    sops
     # speedcrunch
     sysstat
     tailscale
