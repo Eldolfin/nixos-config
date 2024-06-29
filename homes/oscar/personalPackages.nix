@@ -29,7 +29,6 @@
     godot_4
     gimp
     # mumble
-    rustdesk
     ungoogled-chromium
     # barrier
     kdeconnect
@@ -41,8 +40,6 @@
     # armcord
     # discord
     webcord-vencord
-    obs-studio
-    handbrake
     wdisplays
     flameshot
     emote

@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   services.displayManager = {
     # defaultSession = "sway";
@@ -25,7 +23,8 @@
       i3.enable = true;
     };
     desktopManager = {
-      gnome.enable = true;
+      cinnamon.enable = true;
+      # gnome.enable = true;
     };
 
     autoRepeatDelay = 250;
