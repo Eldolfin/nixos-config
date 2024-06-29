@@ -4,13 +4,13 @@
     ../../common.nix
     ../../services/sunshine.nix
     ../../pkgs/bootloader.nix
-    # ../../pkgs/gdm.nix
-    ../../pkgs/lightdm.nix
+    ../../pkgs/gdm.nix
+    # ../../pkgs/lightdm.nix
   ];
 
   networking.hostName = "oscar-tour";
   services.xserver.xkb.layout = "fr";
-  networking.interfaces.enp5s0.wakeOnLan.enable = true;
+  # networking.interfaces.enp5s0.wakeOnLan.enable = true;
   networking.wireless.enable = false;
   services.displayManager.autoLogin.enable = true;
   hardware.ckb-next.enable = true;
