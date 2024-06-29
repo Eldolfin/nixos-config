@@ -16,7 +16,9 @@
           insert = "bar";
           select = "underline";
         };
-        # whitespace.render = { newline = "all"; }; # thats ugly tho
+        whitespace.render = {
+          newline = "all";
+        }; # thats ugly tho
         indent-guides = {
           render = true;
           skip-levels = 1;
