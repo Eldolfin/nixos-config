@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ helix-gpt ];
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -42,7 +41,7 @@
     };
     languages = {
       language-server = {
-        # gpt.command = "${pkgs.helix-gpt}/bin/helix-gpt"; # needs api (TODO: setup secrets in nix config)
+        gpt.command = "${pkgs.helix-gpt}/bin/helix-gpt";
         nil.command = "${pkgs.nil}/bin/nil";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       };
