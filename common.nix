@@ -1,5 +1,10 @@
-# this file is common between tour and laptor
-{ pkgs, inputs, ... }:
+# this file is common between tour and laptop
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./pkgs/x11.nix
@@ -16,7 +21,9 @@
     secrets = {
       example-key = { };
       "myservice/my_subdir/my_secret" = { };
-      "apis/COPILOT_API_KEY" = { };
+      "apis/COPILOT_API_KEY" = {
+        owner = config.users.users.oscar.name;
+      };
     };
   };
 
