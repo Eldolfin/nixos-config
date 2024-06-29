@@ -41,7 +41,13 @@
     };
     languages = {
       language-server = {
-        gpt.command = "${pkgs.helix-gpt}/bin/helix-gpt";
+        gpt = {
+          command = "${pkgs.helix-gpt}/bin/helix-gpt";
+          args = [
+            "--handler"
+            "codeium"
+          ];
+        };
         nil.command = "${pkgs.nil}/bin/nil";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       };
