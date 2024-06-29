@@ -16,7 +16,7 @@
     secrets = {
       example-key = { };
       "myservice/my_subdir/my_secret" = { };
-      "api/COPILOT_API_KEY" = { };
+      "apis/COPILOT_API_KEY" = { };
     };
   };
 
