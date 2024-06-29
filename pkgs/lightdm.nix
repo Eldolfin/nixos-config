@@ -1,2 +1,8 @@
-# usefull config file...
-{ services.xserver.displayManager.lightdm.enable = true; }
+{
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    extraConfig = ''
+      logind-check-graphical=true
+    '';
+  };
+}
