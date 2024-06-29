@@ -12,7 +12,7 @@
   services.xserver.xkb.layout = "fr";
   # networking.interfaces.enp5s0.wakeOnLan.enable = true;
   networking.wireless.enable = false;
-  services.displayManager.autoLogin.enable = false;
+  services.displayManager.autoLogin.enable = true;
   hardware.ckb-next.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
