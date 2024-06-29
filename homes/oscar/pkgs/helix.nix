@@ -44,10 +44,10 @@
     languages = {
       language-server = {
         gpt = {
-          command = "~/.bun/bin/bun";
+          command = "/home/oscar/.bun/bin/bun";
           args = [
             "run"
-            "~/Prog/helix-gpt-tmp/src/app.ts"
+            "/home/oscar/Prog/helix-gpt-tmp/src/app.ts"
           ];
           # broken atm
           # command = "${pkgs.helix-gpt}/bin/helix-gpt";
