@@ -7,9 +7,10 @@
 {
   imports = [
     ../../common.nix
-    ../../pkgs/sddm.nix
+    # ../../pkgs/sddm.nix
     ../../services/autocpufreq.nix
     ../../pkgs/bootloader.nix
+    ../../pkgs/lightdm.nix
   ];
   networking.hostName = "oscar-portable";
   # networking.wireless.enable = true;
