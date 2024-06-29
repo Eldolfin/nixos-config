@@ -19,6 +19,7 @@
   # enable cuda
   nixpkgs.config.cudaSupport = true;
 
+  powerManagement.cpuFreqGovernor = "performance";
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
