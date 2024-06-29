@@ -44,11 +44,17 @@
     languages = {
       language-server = {
         gpt = {
-          command = "${pkgs.helix-gpt}/bin/helix-gpt";
+          command = "~/.bun/bin/bun";
           args = [
-            "--handler"
-            "codeium"
+            "run"
+            "src/app.ts"
           ];
+          # broken atm
+          # command = "${pkgs.helix-gpt}/bin/helix-gpt";
+          # args = [
+          #   "--handler"
+          #   "codeium"
+          # ];
         };
         nil.command = "${pkgs.nil}/bin/nil";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
