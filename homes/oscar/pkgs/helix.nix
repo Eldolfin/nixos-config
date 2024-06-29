@@ -47,7 +47,7 @@
           command = "~/.bun/bin/bun";
           args = [
             "run"
-            "src/app.ts"
+            "~/Prog/helix-gpt-tmp/src/app.ts"
           ];
           # broken atm
           # command = "${pkgs.helix-gpt}/bin/helix-gpt";
