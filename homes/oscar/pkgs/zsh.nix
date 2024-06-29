@@ -87,6 +87,8 @@
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
       clear
       fastfetch
+
+      export COPILOT_API_KEY=$(cat /run/secrets/apis/COPILOT_API_KEY)
     '';
 
     oh-my-zsh = {
