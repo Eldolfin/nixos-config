@@ -67,11 +67,11 @@
     };
 
     plugins = [
-      {
-        name = "vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      }
+      # {
+      #   name = "vi-mode";
+      #   src = pkgs.zsh-vi-mode;
+      #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      # }
     ];
 
     initExtra = ''
@@ -79,9 +79,9 @@
       bindkey "^[[1;5D" backward-word
 
       # workaround to give back ctrl+z to fancy-ctrl-z plugin
-      function zvm_after_init() {
-        zvm_bindkey viins '^Z' fancy-ctrl-z
-      }
+      # function zvm_after_init() {
+      #  zvm_bindkey viins '^Z' fancy-ctrl-z
+      # }
 
       # ignore case in completion if no case-sensitive match were found
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
