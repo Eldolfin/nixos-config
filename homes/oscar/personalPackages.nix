@@ -14,6 +14,7 @@
     # ./pkgs/editing.nix
     # ./pkgs/nixvim.nix
     ./pkgs/sounds.nix
+    ./pkgs/bloat.nix
   ];
 
   programs.emacs.enable = true;
