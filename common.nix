@@ -19,8 +19,6 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/oscar/.config/sops/age/keys.txt";
     secrets = {
-      example-key = { };
-      "myservice/my_subdir/my_secret" = { };
       "apis/COPILOT_API_KEY" = {
         owner = config.users.users.oscar.name;
       };
@@ -226,6 +224,9 @@
     blueman.enable = true;
     # multimedia server (for play pause keys)
     mmsd.enable = true;
+    # kills the app that uses the most memory when <10% is available
+    # prevents freeze which requires a reboot
+    earlyoom.enable = true;
   };
 
   programs.adb.enable = true;
