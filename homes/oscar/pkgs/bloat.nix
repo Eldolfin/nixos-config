@@ -3,8 +3,8 @@
 {
   # long to build...
   home.packages = with pkgs; [
-    rustdesk
+    # rustdesk
     obs-studio
-    handbrake
+    # handbrake
   ];
 }
