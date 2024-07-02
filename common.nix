@@ -192,7 +192,7 @@
       #   enable = true;
       #   setSocketVariable = true;
       # };
-      # enableNvidia = true;
+      enableNvidia = true;
     };
 
     podman = {
