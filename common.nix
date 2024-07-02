@@ -188,10 +188,10 @@
   virtualisation = {
     docker = {
       enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
+      # rootless = {
+      #   enable = true;
+      #   setSocketVariable = true;
+      # };
       # enableNvidia = true;
     };
 

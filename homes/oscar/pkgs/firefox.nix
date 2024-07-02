@@ -41,7 +41,7 @@
         decentraleyes
         french-dictionary
         french-language-pack
-        floccus
+        # floccus # not used
         jump-cutter
         github-file-icons
         gruvbox-dark-theme
