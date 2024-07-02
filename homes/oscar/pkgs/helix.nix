@@ -43,21 +43,22 @@
     };
     languages = {
       language-server = {
-        gpt = {
-          command = "/home/oscar/.bun/bin/bun";
-          args = [
-            "run"
-            "/home/oscar/Prog/helix-gpt-tmp/src/app.ts"
-            "--handler"
-            "copilot"
-          ];
-          # broken atm
-          # command = "${pkgs.helix-gpt}/bin/helix-gpt";
-          # args = [
-          #   "--handler"
-          #   "codeium"
-          # ];
-        };
+        # github is not happy about this
+        # gpt = {
+        #   command = "/home/oscar/.bun/bin/bun";
+        #   args = [
+        #     "run"
+        #     "/home/oscar/Prog/helix-gpt-tmp/src/app.ts"
+        #     "--handler"
+        #     "copilot"
+        #   ];
+        #   # broken atm
+        #   # command = "${pkgs.helix-gpt}/bin/helix-gpt";
+        #   # args = [
+        #   #   "--handler"
+        #   #   "codeium"
+        #   # ];
+        # };
         nil.command = "${pkgs.nil}/bin/nil";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       };
