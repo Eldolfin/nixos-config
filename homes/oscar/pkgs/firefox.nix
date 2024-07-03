@@ -3,6 +3,7 @@
   programs.firefox = {
     enable = true;
     profiles.homemanager = {
+      isDefault = true;
       settings = {
         "extensions.autoDisableScopes" = 0;
         "extensions.pocket.enabled" = false;
@@ -15,8 +16,29 @@
         "browser.urlbar.suggest.topsites" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.search.region" = "US";
+        "browser.search.isUS" = true;
+        "general.useragent.locale" = "en-US";
       };
       bookmarks = [
+        {
+          name = "Nix";
+          toolbar = true;
+          bookmarks = [
+            {
+              name = "Nixos search";
+              url = "search.nixos.org";
+            }
+            {
+              name = "Home-manager search";
+              url = "https://mipmip.github.io/home-manager-option-search/";
+            }
+            {
+              name = "Manual";
+              url = "https://ryantm.github.io/nixpkgs/functions/library/attrsets";
+            }
+          ];
+        }
         {
           name = "Bookmarks";
           toolbar = true;
@@ -35,13 +57,11 @@
       ];
       extensions = with config.nur.repos.rycee.firefox-addons; [
         bitwarden
-        # chatgptbox
         consent-o-matic
         dearrow
         decentraleyes
         french-dictionary
         french-language-pack
-        # floccus # not used
         jump-cutter
         github-file-icons
         gruvbox-dark-theme
