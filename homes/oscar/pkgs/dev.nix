@@ -28,6 +28,7 @@
     # c/c++
     # jetbrains.clion
     valgrind
+    # gcc12
     clang-tools
     clang
 
@@ -111,7 +112,6 @@
 
     # misc
     # graphviz
-    clang-tools_17
     nodePackages.live-server
     sshfs
     gh

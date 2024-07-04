@@ -25,7 +25,6 @@
     feh
     ffmpeg
     fzf
-    gcc12
     gdb
     git
     git-lfs
