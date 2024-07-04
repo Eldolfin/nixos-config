@@ -14,6 +14,7 @@
         "browser.urlbar.suggest.addons" = false;
         "browser.urlbar.suggest.pocket" = false;
         "browser.urlbar.suggest.topsites" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.search.region" = "US";
