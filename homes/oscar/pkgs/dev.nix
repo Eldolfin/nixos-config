@@ -29,6 +29,7 @@
     # jetbrains.clion
     valgrind
     clang-tools
+    clang++
 
     # go
     go
