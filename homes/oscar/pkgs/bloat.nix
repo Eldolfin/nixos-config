@@ -2,7 +2,7 @@
 
 {
   programs.obs-studio = {
-    enable = true;
+    # enable = true;
   };
   # long to build...
   home.packages = with pkgs; [
