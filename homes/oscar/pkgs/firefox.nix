@@ -8,18 +8,27 @@
         "extensions.autoDisableScopes" = 0;
         "extensions.pocket.enabled" = false;
         "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter,Wikipedia (en),YouTube,eBay";
+
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.openpage" = false;
         "browser.urlbar.suggest.bookmark" = false;
         "browser.urlbar.suggest.addons" = false;
         "browser.urlbar.suggest.pocket" = false;
         "browser.urlbar.suggest.topsites" = false;
+        "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
         "browser.search.region" = "US";
         "browser.search.isUS" = true;
         "general.useragent.locale" = "en-US";
+        # privacy related
+        "privacy.resistFingerprinting" = true;
+        "privacy.donottrackheader.enabled" = true;
+        "dom.battery.enabled" = false;
+        "geo.enabled" = true;
       };
       bookmarks = [
         {
