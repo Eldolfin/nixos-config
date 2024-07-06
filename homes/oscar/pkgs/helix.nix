@@ -27,18 +27,32 @@
           display-messages = true;
           display-inlay-hints = false;
         };
+        file-picker.hidden = false; # show hidden files
       };
-      keys.normal = {
-        X = [
-          "extend_line_up"
-          "extend_to_line_bounds"
-        ];
-      };
-      keys.select = {
-        X = [
-          "extend_line_up"
-          "extend_to_line_bounds"
-        ];
+      keys = {
+
+        normal = {
+          X = [
+            "extend_line_up"
+            "extend_to_line_bounds"
+          ];
+          "C-s" = ":w";
+          "C-space" = "signature_help";
+          a = [
+            "append_mode"
+            "collapse_selection"
+          ];
+        };
+        select = {
+          X = [
+            "extend_line_up"
+            "extend_to_line_bounds"
+          ];
+        };
+        insert = {
+          "C-s" = ":w";
+          C-space = "signature_help";
+        };
       };
     };
     languages = {
@@ -60,10 +74,21 @@
         #   # ];
         # };
         nil.command = "${pkgs.nil}/bin/nil";
+        nixd.command = "${pkgs.nixd}/bin/nixd";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
+        bashls = {
+          command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
+          args = [ "start" ];
+        };
       };
 
       language = [
+        {
+          name = "bash";
+          auto-format = true;
+          formatter.command = "${pkgs.shfmt}/bin/shfmt";
+          language-servers = [ "bashls" ];
+        }
         {
           name = "c";
           auto-format = true;
@@ -74,7 +99,10 @@
           name = "nix";
           auto-format = true;
           formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-          language-servers = [ "nil" ];
+          language-servers = [
+            "nil"
+            "nixd"
+          ];
         }
         {
           name = "rust";
