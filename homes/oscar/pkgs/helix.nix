@@ -30,7 +30,6 @@
         file-picker.hidden = false; # show hidden files
       };
       keys = {
-
         normal = {
           X = [
             "extend_line_up"
@@ -38,10 +37,6 @@
           ];
           "C-s" = ":w";
           "C-space" = "signature_help";
-          a = [
-            "append_mode"
-            "collapse_selection"
-          ];
         };
         select = {
           X = [
@@ -51,7 +46,6 @@
         };
         insert = {
           "C-s" = ":w";
-          C-space = "signature_help";
         };
       };
     };
