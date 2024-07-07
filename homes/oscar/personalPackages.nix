@@ -9,7 +9,7 @@
     ./pkgs/movies.nix
     ./pkgs/zsh.nix
     ./pkgs/cliTools.nix
-    ./pkgs/helix.nix
+    ./pkgs/helix
     ./pkgs/firefox.nix
     # ./pkgs/editing.nix
     # ./pkgs/nixvim.nix
