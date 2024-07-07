@@ -55,13 +55,7 @@
         command = lib.getExe pkgs.dprint;
         args = [ "lsp" ];
       };
-      nil = {
-        command = lib.getExe pkgs.nil;
-        config.nil.formatting.command = [
-          "${lib.getExe pkgs.alejandra}"
-          "-q"
-        ];
-      };
+      nil.command = lib.getExe pkgs.nil;
 
       # maybe remove this idk if it does anything
       typescript-language-server = {

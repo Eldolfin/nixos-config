@@ -6,8 +6,11 @@
     defaultEditor = true;
 
     settings = {
-    theme = "tokyonight_storm";
       editor = {
+      auto-format = true;
+      color-modes =true;
+      completion-timeout = 5; # instant according to the docs
+      popup-border = true;
         bufferline = "multiple";
         cursorline = true;
         cursor-shape = {
