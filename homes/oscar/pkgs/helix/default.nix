@@ -39,6 +39,7 @@
           center = [ "mode" ];
           right = [
             "position-percentage"
+            "spacer"
             "version-control"
             "spacer"
             "diagnostics"
@@ -47,9 +48,6 @@
             "position"
             "file-encoding"
           ];
-          mode.normal = "██████████";
-          mode.insert = "██████████";
-          mode.select = "██████████";
         };
       };
       keys = {
