@@ -98,6 +98,10 @@
             hostInfo = "helix";
           };
       };
+      vscode-html-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
+      vscode-css-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
+      vscode-json-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
+      vscode-markdown-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
     };
 
     language =
@@ -181,6 +185,10 @@
             "gpt"
             "typescript-language-server"
           ];
+        }
+        {
+          name = "markdown";
+          language-servers = [ "vscode-markdown-language-server" ];
         }
       ]
       ++ addPrettierToLangs langsFormattedByPrettier;
