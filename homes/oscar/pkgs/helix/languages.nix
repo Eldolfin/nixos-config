@@ -112,6 +112,7 @@
         addPrettierToLangs = map (lang: {
           name = lang;
           formatter = prettier lang;
+          auto-format = true;
         });
         langsFormattedByPrettier = [
           "css"
