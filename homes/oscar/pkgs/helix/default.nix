@@ -1,3 +1,4 @@
+{ ... }:
 {
   imports = [ ./languages.nix ];
   programs.helix = {
