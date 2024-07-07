@@ -36,7 +36,7 @@
             "read-only-indicator"
             "file-modification-indicator"
           ];
-          middle = [ "mode" ];
+          center = [ "mode" ];
           right = [
             "position-percentage"
             "version-control"
