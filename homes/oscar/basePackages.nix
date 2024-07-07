@@ -5,7 +5,6 @@
     ./pkgs/terminal.nix
     ./pkgs/lazyvim.nix
     ./pkgs/essentialCliTools.nix
-    ./pkgs/helix.nix
   ];
   home.packages = with pkgs; [
     neovim
