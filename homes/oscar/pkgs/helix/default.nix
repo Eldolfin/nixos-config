@@ -23,7 +23,7 @@
         };
         lsp = {
           display-messages = true;
-          display-inlay-hints = false;
+          display-inlay-hints = true;
         };
         file-picker.hidden = false; # show hidden files
       };
@@ -34,7 +34,6 @@
             "extend_to_line_bounds"
           ];
           "C-s" = ":w";
-          "C-space" = "signature_help";
         };
         select = {
           X = [
