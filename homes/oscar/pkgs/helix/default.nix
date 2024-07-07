@@ -10,7 +10,6 @@
         auto-format = true;
         color-modes = true;
         completion-timeout = 5; # instant according to the docs
-        popup-border = "all";
         bufferline = "multiple";
         cursorline = true;
         cursor-shape = {
