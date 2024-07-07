@@ -19,8 +19,8 @@
           select = "underline";
         };
         whitespace.render = {
-          newline = "all";
-        }; # thats ugly tho
+          newline = "all"; # thats ugly tho
+        };
         indent-guides = {
           render = true;
           skip-levels = 1;
@@ -29,6 +29,28 @@
           display-inlay-hints = false;
         };
         file-picker.hidden = false; # show hidden files
+        statusline = {
+          left = [
+            "spinner"
+            "file-name"
+            "read-only-indicator"
+            "file-modification-indicator"
+          ];
+          middle = [ "mode" ];
+          right = [
+            "position-percentage"
+            "version-control"
+            "spacer"
+            "diagnostics"
+            "selections"
+            "register"
+            "position"
+            "file-encoding"
+          ];
+          mode.normal = "██████████";
+          mode.insert = "██████████";
+          mode.select = "██████████";
+        };
       };
       keys = {
         normal = {
