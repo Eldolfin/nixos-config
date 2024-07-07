@@ -6,6 +6,7 @@
     defaultEditor = true;
 
     settings = {
+    theme = "tokyonight_storm";
       editor = {
         bufferline = "multiple";
         cursorline = true;

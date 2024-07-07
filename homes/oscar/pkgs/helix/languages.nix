@@ -98,10 +98,10 @@
             hostInfo = "helix";
           };
       };
-      vscode-html-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
-      vscode-css-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
-      vscode-json-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
-      vscode-markdown-language-server.bin = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
+      vscode-html-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
+      vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
+      vscode-json-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
+      vscode-markdown-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
     };
 
     language =
