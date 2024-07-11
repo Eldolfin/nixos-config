@@ -4,14 +4,14 @@
     docker-compose
     vscode-fhs
     # jetbrains
-    jetbrains-toolbox
+    # jetbrains-toolbox
 
     # java
     # jetbrains.idea-community
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    maven
-    openjdk17
+    # jetbrains.idea-ultimate
+    # jetbrains.pycharm-professional
+    # maven
+    # openjdk17
 
     # rust
     # evcxr
@@ -27,15 +27,15 @@
 
     # c/c++
     # jetbrains.clion
-    valgrind
+    # valgrind
     # gcc12
     clang-tools
     clang
 
     # go
-    go
-    gopls
-    gotools
+    # go
+    # gopls
+    # gotools
 
     # python
     # jetbrains.pycharm-professional
@@ -44,7 +44,7 @@
     poetry
     poethepoet
 
-    (pkgs.python311Full.withPackages (ppkgs: [
+    (python311Full.withPackages (ppkgs: [
       ppkgs.scipy
       ppkgs.matplotlib
       # ppkgs.notebook
@@ -54,20 +54,20 @@
     ]))
     python311Packages.pip
     python311Packages.bpython
-    grip # github markdown preview
+    # grip # github markdown preview
 
     # c#
-    mono
-    jetbrains.rider
-    dotnet-sdk_7
+    # mono
+    # jetbrains.rider
+    # dotnet-sdk_7
 
     # js
     yarn
     typescript
 
     # nix
-    nixpkgs-fmt
-    nil
+    # nixpkgs-fmt
+    # nil
 
     # kubernetes
     # kubectl
@@ -100,12 +100,13 @@
     # php83
 
     # Language servers
-    lua-language-server
-    nodePackages_latest.typescript-language-server
-    docker-compose-language-service
-    yaml-language-server
-    dockerfile-language-server-nodejs
-    python311Packages.python-lsp-server
+    # now in helix config directly
+    # lua-language-server
+    # nodePackages_latest.typescript-language-server
+    # docker-compose-language-service
+    # yaml-language-server
+    # dockerfile-language-server-nodejs
+    # python311Packages.python-lsp-server
 
     # Arduino
     # arduino
