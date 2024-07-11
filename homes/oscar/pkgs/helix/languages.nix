@@ -96,6 +96,7 @@
       vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
       vscode-json-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
       vscode-markdown-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
+      pylsp.command = "${pkgs.python311Packages.python-lsp-server}/bin/pylsp";
     };
 
     language =
