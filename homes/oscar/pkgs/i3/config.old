@@ -1,5 +1,4 @@
 set $mod Mod4
-set $statuscmd i3blocks
 set $scripts ~/.config/i3/scripts
 set $primary_mon HDMI-0
 set $other_mon DVI-D-0
@@ -151,7 +150,6 @@ bindsym $mod+Shift+Return exec --no-startup-id aplay Music/sounds/boom.wav
 set $volumepath ~/.config/i3/scripts/i3-volume
 set $statussig 10
 set $volumestep 5
-set $volumeargs -P -n -t $statuscmd -u $statussig
 
 # when using pulseaudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep -y
@@ -187,10 +185,6 @@ set $gapsouter 2
 # set default gaps
 gaps inner $gapsinner
 gaps outer $gapsouter
-
-bar {
-    status_command $statuscmd
-}
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+P move scratchpad
