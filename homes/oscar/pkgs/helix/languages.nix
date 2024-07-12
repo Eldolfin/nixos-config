@@ -19,11 +19,10 @@
           "--allow-net"
           "--allow-env"
           "https://raw.githubusercontent.com/sigmaSd/helix-gpt/0.31-deno/src/app.ts"
-          "--"
-          "--handler"
-          "codeium"
         ];
-        # command = "${pkgs.helix-gpt}/bin/helix-gpt";
+        environment = {
+          HANDLER = "codeium";
+        };
       };
       nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
