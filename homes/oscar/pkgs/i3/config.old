@@ -7,10 +7,6 @@ set $term alacritty
 
 bindsym $mod+t exec $term -e btop -p 1
 
-font pango:MesloLGS NF 8
-
-#font pango:DejaVu Sans Mono 8
-
 exec --no-startup-id dex --autostart --environment i3
 
 exec --no-startup-id nm-applet
@@ -212,29 +208,7 @@ set $gapsouter 2
 gaps inner $gapsinner
 gaps outer $gapsouter
 
-# Gaps on/off switching mode
-set $mode_gaps Toggle gaps: (1) on (2) off
-bindsym $mod+F1 mode "$mode_gaps"
-mode "$mode_gaps" {
-    bindsym 1 mode "default", gaps inner all set $gapsinner, gaps outer all set $gapsouter
-    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# toggle lamp
-bindsym $mod+m exec curl 'http://192.168.1.31/cm?cmnd=POWER+TOGGLE'
-
-# exec --no-startup-id "/home/oscar.le-dauphin/afs/.confs/install_in_terminal.sh"
-exec setxkbmap -option caps:escape
-
-
-
-# exec_always ~/.config/polybar/launch.sh
-
 bar {
-
-    # position top
     status_command $statuscmd
 }
 
