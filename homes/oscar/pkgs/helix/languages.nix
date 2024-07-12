@@ -1,6 +1,18 @@
 { pkgs, lib, ... }:
 {
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      bun = prev.sl.overrideAttrs (old: {
+        src = prev.fetchFromGitHub {
+          owner = "nixos";
+          repo = "nipkgs";
+          rev = "9e58aca561e18f5197029926db8dbde1738a2ff5";
+          hash = "";
+        };
+      });
+    })
+  ];
   programs.helix.languages = {
     language-server = {
       # github is not happy about this
