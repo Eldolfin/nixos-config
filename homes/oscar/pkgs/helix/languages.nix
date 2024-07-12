@@ -1,18 +1,6 @@
 { pkgs, lib, ... }:
 {
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      bun = prev.sl.overrideAttrs (old: {
-        src = prev.fetchFromGitHub {
-          owner = "nixos";
-          repo = "nipkgs";
-          rev = "9e58aca561e18f5197029926db8dbde1738a2ff5";
-          hash = "";
-        };
-      });
-    })
-  ];
   programs.helix.languages = {
     language-server = {
       # github is not happy about this
@@ -25,11 +13,17 @@
       #     "copilot"
       #   ];
       gpt = {
-        command = "${pkgs.helix-gpt}/bin/helix-gpt";
+        command = "deno";
         args = [
+          "run"
+          "--allow-net"
+          "--allow-env"
+          "https://raw.githubusercontent.com/sigmaSd/helix-gpt/0.31-deno/src/app.ts"
+          "--"
           "--handler"
           "codeium"
         ];
+        # command = "${pkgs.helix-gpt}/bin/helix-gpt";
       };
       nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
