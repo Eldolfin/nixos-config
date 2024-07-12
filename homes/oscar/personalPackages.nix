@@ -16,7 +16,7 @@
     ./pkgs/sounds.nix
     ./pkgs/bloat.nix
     ./pkgs/direnv.nix
-    ./pkgs/i3.nix
+    ./pkgs/i3
   ];
 
   programs.emacs.enable = true;
