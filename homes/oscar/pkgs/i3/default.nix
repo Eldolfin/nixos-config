@@ -5,7 +5,7 @@
     extraConfig = lib.strings.fileContents ./config.old;
     config = {
       startup = [ { command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout"; } ];
-      bars = [ {command = "{pkgs.i3blocks/bin/i3blocks}"} ];
+      bars = [ { command = "{pkgs.i3blocks/bin/i3blocks}"; } ];
     };
   };
   programs.i3blocks = {
