@@ -1,0 +1,267 @@
+set $mod Mod4
+set $statuscmd i3blocks
+set $scripts ~/.config/i3/scripts
+set $primary_mon HDMI-0
+set $other_mon DVI-D-0
+set $term alacritty
+
+bindsym $mod+t exec $term -e btop -p 1
+
+font pango:MesloLGS NF 8
+
+#font pango:DejaVu Sans Mono 8
+
+exec --no-startup-id dex --autostart --environment i3
+
+exec --no-startup-id nm-applet
+
+bindsym --release  XF86AudioNext exec --no-startup-id xdotool key 0x0060
+bindsym --release Shift+XF86AudioNext exec --no-startup-id xdotool key 0xfe53
+
+floating_modifier $mod
+
+bindsym $mod+Return exec $term
+bindsym $mod+e exec firefox
+bindsym $mod+Shift+e exec firefox --private-window
+exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
+
+# exec --no-startup-id thunderbird
+# assign [class="^Firefox$"]     number 1
+# assign [class="^Chromium$"]    number 1
+# assign [class="^Alacritty$"]   number 2
+# assign [class="^Thunderbird$"] number 4
+
+# bindsym --release $mod+n exec $term -e zellij --layout tdd
+# bindsym --release $mod+n exec neovide
+
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t3
+bindsym $mod+Shift+x exec "rofi -show p -modi p:'rofi-power-menu'"
+bindsym $mod+b exec --no-startup-id rofi-bluetooth
+bindsym $mod+Shift+b exec --no-startup-id "bluetoothctl connect 88:C9:E8:42:A0:B1"
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+z layout tabbed
+bindsym $mod+a layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+q focus parent
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+Shift+Q kill
+
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Control+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Control+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Control+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Control+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Control+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Control+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Control+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Control+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Control+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Control+0 move container to workspace $ws10; workspace $ws10
+
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym $mod+y resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
+
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+
+bindsym --release Shift+Print exec flameshot gui
+
+bindsym $mod+x exec --no-startup-id $scripts/lock.sh
+
+exec --no-startup-id ~/.screenlayout/normal.sh
+
+bindsym $mod+w exec $scripts/i3-display-swap.sh
+
+
+# clipboard manager
+bindsym $mod+v exec --no-startup-id copyq show
+# for_window [instance="copyq"] floating enable
+# for_window [app_id="com.github.hluk.copyq"] floating enable
+exec --no-startup-id copyq --start-server
+
+# brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s -e 8%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s -e 8%-
+
+# bluetooth applet
+exec --no-startup-id /usr/bin/blueman-applet
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+
+# emoji picker
+exec --no-startup-id emote
+
+# low battery pop-up
+exec --no-startup-id i3-battery-popup
+
+# sound effects
+bindsym $mod+Shift+Return exec --no-startup-id aplay Music/sounds/boom.wav
+
+set $volumepath ~/.config/i3/scripts/i3-volume
+set $statussig 10
+set $volumestep 5
+set $volumeargs -P -n -t $statuscmd -u $statussig
+
+# when using pulseaudio
+bindsym XF86AudioRaiseVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep -y
+bindsym XF86AudioLowerVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep -y
+bindsym XF86AudioMute        exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs mute -y
+
+# when using pipewire
+# bindsym XF86AudioRaiseVolume exec pamixer -i 5
+# bindsym XF86AudioLowerVolume exec pamixer -d 5
+# bindsym XF86AudioMute        exec pamixer -t
+
+bindsym F2 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep -y
+bindsym F3 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep -y
+
+# put a random background
+# exec --no-startup-id ~/.config/i3/scripts/update_background.sh
+
+# start redshift
+# exec --no-startup-id redshift-gtk
+
+exec --no-startup-id sudo ckb-next-daemon
+exec --no-startup-id ckb-next -b
+
+exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus" &
+
+# hide window decorations
+# default_border none
+# Gaps settings
+smart_gaps on
+
+#default gap sizes
+set $gapsinner 5
+set $gapsouter 2
+
+# set default gaps
+gaps inner $gapsinner
+gaps outer $gapsouter
+
+# Gaps on/off switching mode
+set $mode_gaps Toggle gaps: (1) on (2) off
+bindsym $mod+F1 mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym 1 mode "default", gaps inner all set $gapsinner, gaps outer all set $gapsouter
+    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# toggle lamp
+bindsym $mod+m exec curl 'http://192.168.1.31/cm?cmnd=POWER+TOGGLE'
+
+# exec --no-startup-id "/home/oscar.le-dauphin/afs/.confs/install_in_terminal.sh"
+exec setxkbmap -option caps:escape
+
+
+
+# exec_always ~/.config/polybar/launch.sh
+
+bar {
+
+    # position top
+    status_command $statuscmd
+}
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+P move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+p scratchpad show
+
+# screen layout
+exec --no-startup-id ~/.screenlayout/normal.sh
+# auto window layout
+exec --no-startup-id i3-auto-layout
+
+# input type:touchpad {
+# natural_scroll enabled
+# }
+
+# # input "type:keyboard" {
+# #     xkb_layout gb
+# #     xkb_options caps:escape
+# #     repeat_delay 250
+# #     repeat_rate 50
+# }
+
+
+# sway fx config
+# blur enable
+# corner_radius 5
+# shadows disable
