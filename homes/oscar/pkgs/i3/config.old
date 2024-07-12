@@ -5,36 +5,6 @@ set $primary_mon HDMI-0
 set $other_mon DVI-D-0
 set $term alacritty
 
-bindsym $mod+t exec $term -e btop -p 1
-
-exec --no-startup-id dex --autostart --environment i3
-
-exec --no-startup-id nm-applet
-
-bindsym --release  XF86AudioNext exec --no-startup-id xdotool key 0x0060
-bindsym --release Shift+XF86AudioNext exec --no-startup-id xdotool key 0xfe53
-
-floating_modifier $mod
-
-bindsym $mod+Return exec $term
-bindsym $mod+e exec firefox
-bindsym $mod+Shift+e exec firefox --private-window
-exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
-
-# exec --no-startup-id thunderbird
-# assign [class="^Firefox$"]     number 1
-# assign [class="^Chromium$"]    number 1
-# assign [class="^Alacritty$"]   number 2
-# assign [class="^Thunderbird$"] number 4
-
-# bindsym --release $mod+n exec $term -e zellij --layout tdd
-# bindsym --release $mod+n exec neovide
-
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t3
-bindsym $mod+Shift+x exec "rofi -show p -modi p:'rofi-power-menu'"
-bindsym $mod+b exec --no-startup-id rofi-bluetooth
-bindsym $mod+Shift+b exec --no-startup-id "bluetoothctl connect 88:C9:E8:42:A0:B1"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -128,21 +98,34 @@ bindsym $mod+u resize grow height 10 px or 10 ppt
 bindsym $mod+i resize shrink height 10 px or 10 ppt
 bindsym $mod+o resize grow width 10 px or 10 ppt
 
-bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+bindsym $mod+t exec $term -e btop -p 1
+
+exec --no-startup-id nm-applet
+
+bindsym --release  XF86AudioNext exec --no-startup-id xdotool key 0x0060
+bindsym --release Shift+XF86AudioNext exec --no-startup-id xdotool key 0xfe53
+
+floating_modifier $mod
+
+bindsym $mod+Return exec $term
+bindsym $mod+e exec firefox
+bindsym $mod+Shift+e exec firefox --private-window
+# exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
+
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+x exec "rofi -show p -modi p:'rofi-power-menu'"
+bindsym $mod+Shift+b exec --no-startup-id "bluetoothctl connect 88:C9:E8:42:A0:B1"
 
 bindsym --release Shift+Print exec flameshot gui
 
-bindsym $mod+x exec --no-startup-id $scripts/lock.sh
-
-exec --no-startup-id ~/.screenlayout/normal.sh
+bindsym $mod+x exec --no-startup-id i3lock-fancy-rapid 0 1
 
 bindsym $mod+w exec $scripts/i3-display-swap.sh
 
-
 # clipboard manager
 bindsym $mod+v exec --no-startup-id copyq show
-# for_window [instance="copyq"] floating enable
-# for_window [app_id="com.github.hluk.copyq"] floating enable
+for_window [app_id="com.github.hluk.copyq"] floating enable
 exec --no-startup-id copyq --start-server
 
 # brightness
@@ -150,7 +133,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s -e 8%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s -e 8%-
 
 # bluetooth applet
-exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id blueman-applet
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -183,11 +166,8 @@ bindsym XF86AudioMute        exec --no-startup-id USE_AMIXER=1 $volumepath/volum
 bindsym F2 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep -y
 bindsym F3 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep -y
 
-# put a random background
-# exec --no-startup-id ~/.config/i3/scripts/update_background.sh
-
 # start redshift
-# exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk
 
 exec --no-startup-id sudo ckb-next-daemon
 exec --no-startup-id ckb-next -b
@@ -217,25 +197,3 @@ bindsym $mod+Shift+P move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+p scratchpad show
-
-# screen layout
-exec --no-startup-id ~/.screenlayout/normal.sh
-# auto window layout
-exec --no-startup-id i3-auto-layout
-
-# input type:touchpad {
-# natural_scroll enabled
-# }
-
-# # input "type:keyboard" {
-# #     xkb_layout gb
-# #     xkb_options caps:escape
-# #     repeat_delay 250
-# #     repeat_rate 50
-# }
-
-
-# sway fx config
-# blur enable
-# corner_radius 5
-# shadows disable
