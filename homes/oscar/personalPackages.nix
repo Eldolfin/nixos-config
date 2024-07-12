@@ -17,6 +17,7 @@
     ./pkgs/bloat.nix
     ./pkgs/direnv.nix
     ./pkgs/i3
+    ./pkgs/scripts
   ];
 
   programs.emacs.enable = true;

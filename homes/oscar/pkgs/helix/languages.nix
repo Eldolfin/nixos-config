@@ -12,13 +12,13 @@
       #     "--handler"
       #     "copilot"
       #   ];
-      #   # broken atm
-      #   # command = "${pkgs.helix-gpt}/bin/helix-gpt";
-      #   # args = [
-      #   #   "--handler"
-      #   #   "codeium"
-      #   # ];
-      # };
+      gpt = {
+        command = "${pkgs.helix-gpt}/bin/helix-gpt";
+        args = [
+          "--handler"
+          "codeium"
+        ];
+      };
       nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
