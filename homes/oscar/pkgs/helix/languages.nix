@@ -13,7 +13,7 @@
       #     "copilot"
       #   ];
       gpt = {
-        command = "deno";
+        command = lib.getExe pkgs.deno;
         args = [
           "run"
           "--allow-net"
@@ -29,31 +29,6 @@
       bashls = {
         command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
         args = [ "start" ];
-      };
-      # https://github.com/fufexan/dotfiles/blob/41dce2c7884a845887a4bc39ae85cef8bd1fe1fa/home/editors/helix/languages.nix
-      deno-lsp = {
-        command = lib.getExe pkgs.deno;
-        args = [ "lsp" ];
-        environment.NO_COLOR = "1";
-        config.deno = {
-          enable = true;
-          lint = true;
-          unstable = true;
-          suggest = {
-            completeFunctionCalls = false;
-            imports = {
-              hosts."https://deno.land" = true;
-            };
-          };
-          inlayHints = {
-            enumMemberValues.enabled = true;
-            functionLikeReturnTypes.enabled = true;
-            parameterNames.enabled = "all";
-            parameterTypes.enabled = true;
-            propertyDeclarationTypes.enabled = true;
-            variableTypes.enabled = true;
-          };
-        };
       };
 
       dprint = {
@@ -106,25 +81,22 @@
 
     language =
       let
-        prettier = lang: {
+        prettier = {
           command = "${pkgs.prettierd}/bin/prettier";
-          args = [
-            "--parser"
-            lang
-          ];
         };
         addPrettierToLangs = map (lang: {
           name = lang;
-          formatter = prettier lang;
+          formatter = prettier;
           auto-format = true;
         });
         langsFormattedByPrettier = [
           "css"
           "html"
-          "typescript"
           "javascript"
           "json"
           "markdown"
+          "tsx"
+          "typescript"
           "yaml"
         ];
       in
@@ -176,7 +148,6 @@
         {
           name = "tsx";
           auto-format = true;
-          formatter = prettier "typescript";
           language-servers = [
             "gpt"
             "typescript-language-server"

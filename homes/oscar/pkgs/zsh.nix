@@ -37,8 +37,6 @@
     defaultKeymap = "emacs";
     shellAliases = {
       clone = ''alacritty -e zsh -c "cd $(pwd); zsh -i"&!'';
-      # vi = "nvim";
-      vi = "hx";
       svi = "sudo -E -s nvim";
       vimdiff = "nvim -d";
       top = "btop";
@@ -77,17 +75,12 @@
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
 
-      # workaround to give back ctrl+z to fancy-ctrl-z plugin
-      # function zvm_after_init() {
-      #  zvm_bindkey viins '^Z' fancy-ctrl-z
-      # }
-
       # ignore case in completion if no case-sensitive match were found
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
-      clear
-      fastfetch
+      # clear
+      # fastfetch
 
-      export COPILOT_API_KEY=$(cat /run/secrets/apis/COPILOT_API_KEY)
+      # export COPILOT_API_KEY=$(cat /run/secrets/apis/COPILOT_API_KEY)
     '';
 
     oh-my-zsh = {
