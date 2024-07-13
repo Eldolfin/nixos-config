@@ -81,6 +81,12 @@
 
       # ignore case in completion if no case-sensitive match were found
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
+
+      # zsh-notify params
+      zstyle ':notify:*' expire-time 5000 # notification stay for 5s
+      zstyle ':notify:*' enable-on-ssh yes
+
+      # anoying
       # clear
       # fastfetch
 

@@ -3,7 +3,7 @@
   imports = [
     ./pkgs/wm.nix
     ./pkgs/terminal.nix
-    ./pkgs/lazyvim.nix
+    # ./pkgs/lazyvim.nix
     ./pkgs/essentialCliTools.nix
   ];
   home.packages = with pkgs; [
