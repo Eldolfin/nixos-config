@@ -1,7 +1,8 @@
 {
   imports = [
     ../../common.nix
-    ../../services/sunshine.nix
+    ../../pkgs/grub.nix
+    # ../../services/sunshine.nix
   ];
 
   networking.hostName = "oscar-tour";

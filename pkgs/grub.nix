@@ -1,9 +1,7 @@
 {
   boot.loader = {
-    # systemd-boot.enable = true;
-
     grub = {
-      enable = false;
+      enable = true;
       useOSProber = true;
       efiSupport = true;
       efiInstallAsRemovable = true; # Otherwise /boot/EFI/BOOT/BOOTX64.EFI isn't generated

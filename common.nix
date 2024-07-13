@@ -10,7 +10,6 @@
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
     ./pkgs/plymouth.nix
-    ./pkgs/bootloader.nix
     ./pkgs/lightdm.nix
     inputs.sops-nix.nixosModules.sops
     # ./pkgs/hyprland.nix

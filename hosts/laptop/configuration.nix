@@ -2,6 +2,7 @@
   imports = [
     ../../common.nix
     ../../services/autocpufreq.nix
+    ../../pkgs/systemd-boot.nix
   ];
   networking.hostName = "oscar-portable";
   # networking.wireless.enable = true;

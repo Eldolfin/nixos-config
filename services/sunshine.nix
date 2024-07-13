@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   services.sunshine = {
-    enable = false;
+    enable = true;
     openFirewall = true;
     capSysAdmin = true;
     applications = {
