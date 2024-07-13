@@ -6,6 +6,7 @@
     config = {
       startup = [ { command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout"; } ];
       bars = [ { statusCommand = "${pkgs.i3blocks}/bin/i3blocks"; } ];
+      defaultWorkspace = "workspace number 1";
     };
   };
   programs.i3blocks = {
