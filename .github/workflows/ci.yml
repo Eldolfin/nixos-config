@@ -16,4 +16,4 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Run `nix build` for tour config
-        run: nix build /etc/nixos#nixosConfigurations.oscar-tour.config.system.build.toplevel
+        run: nix build '#nixosConfigurations.oscar-tour.config.system.build.toplevel'
