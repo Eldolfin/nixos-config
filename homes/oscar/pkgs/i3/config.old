@@ -54,9 +54,6 @@ bindsym --release Shift+XF86AudioNext exec --no-startup-id xdotool key 0xfe53
 
 floating_modifier $mod
 
-bindsym $mod+e exec firefox
-bindsym $mod+Shift+e exec firefox --private-window
-# exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
 
 bindsym $mod+Shift+x exec "rofi -show p -modi p:'rofi-power-menu'"
@@ -66,12 +63,8 @@ bindsym --release Shift+Print exec flameshot gui
 
 bindsym $mod+x exec --no-startup-id i3lock-fancy-rapid 0 1
 
-bindsym $mod+w exec $scripts/i3-display-swap.sh
-
 # clipboard manager
-bindsym $mod+v exec --no-startup-id copyq show
 for_window [class="copyq"] floating enable
-# exec --no-startup-id copyq --start-server
 
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s -e 8%+
