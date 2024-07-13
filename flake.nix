@@ -62,6 +62,9 @@
       nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = commonModules ++ [ ./hosts/iso/configuration.nix ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
 }
