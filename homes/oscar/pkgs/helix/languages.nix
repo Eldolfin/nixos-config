@@ -75,108 +75,89 @@
       pylsp.command = "${pkgs.python311Packages.python-lsp-server}/bin/pylsp";
     };
 
-    language =
-      let
-        deno = lang: {
+    language = [
+      {
+        name = "bash";
+        auto-format = true;
+        formatter.command = lib.getExe pkgs.shfmt;
+        language-servers = [
+          "bashls"
+          "gpt"
+        ];
+      }
+      {
+        name = "c";
+        auto-format = true;
+        formatter.command = "${pkgs.clang-tools}/bin/clang-format";
+        language-servers = [
+          "clangd"
+          "gpt"
+        ];
+      }
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        language-servers = [
+          "nil"
+          "nixd"
+          "gpt"
+        ];
+      }
+      {
+        name = "rust";
+        auto-format = true;
+        formatter.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        language-servers = [
+          "rust-analyzer"
+          "gpt"
+        ];
+      }
+      {
+        name = "typescript";
+        language-servers = [
+          "gpt"
+          "typescript-language-server"
+        ];
+        formatter = {
           command = lib.getExe pkgs.deno;
           args = [
             "fmt"
             "-"
             "--ext"
-            lang
+            "ts"
           ];
         };
-        addPrettierToLangs = map (lang: {
-          name = lang;
-          formatter = deno lang;
-          auto-format = true;
-        });
-        langsFormattedByPrettier = [
-          "css"
-          "html"
-          "javascript"
-          "json"
-          "markdown"
-          "tsx"
-          "typescript"
-          "yaml"
+      }
+      {
+        name = "tsx";
+        auto-format = true;
+        language-servers = [
+          "gpt"
+          "typescript-language-server"
         ];
-      in
-      [
-        {
-          name = "bash";
-          auto-format = true;
-          formatter.command = "${pkgs.shfmt}/bin/shfmt";
-          language-servers = [
-            "bashls"
-            "gpt"
-          ];
-        }
-        {
-          name = "c";
-          auto-format = true;
-          formatter.command = "${pkgs.clang-tools}/bin/clang-format";
-          language-servers = [
-            "clangd"
-            "gpt"
-          ];
-        }
-        {
-          name = "nix";
-          auto-format = true;
-          formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-          language-servers = [
-            "nil"
-            "nixd"
-            "gpt"
-          ];
-        }
-        {
-          name = "rust";
-          auto-format = true;
-          formatter.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-          language-servers = [
-            "rust-analyzer"
-            "gpt"
-          ];
-        }
-        {
-          name = "typescript";
-          language-servers = [
-            "gpt"
-            "typescript-language-server"
-          ];
-        }
-        {
-          name = "tsx";
-          auto-format = true;
-          language-servers = [
-            "gpt"
-            "typescript-language-server"
-          ];
-        }
-        {
-          name = "python";
-          language-servers = [
-            "gpt"
-            "pylsp"
-          ];
-        }
-        {
-          name = "javascript";
-          language-servers = [
-            "gpt"
-            "typescript-language-server"
-          ];
-        }
-        {
-          name = "markdown";
-          language-servers = [
-            "vscode-markdown-language-server"
-            "gpt"
-          ];
-        }
-      ]
-      ++ addPrettierToLangs langsFormattedByPrettier;
+      }
+      {
+        name = "python";
+        language-servers = [
+          "gpt"
+          "pylsp"
+        ];
+      }
+      {
+        name = "javascript";
+        language-servers = [
+          "gpt"
+          "typescript-language-server"
+        ];
+      }
+      {
+        name = "markdown";
+        language-servers = [
+          "vscode-markdown-language-server"
+          "gpt"
+        ];
+      }
+    ];
   };
 }
