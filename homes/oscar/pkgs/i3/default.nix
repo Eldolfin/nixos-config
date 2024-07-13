@@ -4,7 +4,12 @@
     enable = true;
     extraConfig = lib.strings.fileContents ./config.old;
     config = {
-      startup = [ { command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout"; } ];
+      startup = [
+        {
+          command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
+          notification = false;
+        }
+      ];
       bars = [ { statusCommand = "${pkgs.i3blocks}/bin/i3blocks"; } ];
       defaultWorkspace = "workspace number 1";
     };
