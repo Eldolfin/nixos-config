@@ -1,4 +1,8 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    wmctrl # used by zsh-notify
+  ];
   programs = {
     zoxide = {
       enable = true;
