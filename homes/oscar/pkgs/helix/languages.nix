@@ -31,10 +31,6 @@
         args = [ "start" ];
       };
 
-      dprint = {
-        command = lib.getExe pkgs.dprint;
-        args = [ "lsp" ];
-      };
       nil.command = lib.getExe pkgs.nil;
 
       # maybe remove this idk if it does anything
@@ -81,12 +77,18 @@
 
     language =
       let
-        prettier = {
-          command = "${pkgs.prettierd}/bin/prettier";
+        deno = lang: {
+          command = lib.getExe pkgs.deno;
+          args = [
+            "fmt"
+            "-"
+            "--ext"
+            lang
+          ];
         };
         addPrettierToLangs = map (lang: {
           name = lang;
-          formatter = prettier;
+          formatter = deno lang;
           auto-format = true;
         });
         langsFormattedByPrettier = [
