@@ -15,6 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
+  services.fprintd.enable = true;
 
   # lol (800MHz)
   # powerManagement.cpufreq.max = 800;
