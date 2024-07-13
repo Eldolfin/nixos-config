@@ -133,13 +133,19 @@
           name = "bash";
           auto-format = true;
           formatter.command = "${pkgs.shfmt}/bin/shfmt";
-          language-servers = [ "bashls" ];
+          language-servers = [
+            "bashls"
+            "gpt"
+          ];
         }
         {
           name = "c";
           auto-format = true;
           formatter.command = "${pkgs.clang-tools}/bin/clang-format";
-          language-servers = [ "clangd" ];
+          language-servers = [
+            "clangd"
+            "gpt"
+          ];
         }
         {
           name = "nix";
@@ -148,13 +154,17 @@
           language-servers = [
             "nil"
             "nixd"
+            "gpt"
           ];
         }
         {
           name = "rust";
           auto-format = true;
           formatter.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-          language-servers = [ "rust-analyzer" ];
+          language-servers = [
+            "rust-analyzer"
+            "gpt"
+          ];
         }
         {
           name = "typescript";
@@ -188,7 +198,10 @@
         }
         {
           name = "markdown";
-          language-servers = [ "vscode-markdown-language-server" ];
+          language-servers = [
+            "vscode-markdown-language-server"
+            "gpt"
+          ];
         }
       ]
       ++ addPrettierToLangs langsFormattedByPrettier;

@@ -25,6 +25,9 @@
     };
   };
 
+  # boot animation
+  boot.plymouth.enable = true;
+
   # periodic store optimisation
   nix.optimise.automatic = true;
   nix.gc = {
