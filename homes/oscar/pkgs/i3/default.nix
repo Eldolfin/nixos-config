@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   xsession.windowManager.i3 = {
     enable = true;
@@ -13,6 +18,14 @@
       ];
       bars = [ { statusCommand = "${pkgs.i3blocks}/bin/i3blocks"; } ];
       defaultWorkspace = "workspace number 1";
+      keybindings =
+        let
+          mod = config.xsession.windowManager.i3.config.modifier;
+        in
+        lib.mkOptionDefault {
+          "${mod}+Return" = "exec ${lib.getExe pkgs.alacritty}";
+          "${mod}+d" = "exec ${lib.getExe pkgs.rofi} -show drun";
+        };
     };
   };
   programs.i3blocks = {
