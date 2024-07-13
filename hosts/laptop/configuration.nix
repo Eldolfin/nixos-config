@@ -9,7 +9,7 @@
   services = {
     openssh.enable = false;
     xserver = {
-      layout = "gb";
+      xkb.layout = "gb";
     };
     displayManager.autoLogin.enable = false;
   };
