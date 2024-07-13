@@ -148,21 +148,21 @@ exec --no-startup-id i3-battery-popup
 bindsym $mod+Shift+Return exec --no-startup-id aplay Music/sounds/boom.wav
 
 set $volumepath ~/.config/i3/scripts/i3-volume
-set $statussig 10
 set $volumestep 5
+set $volumeargs -P -n
 
 # when using pulseaudio
-bindsym XF86AudioRaiseVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep -y
-bindsym XF86AudioLowerVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep -y
-bindsym XF86AudioMute        exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs mute -y
+bindsym XF86AudioRaiseVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep
+bindsym XF86AudioLowerVolume exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep
+bindsym XF86AudioMute        exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs mute
+bindsym F2 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep
+bindsym F3 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep
 
 # when using pipewire
 # bindsym XF86AudioRaiseVolume exec pamixer -i 5
 # bindsym XF86AudioLowerVolume exec pamixer -d 5
 # bindsym XF86AudioMute        exec pamixer -t
 
-bindsym F2 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs down $volumestep -y
-bindsym F3 exec --no-startup-id USE_AMIXER=1 $volumepath/volume $volumeargs up $volumestep -y
 
 # start redshift
 exec --no-startup-id redshift-gtk
