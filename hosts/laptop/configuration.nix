@@ -15,7 +15,14 @@
   };
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
-  services.fprintd.enable = true;
+  services.fprintd = {
+    enable = true;
+    package = pkgs.fprintd-tod;
+    tod = {
+      enable = true;
+      driver = pkgs.libfprint-2-tod1-vfs0090;
+    };
+  };
 
   # lol (800MHz)
   # powerManagement.cpufreq.max = 800;
