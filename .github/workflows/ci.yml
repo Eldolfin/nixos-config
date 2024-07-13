@@ -15,5 +15,5 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
-      - name: Run `nix build`
-        run: nixos-rebuild build --flake /etc/nixos#oscar-tour
+      - name: Run `nix build` for tour config
+        run: nix build /etc/nixos#nixosConfigurations.oscar-tour.config.system.build.toplevel
