@@ -191,7 +191,8 @@
   };
 
   xdg.portal = {
-    enable = true;
+    # forgot why this is needed
+    # enable = true;
     # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
