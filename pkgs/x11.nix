@@ -23,7 +23,7 @@
       i3.enable = true;
     };
     desktopManager = {
-      cinnamon.enable = true;
+      # cinnamon.enable = true;
       # gnome.enable = true;
     };
 
