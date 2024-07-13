@@ -79,7 +79,6 @@
       "networkmanager"
       "wheel"
       "docker"
-      "i2c"
       "libvirtd"
       "input"
       "plugdev"
