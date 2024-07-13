@@ -8,10 +8,13 @@
 {
   imports = [
     ./pkgs/x11.nix
-    # ./pkgs/hyprland.nix
     ./pkgs/stylix.nix
-    # ./pkgs/wayland.nix
+    ./pkgs/plymouth.nix
+    ./pkgs/bootloader.nix
+    ./pkgs/lightdm.nix
     inputs.sops-nix.nixosModules.sops
+    # ./pkgs/hyprland.nix
+    # ./pkgs/wayland.nix
   ];
 
   sops = {
@@ -24,9 +27,6 @@
       };
     };
   };
-
-  # boot animation
-  boot.plymouth.enable = true;
 
   # periodic store optimisation
   nix.optimise.automatic = true;
@@ -88,17 +88,6 @@
     hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
 
-  users.users.noconfig = {
-    isNormalUser = true;
-    description = "No Config";
-    extraGroups = [
-      "networkmanager"
-      "docker"
-      "i2c"
-      "libvirtd"
-    ];
-    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
-  };
   nix.settings.trusted-users = [
     "root"
     "oscar"
@@ -112,14 +101,9 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs = {
-    firejail.enable = true;
     kdeconnect.enable = true;
     noisetorch.enable = true;
-    dconf.enable = true;
     nix-ld.enable = true;
-    # direnv = {
-    #   enable = true;
-    # };
   };
 
   # polkit
@@ -127,11 +111,14 @@
 
   # external display brightness control requires
   # i2c to be enabled
-  boot.kernelModules = [ "i2c-dev" ];
-  services.udev.extraRules = ''
-    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
+  # doesnt work anymore...
+  # boot.kernelModules = [ "i2c-dev" ];
+  # services.udev.extraRules = ''
+  #   KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  # '';
 
+  # # bluetooth/audio setup
+  sound.enable = true;
   # pipewire is a newer alternative to alsa/pulseaudio
   # rtkit is optional but recommended
   # security.rtkit.enable = true;
@@ -144,9 +131,6 @@
   #   #jack.enable = true;
   #   wireplumber.enable = true;
   # };
-
-  # # bluetooth/audio setup
-  sound.enable = true;
   # pipewire bluetooth
   # environment.etc = {
   #   "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
@@ -186,15 +170,9 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
-  # fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "UbuntuMono" ]; }) ];
-
   virtualisation = {
     docker = {
       enable = true;
-      # rootless = {
-      #   enable = true;
-      #   setSocketVariable = true;
-      # };
       enableNvidia = true;
     };
 
@@ -248,15 +226,6 @@
     "text/html" = "librewolf.desktop";
     "x-scheme-handler/http" = "librewolf.desktop";
   };
-
-  # fix a conflicting value with plasma and something else
-  # programs.ssh.askPassword = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
