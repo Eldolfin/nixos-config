@@ -24,7 +24,7 @@
           HANDLER = "codeium";
         };
       };
-      nixd.command = "${pkgs.nixd}/bin/nixd";
+      # nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
         command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
@@ -100,7 +100,7 @@
         formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
         language-servers = [
           "nil"
-          "nixd"
+          # "nixd"
           "gpt"
         ];
       }
@@ -128,14 +128,24 @@
             "ts"
           ];
         };
+        auto-format = true;
       }
       {
         name = "tsx";
-        auto-format = true;
         language-servers = [
           "gpt"
           "typescript-language-server"
         ];
+        formatter = {
+          command = lib.getExe pkgs.deno;
+          args = [
+            "fmt"
+            "-"
+            "--ext"
+            "tsx"
+          ];
+        };
+        auto-format = true;
       }
       {
         name = "python";
@@ -150,6 +160,16 @@
           "gpt"
           "typescript-language-server"
         ];
+        formatter = {
+          command = lib.getExe pkgs.deno;
+          args = [
+            "fmt"
+            "-"
+            "--ext"
+            "js"
+          ];
+        };
+        auto-format = true;
       }
       {
         name = "markdown";
@@ -157,6 +177,29 @@
           "vscode-markdown-language-server"
           "gpt"
         ];
+        formatter = {
+          command = lib.getExe pkgs.deno;
+          args = [
+            "fmt"
+            "-"
+            "--ext"
+            "md"
+          ];
+        };
+        auto-format = true;
+      }
+      {
+        name = "json";
+        formatter = {
+          command = lib.getExe pkgs.deno;
+          args = [
+            "fmt"
+            "-"
+            "--ext"
+            "json"
+          ];
+        };
+        auto-format = true;
       }
     ];
   };
