@@ -1,10 +1,13 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
-    docker-compose
     vscode-fhs
     # jetbrains
     # jetbrains-toolbox
+
+    # docker
+    docker-compose
+    dive
 
     # java
     # jetbrains.idea-community
@@ -17,6 +20,7 @@
     # evcxr
     # rust-analyzer
     rustup
+    # bacon
 
     # for leptos
     # trunk
@@ -31,6 +35,12 @@
     # gcc12
     clang-tools
     clang
+    # criterion
+    # gtest
+    # gcovr
+    # boost
+    # ninja
+    gdb
 
     # go
     # go
@@ -40,30 +50,36 @@
     # python
     # jetbrains.pycharm-professional
     # jupyter-all
-    mypy
-    poetry
-    poethepoet
+    # mypy
+    # poetry
+    # poethepoet
+    # black
+    # conda
 
     (python311Full.withPackages (ppkgs: [
-      ppkgs.scipy
-      ppkgs.matplotlib
+      # ppkgs.scipy
+      # ppkgs.matplotlib
       # ppkgs.notebook
-      ppkgs.numpy
+      # ppkgs.numpy
       ppkgs.pytest
       ppkgs.psutil
     ]))
     python311Packages.pip
-    python311Packages.bpython
+    # python311Packages.bpython
     # grip # github markdown preview
 
     # c#
     # mono
     # jetbrains.rider
     # dotnet-sdk_7
+    # omnisharp-roslyn
 
     # js
     yarn
+    nodejs
     typescript
+    # bun
+    # deno
 
     # nix
     # nixpkgs-fmt
@@ -99,6 +115,9 @@
     # php83Packages.composer
     # php83
 
+    # lua?
+    # luajitPackages.luarocks
+
     # Language servers
     # now in helix config directly
     # lua-language-server
@@ -117,5 +136,12 @@
     sshfs
     gh
     git
+    git-lfs
+    entr
+    difftastic
+    # godot_4
+    # dig
+    # mold
+    # act # github action runner
   ];
 }
