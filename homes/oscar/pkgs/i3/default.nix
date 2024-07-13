@@ -4,6 +4,7 @@
     enable = true;
     extraConfig = lib.strings.fileContents ./config.old;
     config = {
+      modifier = "Mod4";
       startup = [
         {
           command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
