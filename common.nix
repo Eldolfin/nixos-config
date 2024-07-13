@@ -27,6 +27,8 @@
     };
   };
 
+  services.libinput.touchpad.naturalScrolling = true;
+
   # periodic store optimisation
   nix.optimise.automatic = true;
   nix.gc = {
