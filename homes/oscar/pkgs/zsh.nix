@@ -87,5 +87,10 @@
       enable = true;
       plugins = [ "fancy-ctrl-z" ];
     };
+
+    antidote = {
+      enable = true;
+      plugins = [ "marzocchi/zsh-notify" ];
+    };
   };
 }
