@@ -118,7 +118,14 @@
             definedAliases = [ "@nw" ];
           };
 
+          "Crates io" = {
+            urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
+            iconUpdateURL = "https://crates.io/favicon.ico";
+            definedAliases = [ "@rp" ];
+          };
+
           "Bing".metaData.hidden = true;
+          "Amazon.com".metaData.hidden = true;
           "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
         };
       };
