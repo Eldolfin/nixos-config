@@ -74,7 +74,6 @@
         french-language-pack
         jump-cutter
         github-file-icons
-        gruvbox-dark-theme
         libredirect
         privacy-badger
         refined-github
