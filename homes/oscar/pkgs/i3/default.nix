@@ -32,10 +32,10 @@
           # TODO: move these scripts to home manager config too
           "${mod}+w" = "exec /home/oscar/.config/i3/scripts/i3-display-swap.sh";
 
-          "${mod}+h" = "move left";
-          "${mod}+j" = "move down";
-          "${mod}+k" = "move up";
-          "${mod}+l" = "move right";
+          "${mod}+h" = "focus left";
+          "${mod}+j" = "focus down";
+          "${mod}+k" = "focus up";
+          "${mod}+l" = "focus right";
         };
     };
   };
