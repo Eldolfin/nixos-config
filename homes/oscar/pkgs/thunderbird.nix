@@ -6,7 +6,6 @@
     };
     profiles = {
       default = {
-        name = "default";
         isDefault = true;
       };
     };
