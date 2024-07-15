@@ -36,14 +36,6 @@
           toolbar = true;
           bookmarks = [
             {
-              name = "Nixos search";
-              url = "search.nixos.org";
-            }
-            {
-              name = "Home-manager search";
-              url = "https://mipmip.github.io/home-manager-option-search/";
-            }
-            {
               name = "Manual";
               url = "https://ryantm.github.io/nixpkgs/functions/library/attrsets";
             }
@@ -122,6 +114,14 @@
             urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
             iconUpdateURL = "https://crates.io/favicon.ico";
             definedAliases = [ "@rp" ];
+          };
+
+          "Home manager" = {
+            urls = [
+              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
+            ];
+            iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
+            definedAliases = [ "@hm" ];
           };
 
           "Bing".metaData.hidden = true;
