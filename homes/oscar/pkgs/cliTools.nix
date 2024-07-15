@@ -27,7 +27,6 @@
     nh
     pamixer
     pciutils
-    ripgrep
     # scrcpy
     sops
     sysstat

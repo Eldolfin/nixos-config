@@ -10,4 +10,15 @@
       };
     };
   };
+  accounts.email.accounts = {
+    epita = {
+      email = "oscar.le-dauphin@epita.fr";
+      flavor = "outlook.office365.com"; # not sure
+      # might not be needed
+      # thunderbird = {
+      #   enable = true;
+      #   profiles = ["default"];
+      # };
+    };
+  };
 }
