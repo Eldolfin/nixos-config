@@ -22,7 +22,7 @@
         enable = true;
         profiles = [ "default" ];
       };
-      # passwordCommand = "${lib.getExe pkgs.sops}";
+      passwordCommand = "cat /run/secrets/passwords/emails/epita";
     };
   };
 }
