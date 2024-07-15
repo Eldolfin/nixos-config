@@ -16,10 +16,10 @@
       flavor = "outlook.office365.com"; # not sure
       primary = true;
       # might not be needed
-      # thunderbird = {
-      #   enable = true;
-      #   profiles = ["default"];
-      # };
+      thunderbird = {
+        enable = true;
+        profiles = [ "default" ];
+      };
     };
   };
 }
