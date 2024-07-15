@@ -15,14 +15,12 @@
     epita = {
       realName = "Oscar LE DAUPHIN";
       address = "oscar.le-dauphin@epita.fr";
-      flavor = "outlook.office365.com"; # not sure
+      flavor = "outlook.office365.com";
       primary = true;
-      # might not be needed
       thunderbird = {
         enable = true;
         profiles = [ "default" ];
       };
-      passwordCommand = "cat /run/secrets/passwords/emails/epita";
     };
   };
 }
