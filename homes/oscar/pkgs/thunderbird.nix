@@ -12,6 +12,7 @@
   };
   accounts.email.accounts = {
     epita = {
+      realName = "Oscar LE DAUPHIN";
       address = "oscar.le-dauphin@epita.fr";
       flavor = "outlook.office365.com"; # not sure
       primary = true;
