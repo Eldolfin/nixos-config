@@ -17,15 +17,17 @@
       stylix,
       home-manager,
       nur,
+      sops-nix,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       commonModules = [
+        ./common.nix
         stylix.nixosModules.stylix
         nur.nixosModules.nur
-        ./common.nix
         home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         {
           home-manager.backupFileExtension = "old";
           home-manager.useGlobalPkgs = true;

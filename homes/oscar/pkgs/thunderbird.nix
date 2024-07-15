@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   programs.thunderbird = {
     enable = true;
@@ -21,6 +22,7 @@
         enable = true;
         profiles = [ "default" ];
       };
+      passwordCommand = "${lib.getExe pkgs.sops}";
     };
   };
 }

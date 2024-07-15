@@ -1,31 +1,13 @@
 # this file is common between tour and laptop
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
     ./pkgs/plymouth.nix
     ./pkgs/lightdm.nix
-    inputs.sops-nix.nixosModules.sops
-    # ./pkgs/hyprland.nix
-    # ./pkgs/wayland.nix
+    ./pkgs/sops.nix
   ];
-
-  sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/home/oscar/.config/sops/age/keys.txt";
-    secrets = {
-      "apis/COPILOT_API_KEY" = {
-        owner = config.users.users.oscar.name;
-      };
-    };
-  };
 
   services.libinput.touchpad.naturalScrolling = true;
 
