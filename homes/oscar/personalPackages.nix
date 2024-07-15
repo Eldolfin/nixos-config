@@ -18,6 +18,8 @@
     ./pkgs/direnv.nix
     ./pkgs/i3
     ./pkgs/scripts
+    ./pkgs/chromium.nix
+    ./pkgs/thunderbird.nix
   ];
 
   programs.emacs.enable = true;
@@ -27,7 +29,6 @@
     signal-desktop
     corectrl
     gimp
-    ungoogled-chromium
     kdeconnect
     bitwarden
     webcord-vencord
@@ -52,7 +53,6 @@
     pyright
     xorg.libXtst.out
     nix-tree
-    thunderbird
     redshift
     qbittorrent
     libreoffice
