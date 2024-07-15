@@ -14,6 +14,7 @@
     epita = {
       address = "oscar.le-dauphin@epita.fr";
       flavor = "outlook.office365.com"; # not sure
+      primary = true;
       # might not be needed
       # thunderbird = {
       #   enable = true;
