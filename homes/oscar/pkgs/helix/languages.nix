@@ -12,18 +12,25 @@
       #     "--handler"
       #     "copilot"
       #   ];
+      # gpt = {
+      #   command = lib.getExe pkgs.deno;
+      #   args = [
+      #     "run"
+      #     "--allow-net"
+      #     "--allow-env"
+      #     "https://raw.githubusercontent.com/sigmaSd/helix-gpt/0.31-deno/src/app.ts"
+      #   ];
+      #   environment = {
+      #     HANDLER = "codeium";
+      #   };
+      # };
       gpt = {
-        command = lib.getExe pkgs.deno;
+        command = lib.getExe pkgs.helix-gpt;
         args = [
-          "run"
-          "--allow-net"
-          "--allow-env"
-          "https://raw.githubusercontent.com/sigmaSd/helix-gpt/0.31-deno/src/app.ts"
+          "--handler"
+          "codeium"
         ];
-        environment = {
-          HANDLER = "codeium";
-        };
-      };
+      }
       # nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
