@@ -30,7 +30,7 @@
           "--handler"
           "codeium"
         ];
-      }
+      };
       # nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
