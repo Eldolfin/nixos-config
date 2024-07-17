@@ -34,6 +34,7 @@
     webcord-vencord
     flameshot
     emote
+    gparted
 
     # libraries
     glfw
