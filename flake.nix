@@ -19,6 +19,7 @@
       home-manager,
       nur,
       sops-nix,
+      nixpkgs-unstable,
       ...
     }@inputs:
     let
@@ -35,7 +36,10 @@
           home-manager.useUserPackages = true;
           home-manager.users.oscar = import ./homes/oscar/home.nix;
 
-          home-manager.sharedModules = [ nur.hmModules.nur ];
+          home-manager.sharedModules = [
+            nur.hmModules.nur
+            nixpkgs-unstable
+          ];
         }
       ];
     in
