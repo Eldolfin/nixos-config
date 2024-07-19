@@ -1,8 +1,9 @@
-{ ... }:
+{ nixpkgs-unstable, ... }:
 {
   imports = [ ./languages.nix ];
   programs.helix = {
     enable = true;
+    package = nixpkgs-unstable.helix;
     defaultEditor = true;
 
     settings = {
