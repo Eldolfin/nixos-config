@@ -44,6 +44,10 @@
           INLABEL = "";
           OUTLABEL = "";
         };
+        battery = lib.hm.dag.entryBefore [ "bandwidth" ] {
+          command = "~/.config/i3blocks/scripts/battery";
+          interval = "5";
+        };
       };
     };
   };
