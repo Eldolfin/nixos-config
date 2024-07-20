@@ -41,7 +41,7 @@
     defaultKeymap = "emacs";
     shellAliases = {
       clone = ''alacritty -e zsh -c "cd $(pwd); zsh -i"&!'';
-      svi = "sudo -E -s nvim";
+      svi = "sudo -e";
       vimdiff = "nvim -d";
       top = "btop";
       ls = "exa";
