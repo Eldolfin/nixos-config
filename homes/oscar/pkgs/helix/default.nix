@@ -3,7 +3,7 @@
   imports = [ ./languages.nix ];
   programs.helix = {
     enable = true;
-    package = pkgs.unstable.nixpkgs-unstable.helix;
+    package = pkgs.unstable.helix;
     defaultEditor = true;
 
     settings = {
