@@ -36,10 +36,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.oscar = import ./homes/oscar/home.nix;
 
-          home-manager.sharedModules = [
-            nur.hmModules.nur
-            nixpkgs-unstable
-          ];
+          home-manager.sharedModules = [ nur.hmModules.nur ];
         }
       ];
     in
