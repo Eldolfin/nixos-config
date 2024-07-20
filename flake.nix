@@ -38,7 +38,20 @@
 
           home-manager.sharedModules = [ nur.hmModules.nur ];
         }
+        (
+          { config, pkgs, ... }:
+          {
+            nixpkgs.overlays = [ overlay-unstable ];
+          }
+        )
       ];
+
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = false; # not needed
+        };
+      };
     in
     {
       nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
