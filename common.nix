@@ -7,6 +7,7 @@
     ./pkgs/plymouth.nix
     ./pkgs/lightdm.nix
     ./pkgs/sops.nix
+    ./pkgs/wayland.nix
   ];
 
   services.libinput.touchpad.naturalScrolling = true;
