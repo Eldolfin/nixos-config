@@ -8,10 +8,10 @@
       enable = true;
       enableZshIntegration = true;
     };
-    atuin = {
-      enableZshIntegration = true;
-      enable = true;
-    };
+    # atuin = {
+    # enableZshIntegration = true;
+    # enable = true;
+    # };
     fzf = {
       enable = true;
       enableZshIntegration = true;
