@@ -113,7 +113,7 @@ exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus" &
 
 # hide window decorations
-default_border none
+# default_border none
 # Gaps settings
 smart_gaps on
 
