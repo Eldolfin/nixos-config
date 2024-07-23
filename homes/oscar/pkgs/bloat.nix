@@ -6,7 +6,7 @@
   };
   # long to build...
   home.packages = with pkgs; [
-    # rustdesk
+    rustdesk-flutter
     # handbrake
   ];
 }
