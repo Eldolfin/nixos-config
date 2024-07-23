@@ -5,6 +5,7 @@
     appimage-run
     bc
     bear
+    cachix
     cmake
     comma
     cron
