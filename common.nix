@@ -94,40 +94,6 @@
   # polkit
   security.polkit.enable = true;
 
-  # external display brightness control requires
-  # i2c to be enabled
-  # doesnt work anymore...
-  # boot.kernelModules = [ "i2c-dev" ];
-  # services.udev.extraRules = ''
-  #   KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  # '';
-
-  # # bluetooth/audio setup
-  sound.enable = true;
-  # pipewire is a newer alternative to alsa/pulseaudio
-  # rtkit is optional but recommended
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  #   # If you want to use JACK applications, uncomment this
-  #   #jack.enable = true;
-  #   wireplumber.enable = true;
-  # };
-  # pipewire bluetooth
-  # environment.etc = {
-  #   "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
-  #     		bluez_monitor.properties = {
-  #     			["bluez5.enable-sbc-xq"] = true,
-  #     			["bluez5.enable-msbc"] = true,
-  #     			["bluez5.enable-hw-volume"] = true,
-  #     			["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-  #     		}
-  #     	'';
-  # };
-
   hardware = {
     pulseaudio = {
       enable = true;
@@ -139,8 +105,6 @@
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
-          # FastConnectable = "true";
-          # Experimental = true; # show the headset battery percentage
         };
       };
     };
@@ -164,29 +128,9 @@
     podman = {
       enable = true;
     };
-    # virt-manager
-    # libvirtd = {
-    #   enable = true;
-    #   onBoot = "ignore";
-    #   onShutdown = "shutdown";
-    #   qemu.ovmf.enable = true;
-    #   qemu.runAsRoot = true;
-    # };
-    # virtualbox.host.enable = true;
-
-    # waydroid.enable = true; # wayland only
-  };
-
-  xdg.portal = {
-    # forgot why this is needed
-    # enable = true;
-    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   services = {
-    # printing.enable = true;
-    # printing.drivers = [ pkgs.hplip ];
-    # tailscale
     tailscale.enable = true;
     blueman.enable = true;
     # multimedia server (for play pause keys)
