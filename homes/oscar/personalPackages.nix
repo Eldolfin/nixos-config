@@ -31,7 +31,8 @@
     gimp
     kdeconnect
     bitwarden
-    webcord-vencord
+    dorion # discord client in tauri (rust)
+    # webcord-vencord
     flameshot
     emote
     gparted
