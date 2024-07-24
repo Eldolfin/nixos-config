@@ -139,6 +139,7 @@
     git
     git-lfs
     entr
+    devenv
     difftastic
     # godot_4
     # dig
