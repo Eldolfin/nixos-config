@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  programs.sway.enable = true;
+  wayland.windowManager.sway.enable = true;
   programs.rofi = {
     enable = true;
   };
