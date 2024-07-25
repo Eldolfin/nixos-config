@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  wayland.windowManager.sway.enable = true;
+  imports = [ ./pkgs/sway.nix ];
   programs.rofi = {
     enable = true;
   };
