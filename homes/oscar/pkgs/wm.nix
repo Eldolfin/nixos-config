@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  programs.sway.enable = true;
   programs.rofi = {
     enable = true;
   };
