@@ -3,7 +3,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      font.size = lib.mkForce 12;
+      # font.size = lib.mkForce 12;
     };
   };
   # programs.wezterm.enable = true;
