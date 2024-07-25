@@ -2,17 +2,13 @@
 
 {
   imports = [
-    # ./pkgs/lazyvim.nix
     ./pkgs/dev.nix
     ./pkgs/gaming.nix
-    # ./pkgs/hyprland.nix
     ./pkgs/movies.nix
     ./pkgs/zsh.nix
     ./pkgs/cliTools.nix
     ./pkgs/helix
     ./pkgs/firefox.nix
-    # ./pkgs/editing.nix
-    # ./pkgs/nixvim.nix
     ./pkgs/sounds.nix
     ./pkgs/bloat.nix
     ./pkgs/direnv.nix
@@ -20,6 +16,10 @@
     ./pkgs/scripts
     ./pkgs/chromium.nix
     ./pkgs/thunderbird.nix
+    # ./pkgs/lazyvim.nix
+    # ./pkgs/editing.nix
+    # ./pkgs/nixvim.nix
+    # ./pkgs/hyprland.nix
   ];
 
   programs.emacs.enable = true;
@@ -36,10 +36,10 @@
     flameshot
     emote
     gparted
+    popcorntime
 
     # libraries
     glfw
-    libllvm
     gnumake
     libnotify
     armadillo
@@ -61,10 +61,6 @@
     noisetorch
     xorg.xbacklight
     cpufrequtils
-
-    # font
-    # source-code-pro
-    # meslo-lgs-nf
 
     man-pages
     man-pages-posix
