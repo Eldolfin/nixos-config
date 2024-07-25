@@ -96,6 +96,14 @@
                     name = "query";
                     value = "{searchTerms}";
                   }
+                  {
+                    name = "size";
+                    value = "100";
+                  }
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
                 ];
               }
             ];
