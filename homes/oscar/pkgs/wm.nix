@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./pkgs/sway.nix ];
   programs.rofi = {
     enable = true;
   };
