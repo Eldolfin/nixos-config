@@ -13,6 +13,7 @@
     ./pkgs/bloat.nix
     ./pkgs/direnv.nix
     ./pkgs/i3
+    ./pkgs/sway
     ./pkgs/scripts
     ./pkgs/chromium.nix
     ./pkgs/thunderbird.nix

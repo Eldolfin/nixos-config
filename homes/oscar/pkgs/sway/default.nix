@@ -5,6 +5,7 @@
   ...
 }:
 {
+  home.keyboard.layout = "gb";
   wayland.windowManager.sway = {
     enable = true;
     config = {
@@ -19,6 +20,7 @@
           "${mod}+e" = "exec ${lib.getExe pkgs.firefox}";
           "${mod}+Shift+e" = "exec ${lib.getExe pkgs.firefox} --private-window";
           "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
+
         };
     };
   };
