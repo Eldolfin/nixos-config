@@ -33,6 +33,7 @@
     kdeconnect
     bitwarden
     dorion # discord client in tauri (rust)
+    glib-networking # needed by dorion...
     # webcord-vencord
     flameshot
     emote
