@@ -19,10 +19,13 @@
   #   dates = "weekly";
   #   options = "--delete-older-than 30d";
   # };
-  programs.nh.clean = {
+  programs.nh = {
     enable = true;
-    extraArgs = "--keep-since 1d";
-    dates = "daily";
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 1d";
+      dates = "daily";
+    };
   };
 
   # Allow unfree packages
