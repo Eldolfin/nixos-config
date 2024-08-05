@@ -13,11 +13,16 @@
   services.libinput.touchpad.naturalScrolling = true;
 
   # periodic store optimisation
-  nix.optimise.automatic = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
+  # nix.optimise.automatic = true;
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "--delete-older-than 30d";
+  # };
+  programs.nh.clean = {
+    enable = true;
+    extraArgs = "--keep-since 1d";
+    dates = "daily";
   };
 
   # Allow unfree packages
