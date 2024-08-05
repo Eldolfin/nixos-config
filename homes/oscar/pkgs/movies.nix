@@ -1,8 +1,12 @@
 { pkgs, ... }:
 {
-  programs.mpv.scripts = with pkgs; [
-    mpvScripts.uosc
-    mpvScripts.thumbfast
+  programs.mpv.scripts = with pkgs.mpvScripts; [
+    # uosc # not enabled like this?
+    thumbfast
+    sponsorblock-minimal
+    seekTo
+    mpv-cheatsheet
+    mpris
   ];
   home.packages = with pkgs; [
     # movies
