@@ -3,7 +3,7 @@
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
-      # uosc # not enabled like this?
+      uosc
       thumbfast
       sponsorblock-minimal
       seekTo
@@ -17,8 +17,6 @@
     # jellyfin-mpv-shim
     # kodi-wayland
     vlc
-
-    mpv
     invidtui
   ];
 }
