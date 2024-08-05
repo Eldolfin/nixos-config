@@ -16,7 +16,6 @@
     gnumake
     gnupg
     hyperfine
-    invidtui
     jq
     killall
     ltrace
