@@ -6,6 +6,10 @@
 }:
 {
   imports = [ ./i3blocks ];
+  home.file.".config/i3/scripts" = {
+    source = ./scripts;
+    recursive = true;
+  };
   xsession.windowManager.i3 = {
     enable = true;
     extraConfig = lib.strings.fileContents ./config.old;

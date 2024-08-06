@@ -33,12 +33,12 @@
           min_width = "100.00%";
         };
         memory = lib.hm.dag.entryBefore [ "cpu" ] {
-          command = "echo $(~/.config/i3/scripts/i3memory)";
+          command = "echo $(~/.config/i3blocks/scripts/i3memory)";
           interval = "5";
           label = "MEM ";
         };
         disk = lib.hm.dag.entryBefore [ "memory" ] {
-          command = "~/.config/i3/scripts/i3disk";
+          command = "~/.config/i3blocks/scripts/i3disk";
           interval = "10";
           label = "HOME ";
         };
