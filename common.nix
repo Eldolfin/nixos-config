@@ -112,7 +112,10 @@
         };
       };
     };
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -121,7 +124,6 @@
   virtualisation = {
     docker = {
       enable = true;
-      enableNvidia = true;
     };
   };
 

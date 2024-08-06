@@ -27,4 +27,5 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  virtualisation.docker.enableNvidia = true;
 }
