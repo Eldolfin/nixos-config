@@ -103,11 +103,8 @@ bindsym F3                   exec --no-startup-id $volumepath/volume $volumeargs
 # bindsym XF86AudioMute        exec pamixer -t
 
 
-# start redshift
-exec --no-startup-id redshift-gtk
-
-exec --no-startup-id sudo ckb-next-daemon
-exec --no-startup-id ckb-next -b
+# exec --no-startup-id sudo ckb-next-daemon
+# exec --no-startup-id ckb-next -b
 
 # hide window decorations
 # default_border none
