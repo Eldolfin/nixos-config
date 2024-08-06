@@ -20,8 +20,8 @@ jobs:
           remove-codeql: 'true'
       - uses: actions/checkout@v4
       - name: mount big dir in /nix/store
-        run: sudo mkdir -p /nix && sudo mount -o bind /home/runner/work/nixos-config/nixos-config /nix
-      - run: export NIX_IGNORE_SYMLINK_STORE=1
+        run: sudo mkdir -p /nix && sudo mount -o bind /home/runner/work/nixos-config/nixos-config /nix && sudo chown -R runner /nix
+      # - run: export NIX_IGNORE_SYMLINK_STORE=1
       - uses: DeterminateSystems/nix-installer-action@main
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       # - uses: DeterminateSystems/flake-checker-action@main
