@@ -24,4 +24,10 @@
 
   stylix.enable = true;
   stylix.autoEnable = true;
+
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "librewolf.desktop";
+    "text/html" = "librewolf.desktop";
+    "x-scheme-handler/http" = "librewolf.desktop";
+  };
 }

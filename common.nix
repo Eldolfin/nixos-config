@@ -89,13 +89,10 @@
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
-  # environment.systemPackages = with pkgs; [ ];
-
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs = {
     noisetorch.enable = true;
-    nix-ld.enable = true;
   };
 
   # polkit
@@ -131,10 +128,6 @@
       enable = true;
       enableNvidia = true;
     };
-
-    podman = {
-      enable = true;
-    };
   };
 
   services = {
@@ -155,13 +148,6 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-  };
-
-  # default apps
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "librewolf.desktop";
-    "text/html" = "librewolf.desktop";
-    "x-scheme-handler/http" = "librewolf.desktop";
   };
 
   # This value determines the NixOS release from which the default
