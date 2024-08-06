@@ -31,6 +31,7 @@
       };
     };
     nix-index-database.comma.enable = true;
+    zsh.enable = true;
   };
 
   # Allow unfree packages
