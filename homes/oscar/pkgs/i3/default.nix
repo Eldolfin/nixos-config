@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ./i3blocks.nix ];
+  imports = [ ./i3blocks ];
   xsession.windowManager.i3 = {
     enable = true;
     extraConfig = lib.strings.fileContents ./config.old;
