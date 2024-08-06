@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
   home.packages = with pkgs; [
     acpi
     # appimage-run
@@ -8,7 +9,6 @@
     bear
     cachix
     cmake
-    comma
     cron
     fd
     feh

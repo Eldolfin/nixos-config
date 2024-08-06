@@ -7,9 +7,10 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
-
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       nur,
       sops-nix,
       nixpkgs-unstable,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -30,6 +32,7 @@
         nur.nixosModules.nur
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
+        nix-index-database.nixosModules.nix-index
         {
           home-manager.backupFileExtension = "old";
           home-manager.useGlobalPkgs = true;
