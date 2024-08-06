@@ -1,5 +1,9 @@
 { lib, ... }:
 {
+  home.file.".config/i3blocks/scripts" = {
+    source = ./scripts;
+    recursive = true;
+  };
   programs.i3blocks = {
     enable = true;
     bars = {
