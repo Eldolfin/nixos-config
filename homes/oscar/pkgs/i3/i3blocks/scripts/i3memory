@@ -50,6 +50,6 @@ END {
 		pct=used/total*100
 	}
 	# full text
-	printf("%.1fG/%.1fG", used, total)
+	printf("%.1fG/%.1fG\n", used, total)
 }
 ' /proc/meminfo
