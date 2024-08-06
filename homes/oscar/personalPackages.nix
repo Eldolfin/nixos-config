@@ -50,16 +50,11 @@
     luajit
     stylua
     gpp
-    gamemode
-    mangohud
-    # wine
-    # winetricks
     pyright
     xorg.libXtst.out
     nix-tree
     redshift
     qbittorrent
-    libreoffice
     noisetorch
     xorg.xbacklight
     cpufrequtils

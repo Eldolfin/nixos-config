@@ -16,10 +16,11 @@
       enable = true;
       enableZshIntegration = true;
     };
-    carapace = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    # is it usefull? (should provide better completion)
+    # carapace = {
+    #   enable = true;
+    #   enableZshIntegration = true;
+    # };
     eza = {
       enable = true;
       enableZshIntegration = true;
@@ -27,7 +28,6 @@
     starship = {
       enable = true;
     };
-    thefuck.enable = true;
   };
 
   home.sessionPath = [
