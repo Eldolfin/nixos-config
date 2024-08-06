@@ -20,7 +20,9 @@ jobs:
           remove-codeql: 'true'
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
-      - uses: DeterminateSystems/flake-checker-action@main
-      - name: Run `nix build` for tour config
-        run: nix build '#nixosConfigurations.oscar-tour.config.system.build.toplevel'
+      # - uses: DeterminateSystems/magic-nix-cache-action@main
+      # - uses: DeterminateSystems/flake-checker-action@main
+      # - name: Run `nix build` for tour config
+      #   run: nix build '#nixosConfigurations.oscar-tour.config.system.build.toplevel'
+      - name: Run `nix build` for portable config
+        run: nix build '#nixosConfigurations.oscar-portable.config.system.build.toplevel'
