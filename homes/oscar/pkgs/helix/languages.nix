@@ -31,7 +31,7 @@
           "codeium"
         ];
       };
-      # nixd.command = "${pkgs.nixd}/bin/nixd";
+      nixd.command = "${pkgs.nixd}/bin/nixd";
       jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
         command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
@@ -107,7 +107,7 @@
         formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
         language-servers = [
           "nil"
-          # "nixd"
+          "nixd"
           "gpt"
         ];
       }

@@ -112,13 +112,8 @@
         };
       };
     };
-    opengl = {
-      enable = true;
-      driSupport32Bit = true;
-      # setLdLibraryPath = true;
-    };
+    graphics.enable = true;
   };
-
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
