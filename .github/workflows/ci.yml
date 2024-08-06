@@ -19,12 +19,12 @@ jobs:
           remove-haskell: 'true'
           remove-codeql: 'true'
       - uses: actions/checkout@v4
+      - name: mount big dir in /nix/store
+        run: sudo mount -o bind /home/runner/work/nixos-config/nixos-config /nix/store
       - uses: DeterminateSystems/nix-installer-action@main
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       # - uses: DeterminateSystems/flake-checker-action@main
       # - name: Run `nix build` for tour config
       #   run: nix build '#nixosConfigurations.oscar-tour.config.system.build.toplevel'
-      - name: mount big dir in /nix/store
-        run: mount -o bind /home/runner/work/nixos-config/nixos-config /nix/store
       - name: Run `nix build` for portable config
         run: nix build '#nixosConfigurations.oscar-portable.config.system.build.toplevel'
