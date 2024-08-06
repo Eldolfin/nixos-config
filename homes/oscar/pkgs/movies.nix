@@ -5,7 +5,7 @@
     scripts = with pkgs.mpvScripts; [
       uosc
       thumbfast
-      sponsorblock-minimal
+      # sponsorblock-minimal
       seekTo
       mpv-cheatsheet
       mpris
@@ -16,7 +16,7 @@
     # jellyfin-media-player
     # jellyfin-mpv-shim
     # kodi-wayland
-    vlc
+    # vlc
     invidtui
   ];
 }
