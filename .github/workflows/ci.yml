@@ -25,4 +25,7 @@ jobs:
       # - name: Run `nix build` for tour config
       #   run: nix build '#nixosConfigurations.oscar-tour.config.system.build.toplevel'
       - name: Run `nix build` for portable config
-        run: nix build '#nixosConfigurations.oscar-portable.config.system.build.toplevel'
+        run: nix build -o /home/runner/work/nixos-config/nixos-config/result '#nixosConfigurations.oscar-portable.config.system.build.toplevel'
+      - name: Check disk usage on error
+        if: failure()
+        run: df -h
