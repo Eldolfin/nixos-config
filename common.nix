@@ -94,7 +94,6 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   programs = {
-    kdeconnect.enable = true;
     noisetorch.enable = true;
     nix-ld.enable = true;
   };
