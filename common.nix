@@ -19,13 +19,18 @@
   #   dates = "weekly";
   #   options = "--delete-older-than 30d";
   # };
-  programs.nh = {
-    enable = true;
-    clean = {
+  programs = {
+    adb.enable = true;
+    noisetorch.enable = true;
+    nh = {
       enable = true;
-      extraArgs = "--keep-since 1d";
-      dates = "daily";
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 1d";
+        dates = "daily";
+      };
     };
+    nix-index-database.comma.enable = true;
   };
 
   # Allow unfree packages
@@ -91,10 +96,6 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  programs = {
-    noisetorch.enable = true;
-  };
-
   # polkit
   security.polkit.enable = true;
 
@@ -117,7 +118,6 @@
       enable32Bit = true;
     };
   };
-  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
@@ -136,8 +136,6 @@
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
   };
-
-  programs.adb.enable = true;
 
   # enable flakes
   nix = {
