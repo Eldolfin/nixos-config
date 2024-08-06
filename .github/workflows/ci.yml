@@ -20,7 +20,7 @@ jobs:
           remove-codeql: 'true'
       - uses: actions/checkout@v4
       - name: mount big dir in /nix/store
-        run: sudo mount -o bind /home/runner/work/nixos-config/nixos-config /nix/store
+        run: mkdir -p /nix/store && sudo mount -o bind /home/runner/work/nixos-config/nixos-config /nix/store
       - uses: DeterminateSystems/nix-installer-action@main
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       # - uses: DeterminateSystems/flake-checker-action@main
