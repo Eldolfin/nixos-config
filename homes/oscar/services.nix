@@ -39,5 +39,12 @@
 
     copyq.enable = true;
     # safeeyes.enable = true;
+    redshift = {
+      enable = true;
+      tray = true;
+      provider = "manual";
+      latitude = 48.864716;
+      longitude = 2.349014;
+    };
   };
 }

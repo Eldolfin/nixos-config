@@ -53,7 +53,6 @@
     pyright
     xorg.libXtst.out
     nix-tree
-    redshift
     qbittorrent
     noisetorch
     xorg.xbacklight
