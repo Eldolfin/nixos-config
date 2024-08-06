@@ -3,7 +3,7 @@
 {
   imports = [
     ./pkgs/dev.nix
-    ./pkgs/gaming.nix
+    # ./pkgs/gaming.nix
     ./pkgs/movies.nix
     ./pkgs/zsh.nix
     ./pkgs/cliTools.nix
@@ -23,7 +23,7 @@
     # ./pkgs/hyprland.nix
   ];
 
-  programs.emacs.enable = true;
+  # programs.emacs.enable = true; # cringe?
 
   home.packages = with pkgs; [
     # graphical programs
@@ -31,7 +31,7 @@
     signal-desktop
     corectrl
     gimp
-    bitwarden
+    # bitwarden
     dorion # discord client in tauri (rust)
     glib-networking # needed by dorion...
     # webcord-vencord
@@ -48,12 +48,12 @@
     pre-commit
     stdenv.cc.cc.lib
     luajit
-    wine
     stylua
     gpp
     gamemode
     mangohud
-    winetricks
+    # wine
+    # winetricks
     pyright
     xorg.libXtst.out
     nix-tree

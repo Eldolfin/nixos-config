@@ -2,7 +2,7 @@
 {
   programs.bun.enable = true;
   home.packages = with pkgs; [
-    vscode-fhs
+    # vscode-fhs
     # jetbrains
     # jetbrains-toolbox
 
@@ -140,7 +140,7 @@
     git-lfs
     entr
     devenv
-    difftastic
+    # difftastic
     # godot_4
     # dig
     # mold

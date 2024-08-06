@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     acpi
-    appimage-run
+    # appimage-run
     bc
     bear
     cachix

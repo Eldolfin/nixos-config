@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     lutris
     steam
-    gamescope
+    # gamescope
     libusb1 # for minecraft
     prismlauncher
   ];
