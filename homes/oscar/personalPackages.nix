@@ -16,7 +16,7 @@
     ./pkgs/sway
     ./pkgs/scripts
     ./pkgs/chromium.nix
-    ./pkgs/thunderbird.nix
+    # ./pkgs/thunderbird.nix
     # ./pkgs/lazyvim.nix
     # ./pkgs/editing.nix
     # ./pkgs/nixvim.nix
@@ -27,6 +27,7 @@
 
   home.packages = with pkgs; [
     # graphical programs
+    thunderbird
     signal-desktop
     corectrl
     gimp
