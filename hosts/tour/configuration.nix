@@ -24,9 +24,9 @@
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
     # open = true;
   };
+  hardware.nvidia-container-toolkit.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  virtualisation.docker.enableNvidia = true;
 }
