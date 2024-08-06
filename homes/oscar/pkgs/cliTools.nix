@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  programs.nix-index.enable = true;
   home.packages = with pkgs; [
     acpi
     # appimage-run
@@ -22,7 +23,6 @@
     # mosquitto
     navi
     ncdu
-    nix-index
     nmap
     ntfs3g
     nh
