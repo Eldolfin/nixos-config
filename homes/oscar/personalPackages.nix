@@ -13,9 +13,9 @@
     ./pkgs/bloat.nix
     ./pkgs/direnv.nix
     ./pkgs/i3
-    ./pkgs/sway
     ./pkgs/scripts
-    ./pkgs/chromium.nix
+    # ./pkgs/chromium.nix
+    # ./pkgs/sway
     # ./pkgs/thunderbird.nix
     # ./pkgs/lazyvim.nix
     # ./pkgs/editing.nix

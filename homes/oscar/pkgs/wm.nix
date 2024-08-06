@@ -4,7 +4,6 @@
   programs.rofi = {
     enable = true;
   };
-  programs.swaylock.enable = true;
   services.dunst.enable = true;
 
   xsession.numlock.enable = true;

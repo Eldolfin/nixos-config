@@ -8,7 +8,7 @@
 
     # docker
     docker-compose
-    dive
+    # dive
 
     # java
     # jetbrains.idea-community
@@ -76,7 +76,7 @@
     # omnisharp-roslyn
 
     # js
-    yarn
+    # yarn
     nodejs
     typescript
     # bun
@@ -92,7 +92,7 @@
 
     # android
     # android-studio
-    android-tools # adb, fastboot etc
+    # android-tools # adb, fastboot etc. enabled in common.nix?
 
     # Haskell
     # ghc
