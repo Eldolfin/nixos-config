@@ -1,15 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -e
 
-trap 'notify-send "System switch failed 😢"' ERR
-
-pushd /etc/nixos/
+cd /etc/nixos/
 $EDITOR .
-echo "Rebuilding system..."
-git add . && git commit -m "System switch"
+git add .
+git commit -m "System switch"
 nh os switch /etc/nixos
 git push
-popd
-
-notify-send "System switch complete 🎉"
