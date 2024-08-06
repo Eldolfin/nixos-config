@@ -6,26 +6,17 @@ on:
 
 jobs:
   check:
+    strategy:
+      matrix:
+        hostname: ["oscar-portable", "oscar-tour"]
     runs-on: ubuntu-22.04
     permissions:
       id-token: "write"
       contents: "read"
     steps:
-      # - name: Maximize build space
-      #   uses: easimon/maximize-build-space@master
-      #   with:
-      #     remove-dotnet: 'true'
-      #     remove-android: 'true'
-      #     remove-haskell: 'true'
-      #     remove-codeql: 'true'
       - uses: actions/checkout@v4
-      # - name: mount big dir in /nix/store
-      #   run: sudo mkdir -p /nix && sudo mount -o bind /home/runner/work/nixos-config/nixos-config /nix && sudo chown -R runner /nix
-      # - run: export NIX_IGNORE_SYMLINK_STORE=1
       - uses: DeterminateSystems/nix-installer-action@main
-      # - uses: DeterminateSystems/magic-nix-cache-action@main
-      # - uses: DeterminateSystems/flake-checker-action@main
-      # - name: Run `nix build` for tour config
-      #   run: nix build '#nixosConfigurations.oscar-tour.config.system.build.toplevel'
-      - name: Run `nix build` for portable config
-        run: nix build '#nixosConfigurations.oscar-portable.config.system.build.toplevel'
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+      - name: Build system config
+        run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
