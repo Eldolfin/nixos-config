@@ -1,8 +1,8 @@
 {
   imports = [
     ../../common.nix
-    ../../pkgs/grub.nix
-    # ../../services/sunshine.nix
+    # ../../pkgs/grub.nix
+    ../../pkgs/systemd-boot.nix
   ];
 
   networking.hostName = "oscar-tour";
@@ -28,5 +28,4 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
 }

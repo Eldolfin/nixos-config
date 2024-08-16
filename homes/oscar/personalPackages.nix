@@ -30,7 +30,6 @@
     thunderbird
     signal-desktop
     corectrl
-    gimp
     # bitwarden
     dorion # discord client in tauri (rust)
     glib-networking # needed by dorion...
