@@ -1,8 +1,8 @@
 {
   imports = [
     ../../common.nix
-    # ../../pkgs/grub.nix
-    ../../pkgs/systemd-boot.nix
+    ../../pkgs/grub.nix
+    # ../../pkgs/systemd-boot.nix # should make a gpt table first
   ];
 
   networking.hostName = "oscar-tour";
