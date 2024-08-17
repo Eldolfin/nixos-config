@@ -27,40 +27,16 @@
 
   home.packages = with pkgs; [
     # graphical programs
+    noisetorch
     thunderbird
     signal-desktop
-    corectrl
-    # bitwarden
-    dorion # discord client in tauri (rust)
-    glib-networking # needed by dorion...
-    # webcord-vencord
+    vencord
     flameshot
     emote
     gparted
-    popcorntime
-
-    # libraries
-    glfw
-    gnumake
-    libnotify
-    armadillo
-    pre-commit
-    stdenv.cc.cc.lib
-    luajit
-    stylua
-    gpp
-    pyright
-    xorg.libXtst.out
-    nix-tree
-    qbittorrent
-    noisetorch
-    xorg.xbacklight
-    cpufrequtils
+    # bitwarden
 
     man-pages
     man-pages-posix
-
-    # libs
-    openssl
   ];
 }

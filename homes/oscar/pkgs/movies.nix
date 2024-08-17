@@ -17,6 +17,7 @@
     # jellyfin-mpv-shim
     # kodi-wayland
     # vlc
+    # popcorntime
     invidtui
   ];
 }

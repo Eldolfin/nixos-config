@@ -22,9 +22,11 @@
     # mosquitto
     navi
     ncdu
+    nix-tree
     nmap
     ntfs3g
     nh
+    openssl
     pamixer
     pciutils
     # scrcpy
