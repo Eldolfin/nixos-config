@@ -39,7 +39,10 @@
           home-manager.useUserPackages = true;
           home-manager.users.oscar = import ./homes/oscar/home.nix;
 
-          home-manager.sharedModules = [ nur.hmModules.nur ];
+          home-manager.sharedModules = [
+            nur.hmModules.nur
+            nix-index-database.hmModules.nix-index
+          ];
         }
         (
           { config, pkgs, ... }:
