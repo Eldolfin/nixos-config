@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ isTour, ... }:
 {
   imports = [
     ./personalPackages.nix

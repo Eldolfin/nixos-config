@@ -65,6 +65,7 @@
         modules = commonModules ++ [
           ./hosts/laptop/configuration.nix
           ./hosts/laptop/hardware-configuration.nix
+          { home-manager.extraSpecialArgs.isTour = false; }
         ];
         specialArgs = {
           inherit inputs;
@@ -76,6 +77,7 @@
         modules = commonModules ++ [
           ./hosts/tour/configuration.nix
           ./hosts/tour/hardware-configuration.nix
+          { home-manager.extraSpecialArgs.isTour = true; }
         ];
         specialArgs = {
           inherit inputs;

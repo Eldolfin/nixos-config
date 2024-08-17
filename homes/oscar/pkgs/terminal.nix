@@ -1,11 +1,10 @@
 {
   pkgs,
   lib,
-  config,
+  isTour,
   ...
 }:
 let
-  isTour = config.networking.hostName == "oscar-tour";
   termFontSize = if isTour then 22 else 12;
 in
 {
