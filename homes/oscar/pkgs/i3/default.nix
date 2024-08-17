@@ -33,8 +33,8 @@
           "${mod}+Shift+e" = "exec ${lib.getExe pkgs.firefox} --private-window";
           "${mod}+d" = "exec ${lib.getExe pkgs.rofi} -show drun";
           "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
-          # TODO: move these scripts to home manager config too
           "${mod}+w" = "exec /home/oscar/.config/i3/scripts/i3-display-swap.sh";
+          "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
