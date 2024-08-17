@@ -1,9 +1,18 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+let
+  isTour = config.networking.hostName == "oscar-tour";
+  termFontSize = if isTour then 22 else 12;
+in
 {
   programs.alacritty = {
     enable = true;
     settings = {
-      font.size = lib.mkForce 12;
+      font.size = lib.mkForce termFontSize;
     };
   };
   # programs.wezterm.enable = true;
