@@ -4,9 +4,7 @@
     enable = true;
     image = ./images/background.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night-eighties.yaml";
     autoEnable = true;
-    opacity.terminal = 0.99;
     polarity = "dark";
     targets = {
       grub.useImage = true; # :)
