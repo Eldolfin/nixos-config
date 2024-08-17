@@ -1,3 +1,5 @@
+# can't login on office365 this way, and removes all other accounts on each rebuild...
+# so I disabled it
 {
   programs.thunderbird = {
     enable = true;

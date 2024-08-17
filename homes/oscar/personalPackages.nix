@@ -2,18 +2,19 @@
 
 {
   imports = [
-    ./pkgs/dev.nix
-    # ./pkgs/gaming.nix
-    ./pkgs/movies.nix
-    ./pkgs/zsh.nix
-    ./pkgs/cliTools.nix
-    ./pkgs/helix
-    ./pkgs/firefox.nix
-    ./pkgs/sounds.nix
     ./pkgs/bloat.nix
+    ./pkgs/cliTools.nix
+    ./pkgs/dev.nix
     ./pkgs/direnv.nix
+    ./pkgs/firefox.nix
+    ./pkgs/helix
     ./pkgs/i3
+    ./pkgs/movies.nix
     ./pkgs/scripts
+    ./pkgs/socials.nix
+    ./pkgs/sounds.nix
+    ./pkgs/zsh.nix
+    # ./pkgs/gaming.nix
     # ./pkgs/chromium.nix
     # ./pkgs/sway
     # ./pkgs/thunderbird.nix
@@ -23,16 +24,9 @@
     # ./pkgs/hyprland.nix
   ];
 
-  # programs.emacs.enable = true; # cringe?
-
   home.packages = with pkgs; [
-    # graphical programs
+    # misc graphical programs
     noisetorch
-    thunderbird
-    signal-desktop
-    vencord
-    flameshot
-    emote
     gparted
     # bitwarden
 
