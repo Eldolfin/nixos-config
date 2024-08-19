@@ -6,6 +6,7 @@
     };
   };
   home.sessionVariables = {
-    DIRENV_SKIP_TIMEOUT = "TRUE";
+    # disable direnv is taking a while to execute. Use CTRL-C to give up.
+    DIRENV_WARN_TIMEOUT = 0;
   };
 }
