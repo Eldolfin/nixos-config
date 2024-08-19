@@ -4,7 +4,7 @@
   imports = [
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
-    ./pkgs/plymouth.nix
+    # ./pkgs/plymouth.nix
     ./pkgs/lightdm.nix
     ./pkgs/sops.nix
     # ./pkgs/wayland.nix
