@@ -83,9 +83,11 @@
       "input"
       "plugdev"
       "adbusers"
+      "i2c" # used for external display brightness control
     ];
     hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
+  hardware.i2c.enable = true;
 
   nix.settings.trusted-users = [
     "root"
