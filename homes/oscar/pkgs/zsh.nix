@@ -23,6 +23,7 @@
     # };
     eza = {
       enable = true;
+      git = true;
       enableZshIntegration = true;
     };
     starship = {

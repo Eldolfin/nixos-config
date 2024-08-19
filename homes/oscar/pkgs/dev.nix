@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.bun.enable = true;
+  programs.gh.enable = true;
   home.packages = with pkgs; [
     # vscode-fhs
     # jetbrains
@@ -135,9 +136,6 @@
     # graphviz
     nodePackages.live-server
     sshfs
-    gh
-    git
-    git-lfs
     entr
     devenv
     # difftastic

@@ -1,9 +1,21 @@
-{ isTour, ... }:
+{ ... }:
 {
   imports = [
     ./personalPackages.nix
     ./basePackages.nix
     ./services.nix
+
+    ./pkgs/cliTools.nix
+    ./pkgs/dev.nix
+    ./pkgs/direnv.nix
+    ./pkgs/firefox.nix
+    ./pkgs/git.nix
+    ./pkgs/helix
+    ./pkgs/i3
+    ./pkgs/scripts
+    ./pkgs/socials.nix
+    ./pkgs/sounds.nix
+    ./pkgs/zsh.nix
   ];
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
