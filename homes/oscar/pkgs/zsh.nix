@@ -28,7 +28,7 @@
     enable = true;
     # for when chsh is not runnable
     # or for nix-shells ?
-    # profileExtra = "exec ${pkgs.zsh}";
+    profileExtra = "exec ${pkgs.zsh}/bin/zsh || true";
   };
   programs.zsh = {
     enable = true;
