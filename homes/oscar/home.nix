@@ -34,8 +34,8 @@
   # offline home manager manual :)
   manual.html.enable = true;
 
-  stylix.enable = true;
-  stylix.autoEnable = true;
+  #   stylix.enable = true;
+  #   stylix.autoEnable = true;
 
   xdg.mimeApps.defaultApplications = {
     "application/pdf" = "librewolf.desktop";
