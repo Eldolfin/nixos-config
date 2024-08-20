@@ -24,7 +24,12 @@
     "/home/oscar/bin/scripts/"
     "/home/oscar/bin/executables/"
   ];
-  programs.bash.profileExtra = "exec ${pkgs.zsh}";
+  programs.bash = {
+    enable = true;
+    # for when chsh is not runnable
+    # or for nix-shells ?
+    profileExtra = "exec ${pkgs.zsh}";
+  };
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
