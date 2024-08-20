@@ -5,7 +5,7 @@ set -xe
 if command -v nix; then
 	echo Nix is already installed, skipping
 else
-	echo Installing nix using the determinate nix installer https://zero-to-nix.com/start/install
+	echo Installing nix using the determinate nix installer https://github.com/DeterminateSystems/nix-installer
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
 fi
 
