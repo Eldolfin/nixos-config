@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   imports = [ ./languages.nix ];
   programs.helix = {
@@ -6,7 +5,7 @@
     defaultEditor = true;
 
     settings = {
-      theme = lib.mkDefault "tokyonight";
+      theme = "tokyonight";
       editor = {
         auto-format = true;
         color-modes = true;
