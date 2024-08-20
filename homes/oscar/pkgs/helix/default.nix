@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, ... }:
 {
   imports = [ ./languages.nix ];
   programs.helix = {
