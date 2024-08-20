@@ -6,6 +6,7 @@
     defaultEditor = true;
 
     settings = {
+      theme = "tokyonight";
       editor = {
         auto-format = true;
         color-modes = true;
