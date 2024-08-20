@@ -24,7 +24,7 @@
     "/home/oscar/bin/scripts/"
     "/home/oscar/bin/executables/"
   ];
-  bash.profileExtra = "exec ${pkgs.zsh}";
+  programs.bash.profileExtra = "exec ${pkgs.zsh}";
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
