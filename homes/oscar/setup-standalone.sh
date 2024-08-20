@@ -19,5 +19,6 @@ else
 	popd
 
 	echo Running initial home-manager switch
-	nix run home-manager/master -- switch --flake ~/nixos-config/homes/oscar
+	# nix run home-manager/master -- switch --flake ~/nixos-config/homes/oscar
+	nix run nixpkgs#nh home switch ~/nixos-config/homes/oscar
 fi

@@ -35,6 +35,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - run: ./homes/oscar/setup-standalone.sh
+      - printf "" | adduser oscar
+      - run: su oscar -c ./homes/oscar/setup-standalone.sh
       - name: re run to make sure it's 'idempotent'
-        run: ./homes/oscar/setup-standalone.sh
+        run: su oscar -c ./homes/oscar/setup-standalone.sh
