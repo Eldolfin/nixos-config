@@ -4,6 +4,7 @@ set -xe
 
 if ! command -v curl || ! command -v git; then
 	echo curl and git are required to run this script.
+	exit
 fi
 
 if command -v nix; then
