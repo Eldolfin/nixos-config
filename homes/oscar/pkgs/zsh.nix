@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = ./starship.nix;
+  imports = [ ./starship.nix ];
   home.packages = with pkgs; [
     wmctrl # used by zsh-notify
   ];
