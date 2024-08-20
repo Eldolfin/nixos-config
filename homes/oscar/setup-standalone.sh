@@ -2,6 +2,10 @@
 
 set -xe
 
+if ! command -v curl || ! command -v git; then
+	echo curl and git are required to run this script.
+fi
+
 if command -v nix; then
 	echo Nix is already installed, skipping
 else
@@ -14,9 +18,8 @@ fi
 if [ -d ~/nixos-config ]; then
 	echo Eldolfin/nixos-config is already cloned, skipping
 else
-	pushd ~ || exit
+	cd ~
 	git clone https://github.com/Eldolfin/nixos-config
-	popd
 
 	echo Running initial home-manager switch
 	# nix run home-manager/master -- switch --flake ~/nixos-config/homes/oscar
