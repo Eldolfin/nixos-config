@@ -5,9 +5,6 @@
     userName = "Oscar Le Dauphin";
     lfs.enable = true;
     extraConfig = {
-      core = {
-        autocrlf = true;
-      };
       push = {
         autoSetupRemote = true;
       };
