@@ -6,7 +6,7 @@
     defaultEditor = true;
 
     settings = {
-      theme = lib.mkForce "tokyonight";
+      theme = lib.mkDefault "tokyonight";
       editor = {
         auto-format = true;
         color-modes = true;
