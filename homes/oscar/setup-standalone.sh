@@ -7,6 +7,8 @@ if command -v nix; then
 else
 	echo Installing nix using the determinate nix installer https://github.com/DeterminateSystems/nix-installer
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
+
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 fi
 
 if [ -d ~/nixos-config ]; then
