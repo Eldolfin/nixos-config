@@ -32,6 +32,8 @@ jobs:
         run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
+    runs-on: ubuntu-22.04
+    steps:
     - run: ./homes/oscar/setup-standalone.sh
     - name: re run to make sure it's 'idempotent'
       run: ./homes/oscar/setup-standalone.sh
