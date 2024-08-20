@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  imports = ./starship.nix;
   home.packages = with pkgs; [
     wmctrl # used by zsh-notify
   ];
@@ -25,9 +26,6 @@
       enable = true;
       git = true;
       enableZshIntegration = true;
-    };
-    starship = {
-      enable = true;
     };
   };
 
