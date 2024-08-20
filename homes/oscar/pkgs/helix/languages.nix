@@ -5,14 +5,6 @@
     language-server = {
       # github is not happy about this
       # gpt = {
-      #   command = "/home/oscar/.bun/bin/bun";
-      #   args = [
-      #     "run"
-      #     "/home/oscar/Prog/helix-gpt-tmp/src/app.ts"
-      #     "--handler"
-      #     "copilot"
-      #   ];
-      # gpt = {
       #   command = lib.getExe pkgs.deno;
       #   args = [
       #     "run"
@@ -32,7 +24,7 @@
         ];
       };
       nixd.command = "${pkgs.nixd}/bin/nixd";
-      jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
+      # jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
         command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
         args = [ "start" ];
@@ -44,36 +36,36 @@
       typescript-language-server = {
         command = lib.getExe pkgs.nodePackages.typescript-language-server;
         args = [ "--stdio" ];
-        config =
-          let
-            inlayHints = {
-              includeInlayEnumMemberValueHints = true;
-              includeInlayFunctionLikeReturnTypeHints = true;
-              includeInlayFunctionParameterTypeHints = true;
-              includeInlayParameterNameHints = "all";
-              includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-              includeInlayPropertyDeclarationTypeHints = true;
-              includeInlayVariableTypeHints = true;
-            };
-          in
-          {
-            typescript-language-server.source = {
-              addMissingImports.ts = true;
-              fixAll.ts = true;
-              organizeImports.ts = true;
-              removeUnusedImports.ts = true;
-              sortImports.ts = true;
-            };
+        # config =
+        #   let
+        #     inlayHints = {
+        #       includeInlayEnumMemberValueHints = true;
+        #       includeInlayFunctionLikeReturnTypeHints = true;
+        #       includeInlayFunctionParameterTypeHints = true;
+        #       includeInlayParameterNameHints = "all";
+        #       includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+        #       includeInlayPropertyDeclarationTypeHints = true;
+        #       includeInlayVariableTypeHints = true;
+        #     };
+        #   in
+        #   {
+        #     typescript-language-server.source = {
+        #       addMissingImports.ts = true;
+        #       fixAll.ts = true;
+        #       organizeImports.ts = true;
+        #       removeUnusedImports.ts = true;
+        #       sortImports.ts = true;
+        #     };
 
-            typescript = {
-              inherit inlayHints;
-            };
-            javascript = {
-              inherit inlayHints;
-            };
+        #     typescript = {
+        #       inherit inlayHints;
+        #     };
+        #     javascript = {
+        #       inherit inlayHints;
+        #     };
 
-            hostInfo = "helix";
-          };
+        #     hostInfo = "helix";
+        #   };
       };
       vscode-html-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
       vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
