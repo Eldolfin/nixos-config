@@ -2,7 +2,7 @@
 
 set -xe
 
-if ! command -v curl || ! command -v git; then
+if ! (command -v curl && command -v git); then
 	echo curl and git are required to run this script.
 	exit
 fi
