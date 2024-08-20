@@ -9,19 +9,10 @@
       enable = true;
       enableZshIntegration = true;
     };
-    # atuin = {
-    # enableZshIntegration = true;
-    # enable = true;
-    # };
     fzf = {
       enable = true;
       enableZshIntegration = true;
     };
-    # is it usefull? (should provide better completion)
-    # carapace = {
-    #   enable = true;
-    #   enableZshIntegration = true;
-    # };
     eza = {
       enable = true;
       git = true;
@@ -101,5 +92,8 @@
       enable = true;
       plugins = [ "marzocchi/zsh-notify" ];
     };
+    # for home manager standalone where chsh is not available
+    # and nix-shell ?
+    bash.profileExtra = "exec ${pkgs.zsh}";
   };
 }
