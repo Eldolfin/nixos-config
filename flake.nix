@@ -42,10 +42,11 @@
           home-manager.sharedModules = [
             nur.hmModules.nur
             nix-index-database.hmModules.nix-index
+            { stylix.targets.helix.enable = false; }
           ];
         }
         (
-          { config, pkgs, ... }:
+          { ... }:
           {
             nixpkgs.overlays = [ overlay-unstable ];
           }
