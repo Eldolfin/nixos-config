@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   #  home.packages = with pkgs; [
   #  ];
   programs = {
@@ -40,10 +41,11 @@
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
 
-    starship = { enable = true; };
+    starship = {
+      enable = true;
+    };
   };
 
   # for using background tasks in nushell
   services.pueue.enable = true;
 }
-
