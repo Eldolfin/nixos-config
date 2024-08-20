@@ -13,7 +13,7 @@ if [ -d ~/nixos-config ]; then
 	echo Eldolfin/nixos-config is already cloned, skipping
 else
 	pushd ~ || exit
-	git clone github.com/Eldolfin/nixos-config
+	git clone https://github.com/Eldolfin/nixos-config
 	popd
 
 	echo Running initial home-manager switch
