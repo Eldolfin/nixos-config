@@ -24,6 +24,7 @@
     "/home/oscar/bin/scripts/"
     "/home/oscar/bin/executables/"
   ];
+  bash.profileExtra = "exec ${pkgs.zsh}";
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -94,6 +95,5 @@
     };
     # for home manager standalone where chsh is not available
     # and nix-shell ?
-    bash.profileExtra = "exec ${pkgs.zsh}";
   };
 }
