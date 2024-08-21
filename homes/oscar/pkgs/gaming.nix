@@ -1,14 +1,13 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    lutris
+    lutris-free
+    winetricks
     # steam
     # gamescope
     # libusb1 # for minecraft
     # prismlauncher
     # gamemode
     # mangohud
-    # wine
-    # winetricks
   ];
 }
