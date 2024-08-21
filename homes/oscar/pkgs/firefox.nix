@@ -80,7 +80,6 @@
         return-youtube-dislikes
         sponsorblock
         skip-redirect
-        ublacklist
         ublock-origin
         vimium
       ];
