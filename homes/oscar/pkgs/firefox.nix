@@ -67,7 +67,6 @@
       ];
       extensions = with config.nur.repos.rycee.firefox-addons; [
         bitwarden
-        bypass-paywalls-clean
         consent-o-matic
         dearrow
         decentraleyes
