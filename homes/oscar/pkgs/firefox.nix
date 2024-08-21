@@ -2,6 +2,7 @@
 {
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-devedition;
     profiles.homemanager = {
       isDefault = true;
       settings = {
