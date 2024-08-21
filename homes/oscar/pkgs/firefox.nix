@@ -79,7 +79,7 @@
         privacy-badger
         refined-github
         return-youtube-dislikes
-        sponsorblocki
+        sponsorblock
         skip-redirect
         ublacklist
         ublock-origin
