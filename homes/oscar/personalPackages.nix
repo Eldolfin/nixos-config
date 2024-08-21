@@ -4,7 +4,7 @@
   imports = [
     ./pkgs/bloat.nix
     ./pkgs/movies.nix
-    # ./pkgs/gaming.nix
+    ./pkgs/gaming.nix
     # ./pkgs/chromium.nix
     # ./pkgs/sway
     # ./pkgs/thunderbird.nix
