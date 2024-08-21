@@ -28,11 +28,12 @@
           mod = config.xsession.windowManager.i3.config.modifier;
         in
         lib.mkOptionDefault {
-          "${mod}+Return" = "exec ${lib.getExe pkgs.alacritty}";
-          "${mod}+e" = "exec ${lib.getExe pkgs.firefox}";
-          "${mod}+Shift+e" = "exec ${lib.getExe pkgs.firefox} --private-window";
-          "${mod}+d" = "exec ${lib.getExe pkgs.rofi} -show drun";
-          "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
+          "${mod}+Return" = "exec alacritty";
+          "${mod}+e" = "exec firefox";
+          "${mod}+Shift+e" = "exec firefox --private-window";
+          "${mod}+d" = "exec rofi -show drun";
+          "${mod}+v" = "exec copyq show";
+
           "${mod}+w" = "exec /home/oscar/.config/i3/scripts/i3-display-swap.sh";
           "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
