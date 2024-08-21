@@ -6,10 +6,11 @@
     profiles.homemanager = {
       isDefault = true;
       settings = {
+        "general.smoothScroll" = false;
         "extensions.autoDisableScopes" = 0;
         "extensions.pocket.enabled" = false;
-        "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter,Wikipedia (en),YouTube,eBay";
-
+        "browser.search.hiddenOneOffs" = "Google,Yahoo,Bing,Amazon.com,Twitter,YouTube,eBay";
+        "browser.startup.page" = 3; # Resume last session.
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.openpage" = false;
         "browser.urlbar.suggest.bookmark" = false;
@@ -22,20 +23,20 @@
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.search.region" = "US";
+        "browser.search.isUS" = true;
+        "general.useragent.locale" = "en-US";
 
         # tabs on the side
         "sidebar.revamp" = true;
         "sidebar.verticalTabs" = true;
         "sidebar.main.tools" = "history";
 
-        "browser.search.region" = "US";
-        "browser.search.isUS" = true;
-        "general.useragent.locale" = "en-US";
         # privacy related
         "privacy.resistFingerprinting" = true;
         "privacy.donottrackheader.enabled" = true;
         "dom.battery.enabled" = false;
-        "geo.enabled" = true;
+        "geo.enabled" = false;
       };
       bookmarks = [
         {
@@ -66,6 +67,7 @@
       ];
       extensions = with config.nur.repos.rycee.firefox-addons; [
         bitwarden
+        bypass-paywalls-clean
         consent-o-matic
         dearrow
         decentraleyes
@@ -77,7 +79,9 @@
         privacy-badger
         refined-github
         return-youtube-dislikes
-        sponsorblock
+        sponsorblocki
+        skip-redirect
+        ublacklist
         ublock-origin
         vimium
       ];
