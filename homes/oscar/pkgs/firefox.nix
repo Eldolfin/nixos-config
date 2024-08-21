@@ -21,6 +21,7 @@
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.ctrlTab.sortByRecentlyUsed" = true;
 
         # tabs on the side
         "sidebar.revamp" = true;
