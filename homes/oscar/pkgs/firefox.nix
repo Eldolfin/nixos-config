@@ -22,6 +22,11 @@
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
 
+        # tabs on the side
+        "sidebar.revamp" = true;
+        "sidebar.verticalTabs" = true;
+        "sidebar.main.tools" = "history";
+
         "browser.search.region" = "US";
         "browser.search.isUS" = true;
         "general.useragent.locale" = "en-US";
