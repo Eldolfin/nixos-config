@@ -42,11 +42,11 @@
           home-manager.useUserPackages = true;
           home-manager.users.oscar = import ./homes/oscar/home.nix;
 
+          home-manager.extraSpecialArgs = [ helix ];
           home-manager.sharedModules = [
             nur.hmModules.nur
             nix-index-database.hmModules.nix-index
             { stylix.targets.helix.enable = false; }
-            helix
           ];
         }
         (
