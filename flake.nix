@@ -6,11 +6,13 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nur.url = "github:nix-community/NUR";
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    helix.url = "github:helix-editor/helix/master";
   };
 
   outputs =
@@ -22,6 +24,7 @@
       sops-nix,
       nixpkgs-unstable,
       nix-index-database,
+      helix,
       ...
     }@inputs:
     let
@@ -43,6 +46,7 @@
             nur.hmModules.nur
             nix-index-database.hmModules.nix-index
             { stylix.targets.helix.enable = false; }
+            helix
           ];
         }
         (

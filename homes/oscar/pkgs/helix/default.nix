@@ -1,7 +1,9 @@
+{ config, ... }:
 {
   imports = [ ./languages.nix ];
   programs.helix = {
     enable = true;
+    package = config.helix.helix;
     defaultEditor = true;
 
     settings = {
