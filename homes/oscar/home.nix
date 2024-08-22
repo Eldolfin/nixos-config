@@ -1,7 +1,6 @@
-{ ... }:
+{ lib, isPersonal, ... }:
 {
   imports = [
-    ./personalPackages.nix
     ./basePackages.nix
     ./services.nix
 
@@ -16,7 +15,7 @@
     ./pkgs/socials.nix
     ./pkgs/sounds.nix
     ./pkgs/zsh.nix
-  ];
+  ] ++ lib.optional isPersonal [ ./personalPackages.nix ];
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
   # This value determines the Home Manager release that your

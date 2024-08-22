@@ -38,6 +38,7 @@
         # to pass through arguments to home.nix
         extraSpecialArgs = {
           isTour = false;
+          isPersonal = false;
         };
       };
     };

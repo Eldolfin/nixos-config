@@ -44,6 +44,7 @@
 
           home-manager.extraSpecialArgs = {
             helix-master = helix;
+            isPersonal = true;
           };
           home-manager.sharedModules = [
             nur.hmModules.nur
