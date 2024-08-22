@@ -1,9 +1,9 @@
-{ config, ... }:
+{ pkgs, helix-master, ... }:
 {
   imports = [ ./languages.nix ];
   programs.helix = {
     enable = true;
-    package = config.helix.helix;
+    package = helix-master.packages.${pkgs.system}.default;
     defaultEditor = true;
 
     settings = {
