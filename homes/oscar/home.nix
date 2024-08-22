@@ -1,24 +1,23 @@
 { lib, isPersonal, ... }:
 {
-  imports = (
-    [
-      ./basePackages.nix
-      ./services.nix
+  imports = [
+    ./basePackages.nix
+    ./services.nix
 
-      ./pkgs/cliTools.nix
-      ./pkgs/dev.nix
-      ./pkgs/direnv.nix
-      ./pkgs/firefox.nix
-      ./pkgs/git.nix
-      ./pkgs/helix
-      ./pkgs/i3
-      ./pkgs/scripts
-      ./pkgs/socials.nix
-      ./pkgs/sounds.nix
-      ./pkgs/zsh.nix
-    ]
-    ++ lib.optional isPersonal [ ./personalPackages.nix ]
-  );
+    ./pkgs/cliTools.nix
+    ./pkgs/dev.nix
+    ./pkgs/direnv.nix
+    ./pkgs/firefox.nix
+    ./pkgs/git.nix
+    ./pkgs/helix
+    ./pkgs/i3
+    ./pkgs/scripts
+    ./pkgs/socials.nix
+    ./pkgs/sounds.nix
+    ./pkgs/zsh.nix
+    (lib.optional isPersonal ./personalPackages.nix)
+  ];
+
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
   # This value determines the Home Manager release that your
