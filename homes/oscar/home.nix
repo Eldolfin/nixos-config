@@ -15,8 +15,7 @@
     ./pkgs/socials.nix
     ./pkgs/sounds.nix
     ./pkgs/zsh.nix
-    (lib.optional isPersonal ./personalPackages.nix)
-  ];
+  ] ++ lib.optionals isPersonal [ ./personalPackages.nix ];
 
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";

@@ -18,7 +18,6 @@
     # misc graphical programs
     noisetorch
     gparted
-    # bitwarden
 
     man-pages
     man-pages-posix
