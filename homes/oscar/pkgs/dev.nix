@@ -21,8 +21,9 @@
     # rust
     # evcxr
     # rust-analyzer
-    rustup
+    # rustup
     # bacon
+    cargo
 
     # for leptos
     # trunk
