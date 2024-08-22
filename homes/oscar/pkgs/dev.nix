@@ -140,7 +140,7 @@
     entr
     devenv
     # difftastic
-    # godot_4
+    godot_4
     # dig
     # mold
     # act # github action runner
