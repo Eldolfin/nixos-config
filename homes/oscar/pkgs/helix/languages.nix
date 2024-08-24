@@ -108,7 +108,7 @@
       {
         name = "rust";
         auto-format = true;
-        # formatter.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        formatter.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         language-servers = [
           "rust-analyzer"
           "gpt"
