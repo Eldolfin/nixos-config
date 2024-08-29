@@ -8,8 +8,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
-
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
     nix-index-database.url = "github:nix-community/nix-index-database";
