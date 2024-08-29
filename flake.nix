@@ -13,6 +13,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix/master";
+    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =
@@ -25,6 +26,7 @@
       nixpkgs-unstable,
       nix-index-database,
       helix,
+      nixcord,
       ...
     }@inputs:
     let
@@ -49,6 +51,7 @@
           home-manager.sharedModules = [
             nur.hmModules.nur
             nix-index-database.hmModules.nix-index
+            nixcord.homeManagerModules.nixcord
             { stylix.targets.helix.enable = false; }
           ];
         }
