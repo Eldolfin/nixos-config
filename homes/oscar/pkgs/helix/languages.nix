@@ -127,6 +127,14 @@
           "pylsp"
           "jedi"
         ];
+        formatter = {
+          command = lib.getExe pkgs.black;
+          args = [
+            "-"
+            "--quiet"
+            "--line-length=80"
+          ];
+        };
       }
       {
         name = "javascript";
