@@ -20,7 +20,7 @@
         command = lib.getExe pkgs.helix-gpt;
         args = [
           "--handler"
-          "codeium"
+          "copilot"
         ];
       };
       nixd.command = "${pkgs.nixd}/bin/nixd";
@@ -36,42 +36,14 @@
       typescript-language-server = {
         command = lib.getExe pkgs.nodePackages.typescript-language-server;
         args = [ "--stdio" ];
-        # config =
-        #   let
-        #     inlayHints = {
-        #       includeInlayEnumMemberValueHints = true;
-        #       includeInlayFunctionLikeReturnTypeHints = true;
-        #       includeInlayFunctionParameterTypeHints = true;
-        #       includeInlayParameterNameHints = "all";
-        #       includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-        #       includeInlayPropertyDeclarationTypeHints = true;
-        #       includeInlayVariableTypeHints = true;
-        #     };
-        #   in
-        #   {
-        #     typescript-language-server.source = {
-        #       addMissingImports.ts = true;
-        #       fixAll.ts = true;
-        #       organizeImports.ts = true;
-        #       removeUnusedImports.ts = true;
-        #       sortImports.ts = true;
-        #     };
-
-        #     typescript = {
-        #       inherit inlayHints;
-        #     };
-        #     javascript = {
-        #       inherit inlayHints;
-        #     };
-
-        #     hostInfo = "helix";
-        #   };
       };
       vscode-html-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
       vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
       vscode-json-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
       vscode-markdown-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
+
       pylsp.command = "${pkgs.python311Packages.python-lsp-server}/bin/pylsp";
+      jedi.command = "${pkgs.python311Packages.jedi-language-server}/bin/jedi-language-server";
 
       rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
     };
@@ -153,6 +125,7 @@
         language-servers = [
           "gpt"
           "pylsp"
+          "jedi"
         ];
       }
       {
