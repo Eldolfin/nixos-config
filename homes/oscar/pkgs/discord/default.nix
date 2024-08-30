@@ -36,6 +36,16 @@
         revealAllSpoilers.enable = true;
         reverseImageSearch.enable = true;
         roleColorEverywhere.enable = true;
+        showHiddenChannels.enable = true;
+        showMeYourName.enable = true;
+        silentTyping.enable = true;
+        typingIndicator.enable = true;
+        typingTweaks.enable = true;
+        unindent.enable = true;
+        voiceChatDoubleClick.enable = true;
+        whoReacted.enable = true;
+        youtubeAdblock.enable = true;
+        webScreenShareFixes.enable = true;
       };
     };
   };
