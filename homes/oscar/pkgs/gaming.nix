@@ -4,7 +4,7 @@
     smassh # monkey type in terminal
     lutris-free
     winetricks
-    # steam
+    # steam # installed as nixos module
     # gamescope
     # libusb1 # for minecraft
     # prismlauncher

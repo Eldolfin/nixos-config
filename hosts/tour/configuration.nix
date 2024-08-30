@@ -2,6 +2,7 @@
   imports = [
     ../../common.nix
     ../../pkgs/grub.nix
+    ../../pkgs/steam.nix
     # ../../pkgs/systemd-boot.nix # should make a gpt table first
   ];
 
