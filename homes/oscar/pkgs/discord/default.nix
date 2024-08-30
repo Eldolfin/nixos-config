@@ -8,12 +8,12 @@
     # discord.enable = false;
     vesktop.enable = true;
 
-    # plugins = {
-    #   betterUploadButton.enable = true;
-    #   callTimer.enable = true;
-    #   clearURLs.enable = true;
-    #   dearrow.enable = true;
-    #   fakeNitro.enable = true;
-    # };
+    plugins = {
+      betterUploadButton.enable = true;
+      # callTimer.enable = true;
+      # clearURLs.enable = true;
+      # dearrow.enable = true;
+      # fakeNitro.enable = true;
+    };
   };
 }
