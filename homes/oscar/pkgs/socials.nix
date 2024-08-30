@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./discord.nix ];
+  imports = [ ./discord ];
   home.packages = with pkgs; [
     thunderbird
     signal-desktop
