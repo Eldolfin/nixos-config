@@ -1,5 +1,6 @@
 # this file is common between tour and laptop
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
@@ -40,7 +41,10 @@
   # for gpu in docker containers
   # systemd.enableUnifiedCgroupHierarchy = false;
 
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -82,12 +86,14 @@
       "adbusers"
       "i2c" # used for external display brightness control
     ];
-    hashedPassword =
-      "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
   };
   hardware.i2c.enable = true;
 
-  nix.settings.trusted-users = [ "root" "oscar" ];
+  nix.settings.trusted-users = [
+    "root"
+    "oscar"
+  ];
 
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
@@ -105,7 +111,11 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-      settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
     };
     graphics = {
       enable = true;
@@ -115,7 +125,11 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
-  virtualisation = { docker = { enable = true; }; };
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
 
   services = {
     tailscale.enable = true;
