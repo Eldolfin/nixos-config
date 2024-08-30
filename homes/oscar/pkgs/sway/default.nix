@@ -21,7 +21,6 @@
           "${mod}+e" = "exec ${lib.getExe pkgs.firefox}";
           "${mod}+Shift+e" = "exec ${lib.getExe pkgs.firefox} --private-window";
           "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
-
         };
     };
   };
