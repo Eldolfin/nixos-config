@@ -15,6 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
+  services.displayManager.autoLogin.enable = true; # TODO: remove later
 
   # lol (800MHz)
   # powerManagement.cpufreq.max = 800;
