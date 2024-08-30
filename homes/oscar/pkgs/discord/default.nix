@@ -8,7 +8,7 @@
     vesktop.enable = true;
 
     config = {
-
+      enabledThemes = [ "stylix.theme.css" ];
       frameless = true;
       plugins = {
         betterUploadButton.enable = true;
