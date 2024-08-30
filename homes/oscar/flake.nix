@@ -19,6 +19,8 @@
       nixpkgs,
       home-manager,
       nur,
+      nixcord,
+      helix,
       ...
     }:
     let
