@@ -22,7 +22,6 @@
   # };
   programs = {
     adb.enable = true;
-    noisetorch.enable = true;
     nh = {
       enable = true;
       clean = {
