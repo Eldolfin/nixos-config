@@ -5,7 +5,7 @@
     enable = true;
     # frameless = true;
 
-    discord.enable = false;
+    # discord.enable = false;
     vesktop.enable = true;
 
     plugins = {
