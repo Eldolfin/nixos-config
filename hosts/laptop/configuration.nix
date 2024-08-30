@@ -12,6 +12,7 @@
       xkb.layout = "gb";
     };
     displayManager.autoLogin.enable = true; # TODO: remove later
+    tlp.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
