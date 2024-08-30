@@ -3,7 +3,7 @@
   # imports = [ inputs.nixcord.homeManagerModules.nixcord ];
   programs.nixcord = {
     enable = true;
-    frameless = true;
+    # frameless = true;
 
     discord.enable = false;
     vesktop.enable = true;
