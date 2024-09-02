@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xe
+set -e
 
 if ! (command -v curl && command -v git); then
 	echo curl and git are required to run this script.
@@ -23,6 +23,5 @@ else
 	git clone https://github.com/Eldolfin/nixos-config
 
 	echo Running initial home-manager switch
-	# nix run home-manager/master -- switch --flake ~/nixos-config/homes/oscar
 	nix run nixpkgs#nh home switch ~/nixos-config/homes/oscar
 fi
