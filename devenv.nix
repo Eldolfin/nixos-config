@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  packages = [ pkgs.git ];
+  packages = [
+    pkgs.git
+    pkgs.act
+  ];
   languages.nix.enable = true;
 
   pre-commit.hooks.nixfmt = {
