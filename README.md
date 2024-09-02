@@ -1,4 +1,4 @@
-# My nixos system config
+# My nixos system config [![CI](https://github.com/Eldolfin/nixos-config/actions/workflows/ci.yml/badge.svg)](https://github.com/Eldolfin/nixos-config/actions/workflows/ci.yml)
 
 ## I somehow broke my system again (run one by one)
 
