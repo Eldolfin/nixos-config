@@ -13,11 +13,11 @@
   };
   home.packages = with pkgs; [
     # movies
-    # jellyfin-media-player
+    jellyfin-media-player
     # jellyfin-mpv-shim
     # kodi-wayland
     # vlc
     # popcorntime
-    invidtui
+    # invidtui
   ];
 }
