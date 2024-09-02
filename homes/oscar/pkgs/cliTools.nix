@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     acpi
     # appimage-run
+    asciinema
     bc
     bear
     cachix
