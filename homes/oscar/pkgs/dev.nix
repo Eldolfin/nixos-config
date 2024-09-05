@@ -139,7 +139,7 @@
     sshfs
     entr
     devenv
-    # difftastic
+    tea
     godot_4
     # dig
     # mold
