@@ -10,8 +10,8 @@
       grub.useImage = true; # :)
     };
 
-    cursor.package = pkgs.bibata-cursors;
-    cursor.name = "Bibata-Modern-Ice";
+    # cursor.package = pkgs.bibata-cursors;
+    # cursor.name = "Bibata-Modern-Ice";
 
     fonts = {
       monospace = {
