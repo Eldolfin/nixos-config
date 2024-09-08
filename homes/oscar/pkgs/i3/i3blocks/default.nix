@@ -20,11 +20,9 @@
           interval = 60;
         };
         volume = lib.hm.dag.entryBefore [ "date" ] {
-          command = "~/.config/i3/scripts/i3-volume/volume output i3blocks";
+          command = "wpctl get-volume @DEFAULT_SINK@";
           interval = 5;
           signal = 10;
-          label = "VOL ";
-          markup = "pango";
         };
         cpu = lib.hm.dag.entryBefore [ "volume" ] {
           command = "~/.config/i3blocks/scripts/cpu_usage";
