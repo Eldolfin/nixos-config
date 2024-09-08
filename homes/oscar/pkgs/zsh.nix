@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # used by zsh-notify
     wmctrl
-    alsa-utils
+    pulseaudio
   ];
   programs = {
     zoxide = {

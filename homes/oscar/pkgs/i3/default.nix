@@ -50,7 +50,7 @@
           "F3" = "exec pamixer -i ${volumeStep}";
 
           # sound effects
-          "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.alsa-utils}/bin/aplay Music/sounds/boom.wav";
+          "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
         };
     };
   };
