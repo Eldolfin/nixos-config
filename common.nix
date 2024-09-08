@@ -103,10 +103,11 @@
   security.polkit.enable = true;
 
   hardware = {
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
+    # replaced with pipewire by default?
+    # pulseaudio = {
+    #   enable = true;
+    #   package = pkgs.pulseaudioFull;
+    # };
     bluetooth = {
       enable = true;
       powerOnBoot = true;
