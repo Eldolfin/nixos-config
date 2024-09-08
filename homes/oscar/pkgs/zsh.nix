@@ -32,8 +32,8 @@
   # };
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
     autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
     shellAliases = {
       clone = ''alacritty -e zsh -c "cd $(pwd); zsh -i"&!'';
@@ -63,15 +63,11 @@
       editconf = "chezmoi edit --watch --apply --color=true --progress=true";
     };
 
-    plugins = [
-      # {
-      #   name = "vi-mode";
-      #   src = pkgs.zsh-vi-mode;
-      #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      # }
-    ];
-
     initExtra = ''
+      source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
+      source ${pkgs.zsh-autopair.src}/zsh-autopair.plugin.zsh
+      ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
+
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
 
@@ -83,10 +79,6 @@
       zstyle ':notify:*' enable-on-ssh yes
       zstyle ':notify:*' success-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Success.ogg"
       zstyle ':notify:*' error-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Error.ogg"
-
-      # anoying
-      # clear
-      # fastfetch
 
       export COPILOT_API_KEY=$(cat /run/secrets/apis/COPILOT_API_KEY)
     '';
@@ -100,7 +92,5 @@
       enable = true;
       plugins = [ "marzocchi/zsh-notify" ];
     };
-    # for home manager standalone where chsh is not available
-    # and nix-shell ?
   };
 }
