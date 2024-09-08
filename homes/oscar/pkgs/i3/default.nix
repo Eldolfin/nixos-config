@@ -26,7 +26,7 @@
       keybindings =
         let
           mod = config.xsession.windowManager.i3.config.modifier;
-          volumeStep = 5;
+          volumeStep = toString 5;
         in
         lib.mkOptionDefault {
           "${mod}+Return" = "exec alacritty";
