@@ -26,6 +26,7 @@
       keybindings =
         let
           mod = config.xsession.windowManager.i3.config.modifier;
+          volumeStep = 5;
         in
         lib.mkOptionDefault {
           "${mod}+Return" = "exec alacritty";
@@ -41,6 +42,12 @@
           "${mod}+j" = "focus down";
           "${mod}+k" = "focus up";
           "${mod}+l" = "focus right";
+
+          "XF86AudioMute" = "exec pamixer -t";
+          "XF86AudioLowerVolume" = "exec pamixer -d ${volumeStep}";
+          "XF86AudioRaiseVolume" = "exec pamixer -i ${volumeStep}";
+          "F2" = "exec pamixer -d ${volumeStep}";
+          "F3" = "exec pamixer -i ${volumeStep}";
         };
     };
   };
