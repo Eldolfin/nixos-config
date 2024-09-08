@@ -66,7 +66,6 @@
     initExtra = ''
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-autopair.src}/zsh-autopair.plugin.zsh
-      ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
 
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
