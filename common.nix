@@ -5,21 +5,15 @@
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
     ./pkgs/incus.nix
-    # ./pkgs/plymouth.nix
     ./pkgs/lightdm.nix
     ./pkgs/sops.nix
+    ./pkgs/sound.nix
+    # ./pkgs/plymouth.nix
     # ./pkgs/wayland.nix
   ];
 
   services.libinput.touchpad.naturalScrolling = true;
 
-  # periodic store optimisation
-  # nix.optimise.automatic = true;
-  # nix.gc = {
-  #   automatic = true;
-  #   dates = "weekly";
-  #   options = "--delete-older-than 30d";
-  # };
   programs = {
     adb.enable = true;
     nh = {
@@ -103,11 +97,6 @@
   security.polkit.enable = true;
 
   hardware = {
-    # replaced with pipewire by default?
-    # pulseaudio = {
-    #   enable = true;
-    #   package = pkgs.pulseaudioFull;
-    # };
     bluetooth = {
       enable = true;
       powerOnBoot = true;
