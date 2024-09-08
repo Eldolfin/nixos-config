@@ -48,6 +48,9 @@
           "XF86AudioRaiseVolume" = "exec pamixer -i ${volumeStep}";
           "F2" = "exec pamixer -d ${volumeStep}";
           "F3" = "exec pamixer -i ${volumeStep}";
+
+          # sound effects
+          "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.alsa-utils}/bin/aplay Music/sounds/boom.wav";
         };
     };
   };

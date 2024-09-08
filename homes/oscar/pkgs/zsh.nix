@@ -2,7 +2,9 @@
 {
   imports = [ ./starship.nix ];
   home.packages = with pkgs; [
-    wmctrl # used by zsh-notify
+    # used by zsh-notify
+    wmctrl
+    alsa-utils
   ];
   programs = {
     zoxide = {
