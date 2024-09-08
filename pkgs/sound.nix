@@ -6,6 +6,6 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-    # alsa.enable = true; # might be needed
+    alsa.enable = true; # might be needed
   };
 }
