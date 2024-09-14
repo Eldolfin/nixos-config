@@ -63,10 +63,10 @@
           "${mod}+l" = "focus right";
 
           "XF86AudioMute" = "exec pamixer -t";
-          "XF86AudioLowerVolume" = "exec ${volumeChange} d";
-          "XF86AudioRaiseVolume" = "exec ${volumeChange} i";
-          "F2" = "exec ${volumeChange} d";
-          "F3" = "exec ${volumeChange} i";
+          "XF86AudioLowerVolume" = "exec ${volumeChange}/bin/volume-change d";
+          "XF86AudioRaiseVolume" = "exec ${volumeChange}/bin/volume-change i";
+          "F2" = "exec ${volumeChange}/bin/volume-change d";
+          "F3" = "exec ${volumeChange}/bin/volume-change i";
 
           # sound effects
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
