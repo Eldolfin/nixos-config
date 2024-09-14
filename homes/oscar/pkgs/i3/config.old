@@ -83,22 +83,6 @@ exec --no-startup-id emote
 # low battery pop-up
 exec --no-startup-id i3-battery-popup
 
-set $volumepath ~/.config/i3/scripts/i3-volume
-set $volumestep 5
-set $volumeargs -P -n
-
-# when using pulseaudio
-# bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume $volumeargs up $volumestep
-# bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume $volumeargs down $volumestep
-# bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume $volumeargs mute
-# bindsym F2                   exec --no-startup-id $volumepath/volume $volumeargs down $volumestep
-# bindsym F3                   exec --no-startup-id $volumepath/volume $volumeargs up $volumestep
-
-# when using pipewire
-# bindsym XF86AudioRaiseVolume exec pamixer -i 5
-# bindsym XF86AudioLowerVolume exec pamixer -d 5
-# bindsym XF86AudioMute        exec pamixer -t
-
 
 # hide window decorations
 # default_border none
