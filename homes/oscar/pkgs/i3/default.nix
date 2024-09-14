@@ -27,7 +27,7 @@
         let
           mod = config.xsession.windowManager.i3.config.modifier;
           volumeStep = toString 5;
-          volumeChange = pkgs.writeShellScriptBin ''
+          volumeChange = pkgs.writeShellScriptBin "volume-change" ''
             #!/bin/sh
             set -e
 
@@ -43,6 +43,8 @@
               -i ${pkgs.gnome-themes-extra}/share/icons/HighContrast/256x256/devices/audio-speakers.png \
               -h int:value:$VOL \
               -h string:synchronous:volume
+
+            paplay ~/Music/sounds/audio-volume-change.oga
           '';
         in
         lib.mkOptionDefault {
