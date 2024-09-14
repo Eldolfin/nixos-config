@@ -27,6 +27,23 @@
         let
           mod = config.xsession.windowManager.i3.config.modifier;
           volumeStep = toString 5;
+          volumeChange = pkgs.writeShellScriptBin ''
+            #!/bin/sh
+            set -e
+
+            if [ $# != 1 ]; then
+            	echo "Usage: $0 [i|d]"
+            	exit 1
+            fi
+
+            ${pkgs.pamixer}/bin/pamixer -"$1" ${volumeStep}
+            VOL=$(${pkgs.pamixer}/bin/pamixer --get-volume)
+
+            notify-send "Volume: $VOL" \
+              -i ${pkgs.gnome-themes-extra}/share/icons/HighContrast/256x256/devices/audio-speakers.png \
+              -h int:value:$VOL \
+              -h string:synchronous:volume
+          '';
         in
         lib.mkOptionDefault {
           "${mod}+Return" = "exec alacritty";
@@ -44,10 +61,10 @@
           "${mod}+l" = "focus right";
 
           "XF86AudioMute" = "exec pamixer -t";
-          "XF86AudioLowerVolume" = "exec pamixer -d ${volumeStep}";
-          "XF86AudioRaiseVolume" = "exec pamixer -i ${volumeStep}";
-          "F2" = "exec pamixer -d ${volumeStep}";
-          "F3" = "exec pamixer -i ${volumeStep}";
+          "XF86AudioLowerVolume" = "exec ${volumeChange} d";
+          "XF86AudioRaiseVolume" = "exec ${volumeChange} i";
+          "F2" = "exec ${volumeChange} d";
+          "F3" = "exec ${volumeChange} i";
 
           # sound effects
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
