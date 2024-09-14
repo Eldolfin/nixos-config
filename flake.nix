@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -23,7 +22,6 @@
       home-manager,
       nur,
       sops-nix,
-      nixpkgs-unstable,
       nix-index-database,
       helix,
       nixcord,
@@ -55,20 +53,7 @@
             { stylix.targets.helix.enable = false; }
           ];
         }
-        (
-          { ... }:
-          {
-            nixpkgs.overlays = [ overlay-unstable ];
-          }
-        )
       ];
-
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = false; # not needed
-        };
-      };
     in
     {
       nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
