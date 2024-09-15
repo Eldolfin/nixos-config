@@ -48,12 +48,13 @@
             	ICON="${pkgs.gnome-themes-extra}/share/icons/HighContrast/256x256/devices/audio-speakers.png"
             fi
 
-            notify-send "Volume: $VOL" \
+            ${pkgs.libnotify}/bin/notify-send "Volume: $VOL" \
+              -t 1000 \
               -i "$ICON" \
               -h int:value:$VOL \
               -h string:synchronous:volume
 
-            paplay ~/Music/sounds/audio-volume-change.oga
+            ${pkgs.pulseaudio}/bin/paplay ~/Music/sounds/audio-volume-change.oga
           '';
         in
         lib.mkOptionDefault {
