@@ -29,7 +29,7 @@
 
         # tabs on the side
         "sidebar.revamp" = true;
-        "sidebar.verticalTabs" = true;
+        # "sidebar.verticalTabs" = true;
         "sidebar.main.tools" = "history";
 
         # privacy related
