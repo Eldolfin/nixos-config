@@ -38,8 +38,8 @@
   #   stylix.autoEnable = true;
 
   xdg.mimeApps.defaultApplications = {
-    "application/pdf" = "librewolf.desktop";
-    "text/html" = "librewolf.desktop";
-    "x-scheme-handler/http" = "librewolf.desktop";
+    "application/pdf" = "firefox.desktop";
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
   };
 }

@@ -8,8 +8,7 @@
     ./pkgs/lightdm.nix
     ./pkgs/sops.nix
     ./pkgs/sound.nix
-    # ./pkgs/plymouth.nix
-    # ./pkgs/wayland.nix
+    ./pkgs/niri.nix
   ];
 
   services.libinput.touchpad.naturalScrolling = true;
