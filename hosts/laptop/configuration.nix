@@ -4,6 +4,7 @@
     ../../common.nix
     ../../services/autocpufreq.nix
     ../../pkgs/systemd-boot.nix
+    ../../pkgs/niri.nix
   ];
   networking.hostName = "oscar-portable";
   services = {
