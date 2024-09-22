@@ -113,6 +113,7 @@
   };
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
+  programs.nano.enable = false;
 
   virtualisation = {
     docker = {
