@@ -90,7 +90,7 @@
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # polkit
   security.polkit.enable = true;
