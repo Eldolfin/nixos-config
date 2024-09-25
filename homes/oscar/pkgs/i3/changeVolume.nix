@@ -1,4 +1,4 @@
-{ pkgs }:
+pkgs:
 let
   volumeStep = toString 5;
 in
