@@ -20,7 +20,7 @@
           inner = 5;
           outer = 2;
           smartGaps = true;
-          smartBorders = true;
+          smartBorders = "on";
         };
         startup = [
           {
@@ -91,7 +91,7 @@
           "${mod}+Return" = "exec alacritty";
           "${mod}+e" = "exec firefox";
           "${mod}+Shift+e" = "exec firefox --private-window";
-          "${mod}+v" = "exec copyq show";
+          "${mod}+v" = "exec ${pkgs.copyq}/bin/copyq show";
           "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
           "${mod}+d" = "exec rofi -show drun";
