@@ -28,7 +28,7 @@
           mod = config.xsession.windowManager.i3.config.modifier;
           volumeChange = import ./changeVolume.nix pkgs;
         in
-        lib.mkForce {
+        lib.mkOptionDefault {
           "${mod}+Return" = "exec alacritty";
           "${mod}+e" = "exec firefox";
           "${mod}+Shift+e" = "exec firefox --private-window";
