@@ -15,7 +15,7 @@ in
       bell = {
         command = {
           program = "${pkgs.pulseaudio}/bin/paplay";
-          args = "/home/oscar/Music/sounds/Tink.wav";
+          args = [ "/home/oscar/Music/sounds/Tink.wav" ];
         };
         duration = 30;
       };
