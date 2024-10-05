@@ -30,6 +30,12 @@ jobs:
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
         run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
+      - uses: actions/upload-artifact@v4
+        name: Upload config files
+        with:
+          name: home-configs
+          path: ~/
+          if-no-files-found: error
 
   check-standalone-homemanager:
     runs-on: ubuntu-22.04
@@ -40,3 +46,4 @@ jobs:
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: nix run home-manager/master -- switch --flake ./homes/oscar
+
