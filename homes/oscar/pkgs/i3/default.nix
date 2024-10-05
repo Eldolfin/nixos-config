@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ lib, pkgs, ... }:
 {
   imports = [ ./i3blocks ];
   home.file.".config/i3/scripts" = {
@@ -11,25 +6,44 @@
     recursive = true;
   };
 
-  xsession.windowManager.i3 = {
-    enable = true;
-    extraConfig = lib.strings.fileContents ./config.old;
-    config = {
-      modifier = "Mod4";
-      startup = [
-        {
-          command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
-          notification = false;
-        }
-      ];
-      bars = [ { statusCommand = "${pkgs.i3blocks}/bin/i3blocks"; } ];
-      defaultWorkspace = "workspace number 1";
-      keybindings =
-        let
-          mod = config.xsession.windowManager.i3.config.modifier;
-          volumeChange = import ./changeVolume.nix pkgs;
-        in
-        lib.mkOptionDefault {
+  xsession.windowManager.i3 =
+    let
+      mod = "Mod4";
+      volumeChange = import ./changeVolume.nix pkgs;
+    in
+    {
+      enable = true;
+      config = {
+        modifier = mod;
+        bars = [ { statusCommand = "${pkgs.i3blocks}/bin/i3blocks"; } ];
+        gaps = {
+          inner = 5;
+          outer = 2;
+          smartGaps = true;
+          smartBorders = true;
+        };
+        startup = [
+          {
+            command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
+            notification = false;
+          }
+          {
+            command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+            notification = false;
+          }
+          {
+            command = "${pkgs.blueman}/bin/blueman-applet";
+            notification = false;
+          }
+          {
+            command = "${pkgs.emote}/bin/emote";
+            notification = false;
+          }
+          # might be usefull
+          # exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
+        ];
+        floating.criteria = [ { class = "copyq"; } ];
+        keybindings = lib.mkOptionDefault {
           #######################
           #  Window Management  #
           #######################
@@ -83,7 +97,7 @@
           "${mod}+d" = "exec rofi -show drun";
           "${mod}+Shift+x" = "exec \"rofi -show p -modi p:'rofi-power-menu'\"";
 
-          "${mod}+t" = "exec $term -e btop -p 1";
+          "${mod}+t" = "exec alacritty -e btop -p 1";
           "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
           "Shift+Print" = "exec flameshot gui";
           "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
@@ -105,6 +119,6 @@
           "F2" = "exec ${volumeChange}/bin/volume-change d";
           "F3" = "exec ${volumeChange}/bin/volume-change i";
         };
+      };
     };
-  };
 }
