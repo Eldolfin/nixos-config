@@ -1,14 +1,16 @@
 {
   services.displayManager = {
-    # defaultSession = "sway";
-    # defaultSession = "hyprland";
     defaultSession = "none+i3";
     autoLogin = {
       user = "oscar";
     };
   };
   services.desktopManager = {
-    # plasma6.enable = true; # useless :)
+    xfce = {
+      enable = true;
+      # noDesktop = true;
+      enableXfwm = false;
+    };
   };
   services.xserver = {
     # Configure keymap in X11
