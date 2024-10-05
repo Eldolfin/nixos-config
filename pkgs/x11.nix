@@ -2,7 +2,7 @@
 {
   services = {
     displayManager = {
-      defaultSession = "none+i3";
+      defaultSession = "xfce+i3";
       autoLogin = {
         user = "oscar";
       };
@@ -22,7 +22,7 @@
       desktopManager = {
         xfce = {
           enable = true;
-          # noDesktop = true;
+          noDesktop = true;
           enableXfwm = false;
         };
       };
