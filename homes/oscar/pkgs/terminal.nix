@@ -12,11 +12,15 @@ in
     enable = true;
     settings = {
       font.size = lib.mkForce termFontSize;
+      bell = {
+        command = "${pkgs.pulseaudio}/bin/paplay /home/oscar/Music/sounds/Tink.wav";
+        duration = 30;
+      };
     };
   };
   # programs.wezterm.enable = true;
   home.packages = with pkgs; [
     # kitty
-    # cool-retro-term
+    cool-retro-term
   ];
 }
