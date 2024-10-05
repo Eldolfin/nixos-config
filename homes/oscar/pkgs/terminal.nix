@@ -13,8 +13,10 @@ in
     settings = {
       font.size = lib.mkForce termFontSize;
       bell = {
-        program = "${pkgs.pulseaudio}/bin/paplay";
-        args = "/home/oscar/Music/sounds/Tink.wav";
+        command = {
+          program = "${pkgs.pulseaudio}/bin/paplay";
+          args = "/home/oscar/Music/sounds/Tink.wav";
+        };
         duration = 30;
       };
     };
