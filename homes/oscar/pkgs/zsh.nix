@@ -38,15 +38,15 @@
     autosuggestion.enable = true;
     defaultKeymap = "emacs";
     shellAliases = {
-      clone = ''alacritty -e zsh -c "cd $(pwd); zsh -i"&!'';
+      clone = ''alacritty -e zsh &!'';
       svi = "sudo -e";
       vimdiff = "nvim -d";
-      top = "btop";
       ls = "exa";
       ll = "exa -lah";
+      lg = "lazygit";
       tree = "exa --tree";
       make = "make -j$(nproc)";
-      bell = "tput bel && aplay ~/Music/sounds/Tink.wav";
+      bell = "tput bel && ${pkgs.pulseaudio}/bin/paplay ~/Music/sounds/Tink.wav";
 
       gctp = "commit-tag-push.sh";
       gl = "git pull";
@@ -61,8 +61,6 @@
       gpv = "git push -v";
       gov = "git push -v"; # common mistake
       gcsm = "git commit -m";
-
-      editconf = "chezmoi edit --watch --apply --color=true --progress=true";
     };
 
     initExtra = ''
