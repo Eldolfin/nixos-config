@@ -44,5 +44,5 @@ jobs:
         name: Upload config files
         with:
           name: home-configs
-          path: /home/oscar/
+          path: ~/
           if-no-files-found: error
