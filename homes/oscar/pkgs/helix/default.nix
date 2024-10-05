@@ -7,7 +7,7 @@
     defaultEditor = true;
 
     settings = {
-      theme = "tokyonight";
+      theme = "gruber-darker";
       editor = {
         auto-format = true;
         color-modes = true;
