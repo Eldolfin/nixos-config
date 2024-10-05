@@ -10,6 +10,7 @@
     source = ./scripts;
     recursive = true;
   };
+
   xsession.windowManager.i3 = {
     enable = true;
     extraConfig = lib.strings.fileContents ./config.old;
@@ -29,24 +30,9 @@
           volumeChange = import ./changeVolume.nix pkgs;
         in
         lib.mkOptionDefault {
-          "${mod}+Return" = "exec alacritty";
-          "${mod}+e" = "exec firefox";
-          "${mod}+Shift+e" = "exec firefox --private-window";
-          "${mod}+d" = "exec rofi -show drun";
-          "${mod}+v" = "exec copyq show";
-
-          "${mod}+w" = "exec /home/oscar/.config/i3/scripts/i3-display-swap.sh";
-          "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
-
-          "XF86AudioMute" = "exec ${volumeChange}/bin/volume-change t";
-          "XF86AudioLowerVolume" = "exec ${volumeChange}/bin/volume-change d";
-          "XF86AudioRaiseVolume" = "exec ${volumeChange}/bin/volume-change i";
-          "F2" = "exec ${volumeChange}/bin/volume-change d";
-          "F3" = "exec ${volumeChange}/bin/volume-change i";
-
-          # sound effects
-          "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
-
+          #######################
+          #  Window Management  #
+          #######################
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
           "${mod}+k" = "focus up";
@@ -56,8 +42,6 @@
           "${mod}+Shift+j" = "move down";
           "${mod}+Shift+k" = "move up";
           "${mod}+Shift+l" = "move right";
-
-          "${mod}+a" = "layout toggle tabbed splith splitv";
 
           "${mod}+Control+1" = "move container to workspace number 1; workspace number 1";
           "${mod}+Control+2" = "move container to workspace number 2; workspace number 2";
@@ -79,6 +63,47 @@
           "${mod}+u" = "resize grow height 10 px or 10 ppt";
           "${mod}+i" = "resize shrink height 10 px or 10 ppt";
           "${mod}+o" = "resize grow width 10 px or 10 ppt";
+
+          "${mod}+Shift+P" = "move scratchpad";
+          "${mod}+p" = "scratchpad show";
+
+          "${mod}+a" = "layout toggle tabbed splith splitv";
+          "${mod}+Tab" = "workspace back_and_forth";
+          "${mod}+w" = "exec /home/oscar/.config/i3/scripts/i3-display-swap.sh";
+
+          ########################
+          #  Programs Shortcuts  #
+          ########################
+          "${mod}+Return" = "exec alacritty";
+          "${mod}+e" = "exec firefox";
+          "${mod}+Shift+e" = "exec firefox --private-window";
+          "${mod}+v" = "exec copyq show";
+          "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
+
+          "${mod}+d" = "exec rofi -show drun";
+          "${mod}+Shift+x" = "exec \"rofi -show p -modi p:'rofi-power-menu'\"";
+
+          "${mod}+t" = "exec $term -e btop -p 1";
+          "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
+          "Shift+Print" = "exec flameshot gui";
+          "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
+
+          "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
+
+          ###################
+          #  Media control  #
+          ###################
+          "XF86MonBrightnessUp" = "exec --no-startup-id ${pkgs.brightnessctl}/bin/brightnessctl s -e 10%+";
+          "XF86MonBrightnessDown" = "exec --no-startup-id ${pkgs.brightnessctl}/bin/brightnessctl s -e 10%-";
+
+          "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+
+          "XF86AudioMute" = "exec ${volumeChange}/bin/volume-change t";
+          "XF86AudioLowerVolume" = "exec ${volumeChange}/bin/volume-change d";
+          "XF86AudioRaiseVolume" = "exec ${volumeChange}/bin/volume-change i";
+          "F2" = "exec ${volumeChange}/bin/volume-change d";
+          "F3" = "exec ${volumeChange}/bin/volume-change i";
         };
     };
   };

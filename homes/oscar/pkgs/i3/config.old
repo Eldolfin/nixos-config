@@ -1,65 +1,15 @@
 set $mod Mod4
-set $scripts ~/.config/i3/scripts
-set $primary_mon HDMI-0
-set $other_mon DVI-D-0
-set $term alacritty
-
-bindsym $mod+Tab workspace back_and_forth
-
-bindsym $mod+t exec $term -e btop -p 1
-
 exec --no-startup-id nm-applet
 
-bindsym --release  XF86AudioNext exec --no-startup-id xdotool key 0x0060
-bindsym --release Shift+XF86AudioNext exec --no-startup-id xdotool key 0xfe53
-
 floating_modifier $mod
-
 exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
-
-bindsym $mod+Shift+x exec "rofi -show p -modi p:'rofi-power-menu'"
-bindsym $mod+Shift+b exec --no-startup-id "bluetoothctl connect 88:C9:E8:42:A0:B1"
-
-bindsym --release Shift+Print exec flameshot gui
-
-bindsym $mod+x exec --no-startup-id i3lock-fancy-rapid 0 1
 
 # clipboard manager
 for_window [class="copyq"] floating enable
-
-# brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s -e 10%+
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s -e 10%-
-
-# bluetooth applet
 exec --no-startup-id blueman-applet
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-
-# emoji picker
 exec --no-startup-id emote
 
-# low battery pop-up
-exec --no-startup-id i3-battery-popup
-
-
-# hide window decorations
-# default_border none
 # Gaps settings
 smart_gaps on
-
-#default gap sizes
-set $gapsinner 5
-set $gapsouter 2
-
-# set default gaps
-gaps inner $gapsinner
-gaps outer $gapsouter
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+P move scratchpad
-
-# Show the first scratchpad window
-bindsym $mod+p scratchpad show
+gaps inner 5
+gaps outer 2
