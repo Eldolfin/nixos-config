@@ -56,29 +56,37 @@
       ];
     in
     {
-      nixosConfigurations."oscar-portable" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = commonModules ++ [
-          ./hosts/laptop/configuration.nix
-          ./hosts/laptop/hardware-configuration.nix
-          { home-manager.extraSpecialArgs.isTour = false; }
-        ];
-        specialArgs = {
-          inherit inputs;
+      nixosConfigurations."oscar-portable" =
+        let
+          specialArgs = {
+            isTour = false;
+          };
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = commonModules ++ [
+            ./hosts/laptop/configuration.nix
+            ./hosts/laptop/hardware-configuration.nix
+            { home-manager.extraSpecialArgs = specialArgs; }
+          ];
+          specialArgs = inputs // specialArgs;
         };
-      };
 
-      nixosConfigurations."oscar-tour" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = commonModules ++ [
-          ./hosts/tour/configuration.nix
-          ./hosts/tour/hardware-configuration.nix
-          { home-manager.extraSpecialArgs.isTour = true; }
-        ];
-        specialArgs = {
-          inherit inputs;
+      nixosConfigurations."oscar-tour" =
+        let
+          specialArgs = {
+            isTour = true;
+          };
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = commonModules ++ [
+            ./hosts/tour/configuration.nix
+            ./hosts/tour/hardware-configuration.nix
+            { home-manager.extraSpecialArgs = specialArgs; }
+          ];
+          specialArgs = inputs // specialArgs;
         };
-      };
 
       nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
         inherit system;

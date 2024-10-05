@@ -1,43 +1,42 @@
+{ isTour, lib, ... }:
 {
-  services.displayManager = {
-    defaultSession = "none+i3";
-    autoLogin = {
-      user = "oscar";
+  services = {
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin = {
+        user = "oscar";
+      };
     };
-  };
-  services.desktopManager = {
-    xfce = {
+    xserver = {
       enable = true;
-      # noDesktop = true;
-      enableXfwm = false;
-    };
-  };
-  services.xserver = {
-    # Configure keymap in X11
-    xkb = {
-      variant = "";
-      options = "caps:escape";
-    };
 
-    enable = true;
+      # Configure keymap in X11
+      xkb = {
+        variant = "";
+        options = "caps:escape";
+      };
 
-    windowManager = {
-      i3.enable = true;
+      windowManager = {
+        i3.enable = true;
+      };
+      desktopManager = {
+        xfce = {
+          enable = true;
+          # noDesktop = true;
+          enableXfwm = false;
+        };
+      };
+
+      autoRepeatDelay = 250;
+      autoRepeatInterval = 20;
+
+      xrandrHeads = lib.mkIf isTour [
+        {
+          output = "HDMI-0";
+          primary = true;
+        }
+        "DVI-D-0"
+      ];
     };
-    desktopManager = {
-      # cinnamon.enable = true;
-      # gnome.enable = true;
-    };
-
-    autoRepeatDelay = 250;
-    autoRepeatInterval = 20;
-
-    xrandrHeads = [
-      {
-        output = "HDMI-0";
-        primary = true;
-      }
-      "DVI-D-0"
-    ];
   };
 }
