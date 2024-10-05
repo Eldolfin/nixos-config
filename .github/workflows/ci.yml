@@ -40,9 +40,3 @@ jobs:
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: nix run home-manager/master -- switch --flake ./homes/oscar
-      - uses: actions/upload-artifact@v4
-        name: Upload config files
-        with:
-          name: home-configs
-          path: ~/.config
-          if-no-files-found: error
