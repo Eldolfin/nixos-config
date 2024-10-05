@@ -95,5 +95,6 @@
           inherit inputs;
         };
       };
+      tests = (import tests/login.nix { inherit nixpkgs; });
     };
 }

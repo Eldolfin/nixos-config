@@ -5,14 +5,18 @@
     pkgs.xfce.parole
     pkgs.xfce.mousepad
   ];
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
+  services = {
+    xserver = {
+      enable = true;
+      desktopManager = {
+        xfce = {
+          enable = true;
+          noDesktop = true;
+          enableXfwm = false;
+          enableScreensaver = false;
+        };
       };
     };
+    xscreensaver.enable = true;
   };
 }
