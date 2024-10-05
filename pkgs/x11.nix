@@ -1,5 +1,6 @@
 { isTour, lib, ... }:
 {
+  imports = [ ./xfce.nix ];
   services = {
     displayManager = {
       defaultSession = "xfce+i3";
@@ -12,19 +13,11 @@
 
       # Configure keymap in X11
       xkb = {
-        variant = "";
         options = "caps:escape";
       };
 
       windowManager = {
         i3.enable = true;
-      };
-      desktopManager = {
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
       };
 
       autoRepeatDelay = 250;

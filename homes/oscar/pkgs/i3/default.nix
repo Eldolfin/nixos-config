@@ -57,7 +57,7 @@
           "${mod}+Shift+k" = "move up";
           "${mod}+Shift+l" = "move right";
 
-          "${mod}+a" = "layout toggle stacking splith splitv";
+          "${mod}+a" = "layout toggle tabbed splith splitv";
 
           "${mod}+Control+1" = "move container to workspace number 1; workspace number 1";
           "${mod}+Control+2" = "move container to workspace number 2; workspace number 2";
