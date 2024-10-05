@@ -17,6 +17,4 @@
   };
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
-
-  system.stateVersion = "22.11";
 }

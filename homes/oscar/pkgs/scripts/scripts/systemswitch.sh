@@ -4,7 +4,6 @@ set -e
 
 cd /etc/nixos/
 $EDITOR .
-git add .
-git commit #-m "System switch"
+git commit -a
 nh os switch /etc/nixos
 git push
