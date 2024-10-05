@@ -100,7 +100,8 @@
           "${mod}+t" = "exec alacritty -e btop -p 1";
           "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
           "Shift+Print" = "exec flameshot gui";
-          "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
+          # "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
+          "${mod}+x" = "exec --no-startup-id ${pkgs.xscreensaver}/bin/xscreensaver-command -lock";
 
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
 
