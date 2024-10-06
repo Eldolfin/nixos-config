@@ -1,10 +1,19 @@
 { pkgs, ... }:
 {
-  environment.xfce.excludePackages = [
-    pkgs.xfce.xfce4-volumed-pulse
-    pkgs.xfce.parole
-    pkgs.xfce.mousepad
+  environment.xfce.excludePackages = with pkgs.xfce; [
+    exo
+    mousepad
+    parole
+    xfce4-appfinder
+    xfce4-power-manager
+    xfce4-screenshooter
+    xfce4-settings
+    xfce4-taskmanager
+    xfce4-terminal
+    xfce4-volumed-pulse
+    xfce4-notifyd
   ];
+  programs.thunar.enable = false;
   services = {
     xserver = {
       enable = true;
