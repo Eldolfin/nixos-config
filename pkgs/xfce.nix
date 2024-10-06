@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.xfce.excludePackages = with pkgs.xfce; [
     exo
@@ -13,7 +13,7 @@
     xfce4-volumed-pulse
     xfce4-notifyd
   ];
-  programs.thunar.enable = false;
+  programs.thunar.enable = lib.mkForce false;
   services = {
     xserver = {
       enable = true;
