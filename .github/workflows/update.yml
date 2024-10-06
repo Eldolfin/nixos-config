@@ -13,6 +13,7 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - name: Update flake.lock
+        id: update
         uses: DeterminateSystems/update-flake-lock@main
         with:
           pr-title: "Update flake.lock" # Title of PR to be created
@@ -20,3 +21,9 @@ jobs:
             dependencies
             automated
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+      - uses: reitermarkus/automerge@v2
+        with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          merge-method: rebase
+          pull-request: ${{ steps.update.outputs.pull-request-number }}
+          dry-run: false
