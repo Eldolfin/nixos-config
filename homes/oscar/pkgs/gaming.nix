@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gamemode
     smassh # monkey type in terminal
-    lutris-free
+    gamemode
+    # lutris-free
+    # winetricks
     # wine
-    winetricks
     # steam # installed as nixos module
     # gamescope
     # libusb1 # for minecraft

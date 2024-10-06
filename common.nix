@@ -121,13 +121,14 @@
   };
 
   services = {
-    tailscale.enable = true;
+    # tailscale.enable = true;
     blueman.enable = true;
     # multimedia server (for play pause keys)
     mmsd.enable = true;
     # kills the app that uses the most memory when <10% is available
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
+    speechd.enable = false; # heavy and not used
   };
 
   # enable flakes

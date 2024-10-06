@@ -59,14 +59,15 @@
     # black
     # conda
 
-    (python311Full.withPackages (ppkgs: [
-      # ppkgs.scipy
-      # ppkgs.matplotlib
-      # ppkgs.notebook
-      # ppkgs.numpy
-      ppkgs.pytest
-      ppkgs.psutil
-    ]))
+    # (python311Full.withPackages (ppkgs: [
+    # ppkgs.scipy
+    # ppkgs.matplotlib
+    # ppkgs.notebook
+    # ppkgs.numpy
+    # ppkgs.pytest
+    # ppkgs.psutil
+    # ]))
+    python311Full
     python311Packages.pip
     # python311Packages.bpython
     # grip # github markdown preview
@@ -140,7 +141,7 @@
     entr
     devenv
     tea
-    godot_4
+    # godot_4
     # dig
     # mold
     # act # github action runner
