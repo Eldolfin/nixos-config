@@ -102,6 +102,7 @@
           "Shift+Print" = "exec flameshot gui";
           # "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
           "${mod}+x" = "exec --no-startup-id ${pkgs.xscreensaver}/bin/xscreensaver-command -lock";
+          "${mod}+c" = "exec --no-startup-id ${pkgs.xscreensaver}/bin/xscreensaver-command -next";
 
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
 
