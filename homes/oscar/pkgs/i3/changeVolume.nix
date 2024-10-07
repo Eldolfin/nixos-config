@@ -14,7 +14,7 @@ pkgs.writeShellScriptBin "volume-change" ''
   	exit 1
   fi
 
-  ${pkgs.pamixer}/bin/pamixer -"$1" ${volumeStep}
+  ${pkgs.pamixer}/bin/pamixer --allow-boost -"$1" ${volumeStep}
   ${pkgs.pulseaudio}/bin/paplay ~/Music/sounds/audio-volume-change.oga &
 
   VOL=$(${pkgs.pamixer}/bin/pamixer --get-volume)
