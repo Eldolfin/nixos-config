@@ -97,7 +97,7 @@
           "${mod}+d" = "exec rofi -show drun";
           "${mod}+Shift+x" = "exec \"rofi -show p -modi p:'rofi-power-menu'\"";
 
-          "${mod}+t" = "exec alacritty -e btop -p 1";
+          "${mod}+t" = "exec alacritty -o 'font.size=12' -e btop -p 1";
           "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
           "Shift+Print" = "exec flameshot gui";
           # "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
