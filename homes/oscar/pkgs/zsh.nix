@@ -89,10 +89,7 @@
 
     antidote = {
       enable = true;
-      plugins = [
-        "marzocchi/zsh-notify"
-        "wfxr/forgit"
-      ];
+      plugins = [ "marzocchi/zsh-notify" ];
     };
   };
 }
