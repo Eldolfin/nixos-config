@@ -43,6 +43,7 @@
           # exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
         ];
         floating.criteria = [ { class = "copyq"; } ];
+        modes = { };
         keybindings = lib.mkOptionDefault {
           #######################
           #  Window Management  #
@@ -77,6 +78,7 @@
           "${mod}+u" = "resize grow height 10 px or 10 ppt";
           "${mod}+i" = "resize shrink height 10 px or 10 ppt";
           "${mod}+o" = "resize grow width 10 px or 10 ppt";
+          "${mod}+r" = "nop"; # useless
 
           "${mod}+Shift+P" = "move scratchpad";
           "${mod}+p" = "scratchpad show";
