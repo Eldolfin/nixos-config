@@ -39,6 +39,9 @@
             command = "${pkgs.emote}/bin/emote";
             notification = false;
           }
+          {
+            command = "i3-msg 'workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0'";
+          }
           # might be usefull
           # exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
         ];
@@ -124,8 +127,5 @@
           "F3" = "exec ${volumeChange}/bin/volume-change i";
         };
       };
-      extraConfig = ''
-        workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0
-      '';
     };
 }
