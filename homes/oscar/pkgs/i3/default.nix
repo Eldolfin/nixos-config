@@ -124,5 +124,8 @@
           "F3" = "exec ${volumeChange}/bin/volume-change i";
         };
       };
+      extraConfig = ''
+        workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0
+      '';
     };
 }
