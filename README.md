@@ -15,3 +15,9 @@ mount /dev/disk/by-label/NIXBOOT /mnt/boot/
 
 nixos-install --flake '/mnt/etc/nixos/flake.nix#oscar-portable' # replace with correct host
 ```
+
+
+
+## TODO
+- get rid of .sh
+- remove unused such as lazyvim
