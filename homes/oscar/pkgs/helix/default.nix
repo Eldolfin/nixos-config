@@ -19,6 +19,7 @@
           insert = "bar";
           select = "underline";
         };
+        softwrap.enable = true;
         whitespace.render = {
           newline = "all"; # thats ugly tho
         };
