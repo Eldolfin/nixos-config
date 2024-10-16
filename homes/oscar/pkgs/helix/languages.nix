@@ -68,6 +68,15 @@
         ];
       }
       {
+        name = "cpp";
+        auto-format = true;
+        formatter.command = "${pkgs.clang-tools}/bin/clang-format";
+        language-servers = [
+          "clangd"
+          "gpt"
+        ];
+      }
+      {
         name = "nix";
         auto-format = true;
         formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
