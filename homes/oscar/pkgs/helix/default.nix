@@ -1,6 +1,9 @@
-{ pkgs, helix-master, ... }:
 {
-  imports = [ ./languages.nix ];
+  pkgs,
+  helix-master,
+  ...
+}: {
+  imports = [./languages.nix];
   programs.helix = {
     enable = true;
     package = helix-master.packages.${pkgs.system}.default;
@@ -38,7 +41,7 @@
             "read-only-indicator"
             "file-modification-indicator"
           ];
-          center = [ "mode" ];
+          center = ["mode"];
           right = [
             "position-percentage"
             "spacer"

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ../../common.nix
     ../../services/autocpufreq.nix
@@ -16,5 +15,5 @@
     tlp.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ brightnessctl ];
+  environment.systemPackages = with pkgs; [brightnessctl];
 }

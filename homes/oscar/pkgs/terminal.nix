@@ -3,11 +3,12 @@
   lib,
   isTour,
   ...
-}:
-let
-  termFontSize = if isTour then 22 else 12;
-in
-{
+}: let
+  termFontSize =
+    if isTour
+    then 22
+    else 12;
+in {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -15,7 +16,7 @@ in
       bell = {
         command = {
           program = "${pkgs.pulseaudio}/bin/paplay";
-          args = [ "/home/oscar/Music/sounds/Tink.wav" ];
+          args = ["/home/oscar/Music/sounds/Tink.wav"];
         };
         duration = 30;
       };

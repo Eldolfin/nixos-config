@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./pkgs/bloat.nix
     ./pkgs/movies.nix

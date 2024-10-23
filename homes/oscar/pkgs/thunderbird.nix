@@ -20,7 +20,7 @@
       primary = true;
       thunderbird = {
         enable = true;
-        profiles = [ "default" ];
+        profiles = ["default"];
       };
     };
   };

@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ./starship.nix ];
+{pkgs, ...}: {
+  imports = [./starship.nix];
   home.packages = with pkgs; [
     # used by zsh-notify
     wmctrl
@@ -84,12 +83,12 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "fancy-ctrl-z" ];
+      plugins = ["fancy-ctrl-z"];
     };
 
     antidote = {
       enable = true;
-      plugins = [ "marzocchi/zsh-notify" ];
+      plugins = ["marzocchi/zsh-notify"];
     };
   };
 }

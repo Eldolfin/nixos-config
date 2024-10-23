@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
 {
-
+  pkgs,
+  lib,
+  ...
+}: {
   programs.helix.languages = {
     language-server = {
       # github is not happy about this
@@ -27,7 +29,7 @@
       # jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
         command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
-        args = [ "start" ];
+        args = ["start"];
       };
 
       nil.command = lib.getExe pkgs.nil;
@@ -35,7 +37,7 @@
       # maybe remove this idk if it does anything
       typescript-language-server = {
         command = lib.getExe pkgs.nodePackages.typescript-language-server;
-        args = [ "--stdio" ];
+        args = ["--stdio"];
       };
       vscode-html-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
       vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
@@ -79,7 +81,7 @@
       {
         name = "nix";
         auto-format = true;
-        formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        formatter.command = "${pkgs.alejandra}/bin/alejandra";
         language-servers = [
           "nil"
           "nixd"

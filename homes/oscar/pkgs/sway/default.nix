@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   home.keyboard.layout = "gb";
   programs.swaylock.enable = true;
   wayland.windowManager.sway = {
@@ -13,10 +12,9 @@
       modifier = "Mod4";
       defaultWorkspace = "workspace number 1";
       terminal = lib.getExe pkgs.alacritty;
-      keybindings =
-        let
-          mod = config.wayland.windowManager.sway.config.modifier;
-        in
+      keybindings = let
+        mod = config.wayland.windowManager.sway.config.modifier;
+      in
         lib.mkOptionDefault {
           "${mod}+e" = "exec ${lib.getExe pkgs.firefox}";
           "${mod}+Shift+e" = "exec ${lib.getExe pkgs.firefox} --private-window";

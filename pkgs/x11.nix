@@ -1,6 +1,9 @@
-{ isTour, lib, ... }:
 {
-  imports = [ ./xfce.nix ];
+  isTour,
+  lib,
+  ...
+}: {
+  imports = [./xfce.nix];
   services = {
     displayManager = {
       defaultSession = "xfce+i3";

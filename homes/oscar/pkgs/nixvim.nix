@@ -5,9 +5,8 @@ let
       ref = "nixos-23.11";
     }
   );
-in
-{
-  imports = [ nixvim.homeManagerModules.nixvim ];
+in {
+  imports = [nixvim.homeManagerModules.nixvim];
   programs.nixvim = {
     enable = true;
     globals.mapleader = " ";
@@ -48,12 +47,12 @@ in
       mini = {
         enable = true;
         modules = {
-          ai = { };
-          bufremove = { };
-          surround = { };
-          comment = { };
-          hipatterns = { };
-          indentscope = { };
+          ai = {};
+          bufremove = {};
+          surround = {};
+          comment = {};
+          hipatterns = {};
+          indentscope = {};
         };
       };
       lsp = {
@@ -112,10 +111,10 @@ in
               };
             }
           ];
-          lualine_b = [ "branch" ];
-          lualine_c = [ ];
-          lualine_x = [ ];
-          lualine_y = [ "progress" ];
+          lualine_b = ["branch"];
+          lualine_c = [];
+          lualine_x = [];
+          lualine_y = ["progress"];
           lualine_z = [
             {
               separator = {
@@ -129,12 +128,12 @@ in
           ];
         };
         inactiveSections = {
-          lualine_a = [ "filename" ];
-          lualine_b = [ ];
-          lualine_c = [ ];
-          lualine_x = [ ];
-          lualine_y = [ ];
-          lualine_z = [ "location" ];
+          lualine_a = ["filename"];
+          lualine_b = [];
+          lualine_c = [];
+          lualine_x = [];
+          lualine_y = [];
+          lualine_z = ["location"];
         };
       };
     };

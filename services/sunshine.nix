@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   services.sunshine = {
     enable = true;
     openFirewall = true;
@@ -27,6 +26,6 @@
     };
   };
   systemd.user.services.sunshine = {
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 }

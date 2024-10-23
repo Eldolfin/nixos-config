@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ./ags.nix ];
+{pkgs, ...}: {
+  imports = [./ags.nix];
   home.packages = with pkgs; [
     waybar
     swww

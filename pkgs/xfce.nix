@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   environment.xfce.excludePackages = with pkgs.xfce; [
     exo
     mousepad

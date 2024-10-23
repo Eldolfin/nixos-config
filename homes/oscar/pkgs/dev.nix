@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.bun.enable = true;
   programs.gh.enable = true;
   home.packages = with pkgs; [

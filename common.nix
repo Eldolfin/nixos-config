@@ -1,6 +1,5 @@
 # this file is common between tour and laptop
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
@@ -62,7 +61,7 @@
   };
 
   # fix for i3blocks
-  environment.pathsToLink = [ "/libexec" ];
+  environment.pathsToLink = ["/libexec"];
 
   users.mutableUsers = false; # users cannot change password
   users.users.oscar = {
@@ -111,7 +110,7 @@
     };
   };
   users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.nano.enable = false;
 
   virtualisation = {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./pkgs/wm.nix
     ./pkgs/terminal.nix

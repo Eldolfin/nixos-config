@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   # imports = [ inputs.nixcord.homeManagerModules.nixcord ];
   programs.nixcord = {
     enable = true;
@@ -8,7 +7,7 @@
     vesktop.enable = true;
 
     config = {
-      enabledThemes = [ "stylix.theme.css" ];
+      enabledThemes = ["stylix.theme.css"];
       frameless = true;
       plugins = {
         betterUploadButton.enable = true;

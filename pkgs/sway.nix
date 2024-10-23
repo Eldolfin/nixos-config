@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # imports = [ ./sddm.nix ];
-  environment.systemPackages = with pkgs; [ swaylock ];
+  environment.systemPackages = with pkgs; [swaylock];
   programs.sway.enable = true;
   # programs.sway.package = pkgs.swayfx;
   # xdg.portal.wlr.enable = true;

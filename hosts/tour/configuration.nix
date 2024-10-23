@@ -13,7 +13,7 @@
   services.displayManager.autoLogin.enable = true;
   # hardware.ckb-next.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   # enable cuda
   nixpkgs.config.cudaSupport = true;

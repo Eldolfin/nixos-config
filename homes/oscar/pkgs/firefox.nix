@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -53,7 +56,6 @@
           name = "Bookmarks";
           toolbar = true;
           bookmarks = [
-
             {
               name = "Dashboard";
               url = "http://192.168.1.1:7575";
@@ -89,7 +91,7 @@
         privateDefault = "selfhosted";
         engines = {
           "selfhosted" = {
-            urls = [ { template = "https://search.eldolfin.top/search?q={searchTerms}"; } ];
+            urls = [{template = "https://search.eldolfin.top/search?q={searchTerms}";}];
           };
 
           "Nix Packages" = {
@@ -118,27 +120,27 @@
             ];
 
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@np" ];
+            definedAliases = ["@np"];
           };
 
           "NixOS Wiki" = {
-            urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
+            urls = [{template = "https://wiki.nixos.org/index.php?search={searchTerms}";}];
             iconUpdateURL = "https://wiki.nixos.org/favicon.png";
-            definedAliases = [ "@nw" ];
+            definedAliases = ["@nw"];
           };
 
           "Crates io" = {
-            urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
+            urls = [{template = "https://crates.io/search?q={searchTerms}";}];
             iconUpdateURL = "https://crates.io/favicon.ico";
-            definedAliases = [ "@rp" ];
+            definedAliases = ["@rp"];
           };
 
           "Home manager" = {
             urls = [
-              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
+              {template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";}
             ];
             iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
-            definedAliases = [ "@hm" ];
+            definedAliases = ["@hm"];
           };
 
           "Bing".metaData.hidden = true;

@@ -1,6 +1,5 @@
 # heavy packages
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.obs-studio = {
     # enable = true;
   };

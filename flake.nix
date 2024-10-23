@@ -15,85 +15,84 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs =
-    {
-      nixpkgs,
-      stylix,
-      home-manager,
-      nur,
-      sops-nix,
-      nix-index-database,
-      helix,
-      nixcord,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      commonModules = [
-        ./common.nix
-        stylix.nixosModules.stylix
-        nur.nixosModules.nur
-        home-manager.nixosModules.home-manager
-        sops-nix.nixosModules.sops
-        nix-index-database.nixosModules.nix-index
-        {
-          home-manager.backupFileExtension = "old";
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.oscar = import ./homes/oscar/home.nix;
+  outputs = {
+    nixpkgs,
+    stylix,
+    home-manager,
+    nur,
+    sops-nix,
+    nix-index-database,
+    helix,
+    nixcord,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    commonModules = [
+      ./common.nix
+      stylix.nixosModules.stylix
+      nur.nixosModules.nur
+      home-manager.nixosModules.home-manager
+      sops-nix.nixosModules.sops
+      nix-index-database.nixosModules.nix-index
+      {
+        home-manager.backupFileExtension = "old";
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.oscar = import ./homes/oscar/home.nix;
 
-          home-manager.extraSpecialArgs = {
-            helix-master = helix;
-            isPersonal = true;
-          };
-          home-manager.sharedModules = [
-            nur.hmModules.nur
-            nix-index-database.hmModules.nix-index
-            nixcord.homeManagerModules.nixcord
-            { stylix.targets.helix.enable = false; }
-          ];
-        }
-      ];
+        home-manager.extraSpecialArgs = {
+          helix-master = helix;
+          isPersonal = true;
+        };
+        home-manager.sharedModules = [
+          nur.hmModules.nur
+          nix-index-database.hmModules.nix-index
+          nixcord.homeManagerModules.nixcord
+          {stylix.targets.helix.enable = false;}
+        ];
+      }
+    ];
+  in {
+    nixosConfigurations."oscar-portable" = let
+      specialArgs = {
+        isTour = false;
+      };
     in
-    {
-      nixosConfigurations."oscar-portable" =
-        let
-          specialArgs = {
-            isTour = false;
-          };
-        in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = commonModules ++ [
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          commonModules
+          ++ [
             ./hosts/laptop/configuration.nix
             ./hosts/laptop/hardware-configuration.nix
-            { home-manager.extraSpecialArgs = specialArgs; }
+            {home-manager.extraSpecialArgs = specialArgs;}
           ];
-          specialArgs = inputs // specialArgs;
-        };
+        specialArgs = inputs // specialArgs;
+      };
 
-      nixosConfigurations."oscar-tour" =
-        let
-          specialArgs = {
-            isTour = true;
-          };
-        in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = commonModules ++ [
+    nixosConfigurations."oscar-tour" = let
+      specialArgs = {
+        isTour = true;
+      };
+    in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          commonModules
+          ++ [
             ./hosts/tour/configuration.nix
             ./hosts/tour/hardware-configuration.nix
-            { home-manager.extraSpecialArgs = specialArgs; }
+            {home-manager.extraSpecialArgs = specialArgs;}
           ];
-          specialArgs = inputs // specialArgs;
-        };
+        specialArgs = inputs // specialArgs;
+      };
 
-      nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = commonModules ++ [ ./hosts/iso/configuration.nix ];
-        specialArgs = {
-          inherit inputs;
-        };
+    nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = commonModules ++ [./hosts/iso/configuration.nix];
+      specialArgs = {
+        inherit inputs;
       };
     };
+  };
 }

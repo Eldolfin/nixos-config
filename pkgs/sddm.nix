@@ -1,5 +1,5 @@
 {
-  imports = [ ./cri-sddm.nix ];
+  imports = [./cri-sddm.nix];
   services.displayManager = {
     sddm = {
       enable = true;
@@ -13,6 +13,6 @@
   };
   cri.sddm = {
     enable = true;
-    # theme = "epita-acu-2024"; 
+    # theme = "epita-acu-2024";
   };
 }
