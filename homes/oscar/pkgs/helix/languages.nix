@@ -83,8 +83,8 @@
         auto-format = true;
         formatter.command = "${pkgs.alejandra}/bin/alejandra";
         language-servers = [
-          "nil"
           "nixd"
+          # "nil"
           "gpt"
         ];
       }

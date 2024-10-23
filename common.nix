@@ -1,5 +1,5 @@
 # this file is common between tour and laptop
-{pkgs, ...}: {
+{pkgs, ...} @ inputs: {
   imports = [
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
@@ -137,6 +137,8 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
