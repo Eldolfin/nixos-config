@@ -49,7 +49,7 @@
 
       rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
 
-      tinymist.command = "${pkgs.tinymist}/bin/tinymist";
+      tinymist.command = lib.getExe pkgs.tinymist;
     };
 
     language = [
@@ -131,6 +131,11 @@
             "tsx"
           ];
         };
+        auto-format = true;
+      }
+      {
+        name = "typst";
+        formatter.command = lib.getExe pkgs.typstyle;
         auto-format = true;
       }
       {
