@@ -24,7 +24,7 @@
         };
         soft-wrap.enable = true;
         whitespace.render = {
-          newline = "all"; # thats ugly tho
+          # newline = "all"; # thats ugly tho
         };
         indent-guides = {
           render = true;
