@@ -60,6 +60,9 @@
       gpv = "git push -v";
       gov = "git push -v"; # common mistake
       gcsm = "git commit -m";
+
+      g = "git";
+      h = "hx";
     };
 
     initExtra = ''
