@@ -32,7 +32,7 @@
         args = ["start"];
       };
 
-      nil.command = lib.getExe pkgs.nil;
+      # nil.command = lib.getExe pkgs.nil;
 
       # maybe remove this idk if it does anything
       typescript-language-server = {
@@ -48,6 +48,8 @@
       jedi.command = "${pkgs.python311Packages.jedi-language-server}/bin/jedi-language-server";
 
       rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+
+      tinymist.command = "${pkgs.tinymist}/bin/tinymist";
     };
 
     language = [
