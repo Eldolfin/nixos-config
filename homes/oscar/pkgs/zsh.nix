@@ -46,6 +46,7 @@
       tree = "exa --tree";
       make = "make -j$(nproc)";
       bell = "tput bel && ${pkgs.pulseaudio}/bin/paplay ~/Music/sounds/Tink.wav";
+      gh-repo-here = "gh repo new $(basename $(pwd)) --private --source=.";
 
       gctp = "commit-tag-push.sh";
       gl = "git pull";
