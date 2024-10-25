@@ -31,7 +31,7 @@
           skip-levels = 1;
         };
         lsp = {
-          display-inlay-hints = false;
+          display-inlay-hints = true;
         };
         file-picker.hidden = false; # show hidden files
         statusline = {
@@ -62,6 +62,7 @@
             "extend_to_line_bounds"
           ];
           "C-s" = ":w";
+          "A-f" = ":fmt";
         };
         select = {
           X = [
@@ -71,6 +72,7 @@
         };
         insert = {
           "C-s" = ":w";
+          "A-f" = ":fmt";
         };
       };
     };
