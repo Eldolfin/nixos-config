@@ -12,7 +12,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix/master";
-    nixcord.url = "github:kaylorben/nixcord";
+    nixcord.url = "github:kaylorben/nixcord/efa9101a2936db9023748d5472e0fa81155a1585";
   };
 
   outputs = {
