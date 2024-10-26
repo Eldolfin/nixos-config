@@ -81,11 +81,6 @@
   };
   hardware.i2c.enable = true;
 
-  nix.settings.trusted-users = [
-    "root"
-    "oscar"
-  ];
-
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
@@ -132,13 +127,15 @@
 
   # enable flakes
   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = [
+        "root"
+        "oscar"
+      ];
+    };
   };
-
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
