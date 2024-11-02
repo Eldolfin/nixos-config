@@ -7,7 +7,6 @@
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     # ./pkgs/incus.nix
-    # ./pkgs/niri.nix
   ];
 
   programs = {

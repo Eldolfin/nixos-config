@@ -25,12 +25,6 @@
     "/home/oscar/bin/scripts/"
     "/home/oscar/bin/executables/"
   ];
-  # programs.bash = {
-  #   enable = true;
-  #   # for when chsh is not runnable
-  #   # or for nix-shells ?
-  #   profileExtra = "exec ${pkgs.zsh}/bin/zsh || true"; # crashes i3???
-  # };
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
