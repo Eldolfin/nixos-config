@@ -1,3 +1,5 @@
+# Standalone home manager configuration
+
 one command install:
 
 ```sh

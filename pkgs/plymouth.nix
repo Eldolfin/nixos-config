@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   boot = {
     # boot animation
     plymouth = {

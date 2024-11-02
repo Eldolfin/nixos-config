@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+_: {
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {

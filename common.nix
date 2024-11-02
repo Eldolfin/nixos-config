@@ -10,8 +10,6 @@
     # ./pkgs/niri.nix
   ];
 
-  services.libinput.touchpad.naturalScrolling = true;
-
   programs = {
     adb.enable = true;
     nh = {
@@ -39,8 +37,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # needed for wireguard
-  services.resolved.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -63,21 +59,23 @@
   # fix for i3blocks
   environment.pathsToLink = ["/libexec"];
 
-  users.mutableUsers = false; # users cannot change password
-  users.users.oscar = {
-    isNormalUser = true;
-    description = "Oscar Le Dauphin";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "libvirtd"
-      "input"
-      "plugdev"
-      "adbusers"
-      "i2c" # used for external display brightness control
-    ];
-    hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+  users = {
+    mutableUsers = false; # users cannot change password
+    users.oscar = {
+      isNormalUser = true;
+      description = "Oscar Le Dauphin";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "libvirtd"
+        "input"
+        "plugdev"
+        "adbusers"
+        "i2c" # used for external display brightness control
+      ];
+      hashedPassword = "$y$j9T$CLXLAGMu18fDGm90VWDY0/$/K9714xLsq2iIaC1taF/AanvyL0PGNpgiyHDcXFKRr6";
+    };
   };
   hardware.i2c.enable = true;
 
@@ -123,6 +121,9 @@
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
     speechd.enable = false; # heavy and not used
+    libinput.touchpad.naturalScrolling = true;
+    # needed for wireguard
+    resolved.enable = true;
   };
 
   # enable flakes

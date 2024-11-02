@@ -7,13 +7,17 @@
   ];
 
   networking.hostName = "oscar-tour";
-  services.xserver.xkb.layout = "fr";
+  services = {
+    xserver = {
+      xkb.layout = "fr";
+      videoDrivers = ["nvidia"];
+    };
+    displayManager.autoLogin.enable = true;
+    openssh.enable = true;
+  };
   # networking.interfaces.enp5s0.wakeOnLan.enable = true;
   networking.wireless.enable = false;
-  services.displayManager.autoLogin.enable = true;
   # hardware.ckb-next.enable = true;
-
-  services.xserver.videoDrivers = ["nvidia"];
 
   # enable cuda
   nixpkgs.config.cudaSupport = true;
@@ -28,5 +32,4 @@
   hardware.nvidia-container-toolkit.enable = true;
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 }

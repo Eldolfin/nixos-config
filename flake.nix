@@ -35,10 +35,12 @@
       sops-nix.nixosModules.sops
       nix-index-database.nixosModules.nix-index
       {
-        home-manager.backupFileExtension = "old";
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.oscar = import ./homes/oscar/home.nix;
+        home-manager = {
+          backupFileExtension = "old";
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.oscar = import ./homes/oscar/home.nix;
+        };
 
         home-manager.extraSpecialArgs = {
           helix-master = helix;
@@ -53,45 +55,47 @@
       }
     ];
   in {
-    nixosConfigurations."oscar-portable" = let
-      specialArgs = {
-        isTour = false;
-      };
-    in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules =
-          commonModules
-          ++ [
-            ./hosts/laptop/configuration.nix
-            ./hosts/laptop/hardware-configuration.nix
-            {home-manager.extraSpecialArgs = specialArgs;}
-          ];
-        specialArgs = inputs // specialArgs;
-      };
+    nixosConfigurations = {
+      "oscar-portable" = let
+        specialArgs = {
+          isTour = false;
+        };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules =
+            commonModules
+            ++ [
+              ./hosts/laptop/configuration.nix
+              ./hosts/laptop/hardware-configuration.nix
+              {home-manager.extraSpecialArgs = specialArgs;}
+            ];
+          specialArgs = inputs // specialArgs;
+        };
 
-    nixosConfigurations."oscar-tour" = let
-      specialArgs = {
-        isTour = true;
-      };
-    in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules =
-          commonModules
-          ++ [
-            ./hosts/tour/configuration.nix
-            ./hosts/tour/hardware-configuration.nix
-            {home-manager.extraSpecialArgs = specialArgs;}
-          ];
-        specialArgs = inputs // specialArgs;
-      };
+      "oscar-tour" = let
+        specialArgs = {
+          isTour = true;
+        };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules =
+            commonModules
+            ++ [
+              ./hosts/tour/configuration.nix
+              ./hosts/tour/hardware-configuration.nix
+              {home-manager.extraSpecialArgs = specialArgs;}
+            ];
+          specialArgs = inputs // specialArgs;
+        };
 
-    nixosConfigurations."oscar-iso" = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = commonModules ++ [./hosts/iso/configuration.nix];
-      specialArgs = {
-        inherit inputs;
+      "oscar-iso" = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = commonModules ++ [./hosts/iso/configuration.nix];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
   };
