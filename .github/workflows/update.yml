@@ -5,7 +5,10 @@ on:
     - cron: '0 0 * * 6' # runs weekly on Saturday at 00:00
 
 jobs:
-  lockfile:
+  update-flakes-lockfile:
+    strategy:
+      matrix:
+        lock-file-dir: [ ".", "homes/oscar" ] 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -16,11 +19,14 @@ jobs:
         id: update
         uses: DeterminateSystems/update-flake-lock@main
         with:
-          pr-title: "Update flake.lock"
+          pr-title: "Update ${{ matrix.lock-file-dir }}/flake.lock"
+          commit-msg: "chore(flake-lockfile): Update ${{ matrix.lock-file-dir }}/flake.lock"
           pr-labels: |
             dependencies
             automated
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          path-to-flake-dir: '${{ matrix.lock-file-dir }}'
+          branch: "update_flake_lock_${{ matrix.lock-file-dir }}"
       - uses: reitermarkus/automerge@v2
         with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
