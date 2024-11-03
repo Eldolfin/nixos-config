@@ -45,11 +45,10 @@
           # might be usefull
           # exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
         ]
-        ++ lib.optional isTour [
-          {
-            command = "i3-msg 'workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0'";
-          }
-        ];
+        ++ lib.optional isTour
+        {
+          command = "i3-msg 'workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0'";
+        };
       floating.criteria = [{class = "copyq";}];
       modes = {};
       keybindings = lib.mkOptionDefault {
