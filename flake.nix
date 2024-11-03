@@ -13,6 +13,10 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix/master";
     nixcord.url = "github:kaylorben/nixcord";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -24,6 +28,7 @@
     nix-index-database,
     helix,
     nixcord,
+    lix-module,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,6 +39,7 @@
       home-manager.nixosModules.home-manager
       sops-nix.nixosModules.sops
       nix-index-database.nixosModules.nix-index
+      lix-module.nixosModules.default
       {
         home-manager = {
           backupFileExtension = "old";
