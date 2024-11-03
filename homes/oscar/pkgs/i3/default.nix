@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  isTour,
   ...
 }: {
   imports = [./i3blocks];
@@ -23,29 +24,32 @@
         smartGaps = true;
         smartBorders = "on";
       };
-      startup = [
-        {
-          command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
-          notification = false;
-        }
-        {
-          command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-          notification = false;
-        }
-        {
-          command = "${pkgs.blueman}/bin/blueman-applet";
-          notification = false;
-        }
-        {
-          command = "${pkgs.emote}/bin/emote";
-          notification = false;
-        }
-        {
-          command = "i3-msg 'workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0'";
-        }
-        # might be usefull
-        # exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
-      ];
+      startup =
+        [
+          {
+            command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
+            notification = false;
+          }
+          {
+            command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+            notification = false;
+          }
+          {
+            command = "${pkgs.blueman}/bin/blueman-applet";
+            notification = false;
+          }
+          {
+            command = "${pkgs.emote}/bin/emote";
+            notification = false;
+          }
+          # might be usefull
+          # exec --no-startup-id dbus-daemon --session --address="unix:path=$XDG_RUNTIME_DIR/bus"
+        ]
+        ++ lib.optional isTour [
+          {
+            command = "i3-msg 'workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0'";
+          }
+        ];
       floating.criteria = [{class = "copyq";}];
       modes = {};
       keybindings = lib.mkOptionDefault {
