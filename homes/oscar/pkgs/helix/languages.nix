@@ -7,24 +7,12 @@
     language-server = {
       # github is not happy about this
       # gpt = {
-      #   command = lib.getExe pkgs.deno;
+      #   command = lib.getExe pkgs.helix-gpt;
       #   args = [
-      #     "run"
-      #     "--allow-net"
-      #     "--allow-env"
-      #     "https://raw.githubusercontent.com/sigmaSd/helix-gpt/0.31-deno/src/app.ts"
+      #     "--handler"
+      #     "copilot"
       #   ];
-      #   environment = {
-      #     HANDLER = "codeium";
-      #   };
       # };
-      gpt = {
-        command = lib.getExe pkgs.helix-gpt;
-        args = [
-          "--handler"
-          "copilot"
-        ];
-      };
       nixd.command = "${pkgs.nixd}/bin/nixd";
       # jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
       bashls = {
