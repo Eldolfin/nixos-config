@@ -3,6 +3,7 @@
     ../../common.nix
     ../../services/autocpufreq.nix
     ../../pkgs/systemd-boot.nix
+    ../../pkgs/steam.nix
   ];
   networking.hostName = "oscar-portable";
   services = {
