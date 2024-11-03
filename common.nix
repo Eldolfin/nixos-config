@@ -6,6 +6,7 @@
     ./pkgs/lightdm.nix
     ./pkgs/sops.nix
     ./pkgs/sound.nix
+    ./pkgs/plymouth.nix
     # ./pkgs/incus.nix
   ];
 
