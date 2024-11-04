@@ -4,6 +4,9 @@
   ...
 }: {
   imports = [./languages.nix];
+  home.packages = with pkgs; [
+    lldb
+  ];
   programs.helix = {
     enable = true;
     package = helix-master.packages.${pkgs.system}.default;
