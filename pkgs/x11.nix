@@ -28,10 +28,10 @@
 
       xrandrHeads = lib.mkIf isTour [
         {
-          output = "HDMI-0";
+          output = "DP-4";
           primary = true;
         }
-        "DVI-D-0"
+        "DP-1"
       ];
     };
   };

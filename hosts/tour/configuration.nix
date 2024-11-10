@@ -1,9 +1,9 @@
 {
   imports = [
     ../../common.nix
-    ../../pkgs/grub.nix
+    # ../../pkgs/grub.nix
     ../../pkgs/steam.nix
-    # ../../pkgs/systemd-boot.nix # should make a gpt table first
+    ../../pkgs/systemd-boot.nix # should make a gpt table first
   ];
 
   networking.hostName = "oscar-tour";
