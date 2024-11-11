@@ -9,6 +9,7 @@ jobs:
       matrix:
         hostname: ["oscar-portable", "oscar-tour"]
     runs-on: ubuntu-22.04
+    timeout-minutes: 60
     permissions:
       id-token: "write"
       contents: "read"
@@ -33,6 +34,7 @@ jobs:
 
   check-standalone-homemanager:
     runs-on: ubuntu-22.04
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
