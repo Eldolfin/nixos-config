@@ -2,6 +2,7 @@
   lib,
   pkgs,
   isTour,
+  config,
   ...
 }: {
   imports = [./i3blocks];
@@ -47,7 +48,10 @@
         ]
         ++ lib.optional isTour
         {
-          command = "i3-msg 'workspace 1, move workspace to output HDMI-0, workspace 2, move workspace to output DVI-D-0'";
+          command = let
+            monitor1 = "DP-4";
+            monitor2 = "DP-1";
+          in "i3-msg 'workspace 1, move workspace to output ${monitor1}, workspace 2, move workspace to output ${monitor2}'";
         };
       floating.criteria = [{class = "copyq";}];
       modes = {};

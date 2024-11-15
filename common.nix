@@ -27,9 +27,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # for gpu in docker containers
-  # systemd.enableUnifiedCgroupHierarchy = false;
-
   networking.nameservers = [
     "1.1.1.1"
     "8.8.8.8"
