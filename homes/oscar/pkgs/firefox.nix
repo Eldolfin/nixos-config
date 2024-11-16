@@ -30,9 +30,6 @@
         "browser.search.isUS" = true;
         "general.useragent.locale" = "en-US";
 
-        # tabs on the side
-        "sidebar.revamp" = true;
-        # "sidebar.verticalTabs" = true;
         "sidebar.main.tools" = "history";
 
         # privacy related
@@ -71,13 +68,11 @@
         bitwarden
         consent-o-matic
         dearrow
-        decentraleyes
         french-dictionary
         french-language-pack
         jump-cutter
         github-file-icons
         libredirect
-        privacy-badger
         refined-github
         return-youtube-dislikes
         sponsorblock
