@@ -8,9 +8,7 @@
   networking.hostName = "oscar-portable";
   services = {
     openssh.enable = false;
-    xserver = {
-      xkb.layout = "gb";
-    };
+    xserver. xkb.layout = "gb";
     displayManager.autoLogin.enable = true; # TODO: remove later
     tlp.enable = true;
   };

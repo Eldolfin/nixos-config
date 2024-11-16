@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  home.keyboard.layout = "gb";
+  home.keyboard.layout = "fr";
   programs.swaylock.enable = true;
   wayland.windowManager.sway = {
     enable = true;

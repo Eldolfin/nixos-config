@@ -7,7 +7,7 @@
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/plymouth.nix
-    ./pkgs/hyprland.nix
+    ./pkgs/sway.nix
   ];
 
   programs = {
