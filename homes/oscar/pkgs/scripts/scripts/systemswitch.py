@@ -4,9 +4,12 @@ import subprocess as sp
 import sys
 import json
 import time
+import os
 
 LOADING_ICONS = ["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]
 MAX_GH_RUN_LIST_ATTEMPS = 20
+NIXOS_CONFIG_REPO_PATH = "/etc/nixos/"
+
 
 def shell(cmd: str):
     cmd = cmd.strip()
@@ -17,10 +20,6 @@ def shell(cmd: str):
             file=sys.stderr,
         )
         sys.exit(res.returncode)
-
-
-def dry_run(cmd: str):
-    print(cmd)
 
 
 def get_last_gh_run_id():
@@ -55,9 +54,7 @@ def main():
         help="Only build, do not edit or commit",
         action="store_true",
     )
-    parser.add_argument(
-        "-u", "--pull", help="Git pull first", action="store_true"
-    )
+    parser.add_argument("-u", "--pull", help="Git pull first", action="store_true")
     parser.add_argument("-m", "--message", help="Message to use in the commit")
     parser.add_argument(
         "-n",
@@ -68,22 +65,21 @@ def main():
     parser.add_argument(
         "--no-commit", help="Do not run git commit", action="store_true"
     )
-    parser.add_argument(
-        "--no-push", help="Do not run git push", action="store_true"
-    )
+    parser.add_argument("--no-push", help="Do not run git push", action="store_true")
     parser.add_argument(
         "-l",
         "--lazy",
         help="Use lazygit to add and commit",
         action="store_true",
     )
+    parser.add_argument("--upgrade", help="Update flakes", action="store_true")
     args = parser.parse_args()
 
-    should_push = not args.build and not args.no_commit and not args.no_push
-
-    run = shell
+    sh = shell
+    cd = os.chdir
     if args.dry_run:
-        run = dry_run
+        sh = print
+        cd = lambda path: print(f"cd {path}")
 
     git_commit_args = []
     if args.amend:
@@ -95,27 +91,33 @@ def main():
         git_commit_args.append(f'"{args.message}"')
     git_commit_args = " ".join(git_commit_args)
 
-    run("cd /etc/nixos/")
+    cd(NIXOS_CONFIG_REPO_PATH)
 
     if args.pull:
-        run("git pull")
+        sh("git pull")
 
-    if not args.build:
-        run("$EDITOR .")
+    if args.upgrade:
+        cd(NIXOS_CONFIG_REPO_PATH + "homes/oscar/")
+        sh("nix flake update")
+        cd(NIXOS_CONFIG_REPO_PATH)
+        sh("nix flake update")
+
+    if not args.build and not args.upgrade:
+        sh("$EDITOR .")
 
     if not args.build and not args.no_commit:
         if args.lazy:
-            run("lazygit")
+            sh("lazygit")
         else:
-            run("git add .")
-            run("git commit " + git_commit_args)
+            sh("git add .")
+            sh("git commit " + git_commit_args)
 
-    run("nh os switch /etc/nixos")
+    sh("nh os switch /etc/nixos")
 
-    if should_push:
+    if not args.build and not args.no_commit and not args.no_push:
         last_run_id_before = get_last_gh_run_id()
 
-        run("git push")
+        sh("git push")
 
         new_last_run_id = last_run_id_before
         i = 0
@@ -129,14 +131,15 @@ def main():
             new_last_run_id = get_last_gh_run_id()
             if i > MAX_GH_RUN_LIST_ATTEMPS:
                 print(
-                    "\rGiving up on watching the github workflow", file=sys.stderr
+                    "\rGiving up on watching the github workflow",
+                    file=sys.stderr,
                 )
                 new_last_run_id = False
                 break
             i += 1
         if new_last_run_id:
             print()
-            run(f"gh run watch {new_last_run_id}")
+            sh(f"gh run watch {new_last_run_id}")
 
 
 if __name__ == "__main__":
