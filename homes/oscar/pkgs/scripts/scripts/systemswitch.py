@@ -2,27 +2,88 @@
 import argparse
 import subprocess as sp
 import sys
+import json
+import time
+
+LOADING_ICONS = ["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]
+MAX_GH_RUN_LIST_ATTEMPS = 20
 
 def shell(cmd: str):
     cmd = cmd.strip()
-    res = sp.run(['sh', '-c', cmd])
+    res = sp.run(["sh", "-c", cmd])
     if res.returncode:
-        print(f"Command '{cmd}' failed with return code '{res.returncode}'")
+        print(
+            f"Command '{cmd}' failed with return code '{res.returncode}'",
+            file=sys.stderr,
+        )
         sys.exit(res.returncode)
-    res.check_returncode()
+
 
 def dry_run(cmd: str):
     print(cmd)
 
+
+def get_last_gh_run_id():
+    return sp.run(
+        [
+            "gh",
+            "run",
+            "list",
+            "-L",
+            "1",
+            "--json",
+            "databaseId",
+            "--jq",
+            ".[0].databaseId",
+        ],
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+
+
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--amend", help="Pass --ammend to git commit",action="store_true")
-    parser.add_argument("--build", help="Only build, do not edit or commit", action="store_true")
-    parser.add_argument("--pull", help="Git pull first", action="store_true")
+    parser = argparse.ArgumentParser(
+        description="A helper script to edit my nixos config files. Edit, commit, build and push",
+        allow_abbrev=True,
+    )
+    parser.add_argument(
+        "--amend", help="Pass --ammend to git commit", action="store_true"
+    )
+    parser.add_argument(
+        "-b",
+        "--build",
+        help="Only build, do not edit or commit",
+        action="store_true",
+    )
+    parser.add_argument(
+        "-u", "--pull", help="Git pull first", action="store_true"
+    )
     parser.add_argument("-m", "--message", help="Message to use in the commit")
-    parser.add_argument("--dry-run", help="Do not execute anything, only print out the commands that would be run otherwise", action="store_true")
-    parser.add_argument("--no-commit", help="Do not run git commit", action="store_true")
+    parser.add_argument(
+        "-n",
+        "--dry-run",
+        help="Do not execute anything, only print out the commands that would be run otherwise",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--no-commit", help="Do not run git commit", action="store_true"
+    )
+    parser.add_argument(
+        "--no-push", help="Do not run git push", action="store_true"
+    )
+    parser.add_argument(
+        "-l",
+        "--lazy",
+        help="Use lazygit to add and commit",
+        action="store_true",
+    )
     args = parser.parse_args()
+
+    should_push = not args.build and not args.no_commit and not args.no_push
+
+    run = shell
+    if args.dry_run:
+        run = dry_run
 
     git_commit_args = []
     if args.amend:
@@ -32,11 +93,7 @@ def main():
     if args.message:
         git_commit_args.append("-m")
         git_commit_args.append(f'"{args.message}"')
-    git_commit_args = ' '.join(git_commit_args)
-
-    run = shell
-    if args.dry_run:
-        run = dry_run
+    git_commit_args = " ".join(git_commit_args)
 
     run("cd /etc/nixos/")
 
@@ -47,13 +104,40 @@ def main():
         run("$EDITOR .")
 
     if not args.build and not args.no_commit:
-        run("git add .")
-        run("git commit " + git_commit_args)
+        if args.lazy:
+            run("lazygit")
+        else:
+            run("git add .")
+            run("git commit " + git_commit_args)
 
     run("nh os switch /etc/nixos")
 
-    if not args.build and not args.no_commit:
+    if should_push:
+        last_run_id_before = get_last_gh_run_id()
+
         run("git push")
+
+        new_last_run_id = last_run_id_before
+        i = 0
+        while new_last_run_id == last_run_id_before:
+            print(
+                "\rWaiting for the github ci to start "
+                + LOADING_ICONS[i % len(LOADING_ICONS)],
+                end="",
+                file=sys.stderr,
+            )
+            new_last_run_id = get_last_gh_run_id()
+            if i > MAX_GH_RUN_LIST_ATTEMPS:
+                print(
+                    "\rGiving up on watching the github workflow", file=sys.stderr
+                )
+                new_last_run_id = False
+                break
+            i += 1
+        if new_last_run_id:
+            print()
+            run(f"gh run watch {new_last_run_id}")
+
 
 if __name__ == "__main__":
     main()

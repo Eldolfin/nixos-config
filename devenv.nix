@@ -11,6 +11,7 @@
     denofmt.enable = true; # markdown
     end-of-file-fixer.enable = true;
     trim-trailing-whitespace.enable = true;
+    black.enable = true;
 
     # linters
     actionlint.enable = true;
