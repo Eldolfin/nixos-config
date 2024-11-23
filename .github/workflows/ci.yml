@@ -2,6 +2,9 @@ name: CI
 
 on:
   push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   check-systems:
@@ -56,5 +59,34 @@ jobs:
           echo "... done"
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          enable_kvm: true
+          extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
+
       - name: Test system config
-        run: nix flake check
+        run: |
+          nix flake check -L
+          mkdir -p screenshots/
+          cp /nix/store/*vm-test-run*/*.png screenshots/
+
+      - name: Upload screenshots as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests-screenshots
+          path: screenshots/
+          if-no-files-found: error
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./screenshots/
+          keep_files: true
+
+      - name: Comment PR with test screenshots
+        if: github.event_name != 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            :wave: Screenshots from the last test run
+          comment-tag: test-screenshots
