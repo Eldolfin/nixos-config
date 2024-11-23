@@ -10,33 +10,26 @@
 
     # Hide emote welcome window
     c.wait_until_succeeds("pgrep emote")
-    c.execute("su oscar -c sh -c 'killall emote'")
+    sleep(2)
+    c.execute("su oscar -c 'killall emote'")
 
     # Launch firefox
     c.send_key("meta_l-e")
 
-    # Wait for firefox to be ready
-    c.succeed("""
-        until su oscar -c sh -c 'xwininfo -root -tree | grep firefox'; do
-            sleep 0.5
-        done
-    """)
-    sleep(5)
-    c.succeed("pgrep firefox")
-
     # Open btop
     c.send_key("meta_l-t")
-    sleep(1)
+    sleep(2)
     # Zoom out
     for i in range(6): c.send_key("ctrl-minus")
 
     # Open an editor
     c.send_key("meta_l-ret")
-    sleep(1)
+    sleep(3)
     c.send_chars("$EDITOR ~/bin/scripts/systemswitch.py\n")
 
-    # Open a few other terminals
-    for i in range(4): c.send_key("meta_l-ret")
+    c.execute("""
+      su oscar -c \"cool-retro-term -e sh -c \'nix run nixpkgs\#fortune | nix run nixpkgs\#cowsay; sleep infinity'\" >/dev/null 2>&1 &
+    """)
 
     # Wait for everything to be ready
     sleep(10)
