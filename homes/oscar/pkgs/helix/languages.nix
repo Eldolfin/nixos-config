@@ -141,6 +141,7 @@
             "--line-length=80"
           ];
         };
+        auto-format = true;
       }
       {
         name = "javascript";
