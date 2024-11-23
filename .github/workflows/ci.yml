@@ -63,30 +63,45 @@ jobs:
           enable_kvm: true
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
 
+      - name: define screenshot output dir
+        id: screenshot_path
+        run: echo "screenshots_path=screeshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+
       - name: Test system config
         run: |
           nix flake check -L
           mkdir -p screenshots/
-          cp /nix/store/*vm-test-run*/*.png screenshots/
+          cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
 
       - name: Upload screenshots as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: tests-screenshots
-          path: screenshots/
+          path: ${{ steps.screenshot_path.outputs.screenshot_path }}
           if-no-files-found: error
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./screenshots/
+          publish_dir: screeshots/
           keep_files: true
 
+      - name: Generate Comment PR with test screenshots
+        id: comment_file
+        if: github.event_name == 'pull_request'
+        run: |
+          OUT=pr-comment.md
+          touch $OUT
+          echo ":wave: Screenshots from the last test run" >> $OUT
+          for filename in ${{ steps.screenshot_path.outputs.screenshot_path }}/*; do
+            echo "![](https://raw.githubusercontent.com/Eldolfin/nixos-config/refs/heads/gh-pages/${filename})" >> $OUT
+          done
+          echo "comment_path=${OUT}" >> "$GITHUB_OUTPUT"
+
       - name: Comment PR with test screenshots
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v3
         with:
-          message: |
-            :wave: Screenshots from the last test run
+          file-path: ${{ steps.comment_file.outputs.comment_path }}
           comment-tag: test-screenshots
