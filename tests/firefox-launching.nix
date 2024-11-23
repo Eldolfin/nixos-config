@@ -8,13 +8,18 @@
     c.wait_for_unit("graphical.target")
     c.wait_for_x()
 
+    c.execute("su oscar -c 'xrandr --output Virtual-1 --mode 1920x1080'")
+
     # Hide emote welcome window
-    c.wait_until_succeeds("pgrep emote")
-    sleep(2)
+    c.wait_for_text("emoji")
     c.execute("su oscar -c 'killall emote'")
 
     # Launch firefox
     c.send_key("meta_l-e")
+    # Wait for firefox (this file is created after the window is visible)
+    c.wait_for_file("/home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
+    # Open an empty tab
+    c.send_key("ctrl-t")
 
     # Open btop
     c.send_key("meta_l-t")

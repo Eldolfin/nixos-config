@@ -13,7 +13,10 @@ in
       nodes = {
         c = {commonModules, ...}: {
           imports = commonModules;
-          virtualisation.memorySize = 4096;
+          virtualisation = {
+            memorySize = 4096;
+            diskSize = 8192;
+          };
         };
       };
     }
