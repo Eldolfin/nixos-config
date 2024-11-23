@@ -91,13 +91,38 @@
           specialArgs = inputs // specialArgs;
         };
 
-      "oscar-iso" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = commonModules ++ [./hosts/iso/configuration.nix];
+      "oscar-iso" = let
         specialArgs = {
-          inherit inputs;
+          isTour = false;
         };
-      };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules =
+            commonModules
+            ++ [
+              ./hosts/iso/configuration.nix
+              {home-manager.extraSpecialArgs = specialArgs;}
+            ];
+          specialArgs = inputs // specialArgs;
+        };
     };
+    checks.${system} = let
+      specialArgs = {
+        isTour = false;
+      };
+      checkArgs =
+        inputs
+        // specialArgs
+        // {
+          pkgs = nixpkgs.legacyPackages.${system};
+          commonModules =
+            commonModules
+            ++ [
+              {home-manager.extraSpecialArgs = specialArgs;}
+            ];
+        };
+    in
+      import ./tests checkArgs;
   };
 }

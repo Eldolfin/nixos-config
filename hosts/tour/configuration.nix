@@ -3,6 +3,7 @@
     ../../common.nix
     ../../pkgs/steam.nix
     ../../pkgs/systemd-boot.nix
+    ../../pkgs/plymouth.nix
   ];
 
   networking.hostName = "oscar-tour";
