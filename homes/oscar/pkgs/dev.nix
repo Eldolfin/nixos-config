@@ -66,8 +66,8 @@
     # ppkgs.pytest
     # ppkgs.psutil
     # ]))
-    python311Full
-    python311Packages.pip
+    python3Full
+    python3Packages.pip
     # python311Packages.bpython
     # grip # github markdown preview
 
