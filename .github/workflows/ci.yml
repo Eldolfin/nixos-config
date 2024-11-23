@@ -5,14 +5,11 @@ on:
 
 jobs:
   check-systems:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     strategy:
       matrix:
         hostname: ["oscar-portable", "oscar-tour"]
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    permissions:
-      id-token: "write"
-      contents: "read"
     steps:
       - name: maximize build space
         # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
@@ -33,7 +30,7 @@ jobs:
         run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -42,3 +39,22 @@ jobs:
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: nix run home-manager/master -- switch --flake ./homes/oscar
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: maximize build space
+        # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
+        run: |
+          echo "Removing unwanted software... "
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force
+          echo "... done"
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - name: Test system config
+        run: nix flake check
