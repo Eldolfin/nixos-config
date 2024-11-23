@@ -65,7 +65,7 @@ jobs:
 
       - name: define screenshot output dir
         id: screenshot_path
-        run: echo "screenshots_path=screeshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+        run: echo "screenshot_path=screeshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
 
       - name: Test system config
         run: |
