@@ -11,7 +11,7 @@
     nur.url = "github:nix-community/NUR";
     helix.url = "github:helix-editor/helix/master";
     # TODO: revert back to github:kaylorben/nixcord when fixed
-    nixcord.url = "github:kaylorben/nixcord";
+    nixcord.url = "github:Soikr/nixcord/patch-1";
   };
 
   outputs = {
