@@ -70,7 +70,7 @@ jobs:
       - name: Test system config
         run: |
           nix flake check -L
-          mkdir -p screenshots/
+          mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
 
       - name: Upload screenshots as artifacts
