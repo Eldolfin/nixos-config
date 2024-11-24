@@ -28,19 +28,19 @@
       startup =
         [
           {
-            command = "${pkgs.i3-auto-layout}/bin/i3-auto-layout";
+            command = "sh -c 'while true; do ${lib.getExe pkgs.i3-auto-layout}; done'";
             notification = false;
           }
           {
-            command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+            command = lib.getExe pkgs.networkmanagerapplet;
             notification = false;
           }
           {
-            command = "${pkgs.blueman}/bin/blueman-applet";
+            command = lib.getExe' pkgs.blueman "blueman-applet";
             notification = false;
           }
           {
-            command = "${pkgs.emote}/bin/emote";
+            command = lib.getExe pkgs.emote;
             notification = false;
           }
           # might be usefull
