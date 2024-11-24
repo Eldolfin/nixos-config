@@ -22,19 +22,25 @@ def shell(cmd: str):
         sys.exit(res.returncode)
 
 
-def get_last_gh_run_id():
+def get_last_gh_run_id(dry_run: bool) -> str:
+    cmd = [
+        "gh",
+        "run",
+        "list",
+        "-L",
+        "1",
+        "--json",
+        "databaseId",
+        "--jq",
+        ".[0].databaseId",
+    ]
+
+    if dry_run:
+        print(" ".join(cmd))
+        return ""
+
     return sp.run(
-        [
-            "gh",
-            "run",
-            "list",
-            "-L",
-            "1",
-            "--json",
-            "databaseId",
-            "--jq",
-            ".[0].databaseId",
-        ],
+        cmd,
         capture_output=True,
         text=True,
     ).stdout.strip()
@@ -66,6 +72,11 @@ def main():
         "--no-commit", help="Do not run git commit", action="store_true"
     )
     parser.add_argument("--no-push", help="Do not run git push", action="store_true")
+    parser.add_argument(
+        "--no-build",
+        help="Do not build+switch to the new configuration",
+        action="store_true",
+    )
     parser.add_argument(
         "-l",
         "--lazy",
@@ -112,10 +123,11 @@ def main():
             sh("git add .")
             sh("git commit " + git_commit_args)
 
-    sh("nh os switch /etc/nixos")
+    if not args.no_build:
+        sh("nh os switch /etc/nixos")
 
     if not args.build and not args.no_commit and not args.no_push:
-        last_run_id_before = get_last_gh_run_id()
+        last_run_id_before = get_last_gh_run_id(args.dry_run)
 
         sh("git push")
 
@@ -128,7 +140,7 @@ def main():
                 end="",
                 file=sys.stderr,
             )
-            new_last_run_id = get_last_gh_run_id()
+            new_last_run_id = get_last_gh_run_id(args.dry_run)
             if i > MAX_GH_RUN_LIST_ATTEMPS:
                 print(
                     "\rGiving up on watching the github workflow",
