@@ -47,7 +47,7 @@
         formatter.command = lib.getExe pkgs.shfmt;
         language-servers = [
           "bashls"
-          "gpt"
+          # "gpt"
         ];
       }
       {
@@ -56,7 +56,7 @@
         formatter.command = "${pkgs.clang-tools}/bin/clang-format";
         language-servers = [
           "clangd"
-          "gpt"
+          # "gpt"
         ];
       }
       {
@@ -65,7 +65,7 @@
         formatter.command = "${pkgs.clang-tools}/bin/clang-format";
         language-servers = [
           "clangd"
-          "gpt"
+          # "gpt"
         ];
       }
       {
@@ -75,7 +75,7 @@
         language-servers = [
           "nixd"
           # "nil"
-          "gpt"
+          # "gpt"
         ];
       }
       {
@@ -84,13 +84,13 @@
         formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
         language-servers = [
           "rust-analyzer"
-          "gpt"
+          # "gpt"
         ];
       }
       {
         name = "typescript";
         language-servers = [
-          "gpt"
+          # "gpt"
           "typescript-language-server"
         ];
         formatter = {
@@ -107,7 +107,7 @@
       {
         name = "tsx";
         language-servers = [
-          "gpt"
+          # "gpt"
           "typescript-language-server"
         ];
         formatter = {
@@ -129,7 +129,7 @@
       {
         name = "python";
         language-servers = [
-          "gpt"
+          # "gpt"
           "pylsp"
           "jedi"
         ];
@@ -146,7 +146,7 @@
       {
         name = "javascript";
         language-servers = [
-          "gpt"
+          # "gpt"
           "typescript-language-server"
         ];
         formatter = {
@@ -164,7 +164,7 @@
         name = "markdown";
         language-servers = [
           "vscode-markdown-language-server"
-          "gpt"
+          # "gpt"
         ];
         formatter = {
           command = lib.getExe pkgs.deno;
