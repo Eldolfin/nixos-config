@@ -6,7 +6,7 @@
   testScript = ''
     start_all()
     c.wait_for_unit("graphical.target")
-    c.sleep(10)
+    c.wait_for_text("Oscar Le Dauphin")
     c.screenshot("${name}")
   '';
 }
