@@ -3,7 +3,10 @@ on:
   workflow_dispatch: # allows manual triggering
   push:
     branches: [ gh-pages ]
-  page_build:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
 
 jobs:
   update-generated-site:

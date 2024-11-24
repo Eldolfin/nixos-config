@@ -1,0 +1,128 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-systems:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        hostname: ["oscar-portable", "oscar-tour"]
+    steps:
+      - name: maximize build space
+        # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
+        run: |
+          echo "Removing unwanted software... "
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force
+          echo "... done"
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: cachix/cachix-action@v14
+        with:
+          name: nixos-eldolfin
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: helix
+      # this actually slows down the build
+      # - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+      - name: Build system config
+        run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
+
+  check-standalone-homemanager:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: cachix/cachix-action@v14
+        with:
+          name: nixos-eldolfin
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: helix
+      # - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: replace 'oscar' with current username
+        run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
+      - run: nix run home-manager/master -- switch --flake ./homes/oscar
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: maximize build space
+        # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
+        run: |
+          echo "Removing unwanted software... "
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force
+          echo "... done"
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          enable_kvm: true
+          extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
+      - uses: cachix/cachix-action@v14
+        with:
+          name: nixos-eldolfin
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: helix
+
+      - name: define screenshot output dir
+        id: screenshot_path
+        run: |
+          echo "screenshot_path=screenshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "screenshot_url_base=https://raw.githubusercontent.com/Eldolfin/nixos-config/refs/heads/gh-pages/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Test system config
+        run: |
+          nix flake check -L
+          mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
+          cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
+
+      - name: Upload screenshots as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests-screenshots
+          path: ${{ steps.screenshot_path.outputs.screenshot_path }}
+          if-no-files-found: error
+
+      - name: Push screenshots to github pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: screenshots
+          keep_files: true
+          enable_jekyll: true
+          exclude_assets: '' # avoid removing .github...
+
+      - name: Generate markdown file with test screenshots
+        id: comment_file
+        run: |
+          OUT="pr-comment.md"
+          touch "$OUT"
+          echo ":wave: Screenshots from the last test run" >> "$OUT"
+          for path in ${{ steps.screenshot_path.outputs.screenshot_path }}/*; do
+            filename=$(basename "$path")
+            echo "![](${{ steps.screenshot_path.outputs.screenshot_url_base }}/${filename})" >> "$OUT"
+          done
+          echo "comment_path=${OUT}" >> "$GITHUB_OUTPUT"
+          # put it in the action summary too
+          cat "$OUT" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment PR with test screenshots
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          file-path: ${{ steps.comment_file.outputs.comment_path }}
+          comment-tag: test-screenshots

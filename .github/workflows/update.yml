@@ -1,0 +1,35 @@
+name: update-flake-lock
+on:
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    - cron: '0 0 * * 6' # runs weekly on Saturday at 00:00
+
+jobs:
+  update-flakes-lockfile:
+    strategy:
+      matrix:
+        lock-file-dir: [ ".", "homes/oscar" ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update flake.lock
+        id: update
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          pr-title: "Update ${{ matrix.lock-file-dir }}/flake.lock"
+          commit-msg: "chore(flake-lockfile): Update ${{ matrix.lock-file-dir }}/flake.lock"
+          pr-labels: |
+            dependencies
+            automated
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          path-to-flake-dir: '${{ matrix.lock-file-dir }}'
+          branch: "update_flake_lock_${{ matrix.lock-file-dir == '.' && 'root' || matrix.lock-file-dir }}"
+      - uses: reitermarkus/automerge@v2
+        with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          merge-method: rebase
+          pull-request: ${{ steps.update.outputs.pull-request-number }}
+          dry-run: false
