@@ -19,8 +19,6 @@
     c.wait_for_unit("graphical.target")
     c.wait_for_x()
 
-    user("xrandr --output Virtual-1 --mode 1920x1080")
-
     # Hide emote welcome window
     c.wait_for_text("emoji")
     user("killall emote")
