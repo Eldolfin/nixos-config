@@ -1,0 +1,26 @@
+name: update-generated-site
+on:
+  workflow_dispatch: # allows manual triggering
+  push:
+    branches: [ gh-pages ]
+
+jobs:
+  update-generated-site:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Generate README.yml
+        run: python .github/workflows/pages.py
+      - name: Git commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Update README.md"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
