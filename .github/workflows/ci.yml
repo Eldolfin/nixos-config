@@ -106,7 +106,6 @@ jobs:
 
       - name: Generate Comment PR with test screenshots
         id: comment_file
-        if: github.event_name == 'pull_request'
         run: |
           OUT="pr-comment.md"
           touch "$OUT"
@@ -116,6 +115,8 @@ jobs:
             echo "![](${{ steps.screenshot_path.outputs.screenshot_url_base }}/${filename})" >> "$OUT"
           done
           echo "comment_path=${OUT}" >> "$GITHUB_OUTPUT"
+          # put it in the action summary too
+          cat "$OUT" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Comment PR with test screenshots
         if: github.event_name == 'pull_request'
