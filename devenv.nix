@@ -28,5 +28,6 @@
     };
     nil.enable = true;
     ripsecrets.enable = true;
+    mypy.enable = true;
   };
 }

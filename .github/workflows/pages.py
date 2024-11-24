@@ -2,7 +2,7 @@ import os
 import subprocess as sp
 import datetime
 import logging
-from typing import Union, Tuple, List, Dict
+from typing import Union, Tuple, List, Dict, Literal
 
 OUTPUT_FILE = "README.md"
 
@@ -28,7 +28,7 @@ def filter_commit_dir(commits: List[str]) -> List[str]:
     )
 
 
-def get_commit_date(commit: str) -> Union[datetime.datetime, False]:
+def get_commit_date(commit: str) -> Union[datetime.datetime, Literal[False]]:
     cmd = sp.run(
         [
             "git",
@@ -44,11 +44,11 @@ def get_commit_date(commit: str) -> Union[datetime.datetime, False]:
     timestamp: str = cmd.stdout
     timestamp = timestamp.strip("'")
     try:
-        timestamp: float = float(timestamp)
+        timestamp_f: float = float(timestamp)
     except ValueError:
         logging.warn(f"Failed to get commit date for commit {commit}. Skipping it...")
         return False
-    parsed_date = datetime.datetime.fromtimestamp(timestamp)
+    parsed_date = datetime.datetime.fromtimestamp(timestamp_f)
     return parsed_date
 
 
