@@ -1,5 +1,5 @@
-(import ./lib.nix) {
-  name = "firefox-launching";
+(import ./lib.nix) rec {
+  name = "firefox-and-terminals";
 
   nodes.c = {pkgs, ...}: {
     environment.systemPackages = [
@@ -45,6 +45,6 @@
     # Wait for everything to be ready
     sleep(10)
 
-    c.screenshot("firefox_and_terminals")
+    c.screenshot("${name}")
   '';
 }
