@@ -36,7 +36,7 @@
     c.send_key("meta_l-t")
     sleep(2)
     # Zoom out
-    for i in range(10): c.send_key("ctrl-minus")
+    for i in range(10): c.send_key("ctrl-minus", delay=0.1)
     sleep(1)
 
     user("alacritty -o 'font.size=9' -e hx ~/bin/scripts/systemswitch.py"+bg)

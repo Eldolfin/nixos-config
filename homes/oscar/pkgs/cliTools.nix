@@ -6,7 +6,6 @@
     asciinema
     bc
     bear
-    cachix
     cmake
     cron
     fd

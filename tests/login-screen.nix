@@ -5,7 +5,7 @@
   };
   testScript = ''
     c.wait_for_unit("graphical.target")
-    c.sleep(5)
+    c.sleep(10)
     c.screenshot("login_screen")
   '';
 }
