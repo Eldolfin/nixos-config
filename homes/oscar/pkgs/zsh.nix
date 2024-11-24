@@ -77,6 +77,7 @@
       zstyle ':notify:*' error-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Error.ogg"
 
       export COPILOT_API_KEY=$(cat /run/secrets/apis/COPILOT_API_KEY)
+      export CACHIX_AUTH_TOKEN=$(cat /run/secrets/apis/CACHIX_AUTH_TOKEN)
     '';
 
     oh-my-zsh = {
