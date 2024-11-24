@@ -20,8 +20,12 @@
     c.wait_for_x()
 
     # Hide emote welcome window
-    c.wait_for_text("emoji")
-    user("killall emote")
+    try:
+      c.wait_for_text("emoji", timeout=60)
+      user("killall emote")
+    except:
+      pass
+    sleep(2)
 
     # Launch firefox
     # usefull in case its running locally in a previously used vm
@@ -35,6 +39,7 @@
     # Open btop
     c.send_key("meta_l-t")
     c.wait_until_succeeds("pgrep btop")
+
     sleep(5)
     # Zoom out
     for i in range(10): c.send_key("ctrl-minus", delay=0.2)
@@ -42,6 +47,10 @@
 
     user("alacritty -o 'font.size=9' -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
+    sleep(5)
+    # Zoom out
+    for i in range(10): c.send_key("ctrl-minus", delay=0.2)
+    sleep(1)
 
     # Wait for everything to be ready
     sleep(10)
