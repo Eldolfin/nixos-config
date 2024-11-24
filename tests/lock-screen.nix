@@ -1,5 +1,5 @@
-(import ./lib.nix) {
-  name = "login-screen";
+(import ./lib.nix) rec {
+  name = "lock-screen";
   testScript = ''
     c.wait_for_x()
     c.sleep(5)
@@ -7,6 +7,6 @@
     c.sleep(10)
     c.send_chars("a" * 8)
     c.sleep(5)
-    c.screenshot("lock_screen")
+    c.screenshot("${name}")
   '';
 }
