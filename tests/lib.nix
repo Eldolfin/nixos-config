@@ -16,6 +16,11 @@ in
           virtualisation = {
             memorySize = 4096;
             diskSize = 8192;
+            cores = 4;
+            resolution = {
+              x = 1920;
+              y = 1080;
+            };
           };
         };
       };

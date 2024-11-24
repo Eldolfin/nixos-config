@@ -1,20 +1,31 @@
 (import ./lib.nix) {
   name = "firefox-launching";
 
+  nodes.c = {pkgs, ...}: {
+    environment.systemPackages = [
+      pkgs.cowsay
+      pkgs.fortune
+    ];
+  };
+
   testScript = ''
     from time import sleep
+
+    bg=" >/dev/null 2>&1 &"
+    def user(cmd):
+      c.execute(f"su oscar -c \"{cmd}\"")
 
     start_all()
     c.wait_for_unit("graphical.target")
     c.wait_for_x()
 
-    c.execute("su oscar -c 'xrandr --output Virtual-1 --mode 1920x1080'")
-
     # Hide emote welcome window
     c.wait_for_text("emoji")
-    c.execute("su oscar -c 'killall emote'")
+    user("killall emote")
 
     # Launch firefox
+    # usefull in case its running locally in a previously used vm
+    c.execute("rm -rf /home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
     c.send_key("meta_l-e")
     # Wait for firefox (this file is created after the window is visible)
     c.wait_for_file("/home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
@@ -25,16 +36,11 @@
     c.send_key("meta_l-t")
     sleep(2)
     # Zoom out
-    for i in range(6): c.send_key("ctrl-minus")
+    for i in range(10): c.send_key("ctrl-minus")
+    sleep(1)
 
-    # Open an editor
-    c.send_key("meta_l-ret")
-    sleep(3)
-    c.send_chars("$EDITOR ~/bin/scripts/systemswitch.py\n")
-
-    c.execute("""
-      su oscar -c \"cool-retro-term -e sh -c \'nix run nixpkgs\#fortune | nix run nixpkgs\#cowsay; sleep infinity'\" >/dev/null 2>&1 &
-    """)
+    user("alacritty -o 'font.size=9' -e hx ~/bin/scripts/systemswitch.py"+bg)
+    user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
 
     # Wait for everything to be ready
     sleep(10)
