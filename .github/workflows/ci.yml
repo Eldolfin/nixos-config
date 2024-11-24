@@ -30,6 +30,7 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: helix
       # this actually slows down the build
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
@@ -46,6 +47,7 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: helix
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
@@ -74,6 +76,7 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: helix
 
       - name: define screenshot output dir
         id: screenshot_path
