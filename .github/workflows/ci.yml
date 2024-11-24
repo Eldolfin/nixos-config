@@ -97,14 +97,14 @@ jobs:
           path: ${{ steps.screenshot_path.outputs.screenshot_path }}
           if-no-files-found: error
 
-      - name: Deploy
+      - name: Push screenshots to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: screenshots/
+          publish_dir: screenshots
           keep_files: true
 
-      - name: Generate Comment PR with test screenshots
+      - name: Generate markdown file with test screenshots
         id: comment_file
         run: |
           OUT="pr-comment.md"
