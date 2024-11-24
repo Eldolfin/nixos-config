@@ -103,6 +103,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: screenshots
           keep_files: true
+          enable_jekyll: true
 
       - name: Generate markdown file with test screenshots
         id: comment_file
