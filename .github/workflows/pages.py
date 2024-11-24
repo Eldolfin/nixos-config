@@ -37,11 +37,14 @@ def main():
         try:
             timestamp: float = float(timestamp)
         except ValueError:
-            logging.info(f"Failed to get commit date for commit {commit}")
-            timestamp = 0
+            logging.warn(
+                f"Failed to get commit date for commit {commit}. Skipping it..."
+            )
+            continue
         parsed_date = datetime.datetime.fromtimestamp(timestamp)
         commits_dates[commit] = parsed_date
 
+    commits = list(filter(lambda c: c in commits_dates, commits))
     commits.sort(key=lambda c: commits_dates[c], reverse=True)
 
     with open(OUTPUT_FILE, "w") as f:
