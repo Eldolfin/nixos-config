@@ -22,6 +22,8 @@ in
               y = 1080;
             };
           };
+          # avoid emote welcome screen (it crashes because the file format in incorrect)
+          home-manager.users.oscar.home.file.".local/share/Emote/user_data".text = "";
         };
       };
     }

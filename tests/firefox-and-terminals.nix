@@ -19,14 +19,6 @@
     c.wait_for_unit("graphical.target")
     c.wait_for_x()
 
-    # Hide emote welcome window
-    try:
-      c.wait_for_text("emoji", timeout=60)
-      user("killall emote")
-    except:
-      pass
-    sleep(2)
-
     # Launch firefox
     # usefull in case its running locally in a previously used vm
     c.execute("rm -rf /home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
