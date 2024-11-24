@@ -65,7 +65,9 @@ jobs:
 
       - name: define screenshot output dir
         id: screenshot_path
-        run: echo "screenshot_path=screeshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "screenshot_path=screenshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "screenshot_url_base=https://raw.githubusercontent.com/Eldolfin/nixos-config/refs/heads/gh-pages/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
 
       - name: Test system config
         run: |
@@ -84,18 +86,19 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: screeshots/
+          publish_dir: screenshots/
           keep_files: true
 
       - name: Generate Comment PR with test screenshots
         id: comment_file
         if: github.event_name == 'pull_request'
         run: |
-          OUT=pr-comment.md
-          touch $OUT
-          echo ":wave: Screenshots from the last test run" >> $OUT
-          for filename in ${{ steps.screenshot_path.outputs.screenshot_path }}/*; do
-            echo "![](https://raw.githubusercontent.com/Eldolfin/nixos-config/refs/heads/gh-pages/${filename})" >> $OUT
+          OUT="pr-comment.md"
+          touch "$OUT"
+          echo ":wave: Screenshots from the last test run" >> "$OUT"
+          for path in ${{ steps.screenshot_path.outputs.screenshot_path }}/*; do
+            filename=$(basename "$path")
+            echo "![](${{ steps.screenshot_path.outputs.screenshot_url_base }}/${filename})" >> "$OUT"
           done
           echo "comment_path=${OUT}" >> "$GITHUB_OUTPUT"
 
