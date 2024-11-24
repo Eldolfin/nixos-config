@@ -2,10 +2,10 @@
   name = "lock-screen";
   testScript = ''
     c.wait_for_x()
-    c.sleep(5)
+    c.wait_for_text("emoji")
     c.send_key("meta_l-x")
     c.sleep(10)
-    c.send_chars("a" * 8)
+    c.send_chars("a" * 8, delay=0.2)
     c.sleep(5)
     c.screenshot("${name}")
   '';

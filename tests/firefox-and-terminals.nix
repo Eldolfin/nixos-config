@@ -34,9 +34,10 @@
 
     # Open btop
     c.send_key("meta_l-t")
-    sleep(2)
+    c.wait_for_succeed("pgrep btop")
+    sleep(5)
     # Zoom out
-    for i in range(10): c.send_key("ctrl-minus", delay=0.1)
+    for i in range(10): c.send_key("ctrl-minus", delay=0.2)
     sleep(1)
 
     user("alacritty -o 'font.size=9' -e hx ~/bin/scripts/systemswitch.py"+bg)
