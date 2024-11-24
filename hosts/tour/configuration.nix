@@ -15,8 +15,10 @@
     displayManager.autoLogin.enable = true;
     openssh.enable = true;
   };
-  # networking.interfaces.enp5s0.wakeOnLan.enable = true;
-  networking.wireless.enable = false;
+  networking = {
+    interfaces.eno1.wakeOnLan.enable = true;
+    wireless.enable = false;
+  };
   # hardware.ckb-next.enable = true;
 
   # enable cuda
