@@ -34,7 +34,7 @@
 
     # Open btop
     c.send_key("meta_l-t")
-    c.wait_for_succeed("pgrep btop")
+    c.wait_until_succeeds("pgrep btop")
     sleep(5)
     # Zoom out
     for i in range(10): c.send_key("ctrl-minus", delay=0.2)
