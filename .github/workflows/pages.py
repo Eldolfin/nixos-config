@@ -65,7 +65,7 @@ def main():
                 )
             f.write("\n")
 
-            f.write("|" + "-|" * len(screenshot) + "\n")
+            f.write("|" + "-|" * len(screenshots) + "\n")
 
             # Images
             f.write("|")
