@@ -37,8 +37,9 @@
     sleep(2)
     # Zoom out
     for i in range(10): c.send_key("ctrl-minus")
+    sleep(1)
 
-    user("alacritty -e hx ~/bin/scripts/systemswitch.py"+bg)
+    user("alacritty -o 'font.size=9' -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
 
     # Wait for everything to be ready
