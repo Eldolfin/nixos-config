@@ -12,3 +12,4 @@ __pycache__
 
 .nixos-test-history
 *.png
+_site
