@@ -1,5 +1,12 @@
 # List of screenshots from the integration tests
 
+## [2024-11-26 23:50:24](https://github.com/Eldolfin/nixos-config/commit/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f)
+
+[firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/tests/login-screen.nix)
+-|-|-
+[![](6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/firefox-and-terminals.png)](https://eldolfin.github.io/nixos-config/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/firefox-and-terminals.png)|[![](6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/lock-screen.png)](https://eldolfin.github.io/nixos-config/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/lock-screen.png)|[![](6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/login-screen.png)](https://eldolfin.github.io/nixos-config/6b06eb20c15ade7470ddaa66bc61d3d03f51b04f/login-screen.png)
+
+
 ## [2024-11-26 23:42:06](https://github.com/Eldolfin/nixos-config/commit/c79ddf1d17ab6e69839e8499204aca55b820b64f)
 
 [firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/c79ddf1d17ab6e69839e8499204aca55b820b64f/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/c79ddf1d17ab6e69839e8499204aca55b820b64f/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/c79ddf1d17ab6e69839e8499204aca55b820b64f/tests/login-screen.nix)
