@@ -53,7 +53,8 @@ jobs:
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: |
           nix run home-manager/master -- switch --flake ./homes/oscar
-          cp -L /nix/store/*-home-manager-generation/home-files ./home-files
+          cp -r -L /nix/store/*-home-manager-generation/home-files ./home-files
+          du -h -d 1 ./home-files
 
       - uses: actions/upload-artifact@v4
         name: Upload config files
