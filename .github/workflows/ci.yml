@@ -51,15 +51,15 @@ jobs:
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
-      - run: nix run home-manager/master -- switch --flake ./homes/oscar
-      - name: Retrieve .config path
-        run: echo "CONFIG_PATH=/home/$(whoami)/.config" >> "$GITHUB_OUTPUT"
-        id: config_path
+      - run: |
+          nix run home-manager/master -- switch --flake ./homes/oscar
+          cp -L /nix/store/*-home-manager-generation/home-files ./home-files
+
       - uses: actions/upload-artifact@v4
         name: Upload config files
         with:
           name: home-configs
-          path: ${{ steps.config_path.outputs.CONFIG_PATH }}
+          path: ./home-files
           if-no-files-found: error
 
   integration-tests:
