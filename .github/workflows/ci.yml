@@ -55,12 +55,13 @@ jobs:
           nix run home-manager/master -- switch --flake ./homes/oscar
           cp -r -L /nix/store/*-home-manager-generation/home-files ./home-files
           du -h -d 1 ./home-files
+          zip -r ./home-files.zip ./home-files --exclude ./home-files/.mozilla ./home-files/Music
 
       - uses: actions/upload-artifact@v4
         name: Upload config files
         with:
           name: home-configs
-          path: ./home-files
+          path: ./home-files.zip
           if-no-files-found: error
 
   integration-tests:
