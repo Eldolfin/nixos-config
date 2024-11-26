@@ -14,20 +14,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
+      - name: checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: gh-pages
       - name: Generate README.yml
         run: python .github/workflows/pages.py
-      - name: Git commit
+      - name: git commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md
           git commit -m "Update README.md"
-      - name: Push changes
+      - name: push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: gh-pages

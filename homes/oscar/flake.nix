@@ -11,6 +11,7 @@
     nur.url = "github:nix-community/NUR";
     helix.url = "github:helix-editor/helix/master";
     nixcord.url = "github:kaylorben/nixcord";
+    scls.url = "github:estin/simple-completion-language-server/main";
   };
 
   outputs = {
@@ -20,29 +21,24 @@
     nixcord,
     helix,
     ...
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     homeConfigurations."oscar" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
       modules = [
         nixcord.homeManagerModules.nixcord
         nur.hmModules.nur
         ./home.nix
       ];
-
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
-      extraSpecialArgs = {
-        helix-master = helix;
-
-        isTour = false;
-        isPersonal = false;
-      };
+      extraSpecialArgs =
+        inputs
+        // {
+          helix-master = helix;
+          isTour = false;
+          isPersonal = false;
+        };
     };
   };
 }

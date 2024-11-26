@@ -11,8 +11,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    helix.url = "github:helix-editor/helix/master";
     nixcord.url = "github:kaylorben/nixcord";
+
+    helix.url = "github:helix-editor/helix/master";
+    scls.url = "github:estin/simple-completion-language-server/main";
   };
 
   outputs = {
@@ -57,9 +59,11 @@
   in {
     nixosConfigurations = {
       "oscar-portable" = let
-        specialArgs = {
-          isTour = false;
-        };
+        specialArgs =
+          inputs
+          // {
+            isTour = false;
+          };
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -70,13 +74,15 @@
               ./hosts/laptop/hardware-configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
             ];
-          specialArgs = inputs // specialArgs;
+          inherit specialArgs;
         };
 
       "oscar-tour" = let
-        specialArgs = {
-          isTour = true;
-        };
+        specialArgs =
+          inputs
+          // {
+            isTour = true;
+          };
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -87,13 +93,15 @@
               ./hosts/tour/hardware-configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
             ];
-          specialArgs = inputs // specialArgs;
+          inherit specialArgs;
         };
 
       "oscar-iso" = let
-        specialArgs = {
-          isTour = false;
-        };
+        specialArgs =
+          inputs
+          // {
+            isTour = false;
+          };
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -103,16 +111,18 @@
               ./hosts/iso/configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
             ];
-          specialArgs = inputs // specialArgs;
+          inherit specialArgs;
         };
     };
     checks.${system} = let
-      specialArgs = {
-        isTour = false;
-      };
-      checkArgs =
+      specialArgs =
         inputs
-        // specialArgs
+        // {
+          isTour = false;
+        };
+
+      checkArgs =
+        specialArgs
         // {
           pkgs = nixpkgs.legacyPackages.${system};
           commonModules =

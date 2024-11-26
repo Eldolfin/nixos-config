@@ -3,7 +3,7 @@
   helix-master,
   ...
 }: {
-  imports = [./languages.nix];
+  imports = [./languages.nix ./scls.nix];
   home.packages = with pkgs; [
     lldb
   ];

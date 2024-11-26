@@ -46,6 +46,7 @@
         auto-format = true;
         formatter.command = lib.getExe pkgs.shfmt;
         language-servers = [
+          "scls"
           "bashls"
           # "gpt"
         ];
@@ -55,6 +56,7 @@
         auto-format = true;
         formatter.command = "${pkgs.clang-tools}/bin/clang-format";
         language-servers = [
+          "scls"
           "clangd"
           # "gpt"
         ];
@@ -64,6 +66,7 @@
         auto-format = true;
         formatter.command = "${pkgs.clang-tools}/bin/clang-format";
         language-servers = [
+          "scls"
           "clangd"
           # "gpt"
         ];
@@ -73,6 +76,7 @@
         auto-format = true;
         formatter.command = "${pkgs.alejandra}/bin/alejandra";
         language-servers = [
+          "scls"
           "nixd"
           # "nil"
           # "gpt"
@@ -83,6 +87,7 @@
         auto-format = true;
         formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
         language-servers = [
+          "scls"
           "rust-analyzer"
           # "gpt"
         ];
@@ -90,6 +95,7 @@
       {
         name = "typescript";
         language-servers = [
+          "scls"
           # "gpt"
           "typescript-language-server"
         ];
@@ -107,6 +113,7 @@
       {
         name = "tsx";
         language-servers = [
+          "scls"
           # "gpt"
           "typescript-language-server"
         ];
@@ -123,12 +130,16 @@
       }
       {
         name = "typst";
+        language-servers = [
+          "scls"
+        ];
         formatter.command = lib.getExe pkgs.typstyle;
         auto-format = true;
       }
       {
         name = "python";
         language-servers = [
+          "scls"
           # "gpt"
           "pylsp"
           "jedi"
@@ -146,6 +157,7 @@
       {
         name = "javascript";
         language-servers = [
+          "scls"
           # "gpt"
           "typescript-language-server"
         ];
@@ -160,9 +172,11 @@
         };
         auto-format = true;
       }
+
       {
         name = "markdown";
         language-servers = [
+          "scls"
           "vscode-markdown-language-server"
           # "gpt"
         ];
@@ -177,8 +191,10 @@
         };
         auto-format = true;
       }
+
       {
         name = "json";
+        language-servers = ["scls"];
         formatter = {
           command = lib.getExe pkgs.deno;
           args = [
@@ -189,6 +205,11 @@
           ];
         };
         auto-format = true;
+      }
+
+      {
+        name = "git-commit";
+        language-servers = ["scls"];
       }
     ];
   };
