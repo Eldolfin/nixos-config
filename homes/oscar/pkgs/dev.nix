@@ -1,148 +1,155 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  isTour,
+  ...
+}: {
   programs.bun.enable = true;
   programs.gh.enable = true;
-  home.packages = with pkgs; [
-    # vscode-fhs
-    # jetbrains
-    # jetbrains-toolbox
+  home.packages = with pkgs; (
+    [
+      # vscode-fhs
+      # jetbrains
+      # jetbrains-toolbox
 
-    # docker
-    docker-compose
-    # dive
+      # docker
+      docker-compose
+      # dive
 
-    # java
-    # jetbrains.idea-community
-    # jetbrains.idea-ultimate
-    # jetbrains.pycharm-professional
-    # maven
-    # openjdk17
+      # java
+      # jetbrains.idea-community
+      # jetbrains.idea-ultimate
+      # jetbrains.pycharm-professional
+      # maven
+      # openjdk17
 
-    # rust
-    # evcxr
-    # rust-analyzer
-    # rustup
-    # bacon
-    cargo
+      # rust
+      # evcxr
+      # rust-analyzer
+      # rustup
+      # bacon
+      cargo
 
-    # for leptos
-    # trunk
-    # leptosfmt
-    # cargo-leptos
-    # cargo-generate
-    # sass # for css
+      # for leptos
+      # trunk
+      # leptosfmt
+      # cargo-leptos
+      # cargo-generate
+      # sass # for css
 
-    # c/c++
-    # jetbrains.clion
-    # valgrind
-    # gcc12
-    clang-tools
-    clang
-    # criterion
-    # gtest
-    # gcovr
-    # boost
-    # ninja
-    gdb
+      # c/c++
+      # jetbrains.clion
+      # valgrind
+      # gcc12
+      clang-tools
+      clang
+      # criterion
+      # gtest
+      # gcovr
+      # boost
+      # ninja
+      gdb
 
-    # go
-    # go
-    # gopls
-    # gotools
+      # go
+      # go
+      # gopls
+      # gotools
 
-    # python
-    # jetbrains.pycharm-professional
-    # jupyter-all
-    # mypy
-    # poetry
-    # poethepoet
-    # black
-    # conda
+      # python
+      # jetbrains.pycharm-professional
+      # jupyter-all
+      # mypy
+      # poetry
+      # poethepoet
+      # black
+      # conda
 
-    # (python311Full.withPackages (ppkgs: [
-    # ppkgs.scipy
-    # ppkgs.matplotlib
-    # ppkgs.notebook
-    # ppkgs.numpy
-    # ppkgs.pytest
-    # ppkgs.psutil
-    # ]))
-    python3Full
-    python3Packages.pip
-    # python311Packages.bpython
-    # grip # github markdown preview
+      # (python311Full.withPackages (ppkgs: [
+      # ppkgs.scipy
+      # ppkgs.matplotlib
+      # ppkgs.notebook
+      # ppkgs.numpy
+      # ppkgs.pytest
+      # ppkgs.psutil
+      # ]))
+      python3Full
+      python3Packages.pip
+      # python311Packages.bpython
+      # grip # github markdown preview
 
-    # c#
-    # mono
-    # jetbrains.rider
-    # dotnet-sdk_7
-    # omnisharp-roslyn
+      # c#
+      # mono
+      # jetbrains.rider
+      # dotnet-sdk_7
+      # omnisharp-roslyn
 
-    # js
-    # yarn
-    nodejs
-    typescript
-    # bun
-    # deno
+      # js
+      # yarn
+      nodejs
+      typescript
+      # bun
+      # deno
 
-    # nix
-    # nixpkgs-fmt
-    # nil
+      # nix
+      # nixpkgs-fmt
+      # nil
 
-    # kubernetes
-    # kubectl
-    # minikube
+      # kubernetes
+      # kubectl
+      # minikube
 
-    # android
-    # android-studio
-    # android-tools # adb, fastboot etc. enabled in common.nix?
+      # android
+      # android-studio
+      # android-tools # adb, fastboot etc. enabled in common.nix?
 
-    # Haskell
-    # ghc
+      # Haskell
+      # ghc
 
-    # ocaml
-    # ocamlPackages.ocaml-lsp
-    # ocamlPackages.ocamlformat
+      # ocaml
+      # ocamlPackages.ocaml-lsp
+      # ocamlPackages.ocamlformat
 
-    # Common lisp
-    # sbcl
+      # Common lisp
+      # sbcl
 
-    # sql
-    # sqlfluff
-    # dbeaver
+      # sql
+      # sqlfluff
+      # dbeaver
 
-    # zig
-    # zig
-    # zls
+      # zig
+      # zig
+      # zls
 
-    # php
-    # php83Packages.composer
-    # php83
+      # php
+      # php83Packages.composer
+      # php83
 
-    # lua?
-    # luajitPackages.luarocks
+      # lua?
+      # luajitPackages.luarocks
 
-    # Language servers
-    # now in helix config directly
-    # lua-language-server
-    # nodePackages_latest.typescript-language-server
-    # docker-compose-language-service
-    # yaml-language-server
-    # dockerfile-language-server-nodejs
-    # python311Packages.python-lsp-server
+      # Language servers
+      # now in helix config directly
+      # lua-language-server
+      # nodePackages_latest.typescript-language-server
+      # docker-compose-language-service
+      # yaml-language-server
+      # dockerfile-language-server-nodejs
+      # python311Packages.python-lsp-server
 
-    # Arduino
-    # arduino
+      # Arduino
+      # arduino
 
-    # misc
-    # graphviz
-    nodePackages.live-server
-    sshfs
-    entr
-    devenv
-    tea
-    # godot_4
-    # dig
-    # mold
-    # act # github action runner
-  ];
+      # misc
+      # graphviz
+      nodePackages.live-server
+      sshfs
+      entr
+      devenv
+      tea
+      # godot_4
+      # dig
+      # mold
+      # act # github action runner
+    ]
+    ++ lib.optional isTour nvtopPackages.nvidia
+  );
 }
