@@ -84,6 +84,10 @@ def main():
         action="store_true",
     )
     parser.add_argument("--upgrade", help="Update flakes", action="store_true")
+    parser.add_argument(
+        "rest", help="Arguments to pass to the editor", nargs=argparse.REMAINDER
+    )
+    parser.add_argument("-f", "--force", help="Force git push", action="store_true")
     args = parser.parse_args()
 
     sh = shell
@@ -114,7 +118,10 @@ def main():
         sh("nix flake update")
 
     if not args.build and not args.upgrade:
-        sh("$EDITOR .")
+        if args.rest == []:
+            sh("$EDITOR .")
+        else:
+            sh("$EDITOR " + " ".join(args.rest))
 
     if not args.build and not args.no_commit:
         if args.lazy:
@@ -129,7 +136,7 @@ def main():
     if not args.build and not args.no_commit and not args.no_push:
         last_run_id_before = get_last_gh_run_id(args.dry_run)
 
-        sh("git push")
+        sh("git push" + " --force" if args.force else "")
 
         new_last_run_id = last_run_id_before
         i = 0
