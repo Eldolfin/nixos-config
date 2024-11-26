@@ -13,7 +13,7 @@
     defaultEditor = true;
 
     settings = {
-      theme = "gruber-darker";
+      theme = "zed_onelight";
       editor = {
         auto-format = true;
         color-modes = true;
