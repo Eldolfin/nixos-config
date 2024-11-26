@@ -52,6 +52,15 @@ jobs:
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: nix run home-manager/master -- switch --flake ./homes/oscar
+      - name: Retrieve .config path
+        run: echo "CONFIG_PATH=/home/$(whoami)/.config" >> "$GITHUB_OUTPUT"
+        id: config_path
+      - uses: actions/upload-artifact@v4
+        name: Upload config files
+        with:
+          name: home-configs
+          path: ${{ steps.config_path.outputs.CONFIG_PATH }}
+          if-no-files-found: error
 
   integration-tests:
     runs-on: ubuntu-latest
