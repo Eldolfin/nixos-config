@@ -136,7 +136,7 @@ def main():
     if not args.build and not args.no_commit and not args.no_push:
         last_run_id_before = get_last_gh_run_id(args.dry_run)
 
-        sh("git push" + " --force" if args.force else "")
+        sh("git push" + (" --force" if args.force else ""))
 
         new_last_run_id = last_run_id_before
         i = 0
