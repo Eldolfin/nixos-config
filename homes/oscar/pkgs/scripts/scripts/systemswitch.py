@@ -14,12 +14,7 @@ NIXOS_CONFIG_REPO_PATH = "/etc/nixos/"
 def shell(cmd: str):
     cmd = cmd.strip()
     res = sp.run(["sh", "-c", cmd])
-    if res.returncode:
-        print(
-            f"Command '{cmd}' failed with return code '{res.returncode}'",
-            file=sys.stderr,
-        )
-        sys.exit(res.returncode)
+    res.check_returncode()
 
 
 def get_last_gh_run_id(dry_run: bool) -> str:
@@ -128,7 +123,14 @@ def main():
             sh("lazygit")
         else:
             sh("git add .")
-            sh("git commit " + git_commit_args)
+            try:
+                sh("git commit " + git_commit_args)
+            except CalledProcessError:
+                print(
+                    "Git commit failed, maybe due to a pre-commit hook. Opening lazygit",
+                    file=sys.stderr,
+                )
+                sh("lazygit")
 
     if not args.no_build:
         sh("nh os switch /etc/nixos")
