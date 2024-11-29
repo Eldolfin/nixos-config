@@ -17,6 +17,7 @@
       editor = {
         auto-format = true;
         color-modes = true;
+        completion-trigger-len = 0;
         completion-timeout = 5; # instant according to the docs
         bufferline = "multiple";
         cursorline = true;
