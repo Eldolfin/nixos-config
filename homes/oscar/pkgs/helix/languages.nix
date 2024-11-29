@@ -193,6 +193,15 @@
       }
 
       {
+        name = "html";
+        language-servers = [
+          "scls"
+          "vscode-html-language-server"
+        ];
+        auto-format = true;
+      }
+
+      {
         name = "json";
         language-servers = ["scls"];
         formatter = {

@@ -62,6 +62,30 @@ in {
             path = "snippets/java";
           }
           {
+            scope = ["html"];
+            path = "snippets/html.json";
+          }
+          {
+            scope = ["typescript"];
+            path = "snippets/javascript/typescript.json";
+          }
+          {
+            scope = ["typescript"];
+            path = "snippets/javascript/tsdoc.json";
+          }
+          {
+            scope = ["markdown"];
+            path = "snippets/markdown.json";
+          }
+          {
+            scope = ["javascript" "typescript"];
+            path = "snippets/javascript/javascript.json";
+          }
+          {
+            scope = ["git-commit"];
+            path = "snippets/gitcommit.json";
+          }
+          {
             scope = ["python" "rust" "go" "vue" "c" "cpp" "java"];
             path = "snippets/loremipsum.json";
           }
