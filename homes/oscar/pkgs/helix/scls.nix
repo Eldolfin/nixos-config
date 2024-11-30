@@ -9,7 +9,7 @@
 in {
   home.packages = [sclsPkg];
 
-  programs.helix.languages. language-server . scls.command = lib.getExe sclsPkg;
+  programs.helix.languages. language-server . scls.command = lib.getExe' sclsPkg "simple-completion-language-server";
 
   xdg.configFile."helix/external-snippets.toml".source = tomlFormat.generate "scls-snippets" {
     sources = [
