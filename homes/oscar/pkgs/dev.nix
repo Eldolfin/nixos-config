@@ -28,6 +28,7 @@
       # rustup
       # bacon
       cargo
+      clippy
 
       # for leptos
       # trunk
