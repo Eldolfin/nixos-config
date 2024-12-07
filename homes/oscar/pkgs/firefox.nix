@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -64,7 +60,7 @@
           ];
         }
       ];
-      extensions = with config.nur.repos.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         consent-o-matic
         dearrow
