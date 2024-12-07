@@ -35,7 +35,13 @@
       pylsp.command = "${pkgs.python3Packages.python-lsp-server}/bin/pylsp";
       jedi.command = "${pkgs.python3Packages.jedi-language-server}/bin/jedi-language-server";
 
-      rust-analyzer.command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+      rust-analyzer = {
+        command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        config = {
+          checkOnSave.command = "clippy";
+          cargo.allFeatures = true;
+        };
+      };
 
       tinymist.command = lib.getExe pkgs.tinymist;
     };
