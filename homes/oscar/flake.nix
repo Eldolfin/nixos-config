@@ -29,7 +29,7 @@
       inherit pkgs;
       modules = [
         nixcord.homeManagerModules.nixcord
-        nur.hmModules.nur
+        nur.modules.home-manager.default
         ./home.nix
       ];
       extraSpecialArgs =
