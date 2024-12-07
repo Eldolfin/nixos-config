@@ -80,7 +80,7 @@
       {
         name = "nix";
         auto-format = true;
-        formatter.command = "${pkgs.alejandra}/bin/alejandra";
+        formatter.command = lib.getExe pkgs.alejandra;
         language-servers = [
           "scls"
           "nixd"
@@ -91,7 +91,7 @@
       {
         name = "rust";
         auto-format = true;
-        formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
+        formatter.command = lib.getExe pkgs.rustfmt;
         language-servers = [
           "scls"
           "rust-analyzer"
@@ -225,6 +225,18 @@
       {
         name = "git-commit";
         language-servers = ["scls"];
+      }
+
+      {
+        name = "toml";
+        formatter = {
+          command = lib.getExe pkgs.dprint;
+          args = [
+            "fmt"
+            "--stdin"
+            "toml"
+          ];
+        };
       }
     ];
   };
