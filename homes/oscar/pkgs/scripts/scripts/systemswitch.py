@@ -31,7 +31,6 @@ def get_last_gh_run_id(dry_run: bool) -> str:
     ]
 
     if dry_run:
-        print(" ".join(cmd))
         return ""
 
     return sp.run(
@@ -152,10 +151,11 @@ def main():
             )
             new_last_run_id = get_last_gh_run_id(args.dry_run)
             if i > MAX_GH_RUN_LIST_ATTEMPS:
-                print(
-                    "\rGiving up on watching the github workflow",
-                    file=sys.stderr,
-                )
+                if not args.dry_run:
+                    print(
+                        "\rGiving up on watching the github workflow",
+                        file=sys.stderr,
+                    )
                 new_last_run_id = False
                 break
             i += 1
