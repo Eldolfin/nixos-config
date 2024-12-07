@@ -32,7 +32,7 @@
     commonModules = [
       ./common.nix
       stylix.nixosModules.stylix
-      nur.nixosModules.nur
+      nur.modules.nixos.default
       home-manager.nixosModules.home-manager
       sops-nix.nixosModules.sops
       nix-index-database.nixosModules.nix-index
@@ -49,7 +49,7 @@
           isPersonal = true;
         };
         home-manager.sharedModules = [
-          nur.hmModules.nur
+          nur.modules.home-manager.default
           nix-index-database.hmModules.nix-index
           nixcord.homeManagerModules.nixcord
           {stylix.targets.helix.enable = false;}
