@@ -71,7 +71,7 @@
           isPersonal = true;
         };
         home-manager.sharedModules = [
-          nur.modules.home-manager.default
+          nur.modules.homeManager.default
           nix-index-database.hmModules.nix-index
           nixcord.homeManagerModules.nixcord
           {stylix.targets.helix.enable = false;}
