@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   packages = with pkgs; [
     act
+    just
   ];
   languages.nix.enable = true;
 

@@ -1,4 +1,9 @@
-test: {pkgs, ...} @ inputs: let
+test: {
+  pkgs,
+  specialArgs,
+  commonModules,
+  ...
+}: let
   inherit (pkgs) lib;
   nixos-lib = import (pkgs.path + "/nixos/lib") {};
 in
@@ -7,11 +12,11 @@ in
       hostPkgs = pkgs;
       # This speeds up the evaluation by skipping evaluating documentation
       defaults.documentation.enable = lib.mkDefault false;
-      node.specialArgs = inputs;
+      node.specialArgs = specialArgs;
       imports = [test];
       enableOCR = true;
       nodes = {
-        c = {commonModules, ...}: {
+        c = _: {
           imports = commonModules;
           virtualisation = {
             memorySize = 4096;

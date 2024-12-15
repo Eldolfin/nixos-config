@@ -143,16 +143,15 @@
           isTour = false;
         };
 
-      checkArgs =
-        specialArgs
-        // {
-          pkgs = nixpkgs.legacyPackages.${system};
-          commonModules =
-            commonModules
-            ++ [
-              {home-manager.extraSpecialArgs = specialArgs;}
-            ];
-        };
+      checkArgs = {
+        inherit specialArgs;
+        pkgs = nixpkgs.legacyPackages.${system};
+        commonModules =
+          commonModules
+          ++ [
+            {home-manager.extraSpecialArgs = specialArgs;}
+          ];
+      };
     in
       import ./tests checkArgs;
   };
