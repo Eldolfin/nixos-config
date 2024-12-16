@@ -3,7 +3,7 @@
     ../../common.nix
     ../../pkgs/steam.nix
     ../../pkgs/systemd-boot.nix
-    ../../pkgs/plymouth.nix
+    # ../../pkgs/plymouth.nix
   ];
 
   networking.hostName = "oscar-tour";
@@ -32,6 +32,4 @@
     open = false;
   };
   hardware.nvidia-container-toolkit.enable = true;
-
-  # Enable the OpenSSH daemon.
 }
