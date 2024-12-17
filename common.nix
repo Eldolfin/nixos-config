@@ -8,6 +8,7 @@
     ./pkgs/sound.nix
   ];
 
+  boot.loader.timeout = 0;
   programs = {
     adb.enable = true;
     nh = {
