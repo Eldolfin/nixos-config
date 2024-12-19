@@ -61,7 +61,8 @@
     };
 
     initExtra = ''
-      source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
+      # replaced with prezto
+      # source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-autopair.src}/zsh-autopair.plugin.zsh
 
       bindkey "^[[1;5C" forward-word
@@ -88,6 +89,31 @@
     antidote = {
       enable = true;
       plugins = ["marzocchi/zsh-notify"];
+    };
+    prezto = {
+      enable = true;
+      caseSensitive = false;
+      syntaxHighlighting.highlighters = [
+        "main"
+        "brackets"
+        "pattern"
+        "line"
+        "cursor"
+        "root"
+      ];
+      pmodules = [
+        "environment"
+        "terminal"
+        # "editor"
+        "history"
+        "directory"
+        "spectrum"
+        "utility"
+        "completion"
+        "prompt"
+        "syntax-highlighting"
+      ];
+      editor.dotExpansion = true;
     };
   };
 }
