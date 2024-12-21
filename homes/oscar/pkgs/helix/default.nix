@@ -4,13 +4,18 @@
   ...
 }: {
   imports = [./languages.nix ./scls.nix];
-  home.packages = with pkgs; [
-    lldb
-  ];
+  home = {
+    packages = with pkgs; [
+      lldb
+    ];
+    sessionVariables = {
+      VISUAL = "hx";
+      EDITOR = "hx";
+    };
+  };
   programs.helix = {
     enable = true;
     package = helix-master.packages.${pkgs.system}.default;
-    defaultEditor = true;
 
     settings = {
       theme = "gruber-darker";
