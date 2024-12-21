@@ -80,22 +80,19 @@
           nixcord.homeManagerModules.nixcord
           {stylix.targets.helix.enable = false;}
         ];
+        nixpkgs.overlays = [
+          # When applied, the unstable nixpkgs set (declared in the flake inputs) will
+          # be accessible through 'pkgs.unstable'
+          (_final: _prev: {
+            master = import nixpkgs-master {
+              inherit system;
+              # config.allowUnfree = true;
+            };
+          })
+        ];
       }
     ];
   in rec {
-    overlays = {
-      # This one brings our custom packages from the 'pkgs' directory
-      # additions = final: _prev: import ../pkgs final.pkgs;
-
-      # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-      # be accessible through 'pkgs.unstable'
-      master-packages = _final: _prev: {
-        master = import nixpkgs-master {
-          inherit system;
-          # config.allowUnfree = true;
-        };
-      };
-    };
     nixosConfigurations = {
       "oscar-portable" = let
         specialArgs =
