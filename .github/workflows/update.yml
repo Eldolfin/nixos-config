@@ -8,7 +8,7 @@ jobs:
   update-flakes-lockfile:
     strategy:
       matrix:
-        lock-file-dir: [ ".", "homes/oscar" ]
+        lock-file-dir: [ "." ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

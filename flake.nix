@@ -136,6 +136,23 @@
           inherit specialArgs;
         };
     };
+
+    homeConfigurations."oscar" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [
+        nixcord.homeManagerModules.nixcord
+        nur.modules.homeManager.default
+        ./homes/oscar/home.nix
+      ];
+      extraSpecialArgs =
+        inputs
+        // {
+          helix-master = helix;
+          isTour = false;
+          isPersonal = false;
+        };
+    };
+
     checks.${system} = let
       specialArgs =
         inputs
