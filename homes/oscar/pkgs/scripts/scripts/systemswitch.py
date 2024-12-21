@@ -124,7 +124,7 @@ def main():
             sh("git add .")
             try:
                 sh("git commit " + git_commit_args)
-            except ChildProcessError:
+            except ChildProcessError | sp.CalledProcessError:
                 print(
                     "Git commit failed, maybe due to a pre-commit hook. Opening lazygit",
                     file=sys.stderr,
