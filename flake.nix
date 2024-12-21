@@ -78,7 +78,7 @@
         ];
       }
     ];
-  in {
+  in rec {
     nixosConfigurations = {
       "oscar-portable" = let
         specialArgs =
@@ -152,6 +152,8 @@
           isPersonal = false;
         };
     };
+    # for github action runner
+    homeConfigurations."runner" = homeConfigurations."oscar";
 
     checks.${system} = let
       specialArgs =
