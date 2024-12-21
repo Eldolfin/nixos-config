@@ -2,6 +2,9 @@
   description = "Nixos system configuration";
 
   inputs = {
+    # only use master when a package is broken on unstable but fixed on master
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -48,6 +51,7 @@
     nix-index-database,
     helix,
     nixcord,
+    nixpkgs-master,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -79,6 +83,19 @@
       }
     ];
   in rec {
+    overlays = {
+      # This one brings our custom packages from the 'pkgs' directory
+      # additions = final: _prev: import ../pkgs final.pkgs;
+
+      # When applied, the unstable nixpkgs set (declared in the flake inputs) will
+      # be accessible through 'pkgs.unstable'
+      master-packages = _final: _prev: {
+        master = import nixpkgs-master {
+          inherit system;
+          # config.allowUnfree = true;
+        };
+      };
+    };
     nixosConfigurations = {
       "oscar-portable" = let
         specialArgs =

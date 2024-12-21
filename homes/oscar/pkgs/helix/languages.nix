@@ -45,7 +45,7 @@
         jedi.command = "${pkgs.python3Packages.jedi-language-server}/bin/jedi-language-server";
 
         rust-analyzer = {
-          command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+          command = "${pkgs.master.rust-analyzer}/bin/rust-analyzer";
           config = {
             checkOnSave.command = "clippy";
             cargo.allFeatures = true;
