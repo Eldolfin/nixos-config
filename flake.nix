@@ -78,7 +78,7 @@
         ];
       }
     ];
-  in {
+  in rec {
     nixosConfigurations = {
       "oscar-portable" = let
         specialArgs =
@@ -136,6 +136,25 @@
           inherit specialArgs;
         };
     };
+
+    homeConfigurations."oscar" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [
+        nixcord.homeManagerModules.nixcord
+        nur.modules.homeManager.default
+        ./homes/oscar/home.nix
+      ];
+      extraSpecialArgs =
+        inputs
+        // {
+          helix-master = helix;
+          isTour = false;
+          isPersonal = false;
+        };
+    };
+    # for github action runner
+    homeConfigurations."runner" = homeConfigurations."oscar";
+
     checks.${system} = let
       specialArgs =
         inputs
