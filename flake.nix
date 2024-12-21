@@ -55,31 +55,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    # common to standalone home config and nixos
     commonModules = [
-      ./common.nix
-      stylix.nixosModules.stylix
-      nur.modules.nixos.default
-      home-manager.nixosModules.home-manager
-      sops-nix.nixosModules.sops
-      nix-index-database.nixosModules.nix-index
       {
-        home-manager = {
-          backupFileExtension = "old";
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.oscar = import ./homes/oscar/home.nix;
-        };
-
-        home-manager.extraSpecialArgs = {
-          helix-master = helix;
-          isPersonal = true;
-        };
-        home-manager.sharedModules = [
-          nur.modules.homeManager.default
-          nix-index-database.hmModules.nix-index
-          nixcord.homeManagerModules.nixcord
-          {stylix.targets.helix.enable = false;}
-        ];
         nixpkgs.overlays = [
           # When applied, the unstable nixpkgs set (declared in the flake inputs) will
           # be accessible through 'pkgs.unstable'
@@ -92,6 +70,35 @@
         ];
       }
     ];
+    nixosModules =
+      commonModules
+      ++ [
+        ./common.nix
+        stylix.nixosModules.stylix
+        nur.modules.nixos.default
+        home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
+        nix-index-database.nixosModules.nix-index
+        {
+          home-manager = {
+            backupFileExtension = "old";
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.oscar = import ./homes/oscar/home.nix;
+          };
+
+          home-manager.extraSpecialArgs = {
+            helix-master = helix;
+            isPersonal = true;
+          };
+          home-manager.sharedModules = [
+            nur.modules.homeManager.default
+            nix-index-database.hmModules.nix-index
+            nixcord.homeManagerModules.nixcord
+            {stylix.targets.helix.enable = false;}
+          ];
+        }
+      ];
   in rec {
     nixosConfigurations = {
       "oscar-portable" = let
@@ -104,7 +111,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules =
-            commonModules
+            nixosModules
             ++ [
               ./hosts/laptop/configuration.nix
               ./hosts/laptop/hardware-configuration.nix
@@ -123,7 +130,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules =
-            commonModules
+            nixosModules
             ++ [
               ./hosts/tour/configuration.nix
               ./hosts/tour/hardware-configuration.nix
@@ -142,7 +149,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules =
-            commonModules
+            nixosModules
             ++ [
               ./hosts/iso/configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
@@ -153,11 +160,13 @@
 
     homeConfigurations."oscar" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      modules = [
-        nixcord.homeManagerModules.nixcord
-        nur.modules.homeManager.default
-        ./homes/oscar/home.nix
-      ];
+      modules =
+        commonModules
+        ++ [
+          nixcord.homeManagerModules.nixcord
+          nur.modules.homeManager.default
+          ./homes/oscar/home.nix
+        ];
       extraSpecialArgs =
         inputs
         // {
@@ -180,7 +189,7 @@
         inherit specialArgs;
         pkgs = nixpkgs.legacyPackages.${system};
         commonModules =
-          commonModules
+          nixosModules
           ++ [
             {home-manager.extraSpecialArgs = specialArgs;}
           ];
