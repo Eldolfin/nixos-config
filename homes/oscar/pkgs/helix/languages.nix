@@ -22,6 +22,13 @@
         #     "copilot"
         #   ];
         # };
+        gpt = {
+          command = lib.getExe pkgs.helix-gpt;
+          args = [
+            "--handler"
+            "codeium"
+          ];
+        };
         nixd.command = "${pkgs.nixd}/bin/nixd";
         # jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
         bashls = {
@@ -83,7 +90,7 @@
           language-servers = [
             "scls"
             "clangd"
-            # "gpt"
+            "gpt"
           ];
         }
         {
