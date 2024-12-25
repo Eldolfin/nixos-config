@@ -146,6 +146,7 @@
       entr
       devenv
       tea
+      yazi
       # godot_4
       # dig
       # mold
