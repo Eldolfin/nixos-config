@@ -57,6 +57,7 @@
     system = "x86_64-linux";
     # common to standalone home config and nixos
     commonModules = [
+      ./pkgs/cachix-subsituter.nix
       {
         nixpkgs.overlays = [
           # When applied, the unstable nixpkgs set (declared in the flake inputs) will
