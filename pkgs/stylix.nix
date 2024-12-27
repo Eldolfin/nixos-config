@@ -4,7 +4,7 @@
     image = ./images/background.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     autoEnable = true;
-    polarity = "dark";
+    polarity = "light";
     targets = {
       grub.useImage = true; # :)
     };
