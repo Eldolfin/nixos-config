@@ -43,6 +43,7 @@
       # gcc12
       clang-tools
       clang
+      gcc
       # criterion
       # gtest
       # gcovr
