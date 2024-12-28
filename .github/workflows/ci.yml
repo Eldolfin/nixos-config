@@ -52,7 +52,7 @@ jobs:
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: |
-          nix run home-manager/master -- switch --flake .
+          nix run home-manager/master -- switch -b bak --flake .
           cp -r -L /nix/store/*-home-manager-generation/home-files ./home-files
           du -h -d 1 ./home-files
           zip -r ./home-files.zip ./home-files --exclude ./home-files/.mozilla ./home-files/Music
