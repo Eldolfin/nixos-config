@@ -42,7 +42,7 @@
       # valgrind
       # gcc12
       clang-tools
-      clang
+      # clang
       gcc
       # criterion
       # gtest
