@@ -18,6 +18,9 @@
   networking = {
     interfaces.eno1.wakeOnLan.enable = true;
     wireless.enable = false;
+    # VDI
+    firewall.allowedTCPPorts = [5173];
+    firewall.allowedUDPPorts = [1122 5173];
   };
   # hardware.ckb-next.enable = true;
 
