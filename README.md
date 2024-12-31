@@ -1,10 +1,10 @@
 # List of screenshots from the integration tests
 
-## [2024-12-30 23:54:42](https://github.com/Eldolfin/nixos-config/commit/6e274cd12734a96c32720356d1dfa6fc10b1843f)
+## [2024-12-31 00:02:29](https://github.com/Eldolfin/nixos-config/commit/d6b72789766816a04dd3c6f69666ea68f99e372d)
 
-[firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/6e274cd12734a96c32720356d1dfa6fc10b1843f/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/6e274cd12734a96c32720356d1dfa6fc10b1843f/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/6e274cd12734a96c32720356d1dfa6fc10b1843f/tests/login-screen.nix)
+[firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/d6b72789766816a04dd3c6f69666ea68f99e372d/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/d6b72789766816a04dd3c6f69666ea68f99e372d/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/d6b72789766816a04dd3c6f69666ea68f99e372d/tests/login-screen.nix)
 -|-|-
-[![](6e274cd12734a96c32720356d1dfa6fc10b1843f/firefox-and-terminals.png)](https://eldolfin.github.io/nixos-config/6e274cd12734a96c32720356d1dfa6fc10b1843f/firefox-and-terminals.png)|[![](6e274cd12734a96c32720356d1dfa6fc10b1843f/lock-screen.png)](https://eldolfin.github.io/nixos-config/6e274cd12734a96c32720356d1dfa6fc10b1843f/lock-screen.png)|[![](6e274cd12734a96c32720356d1dfa6fc10b1843f/login-screen.png)](https://eldolfin.github.io/nixos-config/6e274cd12734a96c32720356d1dfa6fc10b1843f/login-screen.png)
+[![](d6b72789766816a04dd3c6f69666ea68f99e372d/firefox-and-terminals.png)](https://eldolfin.github.io/nixos-config/d6b72789766816a04dd3c6f69666ea68f99e372d/firefox-and-terminals.png)|[![](d6b72789766816a04dd3c6f69666ea68f99e372d/lock-screen.png)](https://eldolfin.github.io/nixos-config/d6b72789766816a04dd3c6f69666ea68f99e372d/lock-screen.png)|[![](d6b72789766816a04dd3c6f69666ea68f99e372d/login-screen.png)](https://eldolfin.github.io/nixos-config/d6b72789766816a04dd3c6f69666ea68f99e372d/login-screen.png)
 
 
 ## [2024-12-28 05:04:17](https://github.com/Eldolfin/nixos-config/commit/59d6b99da072d7f3e2b36d07d900c5b43d11ca02)
