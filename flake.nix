@@ -40,6 +40,11 @@
       url = "github:estin/simple-completion-language-server/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wol-api = {
+      url = "git+ssh://git@github.com/eldolfin/wol-api.git?ref=feat/open-any-application&dir=wol-api";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -52,6 +57,7 @@
     helix,
     nixcord,
     nixpkgs-master,
+    wol-api,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -140,6 +146,7 @@
           modules =
             nixosModules
             ++ [
+              wol-api.nixosModules.default
               ./hosts/tour/configuration.nix
               ./hosts/tour/hardware-configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
