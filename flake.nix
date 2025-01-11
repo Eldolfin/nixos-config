@@ -28,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord = {
-      url = "github:kaylorben/nixcord";
+      url = "github:kaylorben/nixcord/d5f2fbef2fad379190e0c7a0d2d2f12c4e4df034";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
