@@ -33,7 +33,7 @@ jobs:
           extraPullNames: helix
       - name: setup ssh for cloning private repos
         run: |
-          '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
+          echo '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
       # this actually slows down the build
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
@@ -94,7 +94,7 @@ jobs:
           extraPullNames: helix
       - name: setup ssh for cloning private repos
         run: |
-          '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
+          echo '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
 
       - name: define screenshot output dir
         id: screenshot_path
