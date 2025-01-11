@@ -33,13 +33,14 @@ jobs:
           extraPullNames: helix
       - name: setup ssh for cloning private repos
         run: |
-          eval "$(ssh-agent -s)"
-          ssh-add - <<< '${{ secrets.WOL_DEPLOY_KEY }}'
+          '${{ secrets.WOL_DEPLOY_KEY }}' > /ssh_key
       # this actually slows down the build
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
-        run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
+        run: |
+          export GIT_SSH_COMMAND="ssh -i /ssh_key"
+          nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
     runs-on: ubuntu-latest
@@ -52,10 +53,6 @@ jobs:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: helix
-      - name: setup ssh for cloning private repos
-        run: |
-          eval "$(ssh-agent -s)"
-          ssh-add - <<< '${{ secrets.WOL_DEPLOY_KEY }}'
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
@@ -97,8 +94,7 @@ jobs:
           extraPullNames: helix
       - name: setup ssh for cloning private repos
         run: |
-          eval "$(ssh-agent -s)"
-          ssh-add - <<< '${{ secrets.WOL_DEPLOY_KEY }}'
+          '${{ secrets.WOL_DEPLOY_KEY }}' > /ssh_key
 
       - name: define screenshot output dir
         id: screenshot_path
@@ -108,6 +104,7 @@ jobs:
 
       - name: Test system config
         run: |
+          export GIT_SSH_COMMAND="ssh -i /ssh_key"
           nix flake check -L
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
