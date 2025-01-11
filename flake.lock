@@ -424,6 +424,7 @@
       "original": {
         "owner": "kaylorben",
         "repo": "nixcord",
+        "rev": "d5f2fbef2fad379190e0c7a0d2d2f12c4e4df034",
         "type": "github"
       }
     },
@@ -877,11 +878,11 @@
       },
       "locked": {
         "dir": "wol-api",
-        "lastModified": 1736105646,
-        "narHash": "sha256-Vd7pFSZBrHkbaic7ShE7GlrndFgE51TVgtYadyEIg3c=",
+        "lastModified": 1736615174,
+        "narHash": "sha256-hThhtxIUeRbP43IM9JldNZvKjN9AF++tQHIItVxnRew=",
         "ref": "feat/open-any-application",
-        "rev": "a11d45edcc60e284997d9524cdced7a53d282193",
-        "revCount": 142,
+        "rev": "30141f40338ed2d850b5ac94e5e62bb010e73b36",
+        "revCount": 158,
         "type": "git",
         "url": "ssh://git@github.com/eldolfin/wol-api.git?dir=wol-api"
       },
