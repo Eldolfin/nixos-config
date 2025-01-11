@@ -1,10 +1,29 @@
-_: {
+{pkgs, ...}: {
   # imports = [ inputs.nixcord.homeManagerModules.nixcord ];
   programs.nixcord = {
     enable = true;
 
     discord.enable = false;
-    vesktop.enable = true;
+    vesktop = {
+      enable = true;
+      package = pkgs.vesktop.overrideAttrs (prev: {
+        desktopItems = [
+          (pkgs.makeDesktopItem {
+            name = "discord";
+            desktopName = "Discord";
+            exec = "vesktop %U";
+            icon = "discord";
+            startupWMClass = "Discord";
+            genericName = "Internet Messenger";
+            keywords = [
+              "discord"
+              "vencord"
+              "vesktop"
+            ];
+          })
+        ];
+      });
+    };
 
     config = {
       enabledThemes = ["stylix.theme.css"];
