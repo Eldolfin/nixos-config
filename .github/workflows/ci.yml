@@ -33,13 +33,13 @@ jobs:
           extraPullNames: helix
       - name: setup ssh for cloning private repos
         run: |
-          '${{ secrets.WOL_DEPLOY_KEY }}' > /ssh_key
+          '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
       # this actually slows down the build
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
         run: |
-          export GIT_SSH_COMMAND="ssh -i /ssh_key"
+          export GIT_SSH_COMMAND="ssh -i /tmp/ssh_key"
           nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
@@ -94,7 +94,7 @@ jobs:
           extraPullNames: helix
       - name: setup ssh for cloning private repos
         run: |
-          '${{ secrets.WOL_DEPLOY_KEY }}' > /ssh_key
+          '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
 
       - name: define screenshot output dir
         id: screenshot_path
@@ -104,7 +104,7 @@ jobs:
 
       - name: Test system config
         run: |
-          export GIT_SSH_COMMAND="ssh -i /ssh_key"
+          export GIT_SSH_COMMAND="ssh -i /tmp/ssh_key"
           nix flake check -L
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
