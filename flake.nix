@@ -42,7 +42,7 @@
     };
 
     wol-api = {
-      url = "git+ssh://git@github.com/eldolfin/wol-api.git?ref=feat/open-any-application&dir=wol-api";
+      url = "git+ssh://git@github.com/eldolfin/wol-api.git?dir=wol-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
