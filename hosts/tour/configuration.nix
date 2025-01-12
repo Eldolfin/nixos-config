@@ -4,6 +4,7 @@
     ../../pkgs/steam.nix
     ../../pkgs/systemd-boot.nix
     # ../../pkgs/plymouth.nix
+    ../../pkgs/wol-agent.nix
   ];
 
   networking.hostName = "oscar-tour";
