@@ -34,6 +34,7 @@ jobs:
       - name: setup ssh for cloning private repos
         run: |
           echo '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
+          chmod 600 /tmp/ssh_key
       # this actually slows down the build
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
@@ -95,6 +96,7 @@ jobs:
       - name: setup ssh for cloning private repos
         run: |
           echo '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
+          chmod 600 /tmp/ssh_key
 
       - name: define screenshot output dir
         id: screenshot_path
