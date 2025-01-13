@@ -27,6 +27,7 @@
       # rust-analyzer
       # rustup
       # bacon
+      rustc
       cargo
       clippy
 
