@@ -9,6 +9,10 @@
     then 22
     else 12;
 in {
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.alacritty = {
     enable = true;
     settings = {
