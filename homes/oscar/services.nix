@@ -1,5 +1,6 @@
 {
   services = {
+    activitywatch.enable = true;
     flameshot.enable = true;
     # bluetooth media control
     mpris-proxy.enable = true;
