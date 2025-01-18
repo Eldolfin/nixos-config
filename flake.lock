@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "advisory-db": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733749954,
+        "narHash": "sha256-2Ug80Uf/oUujxgh02Iy5vTG0V+Ab9+YUHuRLRY0ayiY=",
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "rev": "ec9ce28714bb38d77a2223e7266df705500a7f11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -93,6 +109,47 @@
       "original": {
         "owner": "ipetkov",
         "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_3": {
+      "locked": {
+        "lastModified": 1734744351,
+        "narHash": "sha256-fN9npuZHHHzDVr1wuKoh/TheHkerDaLB9l4vj/48Exg=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "a83a48a62640517588c3d137c948ed034706363c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "wol-api",
+          "sanzu",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": [
+          "wol-api",
+          "sanzu"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734676450,
+        "narHash": "sha256-iwcxhTVe4h5TqW0HsNiOQP27eMBmbBshF+q2UjEy5aU=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "46e19fa0eb3260b2c3ee5b2cf89e73343c1296ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
         "type": "github"
       }
     },
@@ -226,6 +283,24 @@
           "stylix",
           "systems"
         ]
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_4": {
+      "inputs": {
+        "systems": "systems_5"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -624,6 +699,32 @@
         "type": "github"
       }
     },
+    "sanzu": {
+      "inputs": {
+        "advisory-db": "advisory-db",
+        "crane": "crane_3",
+        "fenix": "fenix",
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": [
+          "wol-api",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737208145,
+        "narHash": "sha256-EfXUHZqPj2IgIThcVaKkLTYx60PBLm7U+Hpo1JlYfgQ=",
+        "ref": "frames-in-datagrams-2nd",
+        "rev": "983aa6dead159a5a3f41658c57c84eda87fd2b23",
+        "revCount": 643,
+        "type": "git",
+        "url": "ssh://git@eldolfin.top/eldolfin/sanzu.git"
+      },
+      "original": {
+        "ref": "frames-in-datagrams-2nd",
+        "type": "git",
+        "url": "ssh://git@eldolfin.top/eldolfin/sanzu.git"
+      }
+    },
     "scls": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -758,6 +859,21 @@
         "type": "github"
       }
     },
+    "systems_5": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "tinted-foot": {
       "flake": false,
       "locked": {
@@ -874,15 +990,16 @@
         ],
         "pre-commit-hooks": "pre-commit-hooks",
         "rust-overlay": "rust-overlay_2",
+        "sanzu": "sanzu",
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
         "dir": "wol-api",
-        "lastModified": 1736620583,
-        "narHash": "sha256-zzSHXiw8K6ZAgZy1NUr1y5EPqqSUsOpVKyLY+fuybuQ=",
+        "lastModified": 1737216371,
+        "narHash": "sha256-JFlDjjETy2fV4Y6coopWgybgqgv8Xen2H80VFSjCuYs=",
         "ref": "main",
-        "rev": "608f715490d86d65d85f941f258bb016f51af8e4",
-        "revCount": 161,
+        "rev": "69635ea5da0b3dbcc68a8b41bc666f6a56b91e3d",
+        "revCount": 172,
         "type": "git",
         "url": "ssh://git@github.com/eldolfin/wol-api.git?dir=wol-api"
       },
