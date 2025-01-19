@@ -36,12 +36,9 @@ jobs:
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
         run: |
-          echo '${{ secrets.GITEA_WOL_DEPLOY_KEY }}' > /tmp/gitea_wol_key
-          echo '${{ secrets.GITEA_VDI_DEPLOY_KEY }}' > /tmp/gitea_vdi_key
-          chmod 600 /tmp/gitea_wol_key /tmp/gitea_vdi_key
-          export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_wol_key -i /tmp/gitea_vdi_key"
-          # cat /tmp/gitea_wol_key /tmp/gitea_vdi_key
-          # ssh -i /tmp/gitea_wol_key git@eldolfin.top
+          echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
+          chmod 600 /tmp/gitea_ssh_key
+          export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
           nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
@@ -103,11 +100,9 @@ jobs:
 
       - name: Test system config
         run: |
-          echo '${{ secrets.GITEA_WOL_DEPLOY_KEY }}' > /tmp/gitea_wol_key
-          chmod 600 /tmp/gitea_wol_key
-          echo '${{ secrets.GITEA_VDI_DEPLOY_KEY }}' > /tmp/gitea_vdi_key
-          chmod 600 /tmp/gitea_vdi_key
-          export GIT_SSH_COMMAND="ssh -i /tmp/gitea_wol_key -i /tmp/gitea_vdi_key"
+          echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
+          chmod 600 /tmp/gitea_ssh_key
+          export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
           nix flake check -L
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
