@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        hostname: ["oscar-portable", "oscar-tour"]
+        hostname: ["oscar-portable", "oscar-tour", "oracle-x86"]
     steps:
       - name: maximize build space
         # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
