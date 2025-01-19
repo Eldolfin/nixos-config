@@ -42,7 +42,7 @@
     };
 
     wol-api = {
-      url = "git+ssh://git@gitea.eldolfin.top/eldolfin/wol.git?ref=main&dir=wol-api";
+      url = "git+ssh://git@eldolfin.top/eldolfin/wol.git?ref=main&dir=wol-api";
       # url = "path:/home/oscar/Prog/wol/wol-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -78,7 +78,7 @@
         ];
       }
     ];
-    nixosModulesServer = 
+    nixosModulesServer =
       commonModules
       ++ [
         ./common-server.nix
@@ -110,10 +110,12 @@
       ++ [
         ./common.nix
         stylix.nixosModules.stylix
-{          home-manager.sharedModules = [
+        {
+          home-manager.sharedModules = [
             {stylix.targets.helix.enable = false;}
           ];
-}      ];
+        }
+      ];
   in rec {
     nixosConfigurations = {
       "oscar-portable" = let
@@ -165,8 +167,8 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules =
-            nixosModulesServer ++ 
-            [
+            nixosModulesServer
+            ++ [
               ./hosts/oracle-x86/configuration.nix
               ./hosts/oracle-x86/hardware-configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}

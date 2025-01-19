@@ -995,19 +995,19 @@
       },
       "locked": {
         "dir": "wol-api",
-        "lastModified": 1737235430,
-        "narHash": "sha256-QsMjtvKTbUqQ8rym6iSg7poj/Ka9ojHQbAvoDBK0rVk=",
+        "lastModified": 1737240974,
+        "narHash": "sha256-OYac6vfauuAwNQdTO8KuBS1TSC0ivVoPHWJ4QvHF3wM=",
         "ref": "main",
-        "rev": "f720523cb926b6c2f779130f455ca0920c2e29c5",
-        "revCount": 187,
+        "rev": "ade2b9ad0dec0bfccf25be8b4175dc6a90f5dabd",
+        "revCount": 190,
         "type": "git",
-        "url": "ssh://git@github.com/eldolfin/wol-api.git?dir=wol-api"
+        "url": "ssh://git@eldolfin.top/eldolfin/wol.git?dir=wol-api"
       },
       "original": {
         "dir": "wol-api",
         "ref": "main",
         "type": "git",
-        "url": "ssh://git@github.com/eldolfin/wol-api.git?dir=wol-api"
+        "url": "ssh://git@eldolfin.top/eldolfin/wol.git?dir=wol-api"
       }
     }
   },
