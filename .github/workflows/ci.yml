@@ -39,9 +39,10 @@ jobs:
           echo '${{ secrets.GITEA_WOL_DEPLOY_KEY }}' > /tmp/gitea_wol_key
           echo '${{ secrets.GITEA_VDI_DEPLOY_KEY }}' > /tmp/gitea_vdi_key
           chmod 600 /tmp/gitea_wol_key /tmp/gitea_vdi_key
-          export GIT_SSH_COMMAND="ssh -i /tmp/gitea_wol_key -i /tmp/gitea_vdi_key"
-          cat /tmp/gitea_wol_key /tmp/gitea_vdi_key
-          ssh -i /tmp/gitea_wol_key git@eldolfin.top
+          export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_wol_key -i /tmp/gitea_vdi_key"
+          ssh-add /tmp/gitea_wol_key /tmp/gitea_vdi_key
+          # cat /tmp/gitea_wol_key /tmp/gitea_vdi_key
+          # ssh -i /tmp/gitea_wol_key git@eldolfin.top
           nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
