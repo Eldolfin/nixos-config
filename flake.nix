@@ -71,11 +71,10 @@
         ];
       }
     ];
-    nixosModules =
+    nixosModulesServer = 
       commonModules
       ++ [
-        ./common.nix
-        stylix.nixosModules.stylix
+        ./common-server.nix
         nur.modules.nixos.default
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
@@ -96,10 +95,18 @@
             nur.modules.homeManager.default
             nix-index-database.hmModules.nix-index
             nixcord.homeManagerModules.nixcord
-            {stylix.targets.helix.enable = false;}
           ];
         }
       ];
+    nixosModules =
+      nixosModulesServer
+      ++ [
+        ./common.nix
+        stylix.nixosModules.stylix
+{          home-manager.sharedModules = [
+            {stylix.targets.helix.enable = false;}
+          ];
+}      ];
   in rec {
     nixosConfigurations = {
       "oscar-portable" = let
@@ -135,6 +142,25 @@
             ++ [
               ./hosts/tour/configuration.nix
               ./hosts/tour/hardware-configuration.nix
+              {home-manager.extraSpecialArgs = specialArgs;}
+            ];
+          inherit specialArgs;
+        };
+
+      "oracle-x86" = let
+        specialArgs =
+          inputs
+          // {
+            isTour = false;
+          };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules =
+            nixosModulesServer ++ 
+            [
+              ./hosts/oracle-x86/configuration.nix
+              ./hosts/oracle-x86/hardware-configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
             ];
           inherit specialArgs;
