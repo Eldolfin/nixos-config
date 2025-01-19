@@ -86,6 +86,7 @@
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         nix-index-database.nixosModules.nix-index
+        wol-api.nixosModules.default
         {
           home-manager = {
             backupFileExtension = "old";
@@ -149,7 +150,6 @@
           modules =
             nixosModules
             ++ [
-              wol-api.nixosModules.default
               ./hosts/tour/configuration.nix
               ./hosts/tour/hardware-configuration.nix
               {home-manager.extraSpecialArgs = specialArgs;}
@@ -167,7 +167,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules =
-            nixosModulesServer
+            nixosModules
             ++ [
               ./hosts/oracle-x86/configuration.nix
               ./hosts/oracle-x86/hardware-configuration.nix

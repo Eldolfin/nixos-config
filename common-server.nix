@@ -1,5 +1,9 @@
-# this file is common between tour and laptop
 {pkgs, ...} @ inputs: {
+  imports = [
+    ./pkgs/x11.nix
+    ./pkgs/stylix.nix
+    ./pkgs/lightdm.nix
+  ];
   programs = {
     nh = {
       enable = true;
@@ -55,7 +59,7 @@
     };
   };
 
-    # disable sudo password
+  # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
   users.defaultUserShell = pkgs.zsh;
@@ -82,7 +86,6 @@
         "root"
         "oscar"
       ];
-
 
       substituters = [
         "https://helix.cachix.org"

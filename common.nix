@@ -1,5 +1,5 @@
 # this file is common between tour and laptop
-{pkgs, ...} @ inputs: {
+{
   imports = [
     ./pkgs/x11.nix
     ./pkgs/stylix.nix

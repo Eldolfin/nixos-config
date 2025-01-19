@@ -7,6 +7,7 @@
     ../../pkgs/wol-agent.nix
   ];
 
+  eldolfin.services.wol-agent.machine-name = "tour";
   networking.hostName = "oscar-tour";
   services = {
     xserver = {
