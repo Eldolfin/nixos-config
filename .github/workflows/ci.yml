@@ -31,16 +31,16 @@ jobs:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: helix
-      - name: setup ssh for cloning private repos
-        run: |
-          echo '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
-          chmod 600 /tmp/ssh_key
       # this actually slows down the build
       # - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
         run: |
-          export GIT_SSH_COMMAND="ssh -i /tmp/ssh_key"
+          echo '${{ secrets.GITEA_WOL_DEPLOY_KEY }}' > /tmp/gitea_wol_key
+          chmod 600 /tmp/gitea_wol_key
+          echo '${{ secrets.GITEA_VDI_DEPLOY_KEY }}' > /tmp/gitea_vdi_key
+          chmod 600 /tmp/gitea_vdi_key
+          export GIT_SSH_COMMAND="ssh -i /tmp/gitea_wol_key -i /tmp/gitea_vdi_key"
           nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
@@ -93,10 +93,6 @@ jobs:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: helix
-      - name: setup ssh for cloning private repos
-        run: |
-          echo '${{ secrets.WOL_DEPLOY_KEY }}' > /tmp/ssh_key
-          chmod 600 /tmp/ssh_key
 
       - name: define screenshot output dir
         id: screenshot_path
@@ -106,7 +102,11 @@ jobs:
 
       - name: Test system config
         run: |
-          export GIT_SSH_COMMAND="ssh -i /tmp/ssh_key"
+          echo '${{ secrets.GITEA_WOL_DEPLOY_KEY }}' > /tmp/gitea_wol_key
+          chmod 600 /tmp/gitea_wol_key
+          echo '${{ secrets.GITEA_VDI_DEPLOY_KEY }}' > /tmp/gitea_vdi_key
+          chmod 600 /tmp/gitea_vdi_key
+          export GIT_SSH_COMMAND="ssh -i /tmp/gitea_wol_key -i /tmp/gitea_vdi_key"
           nix flake check -L
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
