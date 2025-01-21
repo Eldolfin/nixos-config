@@ -2,9 +2,8 @@
   lib,
   pkgs,
   isTour,
-  config,
   ...
-}: {
+} @ inputs: {
   imports = [./i3blocks];
   home.file.".config/i3/scripts" = {
     source = ./scripts;
@@ -13,12 +12,13 @@
 
   xsession.windowManager.i3 = let
     mod = "Mod4";
-    volumeChange = import ./changeVolume.nix pkgs;
+    volumeChange = import ./changeVolume.nix inputs;
+    screenshotWindow = import ./screenshotWindow.nix inputs;
   in {
     enable = true;
     config = {
       modifier = mod;
-      bars = [{statusCommand = "${pkgs.i3blocks}/bin/i3blocks";}];
+      bars = [{statusCommand = "${lib.getExe pkgs.i3blocks}";}];
       gaps = {
         inner = 5;
         outer = 2;
@@ -104,7 +104,7 @@
         "${mod}+Return" = "exec alacritty";
         "${mod}+e" = "exec firefox";
         "${mod}+Shift+e" = "exec firefox --private-window";
-        "${mod}+v" = "exec ${pkgs.copyq}/bin/copyq show";
+        "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
         "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
         "${mod}+d" = "exec rofi -show drun";
@@ -113,6 +113,7 @@
         "${mod}+t" = "exec alacritty -o 'font.size=12' -e btop -p 1";
         "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
         "Shift+Print" = "exec flameshot gui";
+        "${mod}+Print" = "exec ${screenshotWindow}";
         # "${mod}+x" = "exec --no-startup-id i3lock-fancy-rapid 0 1";
         "${mod}+x" = "exec --no-startup-id ${pkgs.xscreensaver}/bin/xscreensaver-command -lock";
         "${mod}+c" = "exec --no-startup-id ${pkgs.xscreensaver}/bin/xscreensaver-command -next";
@@ -122,17 +123,17 @@
         ###################
         #  Media control  #
         ###################
-        "XF86MonBrightnessUp" = "exec --no-startup-id ${pkgs.brightnessctl}/bin/brightnessctl s -e 10%+";
-        "XF86MonBrightnessDown" = "exec --no-startup-id ${pkgs.brightnessctl}/bin/brightnessctl s -e 10%-";
+        "XF86MonBrightnessUp" = "exec --no-startup-id ${lib.getExe pkgs.brightnessctl} s -e 10%+";
+        "XF86MonBrightnessDown" = "exec --no-startup-id ${lib.getExe pkgs.brightnessctl} s -e 10%-";
 
-        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-        "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioPlay" = "exec ${lib.getExe pkgs.playerctl} play-pause";
+        "XF86AudioPause" = "exec ${lib.getExe pkgs.playerctl} play-pause";
 
-        "XF86AudioMute" = "exec ${volumeChange}/bin/volume-change t";
-        "XF86AudioLowerVolume" = "exec ${volumeChange}/bin/volume-change d";
-        "XF86AudioRaiseVolume" = "exec ${volumeChange}/bin/volume-change i";
-        "F2" = "exec ${volumeChange}/bin/volume-change d";
-        "F3" = "exec ${volumeChange}/bin/volume-change i";
+        "XF86AudioMute" = "exec ${volumeChange} t";
+        "XF86AudioLowerVolume" = "exec ${volumeChange} d";
+        "XF86AudioRaiseVolume" = "exec ${volumeChange} i";
+        "F2" = "exec ${volumeChange} d";
+        "F3" = "exec ${volumeChange} i";
       };
     };
   };

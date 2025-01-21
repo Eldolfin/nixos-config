@@ -37,6 +37,8 @@
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJEqNsXpu4PMoRWAmkY8nLcxQKUdfPvvdaR/uT3115oT oscar@nixos''
   ];
   users.users.oscar.openssh.authorizedKeys.keys = [
+    # used by wol api
+    ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBGha92Nwt2naLZDJgCDblV1TJ8HEF6wN0Y0nG/FmdM4 oscar@raspberrypi''
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYy4UzTcGEALaWgPLD/Rc495SblQc6iX4BOCBjYTWXG oscar@oscar-tour''
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJEqNsXpu4PMoRWAmkY8nLcxQKUdfPvvdaR/uT3115oT oscar@nixos''
   ];

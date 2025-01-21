@@ -1,7 +1,11 @@
-pkgs: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   volumeStep = toString 5;
 in
-  pkgs.writeShellScriptBin "volume-change" ''
+  pkgs.writeShellScript "volume-change" ''
     #!/bin/sh
     set -e
 
@@ -24,7 +28,7 @@ in
     	ICON="${pkgs.gnome-themes-extra}/share/icons/HighContrast/256x256/devices/audio-speakers.png"
     fi
 
-    ${pkgs.libnotify}/bin/notify-send "Volume: $VOL" \
+    ${lib.getExe pkgs.libnotify} "Volume: $VOL" \
       -t 1000 \
       -i "$ICON" \
       -h int:value:$VOL \

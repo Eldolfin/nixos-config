@@ -133,6 +133,7 @@ def main():
 
     if not args.no_build:
         sh("nh os switch /etc/nixos")
+        sh("notify-send 'System switched 🔃🥳'")
 
     if not args.build and not args.no_commit and not args.no_push:
         last_run_id_before = get_last_gh_run_id(args.dry_run)
