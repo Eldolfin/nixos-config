@@ -1,9 +1,4 @@
 {pkgs, ...} @ inputs: {
-  imports = [
-    ./pkgs/x11.nix
-    ./pkgs/stylix.nix
-    ./pkgs/lightdm.nix
-  ];
   programs = {
     nh = {
       enable = true;

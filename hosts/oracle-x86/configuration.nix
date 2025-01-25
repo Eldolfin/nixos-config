@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./hardware-configuration.nix
     ../../pkgs/wol-agent.nix
@@ -23,10 +23,6 @@
     };
     hostName = "instance-20250108-2030";
     domain = "";
-  };
-  services.xserver.virtualScreen = {
-    x = 1920;
-    y = 1080;
   };
 
   boot.tmp.cleanOnBoot = true;
