@@ -12,7 +12,10 @@
     jq.enable = true;
     ripgrep.enable = true;
     skim.enable = true;
-    zellij.enable = true;
+    zellij = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     zsh.enable = true;
     lazygit = {
       enable = true;
