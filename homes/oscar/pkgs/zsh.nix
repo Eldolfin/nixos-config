@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [./starship.nix];
   home.packages = with pkgs; [
     # used by zsh-notify
@@ -27,11 +31,12 @@
   ];
   programs.zsh = {
     enable = true;
+    enableVteIntegration = true;
     dotDir = ".config/zsh";
     autosuggestion.enable = true;
     defaultKeymap = "emacs";
     shellAliases = {
-      clone = ''alacritty -e zsh &!'';
+      clone = ''${lib.getExe pkgs.ghostty} -e zsh &!'';
       svi = "sudo -e";
       vimdiff = "nvim -d";
       ls = "exa";
@@ -61,8 +66,6 @@
     };
 
     initExtra = ''
-      # replaced with prezto
-      # source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-autopair.src}/zsh-autopair.plugin.zsh
 
       bindkey "^[[1;5C" forward-word
@@ -76,6 +79,7 @@
       zstyle ':notify:*' enable-on-ssh yes
       zstyle ':notify:*' success-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Success.ogg"
       zstyle ':notify:*' error-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Error.ogg"
+      zstyle ':notify:*' error-log /dev/null
 
       export COPILOT_API_KEY=$(cat /run/secrets/apis/COPILOT_API_KEY)
       export CACHIX_AUTH_TOKEN=$(cat /run/secrets/apis/CACHIX_AUTH_TOKEN)

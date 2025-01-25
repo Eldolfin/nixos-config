@@ -1,30 +1,35 @@
 {
   pkgs,
   lib,
-  isTour,
   ...
-}: let
-  termFontSize =
-    if isTour
-    then 22
-    else 12;
-in {
-  programs.ghostty = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font.size = lib.mkForce termFontSize;
-      bell = {
-        command = {
-          program = "${pkgs.pulseaudio}/bin/paplay";
-          args = ["/home/oscar/Music/sounds/Tink.wav"];
-        };
-        duration = 30;
+}: {
+  programs = {
+    rofi.terminal = lib.getExe pkgs.ghostty;
+    ghostty = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        window-vsync = false;
+        gtk-titlebar = false;
       };
     };
+    # alacritty = {
+    #   enable = true;
+    #   settings = {
+    #     font.size = lib.mkForce (
+    #       if isTour
+    #       then 22
+    #       else 12
+    #     );
+    #     bell = {
+    #       command = {
+    #         program = "${pkgs.pulseaudio}/bin/paplay";
+    #         args = ["/home/oscar/Music/sounds/Tink.wav"];
+    #       };
+    #       duration = 30;
+    #     };
+    #   };
+    # };
   };
   # programs.wezterm.enable = true;
   home.packages = with pkgs; [
