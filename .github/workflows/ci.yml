@@ -66,7 +66,7 @@ jobs:
       - name: Install Attic
         shell: bash
         run: |
-          nix profile install nixpkgs#attic-client
+          nix profile install nixpkgs#attic-client --priority 4 # avoid conflict with home-manager installed attic
       - name: Configure Attic
         shell: bash
         run: |
