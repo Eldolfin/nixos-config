@@ -15,9 +15,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+      - name: Setup ssh key for private repos
+        run: |
+          echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
+          chmod 600 /tmp/gitea_ssh_key
       - name: Update flake.lock
         id: update
         uses: DeterminateSystems/update-flake-lock@main
+        env:
+          GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
         with:
           pr-title: "Update ${{ matrix.lock-file-dir }}/flake.lock"
           commit-msg: "chore(flake-lockfile): Update ${{ matrix.lock-file-dir }}/flake.lock"
