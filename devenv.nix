@@ -2,6 +2,7 @@
   packages = with pkgs; [
     act
     just
+    nix-output-monitor
   ];
   languages.nix.enable = true;
 
