@@ -82,6 +82,8 @@
 
       hostname = {
         ssh_symbol = " ";
+        style = "fg:#e3e5e5 bg:#769ff0";
+        format = "[ $ssh_symbol$hostname in]($style)";
       };
 
       java = {
