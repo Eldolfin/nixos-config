@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  home.sessionVariables = {
+    # exit terminal when zellij exits
+    ZELLIJ_AUTO_EXIT = "true";
+  };
   programs = {
     bat.enable = true;
     btop.enable = true;
