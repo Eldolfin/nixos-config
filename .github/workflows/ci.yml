@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+env:
+  ATTIC_SERVER: "https://attic.eldolfin.top/"
+  ATTIC_CACHE: "nixos-config"
 
 jobs:
   check-systems:
@@ -31,15 +34,23 @@ jobs:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: helix
-      # this actually slows down the build
-      # - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Install Attic and nix-fast-build
+        shell: bash
+        run: |
+          nix profile install nixpkgs#attic-client github:Mic92/nix-fast-build/1.1.0
+      - name: Configure Attic
+        shell: bash
+        run: |
+          attic login --set-default central "$ATTIC_SERVER" "${{ secrets.ATTIC_TOKEN }}"
+          attic use "$ATTIC_CACHE"
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
         run: |
           echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
           chmod 600 /tmp/gitea_ssh_key
           export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
-          nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
+          nix-fast-build --skip-cached --no-nom --attic-cache="$ATTIC_CACHE" \
+              -f '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
   check-standalone-homemanager:
     runs-on: ubuntu-latest
@@ -52,7 +63,15 @@ jobs:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: helix
-      # - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Install Attic
+        shell: bash
+        run: |
+          nix profile install nixpkgs#attic-client
+      - name: Configure Attic
+        shell: bash
+        run: |
+          attic login --set-default central "$ATTIC_SERVER" "${{ secrets.ATTIC_TOKEN }}"
+          attic use "$ATTIC_CACHE"
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: |
@@ -91,6 +110,16 @@ jobs:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: helix
+
+      - name: Install Attic and nix-fast-build
+        shell: bash
+        run: |
+          nix profile install nixpkgs#attic-client github:Mic92/nix-fast-build/1.1.0
+      - name: Configure Attic
+        shell: bash
+        run: |
+          attic login --set-default central "$ATTIC_SERVER" "${{ secrets.ATTIC_TOKEN }}"
+          attic use "$ATTIC_CACHE"
 
       - name: define screenshot output dir
         id: screenshot_path
