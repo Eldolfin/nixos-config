@@ -11,6 +11,9 @@
       settings = {
         window-vsync = false;
         gtk-titlebar = false;
+        keybind = [
+          "ctrl+enter=unbind" # defaults to toggle fullscreen
+        ];
       };
     };
     # alacritty = {
