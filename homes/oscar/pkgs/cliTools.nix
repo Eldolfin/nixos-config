@@ -2,6 +2,7 @@
   programs.nix-index.enable = true;
   home.packages = with pkgs; [
     acpi
+    attic-client
     # appimage-run
     asciinema
     bc
