@@ -2,7 +2,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "[░▒▓](#a3aed2)[  ](bg:#a3aed2 fg:#090c0c)[](bg:#769ff0 fg:#a3aed2)$directory[](fg:#769ff0 bg:#394260)$git_branch$git_status[](fg:#394260 bg:#212736)$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$vlang$vagrant$zig$nix_shell$conda$meson$spack$memory_usage$env_var$crystal$custom$sudo$cmd_duration$jobs$battery[](fg:#212736 bg:#1d2230)$time[ ](fg:#1d2230)\n$character";
+      format = "[░▒▓](#a3aed2)[  ](bg:#a3aed2 fg:#090c0c)[](bg:#769ff0 fg:#a3aed2)$hostname$directory[](fg:#769ff0 bg:#394260)$git_branch$git_status[](fg:#394260 bg:#212736)$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$vlang$vagrant$zig$nix_shell$conda$meson$spack$memory_usage$env_var$crystal$custom$sudo$cmd_duration$jobs$battery[](fg:#212736 bg:#1d2230)$time[ ](fg:#1d2230)\n$character";
 
       directory = {
         read_only = " 󰌾";
@@ -118,6 +118,7 @@
         symbol = "";
         style = "b:#212736";
         format = ''[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'';
+        heuristic = true;
       };
 
       nodejs = {
