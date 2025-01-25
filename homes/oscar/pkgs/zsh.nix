@@ -81,14 +81,15 @@
       export CACHIX_AUTH_TOKEN=$(cat /run/secrets/apis/CACHIX_AUTH_TOKEN)
     '';
 
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["fancy-ctrl-z"];
-    };
-
     antidote = {
       enable = true;
-      plugins = ["marzocchi/zsh-notify"];
+      plugins = [
+        "marzocchi/zsh-notify"
+        "MichaelAquilina/zsh-you-should-use"
+        "getantidote/use-omz"
+        "ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z"
+        "ohmyzsh/ohmyzsh path:plugins/magic-enter"
+      ];
     };
     prezto = {
       enable = true;
@@ -103,14 +104,10 @@
       ];
       pmodules = [
         "environment"
-        "terminal"
         # "editor"
-        "history"
         "directory"
         "spectrum"
         "utility"
-        "completion"
-        "prompt"
         "syntax-highlighting"
       ];
       editor.dotExpansion = true;
