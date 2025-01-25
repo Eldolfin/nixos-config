@@ -12,7 +12,7 @@
     caddy = {
       enable = true;
       virtualHosts = {
-        "https://acttic.eldolfin.top" = {
+        "https://attic.eldolfin.top" = {
           extraConfig = ''
             reverse_proxy localhost:8080
           '';

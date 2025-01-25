@@ -1,7 +1,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../pkgs/acttic-server.nix
+    ../../pkgs/attic-server.nix
     ../../pkgs/grub.nix
   ];
 
