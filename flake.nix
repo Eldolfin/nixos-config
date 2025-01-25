@@ -176,6 +176,25 @@
           inherit specialArgs;
         };
 
+      "homeserver" = let
+        specialArgs =
+          inputs
+          // {
+            isTour = false;
+          };
+      in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules =
+            nixosModules
+            ++ [
+              ./hosts/homeserver/configuration.nix
+              ./hosts/homeserver/hardware-configuration.nix
+              {home-manager.extraSpecialArgs = specialArgs;}
+            ];
+          inherit specialArgs;
+        };
+
       "oscar-iso" = let
         specialArgs =
           inputs
