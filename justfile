@@ -10,4 +10,7 @@ _deploy NIX_HOSTNAME SSH_HOSTNAME:
 deploy-oracle-x86: (_deploy "oracle-x86" "oracle-x86.eldolfin.top")
 deploy-homeserver: (_deploy "homeserver" "192.168.1.71")
 
-deploy-all: deploy-oracle-x86 deploy-homeserver
+deploy-all: deploy-homeserver deploy-oracle-x86
+
+watch:
+    git ls-files | entr -c nh os switch /etc/nixos
