@@ -41,7 +41,7 @@
     autosuggestion.enable = true;
     defaultKeymap = "emacs";
     shellAliases = {
-      clone = ''${lib.getExe pkgs.ghostty} -e zsh &!'';
+      clone = ''${lib.getExe pkgs.ghostty} -e zsh >/dev/null 2>&1 &!'';
       svi = "sudo -e";
       vimdiff = "nvim -d";
       ls = "exa";
