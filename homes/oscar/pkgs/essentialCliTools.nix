@@ -18,8 +18,13 @@
     skim.enable = true;
     zellij = {
       enable = true;
-      enableZshIntegration = true;
+      # this starts zellij late, meaning we init zsh twice
+      # enableZshIntegration = true;
     };
+    zsh.initExtraFirst = ''
+      eval "$(${lib.getExe pkgs.zellij} setup --generate-auto-start zsh)"
+    '';
+
     zsh.enable = true;
     lazygit = {
       enable = true;
