@@ -66,6 +66,9 @@
       gov = "git push -v"; # common mistake
       gcsm = "git commit -m";
 
+      # text search in home dir
+      coderg = ''sk -i -c "rg '{}' --color=always ~/Prog /etc/nixos ~/.config" --ansi'';
+
       g = "git";
       h = "hx";
     };
