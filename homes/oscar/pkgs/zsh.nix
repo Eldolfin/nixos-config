@@ -14,7 +14,11 @@
       enable = true;
       enableZshIntegration = true;
     };
-    fzf = {
+    # fzf = {
+    #   enable = true;
+    #   enableZshIntegration = true;
+    # };
+    skim = {
       enable = true;
       enableZshIntegration = true;
     };
@@ -30,6 +34,7 @@
     "/home/oscar/bin/executables/"
   ];
   programs.zsh = {
+    # zprof.enable = true; # enable profiling
     enable = true;
     enableVteIntegration = true;
     dotDir = ".config/zsh";
@@ -66,7 +71,9 @@
     };
 
     initExtra = ''
-      source ${pkgs.zsh-autopair.src}/zsh-autopair.plugin.zsh
+      source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
+      zsh-defer source ${pkgs.zsh-autopair.src}/zsh-autopair.plugin.zsh
+      zsh-defer source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
 
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
@@ -88,31 +95,24 @@
     antidote = {
       enable = true;
       plugins = [
-        "marzocchi/zsh-notify"
-        "MichaelAquilina/zsh-you-should-use"
-        "getantidote/use-omz"
-        "ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z"
-        "ohmyzsh/ohmyzsh path:plugins/magic-enter"
+        "marzocchi/zsh-notify               kind:defer"
+        "MichaelAquilina/zsh-you-should-use kind:defer"
+        "getantidote/use-omz                kind:defer"
+        "ohmyzsh/ohmyzsh                    kind:defer path:plugins/fancy-ctrl-z"
+        "ohmyzsh/ohmyzsh                    kind:defer path:plugins/magic-enter"
       ];
     };
     prezto = {
+      # TODO: make it lazy loaded so we can use more features
       enable = true;
       caseSensitive = false;
-      syntaxHighlighting.highlighters = [
-        "main"
-        "brackets"
-        "pattern"
-        "line"
-        "cursor"
-        "root"
-      ];
       pmodules = [
-        "environment"
+        # "environment"
         # "editor"
         "directory"
-        "spectrum"
-        "utility"
-        "syntax-highlighting"
+        # "spectrum"
+        # "utility"
+        # "syntax-highlighting" # slow
       ];
       editor.dotExpansion = true;
     };
