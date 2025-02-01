@@ -48,7 +48,7 @@
     };
 
     systemswitch = {
-      url = "git+file:.?ref=HEAD&dir=custom-pkgs/systemswitch";
+      url = "git+file:.?ref=main&dir=custom-pkgs/systemswitch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
