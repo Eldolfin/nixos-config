@@ -85,7 +85,7 @@
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
 
       # zsh-notify params
-      zstyle ':notify:*' expire-time 5000 # notification stay for 5s
+      zstyle ':notify:*' expire-time 2500 # notification stay for 5s
       zstyle ':notify:*' enable-on-ssh yes
       zstyle ':notify:*' success-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Success.ogg"
       zstyle ':notify:*' error-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Error.ogg"
