@@ -11,5 +11,5 @@ devenv.local.nix
 __pycache__
 
 .nixos-test-history
-*.png
+/*.png
 _site

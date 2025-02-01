@@ -41,6 +41,7 @@
     autosuggestion.enable = true;
     defaultKeymap = "emacs";
     shellAliases = {
+      sw = "systemswitch";
       clone = ''${lib.getExe pkgs.ghostty} -e zsh >/dev/null 2>&1 &!'';
       svi = "sudo -e";
       vimdiff = "nvim -d";
@@ -85,7 +86,7 @@
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'
 
       # zsh-notify params
-      zstyle ':notify:*' expire-time 2500 # notification stay for 5s
+      # zstyle ':notify:*' expire-time 2500
       zstyle ':notify:*' enable-on-ssh yes
       zstyle ':notify:*' success-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Success.ogg"
       zstyle ':notify:*' error-sound "${pkgs.kdePackages.oxygen-sounds}/share/sounds/Oxygen-K3B-Finish-Error.ogg"

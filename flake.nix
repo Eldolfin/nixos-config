@@ -46,6 +46,11 @@
       # url = "path:/home/oscar/Prog/wol/wol-api";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    systemswitch = {
+      url = "path:./custom-pkgs/systemswitch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  systemswitch,
+  ...
+}: {
   programs.nix-index.enable = true;
   home.packages = with pkgs; [
     acpi
@@ -44,5 +48,7 @@
     xdotool
     xorg.xmodmap
     zip
+
+    systemswitch.packages.x86_64-linux.default
   ];
 }

@@ -1,0 +1,16 @@
+[package]
+name = "systemswitch"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.95"
+clap = { version = "4.5.27", features = ["derive"] }
+clap_complete = "4.5.44"
+colored = "3.0.0"
+image = "0.25.5"
+notify-rust = { version = "4.11.4", features = ["image", "images"] }
+octocrab = "0.43.0"
+spinners = "4.1.1"
+tokio = { version = "1.43.0", features = ["macros", "rt-multi-thread"] }
+xshell = "0.2.7"
