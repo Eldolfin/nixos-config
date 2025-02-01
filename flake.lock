@@ -1360,14 +1360,20 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-r8sAxBlSG4cbBjdF92yVwPwgXqYMzCh2wc7O0UlXWKI=",
-        "path": "custom-pkgs/systemswitch",
-        "type": "path"
+        "dir": "custom-pkgs/systemswitch",
+        "lastModified": 1738449092,
+        "narHash": "sha256-9NSZdeJ1NE9xSU8/XQag9L9FCF1ci4GhO3o5/eRT/SI=",
+        "ref": "HEAD",
+        "rev": "1c5f0d558a57f490f2ac1aa016b4249cb52281bc",
+        "revCount": 1025,
+        "type": "git",
+        "url": "file:.?dir=custom-pkgs/systemswitch"
       },
       "original": {
-        "path": "custom-pkgs/systemswitch",
-        "type": "path"
+        "dir": "custom-pkgs/systemswitch",
+        "ref": "HEAD",
+        "type": "git",
+        "url": "file:.?dir=custom-pkgs/systemswitch"
       }
     },
     "tinted-foot": {

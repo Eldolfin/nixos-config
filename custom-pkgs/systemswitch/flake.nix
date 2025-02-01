@@ -2,10 +2,6 @@
   description = "A template cli project in rust with completions";
 
   inputs = {
-    devenv-root = {
-      url = "file+file:///dev/null";
-      flake = false;
-    };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
     devenv.url = "github:cachix/devenv";
@@ -23,7 +19,6 @@
 
   outputs = inputs @ {
     flake-parts,
-    devenv-root,
     crane,
     flake-utils,
     ...
@@ -90,11 +85,6 @@
         };
 
         devenv.shells.default = {
-          devenv.root = let
-            devenvRootFileContent = builtins.readFile devenv-root.outPath;
-          in
-            pkgs.lib.mkIf (devenvRootFileContent != "") devenvRootFileContent;
-
           name = "systemswitch";
 
           packages = with pkgs; [
