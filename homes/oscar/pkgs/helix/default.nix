@@ -25,6 +25,10 @@
         completion-trigger-len = 0;
         completion-timeout = 5; # instant according to the docs
         bufferline = "multiple";
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "warning";
+        };
         cursorline = true;
         cursor-shape = {
           normal = "block";
