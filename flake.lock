@@ -196,18 +196,6 @@
         "type": "github"
       }
     },
-    "devenv-root": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-d6xi4mKdjkX2JFicDIv5niSzpyI0m/Hnm8GGAIU04kY=",
-        "type": "file",
-        "url": "file:///dev/null"
-      },
-      "original": {
-        "type": "file",
-        "url": "file:///dev/null"
-      }
-    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -1350,7 +1338,6 @@
       "inputs": {
         "crane": "crane_2",
         "devenv": "devenv",
-        "devenv-root": "devenv-root",
         "flake-parts": "flake-parts_3",
         "flake-utils": "flake-utils_4",
         "mk-shell-bin": "mk-shell-bin",
@@ -1361,17 +1348,17 @@
       },
       "locked": {
         "dir": "custom-pkgs/systemswitch",
-        "lastModified": 1738449092,
-        "narHash": "sha256-9NSZdeJ1NE9xSU8/XQag9L9FCF1ci4GhO3o5/eRT/SI=",
-        "ref": "HEAD",
-        "rev": "1c5f0d558a57f490f2ac1aa016b4249cb52281bc",
-        "revCount": 1025,
+        "lastModified": 1738450620,
+        "narHash": "sha256-k2+EBTTwp4pTmYUVwznlscx0e9Rcv9PSjHgU6wrFk44=",
+        "ref": "main",
+        "rev": "d62d7685121d146d5c65c3f146ca40e16b0cc679",
+        "revCount": 1027,
         "type": "git",
         "url": "file:.?dir=custom-pkgs/systemswitch"
       },
       "original": {
         "dir": "custom-pkgs/systemswitch",
-        "ref": "HEAD",
+        "ref": "main",
         "type": "git",
         "url": "file:.?dir=custom-pkgs/systemswitch"
       }
