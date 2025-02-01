@@ -1348,19 +1348,19 @@
       },
       "locked": {
         "dir": "custom-pkgs/systemswitch",
-        "lastModified": 1738450620,
-        "narHash": "sha256-k2+EBTTwp4pTmYUVwznlscx0e9Rcv9PSjHgU6wrFk44=",
-        "ref": "main",
-        "rev": "d62d7685121d146d5c65c3f146ca40e16b0cc679",
-        "revCount": 1027,
-        "type": "git",
-        "url": "file:.?dir=custom-pkgs/systemswitch"
+        "lastModified": 1738451607,
+        "narHash": "sha256-FjUWBIYJFOvRDQm6j+cwoAuEXMb7igTFLPViaHGL4XE=",
+        "owner": "eldolfin",
+        "repo": "nixos-config",
+        "rev": "f0074613c4713c78741e207d21d4b47581f4adac",
+        "type": "github"
       },
       "original": {
         "dir": "custom-pkgs/systemswitch",
+        "owner": "eldolfin",
         "ref": "main",
-        "type": "git",
-        "url": "file:.?dir=custom-pkgs/systemswitch"
+        "repo": "nixos-config",
+        "type": "github"
       }
     },
     "tinted-foot": {
