@@ -3,6 +3,8 @@
     ./hardware-configuration.nix
     ../../pkgs/attic-server.nix
     ../../pkgs/grub.nix
+    ../../pkgs/open-webui.nix
+    ../../pkgs/nvidia.nix
   ];
 
   networking.hostName = "homeserver";
