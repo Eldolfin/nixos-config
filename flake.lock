@@ -911,11 +911,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1738441264,
-        "narHash": "sha256-toSOTkeXPmsxpPFAj7qgnhNlWhzDuTvtQhFg7IvZHYA=",
+        "lastModified": 1738442738,
+        "narHash": "sha256-omEqM0iSWEPPZBIWXl5Z0GhPcWpWjyJ5BuenowOQsTA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1fb5e43217840af2e9f6193159a8049e6da9ac66",
+        "rev": "7442bf7c3a0312886314f8c1c61896171f36b8c7",
         "type": "github"
       },
       "original": {
@@ -1506,14 +1506,20 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1737841494,
-        "narHash": "sha256-jGt4zOoH9kGsU/7WbNHWc2JJOMLlv0/ofqFtRn4wU5M=",
-        "path": "/home/oscar/Prog/wol/wol-api",
-        "type": "path"
+        "dir": "wol-api",
+        "lastModified": 1738428611,
+        "narHash": "sha256-As1o4wQ8DDyVR4q3WRFaMS7spTtY8ViG4sm+4zSXPMY=",
+        "ref": "main",
+        "rev": "528b7f89a34ce37c829575a6a45c98212b1fa78c",
+        "revCount": 192,
+        "type": "git",
+        "url": "ssh://git@eldolfin.top/eldolfin/wol.git?dir=wol-api"
       },
       "original": {
-        "path": "/home/oscar/Prog/wol/wol-api",
-        "type": "path"
+        "dir": "wol-api",
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@eldolfin.top/eldolfin/wol.git?dir=wol-api"
       }
     }
   },
