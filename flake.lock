@@ -183,11 +183,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1738232507,
-        "narHash": "sha256-AFzzs8DypasqcQZ3vLPxh6uO/ZniPWKk4bJkSAUpgTg=",
+        "lastModified": 1738414267,
+        "narHash": "sha256-7B+rkQlQ8zIzVgJRiu49ZFST6NBWt+JsnQZ/Q4W3qlI=",
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "8b611a15df98b6225eec53be7d24bf39d3ab494d",
+        "rev": "3f49b4afbb9a80b1e81fb6071f59dac152177efa",
         "type": "github"
       },
       "original": {
@@ -991,11 +991,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1733477122,
-        "narHash": "sha256-qamMCz5mNpQmgBwc8SB5tVMlD5sbwVIToVZtSxMph9s=",
+        "lastModified": 1716977621,
+        "narHash": "sha256-Q1UQzYcMJH4RscmpTkjlgqQDX5yi1tZL0O345Ri6vXQ=",
         "owner": "cachix",
         "repo": "devenv-nixpkgs",
-        "rev": "7bd9e84d0452f6d2e63b6e6da29fe73fac951857",
+        "rev": "4267e705586473d3e5c8d50299e71503f16a6fb6",
         "type": "github"
       },
       "original": {
@@ -1361,12 +1361,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-4lxgrPuPsOHbxKShiMk+E2eiyzkhs/TVWAV72QEF4Ug=",
-        "path": "./custom-pkgs/systemswitch",
+        "narHash": "sha256-r8sAxBlSG4cbBjdF92yVwPwgXqYMzCh2wc7O0UlXWKI=",
+        "path": "custom-pkgs/systemswitch",
         "type": "path"
       },
       "original": {
-        "path": "./custom-pkgs/systemswitch",
+        "path": "custom-pkgs/systemswitch",
         "type": "path"
       }
     },

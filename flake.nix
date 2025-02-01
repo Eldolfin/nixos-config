@@ -48,7 +48,7 @@
     };
 
     systemswitch = {
-      url = "path:./custom-pkgs/systemswitch";
+      url = "path:custom-pkgs/systemswitch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
