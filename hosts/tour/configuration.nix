@@ -13,7 +13,6 @@
   services = {
     xserver = {
       xkb.layout = "fr";
-      videoDrivers = ["nvidia"];
     };
     displayManager.autoLogin.enable = true;
     openssh.enable = true;
