@@ -16,16 +16,9 @@
     jq.enable = true;
     ripgrep.enable = true;
     skim.enable = true;
-    zellij = {
-      enable = true;
-      # this starts zellij late, meaning we init zsh twice
-      # enableZshIntegration = true;
-    };
-    zsh.initExtraFirst = ''
-      eval "$(${lib.getExe pkgs.zellij} setup --generate-auto-start zsh)"
-    '';
+    zellij.enable = true;
+    zoxide.enable = true;
 
-    zsh.enable = true;
     lazygit = {
       enable = true;
       settings = {

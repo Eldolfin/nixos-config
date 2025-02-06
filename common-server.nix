@@ -9,7 +9,7 @@
       };
     };
     nix-index-database.comma.enable = true;
-    zsh.enable = true;
+    fish.enable = true;
   };
 
   # Allow unfree packages
@@ -57,8 +57,8 @@
   # disable sudo password
   security.sudo.wheelNeedsPassword = false;
 
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [zsh];
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = with pkgs; [fish];
   programs.nano.enable = false;
 
   virtualisation = {

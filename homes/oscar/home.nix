@@ -18,7 +18,8 @@
       ./pkgs/scripts
       ./pkgs/socials.nix
       ./pkgs/sounds.nix
-      ./pkgs/zsh.nix
+      # ./pkgs/zsh.nix
+      ./pkgs/fish.nix
     ]
     ++ lib.optionals isPersonal [./personalPackages.nix];
 

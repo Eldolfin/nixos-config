@@ -7,7 +7,7 @@
     rofi.terminal = lib.getExe pkgs.ghostty;
     ghostty = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       settings = {
         window-vsync = false;
         gtk-titlebar = false;
