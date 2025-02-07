@@ -56,8 +56,25 @@
       # text search in home dir
       coderg = ''sk -i -c "rg '{}' --color=always ~/Prog /etc/nixos ~/.config" --ansi'';
 
-      # g = "git";
+      gctp = "commit-tag-push.sh";
+      gl = "git pull";
+      gp = "git push --verbose";
+      gcl = "git clone --recurse-submodules";
+      gst = "git status --short";
+      gup = "git pull --rebase";
+      gsta = "git stash push";
+      gstp = "git stash pop";
+      gaa = "git add --all";
+      ga = "git add";
+      gpv = "git push -v";
+      gov = "git push -v"; # common mistake
+      gcsm = "git commit -m";
+
+      g = "git";
       h = "hx";
     };
+    shellInit = ''
+      bind \cz 'fg 2>/dev/null; commandline -f repaint'
+    '';
   };
 }
