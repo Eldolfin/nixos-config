@@ -32,8 +32,10 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # fix for i3blocks
-  environment.pathsToLink = ["/libexec"];
+  environment.pathsToLink = [
+    # fix for i3blocks
+    "/libexec"
+  ];
 
   users = {
     mutableUsers = false; # users cannot change password

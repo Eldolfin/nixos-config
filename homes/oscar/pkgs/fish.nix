@@ -4,6 +4,8 @@
     # used by zsh-notify
     grc
   ];
+  # fix missing completions for nix commands https://discourse.nixos.org/t/how-to-use-completion-fish-with-home-manager/23356
+  xdg.configFile."fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
   programs.fish = {
     enable = true;
     plugins = with pkgs.fishPlugins; [
