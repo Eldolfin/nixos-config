@@ -13,13 +13,12 @@
 
   boot = {
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod"];
       kernelModules = [];
     };
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
   };
-
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/144a3fba-9244-470e-93d1-14e2129c71e4";
@@ -36,6 +35,11 @@
       fsType = "vfat";
       options = ["fmask=0022" "dmask=0022"];
     };
+
+    "/home/oscar/Mnt/hdd2t" = {
+      device = "/dev/disk/by-uuid/88723bdd-7140-4ff1-bca8-d7a5e6ec061a";
+      fsType = "ext4";
+    };
   };
 
   swapDevices = [];
@@ -45,6 +49,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
