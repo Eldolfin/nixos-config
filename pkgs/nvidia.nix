@@ -1,5 +1,5 @@
 {
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
   hardware.nvidia = {
     modesetting.enable = true;
     # nvidiaSettings = true;
@@ -7,5 +7,8 @@
     open = false;
   };
   hardware.nvidia-container-toolkit.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver = {
+    enable = true;
+    videoDrivers = ["nvidia"];
+  };
 }
