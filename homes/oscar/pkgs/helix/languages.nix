@@ -30,7 +30,7 @@
           ];
         };
         nixd.command = "${pkgs.nixd}/bin/nixd";
-        # jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
+        jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
         bashls = {
           command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
           args = ["start"];
@@ -176,6 +176,16 @@
           };
           auto-format = true;
         }
+
+        {
+          name = "java";
+          language-servers = [
+            "jdtls"
+            # "gpt"
+          ];
+          auto-format = true;
+        }
+
         {
           name = "javascript";
           language-servers = [
