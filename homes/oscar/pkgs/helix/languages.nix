@@ -31,6 +31,7 @@
         };
         nixd.command = "${pkgs.nixd}/bin/nixd";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
+        kotlinls.command = lib.getExe pkgs.kotlin-language-server;
         bashls = {
           command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
           args = ["start"];
@@ -181,6 +182,15 @@
           name = "java";
           language-servers = [
             "jdtls"
+            # "gpt"
+          ];
+          auto-format = true;
+        }
+
+        {
+          name = "kotlin";
+          language-servers = [
+            "kotlinls"
             # "gpt"
           ];
           auto-format = true;
