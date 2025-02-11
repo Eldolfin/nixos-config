@@ -7,10 +7,9 @@
     winetricks
     wine
     # steam # installed as nixos module
-    # gamescope
-    # libusb1 # for minecraft
-    # prismlauncher
-    # gamemode
+    libusb1 # for minecraft
+    prismlauncher
+    gamemode
     # mangohud
   ];
 }
