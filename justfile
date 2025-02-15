@@ -4,11 +4,12 @@
 test:
     nix flake check -L
 
-_deploy NIX_HOSTNAME SSH_HOSTNAME:
-    nixos-rebuild switch --use-remote-sudo --build-host localhost --target-host {{SSH_HOSTNAME}} --flake ".#{{NIX_HOSTNAME}}" |& nom
+_deploy NIX_HOSTNAME SSH_HOSTNAME BUILD_HOSTNAME:
+    nixos-rebuild switch --use-remote-sudo --build-host {{BUILD_HOSTNAME}} --target-host {{SSH_HOSTNAME}} --flake ".#{{NIX_HOSTNAME}}" |& nom
 
-deploy-oracle-x86: (_deploy "oracle-x86" "oracle-x86.eldolfin.top")
-deploy-homeserver: (_deploy "homeserver" "192.168.1.71")
+deploy-oracle-x86: (_deploy "oracle-x86" "oracle-x86.eldolfin.top" "localhost")
+deploy-homeserver: (_deploy "homeserver" "192.168.1.71" "localhost")
+deploy-homeserver-from-homeserver: (_deploy "homeserver" "192.168.1.71" "192.168.1.71")
 deploy-local:
     nh os switch /etc/nixos
 

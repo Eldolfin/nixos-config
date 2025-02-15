@@ -42,9 +42,11 @@
     };
 
     wol-api = {
-      url = "git+ssh://git@eldolfin.top/eldolfin/wol.git?ref=main&dir=wol-api";
+      url = "git+ssh://git@eldolfin.top/eldolfin/wol.git?ref=main";
+
+      # url = "git+ssh://git@github.com/eldolfin/wol-api.git?ref=main&dir=wol-api";
       # url = "path:/home/oscar/Prog/wol/wol-api";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     systemswitch = {
