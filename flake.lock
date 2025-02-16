@@ -1151,11 +1151,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739646362,
-        "narHash": "sha256-CPuWANMGT7ftUvgWh99qTlqY1Y3R7DEU2IwuYwRJF6A=",
+        "lastModified": 1739669205,
+        "narHash": "sha256-X8GGWDsWnwVD6JsCN3ntWd3olJ9dB4+tXMOp0unERWw=",
         "ref": "main",
-        "rev": "d8866b21eb61f8fcb18c928803bd26d7ab29db94",
-        "revCount": 670,
+        "rev": "0663ab8bd212ca682be04c7811db6c37527fd32d",
+        "revCount": 672,
         "type": "git",
         "url": "ssh://git@eldolfin.top/eldolfin/sanzu.git"
       },
@@ -1527,11 +1527,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1739646835,
-        "narHash": "sha256-gHdbYGxEad/1u2nSMJD+QdGKcVF5AMOkqoIyG2DyM9k=",
+        "lastModified": 1739669253,
+        "narHash": "sha256-lhresPwaXNbeWONEaX9Nmwg8/RnVd25hKFp8DO82aQE=",
         "ref": "main",
-        "rev": "bfbc11f29cc2d625d5f5fc1170638b27084258ce",
-        "revCount": 199,
+        "rev": "f7baafd4d6d74928bbe968db04dc6209e4d0b950",
+        "revCount": 206,
         "type": "git",
         "url": "ssh://git@eldolfin.top/eldolfin/wol.git"
       },
