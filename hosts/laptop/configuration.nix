@@ -10,7 +10,7 @@
   services = {
     openssh.enable = false;
     xserver. xkb.layout = "gb";
-    # displayManager.autoLogin.enable = true; # TODO: remove later
+    displayManager.autoLogin.enable = false;
     tlp.enable = true;
   };
 
