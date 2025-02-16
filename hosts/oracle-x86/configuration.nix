@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../pkgs/wol-agent.nix
+    ../../pkgs/stirling-pdf.nix
   ];
 
   eldolfin.services.wol-agent.machine-name = "oracle";
