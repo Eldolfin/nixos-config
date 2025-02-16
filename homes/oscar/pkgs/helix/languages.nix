@@ -8,9 +8,11 @@
       yaml-language-server
       docker-compose-language-service
       dockerfile-language-server-nodejs
+      nodePackages.typescript-language-server
       vue-language-server
       pkgs.markdown-oxide
       pkgs.nil
+      pkgs.jq-lsp
     ];
     languages = {
       language-server = {
