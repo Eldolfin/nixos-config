@@ -7,6 +7,13 @@
 [![](b118521f24df5071348eaa24d559ea3477811f65/firefox-and-terminals.png)](https://eldolfin.github.io/nixos-config/b118521f24df5071348eaa24d559ea3477811f65/firefox-and-terminals.png)|[![](b118521f24df5071348eaa24d559ea3477811f65/lock-screen.png)](https://eldolfin.github.io/nixos-config/b118521f24df5071348eaa24d559ea3477811f65/lock-screen.png)|[![](b118521f24df5071348eaa24d559ea3477811f65/login-screen.png)](https://eldolfin.github.io/nixos-config/b118521f24df5071348eaa24d559ea3477811f65/login-screen.png)
 
 
+## [2025-02-16 18:58:19](https://github.com/Eldolfin/nixos-config/commit/33656e4b164e2ecf3703eb27abd5a89fa3d949fb)
+
+[firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/33656e4b164e2ecf3703eb27abd5a89fa3d949fb/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/33656e4b164e2ecf3703eb27abd5a89fa3d949fb/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/33656e4b164e2ecf3703eb27abd5a89fa3d949fb/tests/login-screen.nix)
+-|-|-
+[![](33656e4b164e2ecf3703eb27abd5a89fa3d949fb/firefox-and-terminals.png)](https://eldolfin.github.io/nixos-config/33656e4b164e2ecf3703eb27abd5a89fa3d949fb/firefox-and-terminals.png)|[![](33656e4b164e2ecf3703eb27abd5a89fa3d949fb/lock-screen.png)](https://eldolfin.github.io/nixos-config/33656e4b164e2ecf3703eb27abd5a89fa3d949fb/lock-screen.png)|[![](33656e4b164e2ecf3703eb27abd5a89fa3d949fb/login-screen.png)](https://eldolfin.github.io/nixos-config/33656e4b164e2ecf3703eb27abd5a89fa3d949fb/login-screen.png)
+
+
 ## [2025-02-16 01:30:07](https://github.com/Eldolfin/nixos-config/commit/caf71d3de95d92c6b99a13bd42dca6c0cf8f9f74)
 
 [firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/caf71d3de95d92c6b99a13bd42dca6c0cf8f9f74/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/caf71d3de95d92c6b99a13bd42dca6c0cf8f9f74/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/caf71d3de95d92c6b99a13bd42dca6c0cf8f9f74/tests/login-screen.nix)
