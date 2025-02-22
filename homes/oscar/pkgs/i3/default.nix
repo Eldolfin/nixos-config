@@ -105,7 +105,7 @@
         "${mod}+e" = "exec firefox";
         "${mod}+Shift+e" = "exec firefox --private-window";
         "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
-        "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
+        # "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
         "${mod}+d" = "exec rofi -show drun";
         "${mod}+Shift+x" = "exec \"rofi -show p -modi p:'rofi-power-menu'\"";
