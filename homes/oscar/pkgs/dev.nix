@@ -17,10 +17,10 @@
 
       # java
       # jetbrains.idea-community
-      # jetbrains.idea-ultimate
+      jetbrains.idea-ultimate
       # jetbrains.pycharm-professional
       # maven
-      # openjdk17
+      openjdk17
 
       # rust
       # evcxr
