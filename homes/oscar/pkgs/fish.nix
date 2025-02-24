@@ -75,7 +75,8 @@
       g = "git";
       h = "hx";
     };
-    shellInit = ''
+    interactiveShellInit = ''
+      set -U fish_greeting
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
     '';
   };
