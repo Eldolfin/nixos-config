@@ -7,6 +7,7 @@
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./common-server.nix
+    ./pkgs/niri.nix
   ];
 
   boot.loader.timeout = 0;
