@@ -20,6 +20,7 @@
       ./pkgs/sounds.nix
       # ./pkgs/zsh.nix
       ./pkgs/fish.nix
+      ./pkgs/jujutsu.nix
     ]
     ++ lib.optionals isPersonal [./personalPackages.nix];
 
