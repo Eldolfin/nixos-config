@@ -1,5 +1,5 @@
 {
-  jujutsu = {
+  programs.jujutsu = {
     enable = true;
     settings = {
       user = {
