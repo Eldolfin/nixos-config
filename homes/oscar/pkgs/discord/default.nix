@@ -6,7 +6,7 @@
     discord.enable = false;
     vesktop = {
       enable = true;
-      package = pkgs.vesktop.overrideAttrs (prev: {
+      package = pkgs.vesktop.overrideAttrs (_prev: {
         desktopItems = [
           (pkgs.makeDesktopItem {
             name = "discord";
@@ -54,7 +54,6 @@
         revealAllSpoilers.enable = true;
         reverseImageSearch.enable = true;
         roleColorEverywhere.enable = true;
-        showHiddenChannels.enable = true;
         showMeYourName.enable = true;
         silentTyping.enable = true;
         typingIndicator.enable = true;
