@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  home.packages = with pkgs; [
+    # required by systemswitch (TODO: put runtime dependency in its package)
+    pulseaudio
+  ];
   home.sessionVariables = {
     # exit terminal when zellij exits
     ZELLIJ_AUTO_EXIT = "true";
