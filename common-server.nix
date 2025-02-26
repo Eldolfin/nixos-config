@@ -35,6 +35,10 @@
   environment.pathsToLink = [
     # fix for i3blocks
     "/libexec"
+    # required for xdg portal to work
+    # see https://github.com/nix-community/home-manager/blob/53c587d263f94aaf6a281745923c76bbec62bcf3/modules/misc/xdg-portal.nix#L26
+    "/share/xdg-desktop-portal"
+    "/share/applications"
   ];
 
   users = {

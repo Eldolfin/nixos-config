@@ -21,6 +21,7 @@
       # ./pkgs/zsh.nix
       ./pkgs/fish.nix
       ./pkgs/jujutsu.nix
+      ./pkgs/niri
     ]
     ++ lib.optionals isPersonal [./personalPackages.nix];
 
@@ -37,10 +38,13 @@
   #   stylix.enable = true;
   #   stylix.autoEnable = true;
 
-  xdg.mimeApps.defaultApplications = {
-    "application/pdf" = "firefox.desktop";
-    "text/html" = "firefox.desktop";
-    "x-scheme-handler/http" = "firefox.desktop";
+  xdg = {
+    mimeApps.defaultApplications = {
+      "application/pdf" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+    };
+    portal.enable = true;
   };
 
   # This value determines the Home Manager release that your
