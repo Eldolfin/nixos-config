@@ -5,6 +5,7 @@
     ../../pkgs/grub.nix
     ../../pkgs/open-webui.nix
     ../../pkgs/nvidia.nix
+    ../../pkgs/outline.nix
   ];
 
   networking.hostName = "homeserver";
