@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   imports = [./starship.nix];
-  # fix for async-prompt to work
-  programs.starship.enableInteractive = false;
-
   home.packages = with pkgs; [
     # used by zsh-notify
     grc
@@ -40,10 +37,11 @@
         name = "autopair";
         inherit (autopair) src;
       } # alternative: pisces https://github.com/laughedelic/pisces
-      {
-        name = "async-prompt";
-        inherit (async-prompt) src;
-      }
+      # TODO: check if prompt is slow to appear
+      # {
+      #   name = "async-prompt";
+      #   src = async-prompt.src;
+      # }
     ];
     shellAbbrs = {
       sw = "systemswitch";
