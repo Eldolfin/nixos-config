@@ -4,8 +4,8 @@
     # enable = true;
   };
   home.packages = with pkgs; [
-    # libreoffice
-    # gimp
+    libreoffice
+    gimp
     # rustdesk-flutter
     # handbrake
   ];
