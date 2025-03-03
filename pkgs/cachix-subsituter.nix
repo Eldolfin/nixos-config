@@ -2,7 +2,6 @@
   nix = {
     package = pkgs.nix;
     settings = {
-      max-jobs = 8;
       trusted-users = ["oscar" "root" "@admin" "@wheel"];
       trusted-substituters = [
         "https://cache.nixos.org"
