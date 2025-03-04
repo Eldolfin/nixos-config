@@ -6,6 +6,7 @@
     # ../../pkgs/plymouth.nix
     ../../pkgs/wol-agent.nix
     ../../pkgs/nvidia.nix
+    ../../pkgs/incus.nix
   ];
 
   eldolfin.services.wol-agent.machine-name = "tour";
