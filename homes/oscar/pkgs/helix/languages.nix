@@ -13,6 +13,7 @@
       pkgs.markdown-oxide
       pkgs.nil
       pkgs.jq-lsp
+      metals
     ];
     languages = {
       language-server = {
@@ -119,6 +120,7 @@
         }
         {
           name = "typescript";
+          auto-format = true;
           language-servers = [
             "scls"
             # "gpt"
@@ -133,10 +135,10 @@
               "ts"
             ];
           };
-          auto-format = true;
         }
         {
           name = "tsx";
+          auto-format = true;
           language-servers = [
             "scls"
             # "gpt"
@@ -151,18 +153,18 @@
               "tsx"
             ];
           };
-          auto-format = true;
         }
         {
           name = "typst";
+          auto-format = true;
           language-servers = [
             "scls"
           ];
           formatter.command = lib.getExe pkgs.typstyle;
-          auto-format = true;
         }
         {
           name = "python";
+          auto-format = true;
           language-servers = [
             "scls"
             # "gpt"
@@ -177,29 +179,29 @@
               "--line-length=80"
             ];
           };
-          auto-format = true;
         }
 
         {
           name = "java";
+          auto-format = true;
           language-servers = [
             "jdtls"
             # "gpt"
           ];
-          auto-format = true;
         }
 
         {
           name = "kotlin";
+          auto-format = true;
           language-servers = [
             "kotlinls"
             # "gpt"
           ];
-          auto-format = true;
         }
 
         {
           name = "javascript";
+          auto-format = true;
           language-servers = [
             "scls"
             # "gpt"
@@ -214,11 +216,11 @@
               "js"
             ];
           };
-          auto-format = true;
         }
 
         {
           name = "markdown";
+          auto-format = true;
           language-servers = [
             "scls"
             "vscode-markdown-language-server"
@@ -233,20 +235,20 @@
               "md"
             ];
           };
-          auto-format = true;
         }
 
         {
           name = "html";
+          auto-format = true;
           language-servers = [
             "scls"
             "vscode-html-language-server"
           ];
-          auto-format = true;
         }
 
         {
           name = "json";
+          auto-format = true;
           language-servers = ["scls"];
           formatter = {
             command = lib.getExe pkgs.deno;
@@ -257,7 +259,6 @@
               "json"
             ];
           };
-          auto-format = true;
         }
 
         {
@@ -267,6 +268,7 @@
 
         {
           name = "toml";
+          auto-format = true;
           formatter = {
             command = lib.getExe pkgs.dprint;
             args = [
@@ -274,6 +276,14 @@
               "--stdin"
               "toml"
             ];
+          };
+        }
+        {
+          name = "scala";
+          auto-format = false;
+          formatter = {
+            command = lib.getExe pkgs.scalafmt;
+            args = ["--stdin"];
           };
         }
       ];
