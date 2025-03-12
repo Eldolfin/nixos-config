@@ -8,6 +8,6 @@ TAG=$1
 
 set -xe
 
-git commit -m "$TAG"
+git commit -m "$TAG" || true
 git tag -ma "$TAG"
 git push --follow-tags
