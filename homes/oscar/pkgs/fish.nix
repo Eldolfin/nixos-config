@@ -82,6 +82,16 @@
     interactiveShellInit = ''
       set -U fish_greeting
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
+
+      # yazi wrapper which cd to where yazi is quitted
+      function y
+      	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+      	yazi $argv --cwd-file="$tmp"
+      	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+      		builtin cd -- "$cwd"
+      	end
+      	rm -f -- "$tmp"
+      end
     '';
   };
 }
