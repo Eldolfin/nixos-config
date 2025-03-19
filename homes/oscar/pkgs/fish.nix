@@ -78,6 +78,7 @@
 
       g = "git";
       h = "hx";
+      dc = "docker compose";
     };
     interactiveShellInit = ''
       set -U fish_greeting
