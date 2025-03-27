@@ -4,8 +4,8 @@
       enable = true;
       clean = {
         enable = true;
-        extraArgs = "--keep-since 1d";
-        dates = "daily";
+        extraArgs = "--keep-since 7d";
+        dates = "weekly";
       };
     };
     nix-index-database.comma.enable = true;
