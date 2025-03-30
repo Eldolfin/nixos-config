@@ -8,6 +8,7 @@
       ./basePackages.nix
       ./services.nix
 
+      ./pkgs/ai.nix
       ./pkgs/cliTools.nix
       ./pkgs/dev.nix
       ./pkgs/direnv.nix
