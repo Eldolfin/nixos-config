@@ -22,6 +22,7 @@
       editor = {
         auto-format = true;
         color-modes = true;
+        completion-replace = true;
         completion-trigger-len = 0;
         completion-timeout = 5; # instant according to the docs
         bufferline = "multiple";
@@ -76,16 +77,22 @@
           ];
           "C-s" = ":w";
           "A-f" = ":fmt";
+          "K" = "hover";
+          "A-k" = "keep_selections";
         };
         select = {
           X = [
             "extend_line_up"
             "extend_to_line_bounds"
           ];
+          g = {
+            e = "goto_file_end";
+          };
         };
         insert = {
           "C-s" = ":w";
           "A-f" = ":fmt";
+          "C-backspace" = "delete_word_backward";
         };
       };
     };
