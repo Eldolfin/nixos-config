@@ -7,7 +7,6 @@
     extraPackages = with pkgs; [
       svelte-language-server
       yaml-language-server
-      docker-compose-language-service
       dockerfile-language-server-nodejs
       nodePackages.typescript-language-server
       vue-language-server
@@ -65,6 +64,8 @@
         };
 
         tinymist.command = lib.getExe pkgs.tinymist;
+
+        docker-compose-language-service = lib.getExe pkgs.docker-compose-language-service;
       };
 
       language = [
@@ -291,6 +292,11 @@
           name = "svelte";
           auto-format = true;
           language-servers = ["gpt" "svelteserver"];
+        }
+        {
+          name = "docker-compose";
+          auto-format = true;
+          language-servers = ["docker-compose-language-service"];
         }
       ];
     };
