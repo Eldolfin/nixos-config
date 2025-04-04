@@ -5,6 +5,7 @@
 }: {
   programs.helix = {
     extraPackages = with pkgs; [
+      svelte-language-server
       yaml-language-server
       docker-compose-language-service
       dockerfile-language-server-nodejs
