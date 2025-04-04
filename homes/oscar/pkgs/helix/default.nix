@@ -45,7 +45,7 @@
           skip-levels = 1;
         };
         lsp = {
-          display-inlay-hints = true;
+          display-inlay-hints = false;
         };
         file-picker.hidden = false; # show hidden files
         statusline = {

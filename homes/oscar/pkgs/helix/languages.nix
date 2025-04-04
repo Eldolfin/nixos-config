@@ -287,6 +287,11 @@
             args = ["--stdin"];
           };
         }
+        {
+          name = "svelte";
+          auto-format = true;
+          language-servers = ["gpt" "svelteserver"];
+        }
       ];
     };
   };
