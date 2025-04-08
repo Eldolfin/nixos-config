@@ -154,6 +154,7 @@
       # dig
       # mold
       # act # github action runner
+      sd
     ]
     ++ lib.optional isTour nvtopPackages.nvidia
   );
