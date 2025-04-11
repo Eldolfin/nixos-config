@@ -13,7 +13,7 @@
     # bluetooth media control
     mpris-proxy.enable = true;
     picom = {
-      enable = false;
+      enable = true;
       shadow = true;
       # inactiveOpacity = 0.97;
       inactiveOpacity = 1;
