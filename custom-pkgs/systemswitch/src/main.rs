@@ -173,10 +173,10 @@ async fn main() -> anyhow::Result<()> {
     if !opt().build && !opt().no_commit && !opt().no_push {
         let git_push_args = (opt().force || opt().amend).then_some("--force-with-lease");
         cmd!(sh, "git push {git_push_args...}").maybe_dry_run()?;
-        print_cmd("watch_github_action()");
-        if !opt().dry_run {
-            watch_github_action(&sh).await?;
-        }
+        // print_cmd("watch_github_action()");
+        // if !opt().dry_run {
+        //     watch_github_action(&sh).await?;
+        // }
     }
     Ok(())
 }
