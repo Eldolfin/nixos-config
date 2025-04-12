@@ -47,10 +47,22 @@
           command = lib.getExe pkgs.nodePackages.typescript-language-server;
           args = ["--stdio"];
         };
-        vscode-html-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
-        vscode-css-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
-        vscode-json-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
-        vscode-markdown-language-server.command = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
+        vscode-html-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
+          args = ["--stdio"];
+        };
+        vscode-css-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
+          args = ["--stdio"];
+        };
+        vscode-json-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
+          args = ["--stdio"];
+        };
+        vscode-markdown-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
+          args = ["--stdio"];
+        };
 
         pylsp.command = "${pkgs.python3Packages.python-lsp-server}/bin/pylsp";
         jedi.command = "${pkgs.python3Packages.jedi-language-server}/bin/jedi-language-server";
@@ -65,7 +77,10 @@
 
         tinymist.command = lib.getExe pkgs.tinymist;
 
-        docker-compose-language-service = lib.getExe pkgs.docker-compose-language-service;
+        docker-compose-language-service = {
+          command = lib.getExe pkgs.docker-compose-language-service;
+          args = ["--stdio"];
+        };
       };
 
       language = [
