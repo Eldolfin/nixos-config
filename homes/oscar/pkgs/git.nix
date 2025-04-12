@@ -11,6 +11,9 @@
       pull = {
         rebase = true;
       };
+      rebase = {
+        autostash = true;
+      };
       init = {
         defaultBranch = "main";
       };
