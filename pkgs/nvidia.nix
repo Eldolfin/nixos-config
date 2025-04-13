@@ -11,4 +11,7 @@
     enable = true;
     videoDrivers = ["nvidia"];
   };
+  virtualisation.docker = {
+    enableNvidia = true;
+  };
 }
