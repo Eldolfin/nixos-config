@@ -7,6 +7,7 @@
     ../../pkgs/plymouth.nix
   ];
   networking.hostName = "oscar-portable";
+  console.keyMap = "uk";
   services = {
     openssh.enable = false;
     xserver. xkb.layout = "gb";
