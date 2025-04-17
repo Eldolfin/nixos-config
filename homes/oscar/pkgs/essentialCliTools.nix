@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # required by systemswitch (TODO: put runtime dependency in its package)
     pulseaudio
@@ -26,7 +22,8 @@
     lazygit = {
       enable = true;
       settings = {
-        git.paging.externalDiffCommand = "${lib.getExe pkgs.difftastic} --color=always --display=inline";
+        # too slow for big diffs
+        # git.paging.externalDiffCommand = "${lib.getExe pkgs.difftastic} --color=always --display=inline";
       };
     };
   };
