@@ -29,7 +29,7 @@
         "sidebar.main.tools" = "history";
 
         # privacy related
-        "privacy.resistFingerprinting" = true;
+        # "privacy.resistFingerprinting" = true; # annoying to have the wrong time on zeus
         "privacy.donottrackheader.enabled" = true;
         "dom.battery.enabled" = false;
         "geo.enabled" = false;
