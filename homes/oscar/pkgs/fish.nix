@@ -93,6 +93,12 @@
       	end
       	rm -f -- "$tmp"
       end
+
+      # print and copy current working dir
+      function cwd
+              pwd | tr -d '\n' | fish_clipboard_copy
+              pwd
+        end
     '';
   };
 }
