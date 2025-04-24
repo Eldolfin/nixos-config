@@ -101,7 +101,7 @@
         ########################
         #  Programs Shortcuts  #
         ########################
-        "${mod}+Return" = "exec ${lib.getExe pkgs.ghostty}";
+        "${mod}+Return" = "exec wezterm";
         "${mod}+e" = "exec firefox";
         "${mod}+Shift+e" = "exec firefox --private-window";
         "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
@@ -111,7 +111,7 @@
         "${mod}+Shift+x" = "exec \"rofi -show p -modi p:'rofi-power-menu'\"";
 
         # "${mod}+t" = "exec alacritty -o 'font.size=12' -e btop -p 1";
-        "${mod}+t" = "exec ${lib.getExe pkgs.ghostty} --font-size=12 -e btop";
+        "${mod}+t" = "exec ghostty --font-size=12 -e btop";
         "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
         "Shift+Print" = "exec flameshot gui";
         "${mod}+Print" = "exec ${screenshotWindow}";
