@@ -13,6 +13,7 @@
     xserver. xkb.layout = "gb";
     displayManager.autoLogin.enable = false;
     tlp.enable = true;
+    touchegg.enable = true;
   };
 
   environment.systemPackages = with pkgs; [brightnessctl];
