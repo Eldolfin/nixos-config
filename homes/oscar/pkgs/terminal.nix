@@ -7,7 +7,6 @@
     rofi.terminal = lib.getExe pkgs.ghostty;
     wezterm = {
       enable = true;
-      enableFishIntegration = true;
     };
     ghostty = {
       enable = true;
