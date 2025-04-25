@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./starship.nix];
   home.packages = with pkgs; [
     # used by zsh-notify
@@ -42,7 +38,6 @@
     defaultKeymap = "emacs";
     shellAliases = {
       sw = "systemswitch";
-      clone = ''${lib.getExe pkgs.ghostty} -e zsh >/dev/null 2>&1 &!'';
       svi = "sudo -e";
       vimdiff = "nvim -d";
       ls = "exa";
