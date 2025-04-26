@@ -36,8 +36,16 @@
   # offline home manager manual :) (broken atm)
   manual.html.enable = false;
 
-  #   stylix.enable = true;
-  #   stylix.autoEnable = true;
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    targets = {
+      # I use gruber-darker instead
+      helix.enable = false;
+      # Currently generates invalid wezterm config
+      wezterm.enable = false;
+    };
+  };
 
   xdg = {
     mimeApps.defaultApplications = {

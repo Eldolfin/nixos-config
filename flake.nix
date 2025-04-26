@@ -118,11 +118,6 @@
       ++ [
         ./common.nix
         stylix.nixosModules.stylix
-        {
-          home-manager.sharedModules = [
-            {stylix.targets.helix.enable = false;}
-          ];
-        }
       ];
   in rec {
     nixosConfigurations = {
