@@ -36,10 +36,6 @@
       url = "github:helix-editor/helix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    scls = {
-      url = "github:estin/simple-completion-language-server/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     wol-api = {
       url = "git+ssh://git@eldolfin.top/eldolfin/wol.git?ref=main";

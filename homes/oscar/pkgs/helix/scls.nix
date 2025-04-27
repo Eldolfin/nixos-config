@@ -1,15 +1,13 @@
 {
   pkgs,
-  scls,
   lib,
   ...
 }: let
   tomlFormat = pkgs.formats.toml {};
-  sclsPkg = scls.defaultPackage.x86_64-linux;
 in {
-  home.packages = [sclsPkg];
+  home.packages = [pkgs.simple-completion-language-server];
 
-  programs.helix.languages. language-server . scls.command = lib.getExe' sclsPkg "simple-completion-language-server";
+  programs.helix.languages. language-server . scls.command = lib.getExe pkgs.simple-completion-language-server;
 
   xdg.configFile."helix/external-snippets.toml".source = tomlFormat.generate "scls-snippets" {
     sources = [
