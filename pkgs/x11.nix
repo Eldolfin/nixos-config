@@ -5,12 +5,6 @@
 }: {
   imports = [./xfce.nix];
   services = {
-    displayManager = {
-      defaultSession = "xfce+i3";
-      autoLogin = {
-        user = "oscar";
-      };
-    };
     xserver = {
       enable = true;
 
