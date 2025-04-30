@@ -4,11 +4,14 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./services.nix
+  ];
   home.keyboard.layout = "fr";
   programs.swaylock = {
     enable = true;
     settings = {
-      indicator-radius = 200;
+      indicator-radius = 100;
       show-failed-attempts = true;
     };
   };
@@ -129,7 +132,7 @@
 
           "${mod}+t" = "exec wezterm --config font_size=10 -e btop";
           "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
-          "Shift+Print" = "exec flameshot gui";
+          "Shift+Print" = ''exec ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - | ${lib.getExe pkgs.swappy} -f -'';
           # "${mod}+Print" = "exec ${screenshotWindow}";
           "${mod}+Control+x" = "exec --no-startup-id swaylock";
 
