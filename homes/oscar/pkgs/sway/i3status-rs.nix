@@ -68,7 +68,7 @@
             ];
           }
         ];
-        icons = "awesome6";
+        icons = "material-nf";
         theme = "ctp-frappe";
       };
     };

@@ -53,8 +53,9 @@
           workspaceNumbers = true;
           statusCommand = "i3status-rs config-bottom.toml";
           fonts = {
-            names = ["monospace"];
-            size = 8.0;
+            names = ["DejaVu Sans Mono" "JetBrainsMonoNerdFontMono"];
+            style = "Bold Semi-Condensed";
+            size = 11.0;
           };
           trayOutput = "primary";
           colors = {
