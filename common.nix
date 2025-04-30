@@ -1,13 +1,13 @@
 # this file is common between tour and laptop
 {
   imports = [
-    ./pkgs/sway.nix
-    ./pkgs/stylix.nix
-    ./pkgs/lightdm.nix
-    ./pkgs/sops.nix
-    ./pkgs/sound.nix
     ./common-server.nix
     ./pkgs/niri.nix
+    ./pkgs/regreet.nix
+    ./pkgs/sops.nix
+    ./pkgs/sound.nix
+    ./pkgs/stylix.nix
+    ./pkgs/sway.nix
   ];
 
   boot.loader.timeout = 0;
