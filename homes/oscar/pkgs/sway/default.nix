@@ -26,6 +26,16 @@
           xkb_options = "caps:escape";
         };
       };
+      output = {
+        "DP-3" = {
+          mode = "1920x1080@143.996Hz";
+          pos = "0 0";
+        };
+        "DP-4" = {
+          mode = "1920x1200@59.950Hz";
+          pos = "1920 0";
+        };
+      };
       bindkeysToCode = true;
       keybindings = let
         mod = config.wayland.windowManager.sway.config.modifier;
@@ -114,8 +124,8 @@
           "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
           # "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
-          "${mod}+d" = "exec rofi -show drun";
-          "${mod}+Shift+x" = "exec \"rofi -show p -modi p:'rofi-power-menu'\"";
+          "${mod}+d" = "exec ${lib.getExe pkgs.rofi-wayland} -show drun";
+          "${mod}+Shift+x" = "exec \"${lib.getExe pkgs.rofi-wayland} -show p -modi p:'rofi-power-menu'\"";
 
           "${mod}+t" = "exec wezterm --config font_size=10 -e btop";
           "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
