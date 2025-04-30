@@ -1,6 +1,7 @@
 # this file is common between tour and laptop
 {
   imports = [
+    ./pkgs/sway.nix
     ./pkgs/x11.nix
     ./pkgs/stylix.nix
     ./pkgs/lightdm.nix

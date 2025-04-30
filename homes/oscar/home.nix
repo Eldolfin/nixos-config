@@ -23,6 +23,7 @@
       ./pkgs/fish.nix
       ./pkgs/jujutsu.nix
       ./pkgs/niri
+      ./pkgs/sway
     ]
     ++ lib.optionals isPersonal [./personalPackages.nix];
 

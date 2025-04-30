@@ -1,0 +1,55 @@
+evaluation warning: Obsolete Flake attribute `nixcord.homeManagerModules.nixcord' is used. It was renamed to `nixcord.homeModules.nixcord`'.
+evaluation warning: Firefox bookmarks have been refactored into a submodule that now explicitly require a 'force' option to be enabled.
+
+                    Replace:
+
+                    programs.firefox.profiles.homemanager.bookmarks = [ ... ];
+
+                    With:
+
+                    programs.firefox.profiles.homemanager.bookmarks = {
+                      force = true;
+                      settings = [ ... ];
+                    };
+evaluation warning: Firefox bookmarks have been refactored into a submodule that now explicitly require a 'force' option to be enabled.
+
+                    Replace:
+
+                    programs.firefox.profiles.homemanager.bookmarks = [ ... ];
+
+                    With:
+
+                    programs.firefox.profiles.homemanager.bookmarks = {
+                      force = true;
+                      settings = [ ... ];
+                    };
+evaluation warning: In order to support declarative extension configuration,
+                    extension installation has been moved from
+                    programs.firefox.profiles.<profile>.extensions
+                    to
+                    programs.firefox.profiles.<profile>.extensions.packages
+evaluation warning: rustPlatform.fetchCargoTarball is deprecated in favor of rustPlatform.fetchCargoVendor.
+                    If you are using buildRustPackage, try setting useFetchCargoVendor = true and regenerating cargoHash.
+                    See the 25.05 release notes for more information.
+evaluation warning: Search engines are now referenced by id instead of by name, use 'amazondotcom-us' instead of 'Amazon.com'
+evaluation warning: Search engines are now referenced by id instead of by name, use 'bing' instead of 'Bing'
+evaluation warning: Search engines are now referenced by id instead of by name, use 'google' instead of 'Google'
+evaluation warning: 'iconUpdateURL' is deprecated, use 'icon = "https://crates.io/favicon.ico"' instead
+evaluation warning: 'iconUpdateURL' is deprecated, use 'icon = "https://home-manager-options.extranix.com/images/favicon.png"' instead
+evaluation warning: 'iconUpdateURL' is deprecated, use 'icon = "https://wiki.nixos.org/favicon.png"' instead
+evaluation warning: getExe: Package "kotlin-language-server-1.3.13" does not have the meta.mainProgram attribute. We'll assume that the main program has the same name for now, but this behavior is deprecated, because it leads to surprising errors when the assumption does not hold. If the package has a main program, please set `meta.mainProgram` in its definition to make this warning go away. Otherwise, if the package does not have a main program, or if you don't control its definition, use getExe' to specify the name to the program, such as lib.getExe' foo "bar".
+evaluation warning: oscar profile: stylix: firefox: `config.stylix.targets.firefox.profileNames` is not set. Declare profile names with 'config.stylix.targets.firefox.profileNames = [ "<PROFILE_NAME>" ];'.
+evaluation warning: oscar profile: The option `programs.mako' defined in `/nix/store/6fclnr1js5pqs3v12kaihaza4pi5p1sj-source/homes/oscar/pkgs/niri' has been renamed to `services.mako'.
+evaluation warning: oscar profile: You have set either `nixpkgs.config` or `nixpkgs.overlays` while using `home-manager.useGlobalPkgs`.
+                    This will soon not be possible. Please remove all `nixpkgs` options when using `home-manager.useGlobalPkgs`.
+evaluation warning: oscar profile: xdg-desktop-portal 1.17 reworked how portal implementations are loaded, you
+                    should either set `xdg.portal.config` or `xdg.portal.configPackages`
+                    to specify which portal backend to use for the requested interface.
+
+                    https://github.com/flatpak/xdg-desktop-portal/blob/1.18.1/doc/portals.conf.rst.in
+
+                    If you simply want to keep the behaviour in < 1.17, which uses the first
+                    portal implementation found in lexicographical order, use the following:
+
+                    xdg.portal.config.common.default = "*";
+evaluation warning: You have set virtualisation.docker.enableNvidia. This option is deprecated, please set hardware.nvidia-container-toolkit.enable instead.

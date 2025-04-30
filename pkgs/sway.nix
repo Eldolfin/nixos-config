@@ -2,6 +2,12 @@
   programs.sway = {
     enable = true;
     xwayland.enable = true;
+    wrapperFeatures.gtk = true;
+    extraOptions = [
+      # "--verbose"
+      # "--debug"
+      "--unsupported-gpu"
+    ];
   };
 
   environment.sessionVariables = {
