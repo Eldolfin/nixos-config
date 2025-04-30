@@ -51,6 +51,7 @@
         }
       ];
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        aw-watcher-web
         bitwarden
         consent-o-matic
         dearrow
