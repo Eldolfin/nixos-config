@@ -20,6 +20,11 @@
     # zellij.enable = true;
     zoxide.enable = true;
 
+    mcfly = {
+      enable = true;
+      fzf.enable = true;
+    };
+
     lazygit = {
       enable = true;
       settings = {
