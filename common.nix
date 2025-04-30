@@ -2,7 +2,8 @@
 {
   imports = [
     ./common-server.nix
-    ./pkgs/regreet.nix
+    # ./pkgs/regreet.nix
+    ./pkgs/lightdm.nix
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
