@@ -142,18 +142,16 @@
           ###################
           #  Media control  #
           ###################
-          "XF86MonBrightnessUp" = "exec --no-startup-id ${lib.getExe pkgs.brightnessctl} s -e 10%+";
-          "XF86MonBrightnessDown" = "exec --no-startup-id ${lib.getExe pkgs.brightnessctl} s -e 10%-";
-
           "XF86AudioPlay" = "exec ${lib.getExe pkgs.playerctl} play-pause";
           "XF86AudioPause" = "exec ${lib.getExe pkgs.playerctl} play-pause";
 
-          # TODO
-          # "XF86AudioMute" = "exec ${volumeChange} t";
-          # "XF86AudioLowerVolume" = "exec ${volumeChange} d";
-          # "XF86AudioRaiseVolume" = "exec ${volumeChange} i";
-          # "F2" = "exec ${volumeChange} d";
-          # "F3" = "exec ${volumeChange} i";
+          "XF86AudioRaiseVolume" = "exec volumectl -u up";
+          "XF86AudioLowerVolume" = "exec volumectl -u down";
+          "XF86AudioMute" = "exec volumectl toggle-mute";
+          "XF86AudioMicMute" = "exec volumectl -m toggle-mute";
+
+          "XF86MonBrightnessUp" = "exec lightctl up";
+          "XF86MonBrightnessDown" = "exec lightctl down";
         };
     };
   };
