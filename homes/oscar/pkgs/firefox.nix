@@ -36,16 +36,6 @@
       };
       bookmarks = [
         {
-          name = "Nix";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "Manual";
-              url = "https://ryantm.github.io/nixpkgs/functions/library/attrsets";
-            }
-          ];
-        }
-        {
           name = "Bookmarks";
           toolbar = true;
           bookmarks = [
@@ -54,8 +44,8 @@
               url = "http://192.168.1.1:7575";
             }
             {
-              name = "YT";
-              url = "https://invidious.eldolfin.top/feed/subscriptions";
+              name = "awatcher";
+              url = "http://127.0.0.1:5600";
             }
           ];
         }
