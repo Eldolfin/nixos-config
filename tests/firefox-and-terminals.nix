@@ -36,7 +36,7 @@
     for i in range(10): c.send_key("ctrl-minus", delay=0.2)
     c.sleep(1)
 
-    user("wezterm --config font_size=9 -e hx ~/bin/scripts/systemswitch.py"+bg)
+    user("kitty -o font_size=9 -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
     c.sleep(5)
     # Zoom out
