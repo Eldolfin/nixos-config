@@ -19,4 +19,4 @@ watch:
     git ls-files | entr -c nh os switch /etc/nixos
 
 build-laptop-on-tour:
-    nixos-rebuild switch --flake '/etc/nixos#oscar-portable' --show-trace --build-host oscar@192.168.1.71 |& nom
+    nixos-rebuild switch --flake '/etc/nixos#oscar-portable' --show-trace --build-host oscar@192.168.1.167 |& nom
