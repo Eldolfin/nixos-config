@@ -4,7 +4,6 @@
     mako.enable = true;
   };
   services = {
-    xscreensaver.enable = true;
   };
   # from https://github.com/YaLTeR/niri/wiki/Important-Software
   xdg.portal.extraPortals = with pkgs; [

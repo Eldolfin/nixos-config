@@ -29,6 +29,6 @@
         };
       };
     };
-    xscreensaver.enable = true;
+    # xscreensaver.enable = true; # doesn't work well on wayland sadly RIP
   };
 }
