@@ -15,15 +15,15 @@
       ./pkgs/firefox.nix
       ./pkgs/git.nix
       ./pkgs/helix
-      ./pkgs/i3
       ./pkgs/scripts
       ./pkgs/socials.nix
       ./pkgs/sounds.nix
-      # ./pkgs/zsh.nix
       ./pkgs/fish.nix
-      ./pkgs/jujutsu.nix
-      ./pkgs/niri
       ./pkgs/sway
+      # ./pkgs/niri
+      # ./pkgs/i3
+      # ./pkgs/zsh.nix
+      # ./pkgs/jujutsu.nix
     ]
     ++ lib.optionals isPersonal [./personalPackages.nix];
 

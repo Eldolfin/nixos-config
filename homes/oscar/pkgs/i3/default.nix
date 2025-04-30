@@ -4,7 +4,11 @@
   isTour,
   ...
 } @ inputs: {
-  imports = [./i3blocks];
+  imports = [
+    ./i3blocks
+    ./services.nix
+    ../activitywatch.nix
+  ];
   home.file.".config/i3/scripts" = {
     source = ./scripts;
     recursive = true;
