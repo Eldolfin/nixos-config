@@ -14,8 +14,8 @@
           }
           {
             block = "memory";
-            format_mem = " $icon $mem_used_percents ";
-            format_swap = " $icon $swap_used_percents ";
+            format = " $icon $mem_used_percents ";
+            # format_alt = " $icon $swap_used_percents ";
             interval = 1;
           }
           {
