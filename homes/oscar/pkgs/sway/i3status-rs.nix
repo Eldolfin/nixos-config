@@ -14,8 +14,6 @@
           }
           {
             block = "memory";
-            format = " $icon $mem_used_percents ";
-            # format_alt = " $icon $swap_used_percents ";
             interval = 1;
           }
           {
@@ -25,7 +23,13 @@
           {
             block = "load";
             interval = 1;
-            format = " $icon $1m ";
+          }
+          {
+            block = "net";
+          }
+          {
+            block = "temperature";
+            chip = "*-isa-*";
           }
           {
             block = "sound";
@@ -33,7 +37,10 @@
           {
             block = "time";
             interval = 60;
-            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+            format = " $timestamp.datetime(f:'%a %d/%m %T') ";
+          }
+          {
+            block = "hueshift";
           }
           {
             block = "notify";
