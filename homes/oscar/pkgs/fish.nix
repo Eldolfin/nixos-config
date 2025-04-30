@@ -41,7 +41,7 @@
         name = "autopair";
         inherit (autopair) src;
       } # alternative: pisces https://github.com/laughedelic/pisces
-      # TODO: check if prompt is slow to appear
+      # check this if prompt is slow to appear
       # {
       #   name = "async-prompt";
       #   src = async-prompt.src;
