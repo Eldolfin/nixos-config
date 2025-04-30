@@ -8,6 +8,9 @@
     ./services.nix
   ];
   home.keyboard.layout = "fr";
+  home.packages = with pkgs; [
+    wl-clipboard
+  ];
   programs.swaylock = {
     enable = true;
     settings = {
