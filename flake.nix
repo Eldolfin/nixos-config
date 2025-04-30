@@ -32,11 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix = {
-      url = "github:helix-editor/helix/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     wol-api = {
       url = "git+ssh://git@eldolfin.top/eldolfin/wol.git?ref=main";
 
@@ -58,7 +53,6 @@
     nur,
     sops-nix,
     nix-index-database,
-    helix,
     nixcord,
     nixpkgs-master,
     wol-api,
@@ -99,7 +93,6 @@
           };
 
           home-manager.extraSpecialArgs = {
-            helix-master = helix;
             isPersonal = true;
           };
           home-manager.sharedModules = [
@@ -224,7 +217,6 @@
       extraSpecialArgs =
         inputs
         // {
-          helix-master = helix;
           isTour = false;
           isPersonal = false;
         };

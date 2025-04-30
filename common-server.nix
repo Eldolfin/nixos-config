@@ -89,13 +89,9 @@
       ];
 
       substituters = [
-        "https://helix.cachix.org"
-
         "https://nixos-eldolfin.cachix.org"
       ];
       trusted-public-keys = [
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-
         "nixos-eldolfin.cachix.org-1:+9moa8pYw+2ie0kWZWjhhNu1Axa+G/2ssdSClvfE/7w="
       ];
     };

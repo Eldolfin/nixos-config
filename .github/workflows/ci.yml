@@ -30,7 +30,6 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: helix
       - name: Install nix-fast-build
         shell: bash
         run: |
@@ -54,7 +53,6 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: helix
       - name: replace 'oscar' with current username
         run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
       - run: |
@@ -92,7 +90,6 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: helix
 
       - name: Install nix-fast-build
         shell: bash

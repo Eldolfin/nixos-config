@@ -1,8 +1,4 @@
-{
-  pkgs,
-  helix-master,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./languages.nix ./scls.nix];
   home = {
     packages = with pkgs; [
@@ -15,7 +11,6 @@
   };
   programs.helix = {
     enable = true;
-    package = helix-master.packages.${pkgs.system}.default;
 
     settings = {
       theme = "gruber-darker";
