@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    aichat
+    # aichat # never used
   ];
 }
