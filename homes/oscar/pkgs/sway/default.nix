@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./i3status-rs.nix
     ./services.nix
   ];
   home.keyboard.layout = "fr";
@@ -43,6 +44,51 @@
         };
       };
       bindkeysToCode = true;
+      bars = [
+        {
+          mode = "dock";
+          hiddenState = "hide";
+          position = "bottom";
+          workspaceButtons = true;
+          workspaceNumbers = true;
+          statusCommand = "i3status-rs config-bottom.toml";
+          fonts = {
+            names = ["monospace"];
+            size = 8.0;
+          };
+          trayOutput = "primary";
+          colors = {
+            background = "#000000";
+            statusline = "#ffffff";
+            separator = "#666666";
+            focusedWorkspace = {
+              border = "#4c7899";
+              background = "#285577";
+              text = "#ffffff";
+            };
+            activeWorkspace = {
+              border = "#333333";
+              background = "#5f676a";
+              text = "#ffffff";
+            };
+            inactiveWorkspace = {
+              border = "#333333";
+              background = "#222222";
+              text = "#888888";
+            };
+            urgentWorkspace = {
+              border = "#2f343a";
+              background = "#900000";
+              text = "#ffffff";
+            };
+            bindingMode = {
+              border = "#2f343a";
+              background = "#900000";
+              text = "#ffffff";
+            };
+          };
+        }
+      ];
       keybindings = let
         mod = config.wayland.windowManager.sway.config.modifier;
       in
@@ -124,7 +170,7 @@
           ########################
           #  Programs Shortcuts  #
           ########################
-          "${mod}+Return" = "exec wezterm";
+          "${mod}+Return" = "exec kitty";
           "${mod}+e" = "exec firefox";
           "${mod}+Shift+e" = "exec firefox --private-window";
           "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
@@ -133,7 +179,7 @@
           "${mod}+d" = "exec ${lib.getExe pkgs.rofi-wayland} -show drun";
           "${mod}+Shift+x" = "exec \"${lib.getExe pkgs.rofi-wayland} -show p -modi p:'rofi-power-menu'\"";
 
-          "${mod}+t" = "exec wezterm --config font_size=10 -e btop";
+          "${mod}+t" = "exec kitty -o font_size=8 -e btop";
           "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
           "Shift+Print" = ''exec ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - | ${lib.getExe pkgs.swappy} -f -'';
           # "${mod}+Print" = "exec ${screenshotWindow}";
