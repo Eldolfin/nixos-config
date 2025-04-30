@@ -7,10 +7,14 @@
       Requires = ["graphical-session-pre.target"];
     };
   };
+  programs.rofi = {
+    enable = true;
+  };
 
   services = {
     flameshot.enable = true;
     copyq.enable = true;
+    dunst.enable = true;
     redshift = {
       enable = true;
       tray = true;

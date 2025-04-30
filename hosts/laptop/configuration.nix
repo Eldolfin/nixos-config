@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ../../common.nix
     ../../services/autocpufreq.nix
@@ -15,6 +15,4 @@
     tlp.enable = true;
     touchegg.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [brightnessctl];
 }

@@ -13,6 +13,12 @@
     source = ./scripts;
     recursive = true;
   };
+  home.packages = with pkgs; [
+    i3lock-fancy-rapid
+    i3-auto-layout
+    rofi-power-menu
+    emote
+  ];
 
   xsession.windowManager.i3 = let
     mod = "Mod4";
