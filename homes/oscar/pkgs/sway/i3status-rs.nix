@@ -1,4 +1,9 @@
-{
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    # enabled as a service but the package is needed too for the command to be available in PATH
+    wlsunset
+  ];
+
   programs.i3status-rust = {
     enable = true;
     bars = {
@@ -32,15 +37,20 @@
             chip = "*-isa-*";
           }
           {
+            block = "battery";
+            format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}";
+            missing_format = "";
+          }
+          {
             block = "sound";
+          }
+          {
+            block = "hueshift";
           }
           {
             block = "time";
             interval = 60;
             format = " $timestamp.datetime(f:'%a %d/%m %T') ";
-          }
-          {
-            block = "hueshift";
           }
           {
             block = "notify";
@@ -58,7 +68,7 @@
             ];
           }
         ];
-        icons = "emoji";
+        icons = "awesome6";
         theme = "ctp-frappe";
       };
     };
