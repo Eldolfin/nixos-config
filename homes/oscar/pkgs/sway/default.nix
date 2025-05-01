@@ -29,6 +29,9 @@
         "1008:1610:Primax_HP_USB_Keyboard" = {
           xkb_layout = "fr";
         };
+        "1:1:AT_Translated_Set_2_keyboard" = {
+          xkb_layout = "gb";
+        };
         "*" = {
           xkb_options = "caps:escape";
         };
