@@ -6,7 +6,6 @@
     ./pkgs/chromium.nix
     ./pkgs/socials.nix
     ./pkgs/sway
-    ./pkgs/i3
   ];
 
   home.packages = with pkgs; [
