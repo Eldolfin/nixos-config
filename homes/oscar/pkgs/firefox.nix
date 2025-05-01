@@ -67,7 +67,6 @@
           refined-github
           return-youtube-dislikes
           sponsorblock
-          skip-redirect
           ublock-origin
           vimium
         ];
