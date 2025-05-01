@@ -2,9 +2,6 @@
   description = "Nixos system configuration";
 
   inputs = {
-    # only use master when a package is broken on unstable but fixed on master
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -54,7 +51,6 @@
     sops-nix,
     nix-index-database,
     nixcord,
-    nixpkgs-master,
     wol-api,
     ...
   } @ inputs: let
@@ -62,18 +58,6 @@
     # common to standalone home config and nixos
     commonModules = [
       ./pkgs/cachix-subsituter.nix
-      {
-        nixpkgs.overlays = [
-          # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-          # be accessible through 'pkgs.unstable'
-          (_final: _prev: {
-            master = import nixpkgs-master {
-              inherit system;
-              # config.allowUnfree = true;
-            };
-          })
-        ];
-      }
     ];
     nixosModulesServer =
       commonModules
@@ -98,7 +82,7 @@
           home-manager.sharedModules = [
             nur.modules.homeManager.default
             nix-index-database.hmModules.nix-index
-            nixcord.homeManagerModules.nixcord
+            nixcord.homeModules.nixcord
           ];
         }
       ];
@@ -210,7 +194,7 @@
       modules =
         commonModules
         ++ [
-          nixcord.homeManagerModules.nixcord
+          nixcord.homeModules.nixcord
           nur.modules.homeManager.default
           ./homes/oscar/home.nix
         ];

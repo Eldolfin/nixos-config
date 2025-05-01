@@ -7,6 +7,7 @@
       helix.enable = false;
       # Currently generates invalid wezterm config
       wezterm.enable = false;
+      firefox.profileNames = ["homemanager"];
     };
   };
 }

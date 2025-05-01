@@ -12,8 +12,6 @@
     fish.enable = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 

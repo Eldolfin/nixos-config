@@ -34,7 +34,7 @@
         };
         nixd.command = "${pkgs.nixd}/bin/nixd";
         jdtls.command = "${pkgs.jdt-language-server}/bin/jdtls";
-        kotlinls.command = lib.getExe pkgs.kotlin-language-server;
+        # kotlinls.command = lib.getExe' pkgs.kotlin-language-server "kotlin-language-server";
         bashls = {
           command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
           args = ["start"];
@@ -68,7 +68,7 @@
         jedi.command = "${pkgs.python3Packages.jedi-language-server}/bin/jedi-language-server";
 
         rust-analyzer = {
-          command = "${pkgs.master.rust-analyzer}/bin/rust-analyzer";
+          command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
           config = {
             checkOnSave.command = "clippy";
             cargo.allFeatures = true;
@@ -211,7 +211,7 @@
           name = "kotlin";
           auto-format = true;
           language-servers = [
-            "kotlinls"
+            # "kotlinls"
             # "gpt"
           ];
         }

@@ -34,39 +34,44 @@
         "dom.battery.enabled" = false;
         "geo.enabled" = false;
       };
-      bookmarks = [
-        {
-          name = "Bookmarks";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "Dashboard";
-              url = "http://192.168.1.1:7575";
-            }
-            {
-              name = "awatcher";
-              url = "http://127.0.0.1:5600";
-            }
-          ];
-        }
-      ];
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        aw-watcher-web
-        bitwarden
-        consent-o-matic
-        dearrow
-        french-dictionary
-        french-language-pack
-        jump-cutter
-        github-file-icons
-        libredirect
-        refined-github
-        return-youtube-dislikes
-        sponsorblock
-        skip-redirect
-        ublock-origin
-        vimium
-      ];
+      bookmarks = {
+        force = true; # no choice but to remove other bookmarks...
+        settings = [
+          {
+            name = "Bookmarks";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "Dashboard";
+                url = "http://192.168.1.1:7575";
+              }
+              {
+                name = "awatcher";
+                url = "http://127.0.0.1:5600";
+              }
+            ];
+          }
+        ];
+      };
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          aw-watcher-web
+          bitwarden
+          consent-o-matic
+          dearrow
+          french-dictionary
+          french-language-pack
+          jump-cutter
+          github-file-icons
+          libredirect
+          refined-github
+          return-youtube-dislikes
+          sponsorblock
+          skip-redirect
+          ublock-origin
+          vimium
+        ];
+      };
       search = {
         force = true;
         default = "selfhosted";
@@ -107,13 +112,13 @@
 
           "NixOS Wiki" = {
             urls = [{template = "https://wiki.nixos.org/index.php?search={searchTerms}";}];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+            icon = "https://wiki.nixos.org/favicon.png";
             definedAliases = ["@nw"];
           };
 
           "Crates io" = {
             urls = [{template = "https://crates.io/search?q={searchTerms}";}];
-            iconUpdateURL = "https://crates.io/favicon.ico";
+            icon = "https://crates.io/favicon.ico";
             definedAliases = ["@rp"];
           };
 
@@ -121,13 +126,13 @@
             urls = [
               {template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";}
             ];
-            iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
+            icon = "https://home-manager-options.extranix.com/images/favicon.png";
             definedAliases = ["@hm"];
           };
 
-          "Bing".metaData.hidden = true;
-          "Amazon.com".metaData.hidden = true;
-          "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+          "bing".metaData.hidden = true;
+          "amazondotcom-us".metaData.hidden = true;
+          "google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
         };
       };
     };
