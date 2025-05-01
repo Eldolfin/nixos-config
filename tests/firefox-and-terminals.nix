@@ -38,13 +38,13 @@
 
     user("kitty -o font_size=7 -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
-    c.sleep(5)
+    user("firefox https://github.com/eldolfin/nixos-config")
+    c.wait_until_succeeds("pgrep sleep")
+    c.send_monitor_command("mouse_move 1000 500")
     # Zoom out
-    for i in range(20): c.send_key("ctrl-minus", delay=0.2)
+    for i in range(10): c.send_key("ctrl-minus", delay=0.2)
+    for i in range(3): c.send_monitor_command("mouse_button 5")
     c.sleep(1)
-
-    # Wait for everything to be ready
-    c.sleep(10)
 
     c.screenshot("${name}")
   '';
