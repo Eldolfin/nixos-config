@@ -2,6 +2,10 @@
   imports = [../activitywatch.nix];
   services = {
     avizo.enable = true;
+    clipse = {
+      enable = true;
+      imageDisplay.type = "kitty";
+    };
     swaync = {
       enable = true;
     };

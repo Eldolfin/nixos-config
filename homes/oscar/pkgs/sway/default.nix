@@ -11,6 +11,7 @@
   home.keyboard.layout = "fr";
   home.packages = with pkgs; [
     wl-clipboard
+    fuzzel
   ];
   programs.swaylock = {
     enable = true;
@@ -34,6 +35,8 @@
         };
         "*" = {
           xkb_options = "caps:escape";
+          repeat_delay = "250";
+          repeat_rate = "50";
         };
       };
       output = {
@@ -171,16 +174,20 @@
           "${mod}+a" = "layout toggle tabbed splith splitv";
           "${mod}+Tab" = "workspace back_and_forth";
 
+          # utils
+          "${mod}+n" = "exec swaync-client --toggle-panel";
+          "${mod}+b" = "exec ${lib.getExe pkgs.bemoji}";
+          "${mod}+w" = "exec ${lib.getExe pkgs.woomer}";
+          "${mod}+v" = ''exec kitty -e sh -c "swaymsg floating enable, move position center; swaymsg resize set 80ppt 80ppt && ${lib.getExe pkgs.clipse}"'';
+
           ########################
           #  Programs Shortcuts  #
           ########################
           "${mod}+Return" = "exec kitty";
           "${mod}+e" = "exec firefox";
           "${mod}+Shift+e" = "exec firefox --private-window";
-          "${mod}+v" = "exec ${lib.getExe pkgs.copyq} show";
-          # "${mod}+m" = "exec /home/oscar/bin/scripts/toggle-lamp.sh";
 
-          "${mod}+d" = "exec ${lib.getExe pkgs.rofi-wayland} -show drun";
+          "${mod}+d" = "exec fuzzel";
           "${mod}+Shift+x" = "exec \"${lib.getExe pkgs.rofi-wayland} -show p -modi p:'rofi-power-menu'\"";
 
           "${mod}+t" = "exec kitty -o font_size=8 -e btop";
@@ -190,7 +197,6 @@
           "${mod}+Control+x" = "exec --no-startup-id swaylock";
 
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
-          "${mod}+w" = "exec ${lib.getExe pkgs.woomer}";
 
           ###################
           #  Media control  #
