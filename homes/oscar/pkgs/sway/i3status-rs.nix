@@ -45,6 +45,11 @@
             block = "sound";
           }
           {
+            block = "bluetooth";
+            mac = "0C:7A:15:B3:5A:1E";
+            disconnected_format = "";
+          }
+          {
             block = "hueshift";
           }
           {
