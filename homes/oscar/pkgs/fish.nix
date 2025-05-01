@@ -97,7 +97,25 @@
       function cwd
               pwd | tr -d '\n' | fish_clipboard_copy
               pwd
+      end
+
+      function wol
+        set available_commands wake shutdown
+
+        if test $(count $argv) -ne 2
+            echo "wrong number of arguments"
+            echo "usage: wol <wake|shutdown> <MACHINE_NAME>"
+            return 1
         end
+        if not contains $argv[1] $available_commands
+            echo "first argument should be in [$available_commands]"
+            return 1
+        end
+
+        echo "Sending '$argv[1]' on lan to '$argv[2]'..."
+        curl "https://wol.internal.eldolfin.top/api/machine/$argv[2]/$argv[1]" \
+            --request POST --insecure
+      end
     '';
   };
 }
