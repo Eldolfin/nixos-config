@@ -3,9 +3,10 @@
     # smassh # monkey type in terminal
     gamemode
     lutris-free
-    dolphin-emu
+    # dolphin-emu
     winetricks
     wine
+    hydralauncher
     # steam # installed as nixos module
     libusb1 # for minecraft
     prismlauncher
