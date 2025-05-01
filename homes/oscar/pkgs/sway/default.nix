@@ -47,6 +47,9 @@
         "1:1:AT_Translated_Set_2_keyboard" = {
           xkb_layout = "gb";
         };
+        "1267:51:Elan_Touchpad" = {
+          scroll_factor = "3";
+        };
         "*" = {
           xkb_options = "caps:escape";
           repeat_delay = "250";
