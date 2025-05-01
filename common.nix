@@ -2,12 +2,12 @@
 {
   imports = [
     ./common-server.nix
-    # ./pkgs/regreet.nix
-    ./pkgs/lightdm.nix
+    ./pkgs/gdm.nix
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
     ./pkgs/sway.nix
+    ./pkgs/xdg.nix
   ];
 
   boot.loader.timeout = 0;

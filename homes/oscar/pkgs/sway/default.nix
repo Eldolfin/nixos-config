@@ -13,6 +13,10 @@
     wl-clipboard
     fuzzel
   ];
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-wlr
+  ];
+
   programs.swaylock = {
     enable = true;
     settings = {

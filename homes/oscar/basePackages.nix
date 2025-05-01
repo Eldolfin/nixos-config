@@ -10,9 +10,6 @@
     # chezmoi
     inotify-tools
 
-    # graphical programs
-    emote
-
     # libraries
     libnotify
   ];

@@ -1,8 +1,4 @@
 {
-  pkgs,
-  lib,
-  ...
-}: {
   programs = {
     sway = {
       enable = true;
@@ -20,7 +16,7 @@
       waylandCompositors.sway = {
         prettyName = "sway";
         comment = "Sway";
-        binPath = lib.getExe' pkgs.sway "sway";
+        binPath = "/run/current-system/sw/bin/sway";
       };
     };
   };
@@ -30,8 +26,9 @@
     # WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
-    "WLR_RENDERER" = "pixman";
-    SWAYSOCK = "/tmp/sway-ipc.sock";
+    # incorrect?
+    # "WLR_RENDERER" = "pixman";
+    # SWAYSOCK = "/tmp/sway-ipc.sock";
   };
 
   hardware.graphics.enable = true;
