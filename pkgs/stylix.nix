@@ -9,8 +9,11 @@
       grub.useImage = true; # :)
     };
 
-    # cursor.package = pkgs.bibata-cursors;
-    # cursor.name = "Bibata-Modern-Ice";
+    cursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-light";
+      size = 24;
+    };
 
     fonts = {
       monospace = {

@@ -30,6 +30,16 @@
       modifier = "Mod4";
       defaultWorkspace = "workspace number 1";
       terminal = lib.getExe pkgs.alacritty;
+      startup = [
+        {command = "${lib.getExe pkgs.autotiling-rs}";}
+      ];
+      floating = {
+        criteria = [
+          {
+            class = "clipse";
+          }
+        ];
+      };
       input = {
         "1008:1610:Primax_HP_USB_Keyboard" = {
           xkb_layout = "fr";
@@ -122,8 +132,8 @@
           "${mod}+quotedbl" = "workspace number 3";
           "${mod}+apostrophe" = "workspace number 4";
           "${mod}+parenleft" = "workspace number 5";
-          "${mod}+egrave" = "workspace number 6";
-          "${mod}+minus" = "workspace number 7";
+          "${mod}+minus" = "workspace number 6";
+          "${mod}+egrave" = "workspace number 7";
           "${mod}+underscore" = "workspace number 8";
           "${mod}+ccedilla" = "workspace number 9";
           "${mod}+agrave" = "workspace number 10";
@@ -133,8 +143,8 @@
           "${mod}+Shift+quotedbl" = "move container to workspace number 3";
           "${mod}+Shift+apostrophe" = "move container to workspace number 4";
           "${mod}+Shift+parenleft" = "move container to workspace number 5";
-          "${mod}+Shift+egrave" = "move container to workspace number 6";
-          "${mod}+Shift+minus" = "move container to workspace number 7";
+          "${mod}+Shift+minus" = "move container to workspace number 6";
+          "${mod}+Shift+egrave" = "move container to workspace number 7";
           "${mod}+Shift+underscore" = "move container to workspace number 8";
           "${mod}+Shift+ccedilla" = "move container to workspace number 9";
           "${mod}+Shift+agrave" = "move container to workspace number 10";
@@ -144,8 +154,8 @@
           "${mod}+Control+quotedbl" = "move container to workspace number 3; workspace number 3";
           "${mod}+Control+apostrophe" = "move container to workspace number 4; workspace number 4";
           "${mod}+Control+parenleft" = "move container to workspace number 5; workspace number 5";
-          "${mod}+Control+egrave" = "move container to workspace number 6; workspace number 6";
-          "${mod}+Control+minus" = "move container to workspace number 7; workspace number 7";
+          "${mod}+Control+minus" = "move container to workspace number 6; workspace number 6";
+          "${mod}+Control+egrave" = "move container to workspace number 7; workspace number 7";
           "${mod}+Control+underscore" = "move container to workspace number 8; workspace number 8";
           "${mod}+Control+ccedilla" = "move container to workspace number 9; workspace number 9";
           "${mod}+Control+agrave" = "move container to workspace number 10; workspace number 10";
@@ -183,6 +193,7 @@
           "${mod}+b" = "exec ${lib.getExe pkgs.bemoji}";
           "${mod}+w" = "exec ${lib.getExe pkgs.woomer}";
           "${mod}+v" = ''exec kitty -e sh -c "swaymsg floating enable, move position center; swaymsg resize set 80ppt 80ppt && ${lib.getExe pkgs.clipse}"'';
+          "${mod}+s" = "exec ${import ./scripts/swap-displays.nix pkgs}";
 
           ########################
           #  Programs Shortcuts  #
