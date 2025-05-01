@@ -84,6 +84,8 @@
             nix-index-database.hmModules.nix-index
             nixcord.homeModules.nixcord
           ];
+          # nvidia, steam, ...
+          nixpkgs.config.allowUnfree = true;
         }
       ];
     nixosModules =
@@ -194,6 +196,7 @@
       modules =
         commonModules
         ++ [
+          stylix.homeManagerModules.stylix
           nixcord.homeModules.nixcord
           nur.modules.homeManager.default
           ./homes/oscar/home.nix
