@@ -6,6 +6,7 @@
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
+    ./pkgs/x11.nix
     ./pkgs/sway.nix
     ./pkgs/xdg.nix
   ];
