@@ -10,10 +10,11 @@
       dockerfile-language-server-nodejs
       nodePackages.typescript-language-server
       vue-language-server
-      pkgs.markdown-oxide
-      pkgs.nil
-      pkgs.jq-lsp
+      markdown-oxide
+      nil
+      jq-lsp
       metals
+      fish-lsp
     ];
     languages = {
       language-server = {
