@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -xe
 
 TMP_LAST_COMMITS='/tmp/aichat-last-commits.txt'
 TMP_GIT_DIFF='/tmp/aichat-git-diff.txt'
