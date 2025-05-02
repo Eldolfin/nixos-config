@@ -69,6 +69,9 @@
                 --fish <(${ss} --generate-completions fish) \
                 --zsh <(${ss} --generate-completions zsh)
             '';
+            postInstall = ''
+              cp src/ai-commit.sh $out/bin/
+            '';
           });
       in {
         # Per-system attributes can be defined here. The self' and inputs'

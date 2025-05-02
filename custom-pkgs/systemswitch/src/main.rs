@@ -146,7 +146,20 @@ async fn main() -> anyhow::Result<()> {
         } else {
             let git_commit_args = git_commit_args();
             cmd!(sh, "git add .").maybe_dry_run()?;
-            let res = cmd!(sh, "git commit {git_commit_args...}").maybe_dry_run();
+            let res = if git_commit_args.is_empty() {
+                cmd!(sh, "ai-commit.sh").maybe_dry_run().or_else(|_err| {
+                    eprint!(
+                        "{}",
+                        "ai commit failed, falling back to normal git commit"
+                            .red()
+                            .bold()
+                    );
+
+                    cmd!(sh, "git commit").maybe_dry_run()
+                })
+            } else {
+                cmd!(sh, "git commit {git_commit_args...}").maybe_dry_run()
+            };
             if res.is_err() {
                 eprint!(
                     "{}",
