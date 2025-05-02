@@ -30,7 +30,6 @@
       nodePackages.live-server
       sshfs
       entr
-      devenv
       tea
       yazi
       just
