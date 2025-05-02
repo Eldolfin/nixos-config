@@ -1278,11 +1278,11 @@
       },
       "locked": {
         "dir": "custom-pkgs/systemswitch",
-        "lastModified": 1746134408,
-        "narHash": "sha256-eASGnT+vlhHVKCSGX/4QUTbBb3ceoD5RCxNdOOe9NJI=",
+        "lastModified": 1746192460,
+        "narHash": "sha256-apPrbF/u7UHSU2SOxUjeg/19soOxfyFKvtlkyh+lr84=",
         "owner": "eldolfin",
         "repo": "nixos-config",
-        "rev": "3b9fbb86dc5783413f76c3c2e1319d0fcf2853a5",
+        "rev": "a22e37783650a7d489be7f2d46220d5ec0454181",
         "type": "github"
       },
       "original": {
