@@ -17,6 +17,8 @@
     c.wait_for_unit("graphical.target")
     c.wait_until_succeeds("pgrep swaybar")
 
+    c.sleep(20)
+
     # Launch firefox
     # usefull in case its running locally in a previously used vm
     c.execute("rm -rf /home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
