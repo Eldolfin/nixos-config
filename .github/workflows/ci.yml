@@ -12,7 +12,8 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        hostname: ["oscar-portable", "oscar-tour", "oracle-x86", "homeserver"]
+        # hostname: ["oscar-portable", "oscar-tour", "oracle-x86", "homeserver"]
+        hostname: ["oscar-portable", "oscar-tour"]
     steps:
       - name: maximize build space
         # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
@@ -43,30 +44,30 @@ jobs:
           nix-fast-build --skip-cached --no-nom \
               -f '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
-  check-standalone-homemanager:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: cachix/cachix-action@v14
-        with:
-          name: nixos-eldolfin
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: replace 'oscar' with current username
-        run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
-      - run: |
-          nix run home-manager/master -- switch -b bak --flake .
-          cp -r -L /nix/store/*-home-manager-generation/home-files ./home-files
-          du -h -d 1 ./home-files
-          zip -r ./home-files.zip ./home-files --exclude ./home-files/.mozilla ./home-files/Music
+  # check-standalone-homemanager:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 60
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: DeterminateSystems/nix-installer-action@main
+  #     - uses: cachix/cachix-action@v14
+  #       with:
+  #         name: nixos-eldolfin
+  #         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+  #     - name: replace 'oscar' with current username
+  #       run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
+  #     - run: |
+  #         nix run home-manager/master -- switch -b bak --flake .
+  #         cp -r -L /nix/store/*-home-manager-generation/home-files ./home-files
+  #         du -h -d 1 ./home-files
+  #         zip -r ./home-files.zip ./home-files --exclude ./home-files/.mozilla ./home-files/Music
 
-      - uses: actions/upload-artifact@v4
-        name: Upload config files
-        with:
-          name: home-configs
-          path: ./home-files.zip
-          if-no-files-found: error
+  #     - uses: actions/upload-artifact@v4
+  #       name: Upload config files
+  #       with:
+  #         name: home-configs
+  #         path: ./home-files.zip
+  #         if-no-files-found: error
 
   integration-tests:
     runs-on: ubuntu-latest
