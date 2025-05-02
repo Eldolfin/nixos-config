@@ -49,6 +49,7 @@
               fileset = lib.fileset.unions [
                 (craneLib.fileset.commonCargoSources unfilteredRoot)
                 (lib.fileset.maybeMissing ./assets)
+                ./src/ai-commit.sh
               ];
             };
 
