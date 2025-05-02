@@ -2,7 +2,6 @@
   name = "lock-screen";
   testScript = ''
     c.wait_for_unit("graphical.target")
-    c.wait_for_x()
     c.sleep(10)
     c.send_key("meta_l-ctrl-x")
     c.sleep(10)

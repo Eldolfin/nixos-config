@@ -15,7 +15,6 @@
 
     start_all()
     c.wait_for_unit("graphical.target")
-    c.wait_for_x()
 
     # Launch firefox
     # usefull in case its running locally in a previously used vm
