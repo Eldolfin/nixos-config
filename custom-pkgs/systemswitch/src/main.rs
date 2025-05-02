@@ -36,6 +36,9 @@ struct Opt {
     #[arg(long)]
     /// Do not build and switch to the new configuration
     no_build: bool,
+    #[arg(long)]
+    /// Do not open helix, for when the modifications are already made
+    no_edit: bool,
     #[arg(long, short)]
     /// Use lazygit to add and commit
     lazy: bool,
@@ -130,7 +133,7 @@ async fn main() -> anyhow::Result<()> {
         cmd!(sh, "nix flake update").maybe_dry_run()?;
     }
 
-    if !opt().build && !opt().upgrade {
+    if !opt().build && !opt().upgrade && !opt().no_edit {
         let rest = opt().rest.clone();
         let editor = std::env::var("EDITOR").unwrap();
         let editor = Path::new(&editor);
