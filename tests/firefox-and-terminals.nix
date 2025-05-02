@@ -15,12 +15,13 @@
 
     start_all()
     c.wait_for_unit("graphical.target")
+    c.wait_until_succeeds("pgrep swaybar")
 
     # Launch firefox
     # usefull in case its running locally in a previously used vm
     c.execute("rm -rf /home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
-    # c.send_key("meta_l-e")
-    user("firefox"+bg)
+    c.send_key("meta_l-e")
+    # user("firefox"+bg)
     # Wait for firefox (this file is created after the window is visible)
     c.wait_for_file("/home/oscar/.mozilla/firefox/homemanager/bookmarkbackups")
     # Open an empty tab
