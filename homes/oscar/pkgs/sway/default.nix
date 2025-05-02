@@ -80,7 +80,7 @@
             style = "Bold Semi-Condensed";
             size = 11.0;
           };
-          trayOutput = "primary";
+          trayOutput = "*";
           colors = {
             background = "#000000";
             statusline = "#ffffff";
