@@ -12,6 +12,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
+        # hostname: ["oscar-portable", "oscar-tour", "oracle-x86", "homeserver"]
         hostname: ["oscar-portable", "oscar-tour"]
     steps:
       - name: maximize build space
@@ -30,28 +31,43 @@ jobs:
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: helix
-      # this actually slows down the build
-      # - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Install nix-fast-build
+        shell: bash
+        run: |
+          nix profile install github:Mic92/nix-fast-build/1.1.0
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Build system config
-        run: nix build '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
+        run: |
+          echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
+          chmod 600 /tmp/gitea_ssh_key
+          export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
+          nix-fast-build --skip-cached --no-nom \
+              -f '#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel'
 
-  check-standalone-homemanager:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: cachix/cachix-action@v14
-        with:
-          name: nixos-eldolfin
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: helix
-      # - uses: DeterminateSystems/magic-nix-cache-action@main
-      - name: replace 'oscar' with current username
-        run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
-      - run: nix run home-manager/master -- switch --flake ./homes/oscar
+  # check-standalone-homemanager:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 60
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: DeterminateSystems/nix-installer-action@main
+  #     - uses: cachix/cachix-action@v14
+  #       with:
+  #         name: nixos-eldolfin
+  #         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+  #     - name: replace 'oscar' with current username
+  #       run: find ./homes -type f -name '*.nix' -exec sed -i "s/oscar/$(whoami)/g" {} +
+  #     - run: |
+  #         nix run home-manager/master -- switch -b bak --flake .
+  #         cp -r -L /nix/store/*-home-manager-generation/home-files ./home-files
+  #         du -h -d 1 ./home-files
+  #         zip -r ./home-files.zip ./home-files --exclude ./home-files/.mozilla ./home-files/Music
+
+  #     - uses: actions/upload-artifact@v4
+  #       name: Upload config files
+  #       with:
+  #         name: home-configs
+  #         path: ./home-files.zip
+  #         if-no-files-found: error
 
   integration-tests:
     runs-on: ubuntu-latest
@@ -70,14 +86,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
         with:
-          enable_kvm: true
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
       - uses: cachix/cachix-action@v14
         with:
           name: nixos-eldolfin
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: helix
 
+      - name: Install nix-fast-build
+        shell: bash
+        run: |
+          nix profile install github:Mic92/nix-fast-build/1.1.0
       - name: define screenshot output dir
         id: screenshot_path
         run: |
@@ -86,6 +104,9 @@ jobs:
 
       - name: Test system config
         run: |
+          echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
+          chmod 600 /tmp/gitea_ssh_key
+          export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
           nix flake check -L
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
