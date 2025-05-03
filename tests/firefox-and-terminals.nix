@@ -16,12 +16,12 @@
 
     start_all()
     c.wait_for_unit("graphical.target")
-    c.wait_until_succeeds("pgrep swaybar")
-
-    c.sleep(10)
+    c.wait_for_unit("activitywatch-watcher-awatcher.service", user="oscar")
 
     # Launch firefox
     c.send_key("meta_l-e")
+
+    c.sleep(10)
 
     # Open an empty tab
     c.send_key("ctrl-t")
@@ -36,7 +36,7 @@
 
     user("kitty -o font_size=7 -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
-    # user("firefox https://github.com/eldolfin/nixos-config"+bg) # doesn't reuse the existing instance for some reason
+    user("firefox https://github.com/eldolfin/nixos-config"+bg)
     c.wait_until_succeeds("pgrep sleep")
     c.sleep(1)
 
