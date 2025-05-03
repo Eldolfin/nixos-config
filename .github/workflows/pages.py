@@ -52,7 +52,8 @@ def get_commit_date(commit: str) -> Union[datetime.datetime, Literal[False]]:
     try:
         timestamp_f: float = float(timestamp)
     except ValueError:
-        logging.warn(f"Failed to get commit date for commit {commit}. Skipping it...")
+        # These are probably commits from deleted branches
+        logging.debug(f"Failed to get commit date for commit {commit}. Skipping it...")
         return False
     parsed_date = datetime.datetime.fromtimestamp(timestamp_f)
     return parsed_date
