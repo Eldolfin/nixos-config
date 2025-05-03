@@ -31,7 +31,7 @@
     c.wait_until_succeeds("pgrep btop")
 
     # Zoom out
-    for i in range(10): c.send_key("ctrl-minus", delay=0.2)
+    for i in range(10): c.send_key("ctrl-shift-minus", delay=0.2)
     c.sleep(1)
 
     user("kitty -o font_size=7 -e hx ~/bin/scripts/systemswitch.py"+bg)
