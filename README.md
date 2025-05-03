@@ -1,5 +1,12 @@
 # List of screenshots from the integration tests
 
+## [2025-05-03 19:36:43](https://github.com/Eldolfin/nixos-config/commit/e68c49d169b4f3252612b0ae077a5f828680035a)
+
+[fastfetch](https://github.com/Eldolfin/nixos-config/blob/e68c49d169b4f3252612b0ae077a5f828680035a/tests/fastfetch.nix)|[firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/e68c49d169b4f3252612b0ae077a5f828680035a/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/e68c49d169b4f3252612b0ae077a5f828680035a/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/e68c49d169b4f3252612b0ae077a5f828680035a/tests/login-screen.nix)|[notifications](https://github.com/Eldolfin/nixos-config/blob/e68c49d169b4f3252612b0ae077a5f828680035a/tests/notifications.nix)
+-|-|-|-|-
+[![](e68c49d169b4f3252612b0ae077a5f828680035a/fastfetch.png)](https://eldolfin.github.io/nixos-config/e68c49d169b4f3252612b0ae077a5f828680035a/fastfetch.png)|[![](e68c49d169b4f3252612b0ae077a5f828680035a/firefox-and-terminals.png)](https://eldolfin.github.io/nixos-config/e68c49d169b4f3252612b0ae077a5f828680035a/firefox-and-terminals.png)|[![](e68c49d169b4f3252612b0ae077a5f828680035a/lock-screen.png)](https://eldolfin.github.io/nixos-config/e68c49d169b4f3252612b0ae077a5f828680035a/lock-screen.png)|[![](e68c49d169b4f3252612b0ae077a5f828680035a/login-screen.png)](https://eldolfin.github.io/nixos-config/e68c49d169b4f3252612b0ae077a5f828680035a/login-screen.png)|[![](e68c49d169b4f3252612b0ae077a5f828680035a/notifications.png)](https://eldolfin.github.io/nixos-config/e68c49d169b4f3252612b0ae077a5f828680035a/notifications.png)
+
+
 ## [2025-05-03 18:48:30](https://github.com/Eldolfin/nixos-config/commit/580cbd778fc41a3f191ff9eb43a5c14a700aadc7)
 
 [fastfetch](https://github.com/Eldolfin/nixos-config/blob/580cbd778fc41a3f191ff9eb43a5c14a700aadc7/tests/fastfetch.nix)|[firefox-and-terminals](https://github.com/Eldolfin/nixos-config/blob/580cbd778fc41a3f191ff9eb43a5c14a700aadc7/tests/firefox-and-terminals.nix)|[lock-screen](https://github.com/Eldolfin/nixos-config/blob/580cbd778fc41a3f191ff9eb43a5c14a700aadc7/tests/lock-screen.nix)|[login-screen](https://github.com/Eldolfin/nixos-config/blob/580cbd778fc41a3f191ff9eb43a5c14a700aadc7/tests/login-screen.nix)|[notifications](https://github.com/Eldolfin/nixos-config/blob/580cbd778fc41a3f191ff9eb43a5c14a700aadc7/tests/notifications.nix)
