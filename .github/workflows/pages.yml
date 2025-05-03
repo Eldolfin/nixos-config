@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
           ref: gh-pages
       - name: Install dependencies
-        run: sudo apt-get install imagemagick
+        run: sudo apt-get update && sudo apt-get install imagemagick
       - name: Generate README.yml
         run: python .github/workflows/pages.py
       - name: Generate latest.png
