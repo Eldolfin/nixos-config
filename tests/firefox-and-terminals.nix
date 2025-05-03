@@ -21,7 +21,7 @@
     # Launch firefox
     c.send_key("meta_l-e")
 
-    c.sleep(10)
+    c.sleep(30)
 
     # Open an empty tab
     c.send_key("ctrl-t")
@@ -36,7 +36,6 @@
 
     user("kitty -o font_size=7 -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
-    user("firefox https://github.com/eldolfin/nixos-config"+bg)
     c.wait_until_succeeds("pgrep sleep")
     c.sleep(1)
 
