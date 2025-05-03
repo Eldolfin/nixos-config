@@ -1,0 +1,7 @@
+.direnv
+custom-pkgs/systemswitch
+templates/clap-cli-completion
+.nixos-test-history
+.pre-commit-config.yaml
+result
+montage_raw.png
