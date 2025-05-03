@@ -1,5 +1,9 @@
 (import ./lib.nix) rec {
   name = "lock-screen";
+  nodes.c = _: {
+    services.displayManager.autoLogin.enable = true;
+  };
+
   testScript = ''
     c.wait_for_unit("graphical.target")
     c.wait_until_succeeds("pgrep swaybar")
