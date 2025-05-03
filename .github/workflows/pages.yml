@@ -25,8 +25,8 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md
-          git commit -m "Update README.md"
+          git add README.md latest
+          git commit -m "Update README.md and latest"
       - name: push changes
         uses: ad-m/github-push-action@master
         with:
