@@ -7,7 +7,7 @@
   testScript = ''
     start_all()
     c.wait_for_unit("graphical.target")
-    c.sleep(20)
+    c.sleep(60)
     # open terminal
     c.send_key("meta_l-ret")
     c.sleep(3)
