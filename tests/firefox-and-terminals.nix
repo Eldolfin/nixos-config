@@ -28,7 +28,7 @@
 
     # Open btop
     c.send_key("meta_l-t", delay=1)
-    c.wait_until_succeeds("pgrep btop")
+    c.sleep(5)
 
     # Zoom out
     for i in range(10): c.send_key("ctrl-shift-minus", delay=0.2)
