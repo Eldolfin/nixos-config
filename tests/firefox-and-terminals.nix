@@ -19,15 +19,15 @@
     c.sleep(60)
 
     # Launch firefox
-    c.send_key("meta_l-e")
+    c.send_key("meta_l-e", delay=1)
 
     c.sleep(30)
 
     # Open an empty tab
-    c.send_key("ctrl-t")
+    c.send_key("ctrl-t", delay=1)
 
     # Open btop
-    c.send_key("meta_l-t")
+    c.send_key("meta_l-t", delay=1)
     c.wait_until_succeeds("pgrep btop")
 
     # Zoom out
