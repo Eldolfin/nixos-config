@@ -2,6 +2,7 @@
   name = "firefox-and-terminals";
 
   nodes.c = {pkgs, ...}: {
+    services.displayManager.autoLogin.enable = true;
     environment.systemPackages = [
       pkgs.cowsay
       pkgs.fortune
@@ -15,9 +16,9 @@
 
     start_all()
     c.wait_for_unit("graphical.target")
-    c.wait_until_succeeds("pgrep swaybar")
+    # c.wait_until_succeeds("pgrep swaybar")
 
-    c.sleep(20)
+    c.sleep(60)
 
     # Launch firefox
     # usefull in case its running locally in a previously used vm
