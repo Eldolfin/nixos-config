@@ -19,14 +19,18 @@ jobs:
         with:
           fetch-depth: 0
           ref: gh-pages
+      - name: Install dependencies
+        run: sudo apt-get install imagemagick
       - name: Generate README.yml
         run: python .github/workflows/pages.py
+      - name: Generate latest.png
+        run: bash .github/workflows/screenshot-montage.sh
       - name: git commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md latest
-          git commit -m "Update README.md and latest"
+          git add README.md latest.png
+          git commit -m "Update README.md and latest.png"
       - name: push changes
         uses: ad-m/github-push-action@master
         with:
