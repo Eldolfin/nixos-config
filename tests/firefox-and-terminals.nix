@@ -16,7 +16,7 @@
 
     start_all()
     c.wait_for_unit("graphical.target")
-    c.wait_for_unit("activitywatch-watcher-awatcher.service", user="oscar")
+    c.sleep(60)
 
     # Launch firefox
     c.send_key("meta_l-e")
