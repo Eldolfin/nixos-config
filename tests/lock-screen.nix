@@ -2,11 +2,11 @@
   name = "lock-screen";
   testScript = ''
     c.wait_for_unit("graphical.target")
-    c.sleep(10)
-    c.send_key("meta_l-ctrl-x")
-    c.sleep(10)
-    c.send_chars("a" * 8, delay=0.2)
+    c.wait_until_succeeds("pgrep swaybar")
     c.sleep(5)
+    c.send_key("meta_l-ctrl-x")
+    c.sleep(2)
+    c.send_chars("a\n" * 10, delay=0.2)
     c.screenshot("${name}")
   '';
 }

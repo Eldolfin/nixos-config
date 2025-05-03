@@ -14,10 +14,10 @@
     def user(cmd):
       c.execute(f"su oscar -c \"{cmd}\"")
 
-    start_all()
     c.wait_for_unit("graphical.target")
+    c.wait_until_succeeds("pgrep swaybar")
 
-    c.sleep(60)
+    c.sleep(10)
 
     # Launch firefox
     c.send_key("meta_l-e")
