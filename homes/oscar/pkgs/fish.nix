@@ -112,8 +112,8 @@
             return 1
         end
 
-        echo "Sending '$argv[1]' on lan to '$argv[2]'..."
-        curl "https://wol.internal.eldolfin.top/api/machine/$argv[2]/$argv[1]" \
+        echo "Sending '$argv[1]' command to '$argv[2]'..."
+        curl --retry 10 "https://wol.internal.eldolfin.top/api/machine/$argv[2]/$argv[1]" \
             --request POST --insecure
       end
     '';
