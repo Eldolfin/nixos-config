@@ -14,6 +14,7 @@
     def user(cmd):
       c.execute(f"su oscar -c \"{cmd}\"")
 
+    start_all()
     c.wait_for_unit("graphical.target")
     c.wait_until_succeeds("pgrep swaybar")
 
