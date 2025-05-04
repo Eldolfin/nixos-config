@@ -53,7 +53,7 @@
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
     displayManager = {
-      defaultSession = "sway-uwsm";
+      defaultSession = "sway";
       autoLogin = {
         user = "oscar";
       };
