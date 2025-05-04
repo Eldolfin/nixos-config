@@ -16,7 +16,7 @@
     # dezoom
     for _ in range(4): c.send_key("ctrl-shift-minus", delay=0.1)
     c.send_chars("fastfetch\n")
-    c.sleep(5)
+    c.sleep(30)
     c.screenshot("${name}")
   '';
 }

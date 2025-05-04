@@ -29,7 +29,7 @@
     c.send_chars("./send-notifs.sh\nexit\n")
     # open notification panel
     c.send_key("meta_l-n", delay=0.1)
-    c.sleep(5)
+    c.sleep(30)
     c.screenshot("${name}")
   '';
 }
