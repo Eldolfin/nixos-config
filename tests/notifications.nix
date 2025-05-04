@@ -11,16 +11,9 @@
     # send fake notifications
     c.execute("""
     echo '
-    function app_icon(){
-      shopt -s extglob
-      pattern="/nix/store/*-$1-*/share/icons/hicolor/@(256|128)*/apps/*.png"
-      files=( $pattern )
-      printf "''\${files[0]}"
-    }
-
-    notify-send -a thunderbird                    "Received 255 notifications"  "[COMMUNICATION] événements à venir sur l Intracom !"
-    notify-send -a kitty                          "Done in 36s"                 "/etc/nixos gh run watch"
-    notify-send -a steam --icon $(app_icon steam) "Someone invited you to play" "Click to join nixos-ricing.exe"
+    notify-send -a thunderbird "Received 255 notifications"  "[COMMUNICATION] événements à venir sur l Intracom !"
+    notify-send -a kitty       "Done in 36s"                 "/etc/nixos gh run watch"
+    notify-send -a steam       "Someone invited you to play" "Click to join nixos-ricing.exe"
     ' > /home/oscar/send-notifs.sh
     chmod +x /home/oscar/send-notifs.sh
     """)
