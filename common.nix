@@ -8,6 +8,8 @@
     ./pkgs/stylix.nix
     ./pkgs/sway.nix
     ./pkgs/xdg.nix
+    ./pkgs/systemd-boot.nix
+    ./pkgs/steam.nix
   ];
 
   boot.loader.timeout = 0;

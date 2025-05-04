@@ -107,7 +107,7 @@ jobs:
           echo '${{ secrets.GITEA_ELDOLFIN_SSH_KEY }}' > /tmp/gitea_ssh_key
           chmod 600 /tmp/gitea_ssh_key
           export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /tmp/gitea_ssh_key"
-          env NIX_BUILD_CORES=1 nix flake check -L
+          nix develop -c just ci
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
           cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
 

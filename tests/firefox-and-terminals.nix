@@ -1,7 +1,7 @@
 (import ./lib.nix) rec {
   name = "firefox-and-terminals";
 
-  nodes.c = {pkgs, ...}: {
+  nodeCfg = {pkgs, ...}: {
     services.displayManager.autoLogin.enable = true;
     environment.systemPackages = [
       pkgs.cowsay
@@ -37,7 +37,7 @@
     user("kitty -o font_size=7 -e hx ~/bin/scripts/systemswitch.py"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
     c.wait_until_succeeds("pgrep sleep")
-    c.sleep(1)
+    c.sleep(10)
 
     c.screenshot("${name}")
   '';

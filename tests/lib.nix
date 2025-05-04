@@ -16,21 +16,18 @@ in
       node.specialArgs = specialArgs;
       enableOCR = true;
       nodes = {
-        c = {pkgs, ...}: (
-          {
-            imports = commonModules;
-            virtualisation = {
-              memorySize = 4096;
-              diskSize = 8192;
-              cores = 4;
-              resolution = {
-                x = 1920;
-                y = 1080;
-              };
+        c = {pkgs, ...}: {
+          imports = commonModules ++ [(test.nodeCfg {inherit pkgs;})];
+          virtualisation = {
+            memorySize = 4096;
+            diskSize = 8192;
+            cores = 6;
+            resolution = {
+              x = 1920;
+              y = 1080;
             };
-          }
-          // (test.nodes.c {inherit pkgs;})
-        );
+          };
+        };
       };
     }
   )

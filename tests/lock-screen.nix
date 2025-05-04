@@ -1,6 +1,6 @@
 (import ./lib.nix) rec {
   name = "lock-screen";
-  nodes.c = _: {
+  nodeCfg = _: {
     services.displayManager.autoLogin.enable = true;
   };
 

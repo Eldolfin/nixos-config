@@ -3,7 +3,6 @@
     ../../common.nix
     ../../services/autocpufreq.nix
     ../../pkgs/systemd-boot.nix
-    ../../pkgs/steam.nix
     ../../pkgs/plymouth.nix
   ];
   networking.hostName = "oscar-portable";
