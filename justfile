@@ -9,7 +9,7 @@ ci:
     printf "\033[1;34mRunning tests: \033[1;33m%s\033[0m\n" "[$(echo "$TESTS" | paste -sd, -)]"
     for test in $TESTS; do
         printf "\033[1;34mRunning test \033[1;33m%s\033[0m\n" "$test"
-        nix build .#checks.x86_64-linux.$test
+        nix build -L .#checks.x86_64-linux.$test
     done
 
 # Runs all tests in parallel, which causes an OOM on CI
