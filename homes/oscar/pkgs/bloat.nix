@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     libreoffice
     gimp
+    vault
     # rustdesk-flutter
     # handbrake
   ];
