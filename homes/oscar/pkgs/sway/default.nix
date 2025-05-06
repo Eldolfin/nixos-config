@@ -229,7 +229,7 @@
 
           "XF86MonBrightnessUp" = "exec lightctl up";
           "XF86MonBrightnessDown" = "exec lightctl down";
-          "${mod}+m" = "exec brightnessctl set 1";
+          "${mod}+m" = "exec ${lib.getExe pkgs.brightnessctl} set 1";
         };
     };
   };
