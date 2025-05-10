@@ -6,11 +6,10 @@
     # dolphin-emu
     winetricks
     wine
-    hydralauncher
+    # hydralauncher
     # steam # installed as nixos module
-    libusb1 # for minecraft
-    prismlauncher
-    gamemode
+    # libusb1 # for minecraft
+    # prismlauncher
     # mangohud
   ];
 }
