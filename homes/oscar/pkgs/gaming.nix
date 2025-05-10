@@ -3,6 +3,7 @@
     # smassh # monkey type in terminal
     gamemode
     lutris-free
+    r2modman # steam games mods
     # dolphin-emu
     winetricks
     wine
