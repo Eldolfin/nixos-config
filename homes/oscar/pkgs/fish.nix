@@ -3,6 +3,9 @@
   home.packages = with pkgs; [
     # used by zsh-notify
     grc
+
+    # nicer df replacement
+    dysk
   ];
   # fix missing completions for nix commands https://discourse.nixos.org/t/how-to-use-completion-fish-with-home-manager/23356
   xdg.configFile."fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
@@ -55,6 +58,7 @@
       ll = "exa -lah";
       lg = "lazygit";
       tree = "exa --tree";
+      df = "dysk";
       bell = "tput bel && ${pkgs.pulseaudio}/bin/paplay ~/Music/sounds/Tink.wav";
       gh-repo-here = "gh repo new $(basename $(pwd)) --private --source=.";
 
