@@ -117,7 +117,7 @@
         }
         {
           name = "nix";
-          auto-format = true;
+          auto-format = false;
           formatter.command = lib.getExe pkgs.alejandra;
           language-servers = [
             "scls"
