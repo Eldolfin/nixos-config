@@ -20,15 +20,22 @@
     extraModulePackages = [];
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/dbd69e60-cf34-450e-985e-d5359fa69563";
-    fsType = "ext4";
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/dbd69e60-cf34-450e-985e-d5359fa69563";
+      fsType = "ext4";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/A261-2DC6";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
+    "/boot" = {
+      device = "/dev/disk/by-uuid/A261-2DC6";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
+
+    "/home/oscar/Mnt/hdd2t" = {
+      device = "/dev/disk/by-uuid/88723bdd-7140-4ff1-bca8-d7a5e6ec061a";
+      fsType = "ext4";
+    };
   };
 
   swapDevices = [];
