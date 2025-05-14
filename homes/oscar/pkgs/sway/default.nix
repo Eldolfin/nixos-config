@@ -32,7 +32,7 @@
       terminal = lib.getExe pkgs.alacritty;
       startup = [
         {command = lib.getExe pkgs.autotiling-rs;}
-        {command = lib.getExe' pkgs.planify "io.github.alainm23.planify";}
+        {command = "${lib.getExe' pkgs.planify "io.github.alainm23.planify"} -b";}
       ];
       floating = {
         criteria = [
@@ -184,7 +184,6 @@
           "${mod}+u" = "resize grow height 10 px or 10 ppt";
           "${mod}+i" = "resize shrink height 10 px or 10 ppt";
           "${mod}+o" = "resize grow width 10 px or 10 ppt";
-          "${mod}+r" = "nop"; # useless
 
           "${mod}+Shift+P" = "move scratchpad";
           "${mod}+p" = "scratchpad show";
@@ -214,6 +213,7 @@
           "Shift+Print" = ''exec ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - | ${lib.getExe pkgs.swappy} -f -'';
           # "${mod}+Print" = "exec ${screenshotWindow}";
           "${mod}+Control+x" = "exec --no-startup-id swaylock";
+          "${mod}+r" = "exec ${lib.getExe' pkgs.planify "io.github.alainm23.planify.quick-add"}";
 
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/paplay Music/sounds/boom.wav";
 
