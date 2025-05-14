@@ -15,6 +15,7 @@
       jq-lsp
       metals
       fish-lsp
+      gopls
     ];
     languages = {
       language-server = {
