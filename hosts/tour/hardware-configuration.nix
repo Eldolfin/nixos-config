@@ -19,27 +19,16 @@
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
   };
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/144a3fba-9244-470e-93d1-14e2129c71e4";
-      fsType = "ext4";
-    };
 
-    "/home" = {
-      device = "/dev/disk/by-uuid/5b833d4f-e037-4104-994c-05f8cb94b8ab";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/dbd69e60-cf34-450e-985e-d5359fa69563";
+    fsType = "ext4";
+  };
 
-    "/boot" = {
-      device = "/dev/disk/by-uuid/A261-2DC6";
-      fsType = "vfat";
-      options = ["fmask=0022" "dmask=0022"];
-    };
-
-    "/home/oscar/Mnt/hdd2t" = {
-      device = "/dev/disk/by-uuid/88723bdd-7140-4ff1-bca8-d7a5e6ec061a";
-      fsType = "ext4";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A261-2DC6";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
   };
 
   swapDevices = [];
@@ -51,6 +40,7 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.incusbr0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
