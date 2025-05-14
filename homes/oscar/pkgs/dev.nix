@@ -15,6 +15,7 @@
       clippy
 
       # c/c++
+      cmake
       clang-tools
       gcc
       gdb

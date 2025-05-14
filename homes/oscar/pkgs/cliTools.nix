@@ -5,13 +5,10 @@
 }: {
   programs.nix-index.enable = true;
   home.packages = with pkgs; [
+    # TODO: cleanup, most of these are probably never used
     acpi
-    attic-client
-    # appimage-run
-    asciinema
     bc
     bear
-    cmake
     cron
     fd
     feh
@@ -23,21 +20,18 @@
     jq
     killall
     ltrace
-    # mosquitto
     navi
     ncdu
-    nix-tree
+    nix-search-cli
     nmap
     ntfs3g
     nh
     openssl
-    pamixer
+    pulsemixer
     pciutils
-    # scrcpy
     sops
     sysstat
     tealdeer
-    # testdisk
     unrar-wrapper
     unzip
     usbutils
