@@ -52,9 +52,10 @@
           scroll_factor = "3";
         };
         "*" = {
-          xkb_options = "caps:escape";
           repeat_delay = "250";
           repeat_rate = "50";
+          xkb_options = "caps:escape";
+          xkb_numlock = "enabled";
         };
       };
       output = {
