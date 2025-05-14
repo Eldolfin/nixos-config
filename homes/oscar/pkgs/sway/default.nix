@@ -31,7 +31,8 @@
       defaultWorkspace = "workspace number 1";
       terminal = lib.getExe pkgs.alacritty;
       startup = [
-        {command = "${lib.getExe pkgs.autotiling-rs}";}
+        {command = lib.getExe pkgs.autotiling-rs;}
+        {command = lib.getExe' pkgs.planify "io.github.alainm23.planify";}
       ];
       floating = {
         criteria = [
