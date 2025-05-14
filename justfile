@@ -1,5 +1,22 @@
+TOUR_IP := "192.168.1.167"
+
 @default:
   just --list
+
+# Turn on tour just to update laptop, then shutdown again
+night-update:
+  #!/usr/bin/env fish
+  # can't access user function in here so its just copied from my fish config
+  function wol
+      echo "Sending '$argv[1]' command to '$argv[2]'..."
+      curl --retry 10 "https://wol.internal.eldolfin.top/api/machine/$argv[2]/$argv[1]" \
+          --request POST --insecure
+  end
+
+  wol wake tour
+  while ! ping -c 1 {{TOUR_IP}}; end
+  just build-laptop-on-tour
+  wol shutdown tour
 
 # Runs all tests one by one
 ci:
@@ -31,4 +48,4 @@ watch:
     git ls-files | entr -c nh os switch /etc/nixos
 
 build-laptop-on-tour:
-    nixos-rebuild switch --flake '/etc/nixos#oscar-portable' --show-trace --build-host oscar@192.168.1.167 |& nom
+    nixos-rebuild switch --flake '/etc/nixos#oscar-portable' --show-trace --build-host oscar@{{TOUR_IP}} |& nom
