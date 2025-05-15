@@ -3,13 +3,18 @@
   lib,
   ...
 }: {
+  home.packages = with pkgs; [
+    # used in specific directories
+    nixpkgs-fmt
+  ];
   programs.helix = {
     extraPackages = with pkgs; [
-      svelte-language-server
+      # rarely used
+      # svelte-language-server
+      # vue-language-server
       yaml-language-server
       dockerfile-language-server-nodejs
       nodePackages.typescript-language-server
-      vue-language-server
       markdown-oxide
       nil
       jq-lsp
