@@ -33,6 +33,10 @@
       startup = [
         {command = lib.getExe pkgs.autotiling-rs;}
         {command = "${lib.getExe' pkgs.planify "io.github.alainm23.planify"} -b";}
+        {
+          command = "exec ${lib.getExe (import ./scripts/lower-brightness-if-night.nix pkgs)}";
+          always = true;
+        }
       ];
       floating = {
         criteria = [
