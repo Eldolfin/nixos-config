@@ -23,7 +23,9 @@ jobs:
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /opt/ghc
           sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo rm -rf /usr/share/swift
           sudo docker image prune --all --force
+          sudo apt-get clean
           echo "... done"
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
