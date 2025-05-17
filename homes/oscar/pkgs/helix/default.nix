@@ -74,6 +74,21 @@
           "A-f" = ":fmt";
           "K" = "hover";
           "A-k" = "keep_selections";
+          "C-g" = [
+            ":write-all"
+            ":insert-output lazygit >/dev/tty"
+            ":redraw"
+            ":reload-all"
+          ];
+          space = {
+            E = [
+              ":sh rm -f /tmp/yazi-helix-opened-file"
+              ":insert-output yazi '%{workspace_directory}' --chooser-file=/tmp/yazi-helix-opened-file"
+              ":insert-output echo \"x1b[?1049h\" > /dev/tty"
+              ":open %sh{cat /tmp/yazi-helix-opened-file}"
+              ":redraw"
+            ];
+          };
         };
         select = {
           X = [
