@@ -10,7 +10,8 @@
   programs = {
     bat.enable = true;
     btop.enable = true;
-    carapace.enable = true;
+    # this doesn't work well by default
+    # carapace.enable = true;
     eza.enable = true;
     fd.enable = true;
     fzf.enable = true;
