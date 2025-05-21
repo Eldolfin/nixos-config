@@ -8,6 +8,7 @@
     open = false;
   };
   hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.enableNvidia = true;
   services.xserver = {
     videoDrivers = ["nvidia"];
   };
