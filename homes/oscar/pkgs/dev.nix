@@ -20,13 +20,15 @@
       gcc
       gdb
 
-      python3
-      python3Packages.pip
+      (python3.withPackages (ppkgs:
+        with ppkgs; [
+          ipython
+          pip
+        ]))
 
       nodejs
       typescript
       pnpm
-
       # misc
       nodePackages.live-server
       sshfs
