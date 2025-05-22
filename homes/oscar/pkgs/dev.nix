@@ -37,6 +37,8 @@
       yazi
       just
       sd
+      tokei
+      ripgrep-all
     ]
     ++ lib.optional isTour nvtopPackages.nvidia
   );
