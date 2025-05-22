@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "backgrounds": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1677736949,
-        "narHash": "sha256-rRT5HGOgnlLzztJpgZvgUdWbNUrUC8IEOegLocFLGj8=",
-        "owner": "Eldolfin",
-        "repo": "windows_backgrounds",
-        "rev": "39c447a8baaaa0464f50a95d8de9104b575229a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Eldolfin",
-        "repo": "windows_backgrounds",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -968,7 +952,6 @@
     },
     "root": {
       "inputs": {
-        "backgrounds": "backgrounds",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",

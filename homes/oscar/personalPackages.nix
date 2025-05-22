@@ -6,7 +6,6 @@
     ./pkgs/chromium.nix
     ./pkgs/socials.nix
     ./pkgs/sway
-    ./pkgs/random-background.nix
   ];
 
   home.packages = with pkgs; [
