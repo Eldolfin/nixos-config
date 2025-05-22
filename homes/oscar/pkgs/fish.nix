@@ -52,7 +52,7 @@
     ];
     shellAbbrs = {
       sw = "systemswitch";
-      clone = ''$TERM_PROGRAM -e $SHELL &>/dev/null & disown'';
+      clone = ''kitty -e $SHELL &>/dev/null & disown'';
 
       ls = "exa";
       ll = "exa -lah";
