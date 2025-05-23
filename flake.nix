@@ -45,6 +45,11 @@
       url = "github:eldolfin/nixos-config/main?dir=custom-pkgs/systemswitch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    backgrounds = {
+      url = "github:Eldolfin/windows_backgrounds";
+      flake = false;
+    };
   };
 
   outputs = {

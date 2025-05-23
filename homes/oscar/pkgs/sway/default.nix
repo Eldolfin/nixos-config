@@ -7,6 +7,7 @@
   imports = [
     ./i3status-rs.nix
     ./services.nix
+    ./random-background.nix
   ];
   home.keyboard.layout = "fr";
   home.packages = with pkgs; [
