@@ -1,4 +1,7 @@
 {pkgs, ...} @ inputs: {
+  imports = [
+    ./pkgs/uutils.nix
+  ];
   programs = {
     nh = {
       enable = true;
