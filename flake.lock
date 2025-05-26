@@ -580,16 +580,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1747666275,
-        "narHash": "sha256-W8pIxpGjfrihAPW5LCTXh3kXVz+vIT0IFldTmKqzFWs=",
-        "owner": "eldolfin",
+        "lastModified": 1748227609,
+        "narHash": "sha256-SaSdslyo6UGDpPUlmrPA4dWOEuxCy2ihRN9K6BnqYsA=",
+        "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "53f432d6f3d514afcc7fe9d6577c0703f99b9c10",
+        "rev": "d23d20f55d49d8818ac1f1b2783671e8a6725022",
         "type": "github"
       },
       "original": {
-        "owner": "eldolfin",
-        "ref": "sway-bindswitches",
+        "owner": "nix-community",
+        "ref": "master",
         "repo": "home-manager",
         "type": "github"
       }
