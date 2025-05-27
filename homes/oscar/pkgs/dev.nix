@@ -39,6 +39,7 @@
       sd
       tokei
       ripgrep-all
+      glab
     ]
     ++ lib.optional isTour nvtopPackages.nvidia
   );
