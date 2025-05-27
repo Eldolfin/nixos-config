@@ -4,6 +4,7 @@
     ../../pkgs/wol-agent.nix
     ../../pkgs/nvidia.nix
     ../../pkgs/incus.nix
+    ../../pkgs/home-assistant.nix
   ];
 
   eldolfin.services.wol-agent.machine-name = "tour";

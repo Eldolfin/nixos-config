@@ -72,7 +72,7 @@
         };
 
         pylsp.command = "${pkgs.python3Packages.python-lsp-server}/bin/pylsp";
-        jedi.command = "${pkgs.python3Packages.jedi-language-server}/bin/jedi-language-server";
+        ruff.command = lib.getExe pkgs.ruff;
 
         rust-analyzer = {
           command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
@@ -193,7 +193,7 @@
             "scls"
             # "gpt"
             "pylsp"
-            "jedi"
+            "ruff"
           ];
           formatter = {
             command = lib.getExe pkgs.black;
