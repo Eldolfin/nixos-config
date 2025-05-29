@@ -21,10 +21,6 @@
       metals
       fish-lsp
       gopls
-      python3Packages.mypy
-      python3Packages.isort
-      python3Packages.black
-      python3Packages.flake8
     ];
     languages = {
       language-server = {
@@ -75,18 +71,7 @@
           args = ["--stdio"];
         };
 
-        pylsp = {
-          command = "${pkgs.python3Packages.python-lsp-server}/bin/pylsp";
-          config.pylsp = {
-            plugins = {
-              black.enabled = true;
-              flake8.enabled = true;
-              pyls_mypy.enabled = true;
-              pyls_mypy.live_mode = false;
-              isort.enabled = true;
-            };
-          };
-        };
+        pylsp.command = "${pkgs.python3Packages.python-lsp-server}/bin/pylsp";
         ruff.command = lib.getExe pkgs.ruff;
 
         rust-analyzer = {
@@ -210,14 +195,14 @@
             "pylsp"
             "ruff"
           ];
-          # formatter = {
-          #   command = lib.getExe pkgs.black;
-          #   args = [
-          #     "-"
-          #     "--quiet"
-          #     "--line-length=80"
-          #   ];
-          # };
+          formatter = {
+            command = lib.getExe pkgs.black;
+            args = [
+              "-"
+              "--quiet"
+              "--line-length=80"
+            ];
+          };
         }
 
         {
