@@ -79,6 +79,7 @@
       gov = "git push -v"; # common mistake
       gcsm = "git commit -m";
 
+      gitentr = "git ls-files | entr -c";
       g = "git";
       h = "hx";
       dc = "docker compose";
