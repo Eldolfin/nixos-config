@@ -15,7 +15,6 @@
       ./pkgs/firefox.nix
       ./pkgs/git.nix
       ./pkgs/helix
-      ./pkgs/scripts
       ./pkgs/sounds.nix
       ./pkgs/fish.nix
       ./pkgs/stylix.nix

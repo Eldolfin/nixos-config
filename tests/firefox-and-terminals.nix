@@ -34,7 +34,7 @@
     for i in range(10): c.send_key("ctrl-shift-minus", delay=0.2)
     c.sleep(1)
 
-    user("kitty -o font_size=7 -e hx ~/bin/scripts/systemswitch.py"+bg)
+    user("kitty -o font_size=7 -e hx"+bg)
     user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
     c.wait_until_succeeds("pgrep sleep")
     c.sleep(10)

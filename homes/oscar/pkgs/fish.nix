@@ -9,9 +9,6 @@
   ];
   # fix missing completions for nix commands https://discourse.nixos.org/t/how-to-use-completion-fish-with-home-manager/23356
   xdg.configFile."fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
-  home.sessionPath = [
-    "/home/oscar/bin/scripts/"
-  ];
 
   programs.fish = {
     enable = true;
