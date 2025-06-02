@@ -77,7 +77,7 @@
         rust-analyzer = {
           command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
           config = {
-            checkOnSave.command = "clippy";
+            checkOnSave = true;
             cargo.allFeatures = true;
           };
         };
