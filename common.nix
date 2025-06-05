@@ -10,6 +10,7 @@
     ./pkgs/xdg.nix
     ./pkgs/systemd-boot.nix
     ./pkgs/steam.nix
+    ./pkgs/flatpak.nix
   ];
 
   boot.loader.timeout = 0;
