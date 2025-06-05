@@ -44,9 +44,15 @@
         {command = "${lib.getExe pkgs.firefox} https://www.youtube.com/feed/history";}
       ];
       floating = {
+        border = 0;
+        titlebar = false;
         criteria = [
           {
-            class = "clipse";
+            app_id = "clipse";
+          }
+          {
+            app_id = "firefox";
+            title = "^Picture-in-Picture$";
           }
         ];
       };
@@ -208,7 +214,7 @@
         "${mod}+n" = "exec swaync-client --toggle-panel";
         "${mod}+b" = "exec ${lib.getExe pkgs.bemoji}";
         "${mod}+w" = "exec ${lib.getExe pkgs.woomer}";
-        "${mod}+v" = ''exec kitty -e sh -c "swaymsg floating enable, move position center; swaymsg resize set 80ppt 80ppt && ${lib.getExe pkgs.clipse}"'';
+        "${mod}+v" = ''exec kitty --class=clipse -e ${lib.getExe pkgs.clipse}'';
         "${mod}+s" = "exec ${import ./scripts/swap-displays.nix pkgs}";
 
         ########################
