@@ -80,6 +80,7 @@
       g = "git";
       h = "hx";
       dc = "docker compose";
+      ssh = "TERM=xterm ssh";
     };
     interactiveShellInit = ''
       set -U fish_greeting
