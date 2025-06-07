@@ -12,5 +12,6 @@
     # libusb1 # for minecraft
     # prismlauncher
     # mangohud
+    mindustry-wayland
   ];
 }
