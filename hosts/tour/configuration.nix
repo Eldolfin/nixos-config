@@ -18,6 +18,4 @@
   # hardware.ckb-next.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
-
-  services.logmein-hamachi.enable = true;
 }
