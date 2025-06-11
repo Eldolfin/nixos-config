@@ -33,7 +33,6 @@
         callTimer.enable = true;
         clearURLs.enable = true;
         dearrow.enable = true;
-        fakeNitro.enable = true;
         forceOwnerCrown.enable = true;
         friendsSince.enable = true;
         implicitRelationships.enable = true;
@@ -60,7 +59,6 @@
         typingTweaks.enable = true;
         unindent.enable = true;
         voiceChatDoubleClick.enable = true;
-        whoReacted.enable = true;
         youtubeAdblock.enable = true;
         webScreenShareFixes.enable = true;
       };
