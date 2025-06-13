@@ -42,7 +42,7 @@
     };
 
     systemswitch = {
-      url = "path:./custom-pkgs/systemswitch";
+      url = "github:eldolfin/nixos-config/main?dir=custom-pkgs/systemswitch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
