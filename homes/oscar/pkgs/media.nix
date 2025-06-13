@@ -11,7 +11,7 @@
     ];
   };
   home.packages = with pkgs; [
-    # movies
+    yt-dlp
     jellyfin-media-player
     # jellyfin-mpv-shim
     # kodi-wayland

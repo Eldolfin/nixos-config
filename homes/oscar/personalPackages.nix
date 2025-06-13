@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./pkgs/bloat.nix
-    ./pkgs/movies.nix
+    ./pkgs/media.nix
     ./pkgs/gaming.nix
     ./pkgs/chromium.nix
     ./pkgs/socials.nix
