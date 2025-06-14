@@ -830,22 +830,6 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1739451785,
-        "narHash": "sha256-3ebRdThRic9bHMuNi2IAA/ek9b32bsy8F5R4SvGTIog=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1128e89fd5e11bb25aedbfc287733c6502202ea9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_6": {
-      "locked": {
         "lastModified": 1730768919,
         "narHash": "sha256-8AKquNnnSaJRXZxc5YmF/WfmxiHX6MMZZasRP6RRQkE=",
         "owner": "NixOS",
@@ -860,7 +844,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1735554305,
         "narHash": "sha256-zExSA1i/b+1NMRhGGLtNfFGXgLtgo+dcuzHzaWA6w3Q=",
@@ -950,7 +934,7 @@
       "inputs": {
         "flake-compat": "flake-compat_5",
         "gitignore": "gitignore_4",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1737465171,
@@ -1132,11 +1116,11 @@
       },
       "locked": {
         "dir": "custom-pkgs/systemswitch",
-        "lastModified": 1749632074,
-        "narHash": "sha256-9vvoFRLXfq2lhxAS6Y73sF0QJVXnJ5trrFkSrCIsLmY=",
+        "lastModified": 1749853769,
+        "narHash": "sha256-4iY0llvwnlGib+HIrtkCHOubNwdJpuLXgSnUnAJXD5E=",
         "owner": "eldolfin",
         "repo": "nixos-config",
-        "rev": "d0022ee847607b46e7cc113201afbec96c48f09c",
+        "rev": "6f6acc99f32c85e3553ef0e1614c18703d278e0c",
         "type": "github"
       },
       "original": {
@@ -1295,7 +1279,7 @@
     },
     "treefmt-nix_4": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1738953846,
@@ -1315,7 +1299,9 @@
       "inputs": {
         "crane": "crane_2",
         "flake-parts": "flake-parts_5",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "pre-commit-hooks": "pre-commit-hooks_2",
         "rust-overlay": "rust-overlay",
         "treefmt-nix": "treefmt-nix_4"
@@ -1323,16 +1309,15 @@
       "locked": {
         "lastModified": 1746201223,
         "narHash": "sha256-x/3vY6dy5XNEcJhVn2GcsZvUgJeAm9/Imcat08SYe2U=",
-        "ref": "main",
+        "owner": "Eldolfin",
+        "repo": "wol-api",
         "rev": "99a524fb724cbbd94e846ae6b19ff17ef6ec0346",
-        "revCount": 209,
-        "type": "git",
-        "url": "ssh://git@eldolfin.top/eldolfin/wol.git"
+        "type": "github"
       },
       "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "ssh://git@eldolfin.top/eldolfin/wol.git"
+        "owner": "Eldolfin",
+        "repo": "wol-api",
+        "type": "github"
       }
     }
   },
