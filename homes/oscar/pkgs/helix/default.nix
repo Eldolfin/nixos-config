@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  helix-steel,
+  system,
+  ...
+}: {
   imports = [./languages.nix ./scls.nix];
   home = {
     packages = with pkgs; [
@@ -11,7 +16,7 @@
   };
   programs.helix = {
     enable = true;
-
+    package = helix-steel.packages.${system}.default;
     settings = {
       theme = "gruber-darker";
       editor = {

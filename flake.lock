@@ -573,6 +573,28 @@
         "type": "github"
       }
     },
+    "helix-steel": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1749939857,
+        "narHash": "sha256-+K3ZebqdYktDiQKhfCHYBq2O05JIJ+ed229jf/Z+LaU=",
+        "owner": "mattwparas",
+        "repo": "helix",
+        "rev": "1301c93672ac5a0a19736bef19647d48c1e74ddb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattwparas",
+        "ref": "steel-event-system",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -953,6 +975,7 @@
     "root": {
       "inputs": {
         "backgrounds": "backgrounds",
+        "helix-steel": "helix-steel",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
@@ -966,6 +989,27 @@
       }
     },
     "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "helix-steel",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740623427,
+        "narHash": "sha256-3SdPQrZoa4odlScFDUHd4CUPQ/R1gtH4Mq9u8CBiK8M=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "d342e8b5fd88421ff982f383c853f0fc78a847ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
           "wol-api",
@@ -1303,7 +1347,7 @@
           "nixpkgs"
         ],
         "pre-commit-hooks": "pre-commit-hooks_2",
-        "rust-overlay": "rust-overlay",
+        "rust-overlay": "rust-overlay_2",
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {

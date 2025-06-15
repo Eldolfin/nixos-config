@@ -47,6 +47,11 @@
       url = "github:Eldolfin/windows_backgrounds";
       flake = false;
     };
+
+    helix-steel = {
+      url = "github:mattwparas/helix/steel-event-system";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -69,6 +74,7 @@
     commonModules = [
       ./pkgs/cachix-subsituter.nix
     ];
+    args = inputs // {inherit system;};
     nixosModulesServer =
       commonModules
       ++ [
@@ -108,7 +114,7 @@
     nixosConfigurations = {
       "oscar-portable" = let
         specialArgs =
-          inputs
+          args
           // {
             isTour = false;
           };
@@ -127,7 +133,7 @@
 
       "oscar-tour" = let
         specialArgs =
-          inputs
+          args
           // {
             isTour = true;
           };
@@ -146,7 +152,7 @@
 
       "oracle-x86" = let
         specialArgs =
-          inputs
+          args
           // {
             isTour = false;
           };
@@ -165,7 +171,7 @@
 
       "homeserver" = let
         specialArgs =
-          inputs
+          args
           // {
             isTour = false;
           };
@@ -184,7 +190,7 @@
 
       "oscar-iso" = let
         specialArgs =
-          inputs
+          args
           // {
             isTour = false;
           };
@@ -212,7 +218,7 @@
           ./homes/oscar/home.nix
         ];
       extraSpecialArgs =
-        inputs
+        args
         // {
           isTour = false;
           isPersonal = false;
@@ -223,7 +229,7 @@
 
     integration-tests = let
       specialArgs =
-        inputs
+        args
         // {
           isTour = false;
         };

@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     # used in specific directories
     nixpkgs-fmt
+    steel # has interpreter and lsp
   ];
   programs.helix = {
     extraPackages = with pkgs; [
