@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # smassh # monkey type in terminal
+    ttyper # monkey type in terminal
     gamemode
     lutris-free
     r2modman # steam games mods
