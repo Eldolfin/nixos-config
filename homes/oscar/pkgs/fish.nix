@@ -81,6 +81,7 @@
     interactiveShellInit = ''
       set -U fish_greeting
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
+      export COPILOT_API_KEY="$(cat /run/secrets/apis/COPILOT_API_KEY)"
 
       # yazi wrapper which cd to where yazi is quitted
       function y
