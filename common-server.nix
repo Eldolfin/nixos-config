@@ -1,4 +1,8 @@
-{pkgs, ...} @ inputs: {
+{
+  pkgs,
+  isTour,
+  ...
+} @ inputs: {
   imports = [
     ./pkgs/uutils.nix
   ];
@@ -7,7 +11,13 @@
       enable = true;
       clean = {
         enable = true;
-        extraArgs = "--keep-since 7d";
+
+        extraArgs = let
+          max_age =
+            if isTour
+            then "60d" # might as well use my 2To ssd
+            else "7d";
+        in "--keep-since ${max_age}";
         dates = "weekly";
       };
     };
