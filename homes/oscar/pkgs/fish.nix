@@ -22,10 +22,6 @@
         inherit (fzf-fish) src;
       }
       {
-        name = "forgit";
-        inherit (forgit) src;
-      }
-      {
         name = "fish-you-should-use";
         inherit (fish-you-should-use) src;
       }
