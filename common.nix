@@ -11,6 +11,7 @@
     ./pkgs/systemd-boot.nix
     ./pkgs/steam.nix
     ./pkgs/flatpak.nix
+    ./pkgs/kdeconnect.nix
   ];
 
   boot.loader.timeout = 0;
