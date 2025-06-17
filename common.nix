@@ -17,6 +17,7 @@
   boot.loader.timeout = 0;
   programs = {
     adb.enable = true;
+    dconf.enable = true;
   };
 
   networking.nameservers = [
