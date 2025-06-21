@@ -41,7 +41,7 @@
           command = "exec ${lib.getExe (import ./scripts/lower-brightness-if-night.nix pkgs)}";
           always = true;
         }
-        {command = "${lib.getExe pkgs.firefox} https://www.youtube.com/feed/history";}
+        # {command = "${lib.getExe pkgs.firefox} https://www.youtube.com/feed/history";}
       ];
       floating = {
         border = 0;
