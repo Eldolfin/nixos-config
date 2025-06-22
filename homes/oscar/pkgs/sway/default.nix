@@ -42,6 +42,7 @@
           always = true;
         }
         # {command = "${lib.getExe pkgs.firefox} https://www.youtube.com/feed/history";}
+        {command = "kitty -o font_size=18 -e fish -c 'fastfetch && fish'";}
       ];
       floating = {
         border = 0;
