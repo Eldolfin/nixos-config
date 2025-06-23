@@ -214,7 +214,6 @@
         # utils
         "${mod}+n" = "exec swaync-client --toggle-panel";
         "${mod}+b" = "exec ${lib.getExe pkgs.bemoji}";
-        "${mod}+w" = "exec ${lib.getExe pkgs.woomer}";
         "${mod}+v" = ''exec kitty --class=clipse -e ${lib.getExe pkgs.clipse}'';
         "${mod}+s" = "exec ${import ./scripts/swap-displays.nix pkgs}";
 
