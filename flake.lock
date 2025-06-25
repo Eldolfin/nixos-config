@@ -834,22 +834,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-old-gxml": {
-      "locked": {
-        "lastModified": 1735160951,
-        "narHash": "sha256-9h91U6BBNnzShwzlC+r/aXB+WyN3S140lYQbHH95bc0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c792c60b8a97daa7efe41a6e4954497ae410e0c1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c792c60b8a97daa7efe41a6e4954497ae410e0c1",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1733212471,
@@ -1028,7 +1012,6 @@
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-old-gxml": "nixpkgs-old-gxml",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
         "sops-nix": "sops-nix",

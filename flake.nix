@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-old-gxml.url = "github:NixOS/nixpkgs/?rev=c792c60b8a97daa7efe41a6e4954497ae410e0c1";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,10 +101,7 @@
             nixcord.homeModules.nixcord
           ];
           # nvidia, steam, ...
-          nixpkgs = {
-            config.allowUnfree = true;
-            overlays = [(import ./overlays args)];
-          };
+          nixpkgs.config.allowUnfree = true;
         }
       ];
     nixosModules =
