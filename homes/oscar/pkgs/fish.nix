@@ -13,17 +13,14 @@
   programs.fish = {
     enable = true;
     plugins = with pkgs.fishPlugins; [
+      # slows down all command outputs
+      # {
+      #   name = "grc";
+      #   inherit (grc) src;
+      # }
       {
-        name = "grc";
-        inherit (pkgs.fishPlugins.grc) src;
-      }
-      {
-        name = "plugin-grc";
+        name = "fzf-fish";
         inherit (fzf-fish) src;
-      }
-      {
-        name = "fish-you-should-use";
-        inherit (fish-you-should-use) src;
       }
       {
         name = "done";
@@ -37,11 +34,6 @@
         name = "autopair";
         inherit (autopair) src;
       } # alternative: pisces https://github.com/laughedelic/pisces
-      # check this if prompt is slow to appear
-      # {
-      #   name = "async-prompt";
-      #   src = async-prompt.src;
-      # }
     ];
     shellAbbrs = {
       sw = "systemswitch";
@@ -82,6 +74,9 @@
       set -U fish_greeting
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
       export COPILOT_API_KEY="$(cat /run/secrets/apis/COPILOT_API_KEY)"
+      # fix colored-man-pages
+      # see https://github.com/PatrickF1/colored_man_pages.fish/issues/2
+      export GROFF_NO_SGR=1
 
       # yazi wrapper which cd to where yazi is quitted
       function y
