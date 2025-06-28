@@ -228,7 +228,7 @@
         "${mod}+Shift+x" = "exec \"${lib.getExe pkgs.rofi-wayland} -show p -modi p:'rofi-power-menu'\"";
 
         "${mod}+t" = "exec kitty -o font_size=8 -e btop";
-        # "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\""; # crashes sway...
+        "${mod}+Shift+b" = "exec --no-startup-id \"bluetoothctl connect 88:C9:E8:42:A0:B1\"";
         "Shift+Print" = ''exec ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - | ${lib.getExe pkgs.swappy} -f -'';
         # "${mod}+Print" = "exec ${screenshotWindow}";
         "${mod}+Control+x" = lockAction;
