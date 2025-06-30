@@ -1,6 +1,6 @@
 {
   security.pam.services.gdm.enableGnomeKeyring = true;
-  services.xserver.displayManager = {
+  services.displayManager = {
     gdm = {
       enable = true;
     };
