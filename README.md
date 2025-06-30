@@ -2,8 +2,8 @@
 
 ## Screenshot
 
-Integration tests are ran on github actions, checkout the commit history
-[here](https://eldolfin.github.io/nixos-config)
+Integration tests are ran on github actions, checkout the
+[commit history](https://eldolfin.github.io/nixos-config)
 ![Latest screenshots of my system](https://raw.githubusercontent.com/Eldolfin/nixos-config/refs/heads/gh-pages/latest.png?)
 
 ## Misc
