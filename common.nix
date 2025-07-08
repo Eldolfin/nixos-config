@@ -12,6 +12,7 @@
     ./pkgs/steam.nix
     ./pkgs/flatpak.nix
     ./pkgs/kdeconnect.nix
+    ./pkgs/mullvad.nix
   ];
 
   boot.loader.timeout = 0;
