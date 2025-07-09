@@ -52,6 +52,12 @@
       url = "github:mattwparas/helix/steel-event-system";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -101,7 +107,10 @@
             nixcord.homeModules.nixcord
           ];
           # nvidia, steam, ...
-          nixpkgs.config.allowUnfree = true;
+          nixpkgs = {
+            config.allowUnfree = true;
+            overlays = [inputs.niri.overlays.niri];
+          };
         }
       ];
     nixosModules =
@@ -109,6 +118,7 @@
       ++ [
         ./common.nix
         stylix.nixosModules.stylix
+        inputs.niri.nixosModules.niri
       ];
   in rec {
     nixosConfigurations = {

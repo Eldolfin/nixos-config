@@ -13,6 +13,7 @@
     ./pkgs/flatpak.nix
     ./pkgs/kdeconnect.nix
     ./pkgs/mullvad.nix
+    ./pkgs/niri.nix
   ];
 
   boot.loader.timeout = 0;
@@ -56,7 +57,8 @@
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
     displayManager = {
-      defaultSession = "sway-uwsm";
+      # defaultSession = "sway-uwsm";
+      defaultSession = "niri";
       autoLogin = {
         user = "oscar";
       };
