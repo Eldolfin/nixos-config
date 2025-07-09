@@ -1,11 +1,20 @@
 {pkgs, ...}: {
   imports = [
+    ./pkgs/activitywatch.nix
     ./pkgs/bloat.nix
-    ./pkgs/media.nix
-    ./pkgs/gaming.nix
     ./pkgs/chromium.nix
+    ./pkgs/clipse.nix
+    ./pkgs/fuzzel.nix
+    ./pkgs/gaming.nix
+    ./pkgs/kitty.nix
+    ./pkgs/mako.nix
+    ./pkgs/media.nix
+    ./pkgs/niri
     ./pkgs/socials.nix
-    ./pkgs/sway
+    ./pkgs/swaylock.nix
+    ./pkgs/wlsunset.nix
+    ./pkgs/wpaperd.nix
+    # ./pkgs/sway
   ];
 
   home.packages = with pkgs; [

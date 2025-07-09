@@ -6,7 +6,6 @@
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
-    ./pkgs/sway.nix
     ./pkgs/xdg.nix
     ./pkgs/systemd-boot.nix
     ./pkgs/steam.nix
@@ -57,7 +56,6 @@
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
     displayManager = {
-      # defaultSession = "sway-uwsm";
       defaultSession = "niri";
       autoLogin = {
         user = "oscar";
