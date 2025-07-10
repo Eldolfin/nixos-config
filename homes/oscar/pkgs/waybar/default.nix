@@ -48,6 +48,12 @@
             "hx (.*)" = " $1";
           };
         };
+        "wireplumber" = {
+          "format" = "{volume}% {icon}";
+          "format-muted" = "";
+          "format-icons" = ["" "" ""];
+        };
+
         "tray" = {
           "icon-size" = 21;
           "spacing" = 10;
