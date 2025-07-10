@@ -1,7 +1,6 @@
 use clap::{Command, CommandFactory, Parser};
 use clap_complete::{generate, Generator, Shell};
 use colored::Colorize;
-use notify_rust::{Image, Notification};
 use std::{io, path::Path, sync::OnceLock};
 use xshell::cmd;
 
@@ -108,8 +107,7 @@ fn print_cmd(cmd: &str) {
     eprintln!("{} {}", "❯".green(), cmd);
 }
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<()> {
     if let Some(generator) = opt().generator {
         let cmd = Opt::command();
         eprintln!("Generating completion file for {generator:?}...");
@@ -186,9 +184,8 @@ async fn main() -> anyhow::Result<()> {
     }
     if !opt().no_build {
         cmd!(sh, "nh os switch {CONFIG_PATH}").maybe_dry_run()?;
-        if !opt().dry_run {
-            show_notification(&sh)?;
-        }
+        #[cfg(feature = "notify")]
+        show_notification(&sh)?;
     }
 
     if !opt().build && !opt().no_commit && !opt().no_push {
@@ -198,13 +195,16 @@ async fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
+#[cfg(feature = "notify")]
 fn show_notification(sh: &xshell::Shell) -> Result<(), anyhow::Error> {
-    Notification::new()
+    notify_rust::Notification::new()
         .summary("Systemswitch Switched!")
         .body("nixos system switched 🥳")
         .image_data(
-            Image::try_from(image::load_from_memory(include_bytes!("../assets/icon.png")).unwrap())
-                .unwrap(),
+            notify_rust::Image::try_from(
+                image::load_from_memory(include_bytes!("../assets/icon.png")).unwrap(),
+            )
+            .unwrap(),
         )
         .show()?;
     #[allow(clippy::zombie_processes)]
