@@ -12,9 +12,9 @@
     ./pkgs/niri
     ./pkgs/socials.nix
     ./pkgs/swaylock.nix
+    ./pkgs/waybar
     ./pkgs/wlsunset.nix
     ./pkgs/wpaperd.nix
-    # ./pkgs/sway
   ];
 
   home.packages = with pkgs; [
