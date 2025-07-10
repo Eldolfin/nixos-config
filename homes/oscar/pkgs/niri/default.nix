@@ -109,6 +109,7 @@
       "Super+Alt+L".action = lockAction;
       "Mod+V".action = spawn "kitty" "-o" "font_size=10" "--class=clipse" "-e" "clipse";
       "Print".action = sh ''grim -g "$(slurp)" - | swappy -f -'';
+      "Mod+Shift+B".action = spawn "bluetoothctl" "connect" "88:C9:E8:42:A0:B1";
       "Alt+Print".action = screenshot;
       "Shift+Print".action = screenshot-window;
 
