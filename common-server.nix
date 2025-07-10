@@ -1,29 +1,10 @@
-{
-  pkgs,
-  isTour,
-  ...
-} @ inputs: {
+{pkgs, ...} @ inputs: {
   imports = [
     ./pkgs/uutils.nix
+    ./pkgs/nh.nix
   ];
-  programs = {
-    nh = {
-      enable = true;
-      clean = {
-        enable = true;
-
-        extraArgs = let
-          max_age =
-            if isTour
-            then "60d" # might as well use my 2To ssd
-            else "7d";
-        in "--keep-since ${max_age}";
-        dates = "weekly";
-      };
-    };
-    nix-index-database.comma.enable = true;
-    fish.enable = true;
-  };
+  # takes 2 min at each rebuild...
+  documentation.man.generateCaches = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -44,8 +25,6 @@
   };
 
   environment.pathsToLink = [
-    # fix for i3blocks
-    "/libexec"
     # required for xdg portal to work
     # see https://github.com/nix-community/home-manager/blob/53c587d263f94aaf6a281745923c76bbec62bcf3/modules/misc/xdg-portal.nix#L26
     "/share/xdg-desktop-portal"
