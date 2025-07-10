@@ -2,14 +2,10 @@ use clap::{Command, CommandFactory, Parser};
 use clap_complete::{generate, Generator, Shell};
 use colored::Colorize;
 use notify_rust::{Image, Notification};
-use std::{io, path::Path, sync::OnceLock, time::Duration};
+use std::{io, path::Path, sync::OnceLock};
 use xshell::cmd;
 
-const MAX_GH_RUN_LIST_ATTEMPS: i32 = 20;
 const CONFIG_PATH: &str = "/etc/nixos";
-const GH_REPO_OWNER: &str = "eldolfin";
-const GH_REPO_NAME: &str = "nixos-config";
-const CI_WORKFLOW_PATH: &str = "ci.yml";
 
 #[derive(Clone, Parser, Debug, PartialEq)]
 #[command(name = "systemswitch")]
@@ -193,44 +189,6 @@ async fn main() -> anyhow::Result<()> {
     if !opt().build && !opt().no_commit && !opt().no_push {
         let git_push_args = (opt().force || opt().amend).then_some("--force-with-lease");
         cmd!(sh, "git push {git_push_args...}").maybe_dry_run()?;
-        // print_cmd("watch_github_action()");
-        // if !opt().dry_run {
-        //     watch_github_action(&sh).await?;
-        // }
-    }
-    Ok(())
-}
-
-async fn watch_github_action(sh: &xshell::Shell) -> anyhow::Result<()> {
-    let head_sha = cmd!(sh, "git rev-parse HEAD").output()?.stdout;
-    let head_sha = String::from_utf8(head_sha).unwrap().trim().to_owned();
-
-    let octo = octocrab::instance();
-    let api = octo.workflows(GH_REPO_OWNER, GH_REPO_NAME);
-    let mut run = None;
-    for _ in 0..MAX_GH_RUN_LIST_ATTEMPS {
-        tokio::time::sleep(Duration::from_secs(1)).await;
-        let runs = api
-            .list_runs(CI_WORKFLOW_PATH)
-            .per_page(2)
-            .status("in_progress")
-            .event("push")
-            .send()
-            .await
-            .inspect_err(|err| {
-                dbg!(err);
-            })?;
-        if let Some(found) = runs.items.into_iter().find(|run| run.head_sha == head_sha) {
-            run = Some(found);
-            break;
-        }
-    }
-    if let Some(run) = run {
-        // TODO: maybe render graph here instead of using gh cli
-        let run_id = run.id.to_string();
-        cmd!(sh, "gh run watch {run_id}").maybe_dry_run()?;
-    } else {
-        eprintln!("Giving up on watching the github workflow");
     }
     Ok(())
 }
