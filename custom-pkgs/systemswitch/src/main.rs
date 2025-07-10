@@ -145,11 +145,13 @@ async fn main() -> anyhow::Result<()> {
         } else {
             let git_commit_args = git_commit_args();
             cmd!(sh, "git add .").maybe_dry_run()?;
-            if cmd!(sh, "git diff --no-ext-diff --staged")
-                .maybe_dry_run()
-                .is_err()
+            if !opt().dry_run
+                && cmd!(sh, "git diff --no-ext-diff --staged")
+                    .quiet()
+                    .read()?
+                    .is_empty()
             {
-                eprintln!("No files changed!");
+                eprintln!("{}", "No files changed! Exitting...".bold());
                 return Ok(());
             }
             let res = if git_commit_args.is_empty() {
