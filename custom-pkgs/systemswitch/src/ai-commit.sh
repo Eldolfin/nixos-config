@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -xe
+set -e
 
 PROMPT="
 - Given the git diff and the last few commits, propose a commit message following the project commit format.
