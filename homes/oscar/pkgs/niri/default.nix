@@ -24,7 +24,6 @@
     prefer-no-csd = true; # aka hide window decoration
     gestures.hot-corners.enable = false;
     spawn-at-startup = [
-      {command = ["waybar"];}
       {command = ["${lib.getExe' pkgs.planify "io.github.alainm23.planify"}" "-b"];}
     ];
     environment = {
@@ -100,7 +99,7 @@
       "Mod+E".action = spawn "firefox";
       "Mod+Return".action = spawn "kitty";
       "Mod+B".action = spawn "bemoji";
-      "Super+Alt+L".action = spawn "swaylock";
+      "Super+Alt+L".action = lockAction;
       "Mod+V".action = spawn "kitty" "-o" "font_size=10" "--class=clipse" "-e" "clipse";
       "Print".action = sh ''grim -g "$(slurp)" - | swappy -f -'';
       "Alt+Print".action = screenshot;
