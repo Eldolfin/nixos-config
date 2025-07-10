@@ -4,10 +4,7 @@
     systemd.enable = true;
     settings = {
       mainBar = {
-        # "layer"= "top"; # Waybar at top layer
-        # "position"= "bottom"; # Waybar position (top|bottom|left|right)
         "height" = 30; # Waybar height (to be removed for auto height)
-        # "width"= 1280; # Waybar width
         "spacing" = 4; # Gaps between modules (4px)
         # Choose the order of the modules
         "modules-left" = [
@@ -18,6 +15,7 @@
         ];
         "modules-right" = [
           "network"
+          "disk"
           "cpu"
           "memory"
           "temperature"
@@ -50,17 +48,16 @@
           };
         };
         "tray" = {
-          # "icon-size"= 21;
+          "icon-size" = 21;
           "spacing" = 10;
-          # "icons"= {
-          #   "blueman"= "bluetooth";
-          #   "TelegramDesktop"= "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-          # }
         };
         "clock" = {
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           "format" = "{:%Y-%m-%d %H:%M:%S}";
           "interval" = 1;
+        };
+        "disk" = {
+          "format" = "{percentage_free}% TODO";
         };
         "cpu" = {
           "format" = "{usage}% ";
