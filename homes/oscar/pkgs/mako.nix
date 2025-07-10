@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       default-timeout = 10000;
-      # TODO: # on-notify = "exec mpv ~/sounds/";
+      on-notify = "exec mpv ~/Music/sounds/bell.mp3";
     };
   };
 }

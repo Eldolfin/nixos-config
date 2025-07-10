@@ -114,8 +114,8 @@
       "Shift+Print".action = screenshot-window;
 
       # Media
-      "XF86AudioRaiseVolume".action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ && mpv sounds/audio-volume-change.oga";
-      "XF86AudioLowerVolume".action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- && mpv sounds/audio-volume-change.oga";
+      "XF86AudioRaiseVolume".action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ && mpv ~/Music/sounds/audio-volume-change.oga";
+      "XF86AudioLowerVolume".action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- && mpv ~/Music/sounds/audio-volume-change.oga";
       "XF86AudioMute".action = sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && mpv sounds/audio-volume-change.oga";
       "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
 
