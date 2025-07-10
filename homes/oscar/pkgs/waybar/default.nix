@@ -57,7 +57,7 @@
           "interval" = 1;
         };
         "disk" = {
-          "format" = "{percentage_free}% TODO";
+          "format" = "{percentage_free}% 󰋊";
         };
         "cpu" = {
           "format" = "{usage}% ";
@@ -124,7 +124,7 @@
           "tooltip-format" = "{ifname} via {gwaddr}";
           "format-linked" = "{ifname} (No IP)";
           "format-disconnected" = "Disconnected ⚠";
-          "format-alt" = "{ifname}= {ipaddr}/{cidr}";
+          "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
         "custom/power" = {
           "format" = "⏻ ";
