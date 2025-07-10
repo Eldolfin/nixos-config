@@ -6,26 +6,34 @@
   ...
 }: {
   # TODO:
-  # - make clipse class window floating
   # - hide bitwarden windows from screensharing
   # - hide notifications from screensharing
   home.packages = with pkgs; [
+    clipse
+    bemoji
+
+    # screenshot
     grim
     slurp
     swappy
-    clipse
   ];
   programs.niri.settings = with config.lib.niri.actions; let
     lockAction = spawn "swaylock";
   in {
     switch-events.lid-close.action = lockAction;
     prefer-no-csd = true; # aka hide window decoration
-    environment."NIXOS_OZONE_WL" = "1"; # for electron apps
+    gestures.hot-corners.enable = false;
     spawn-at-startup = [
       {command = ["waybar"];}
       {command = ["${lib.getExe' pkgs.planify "io.github.alainm23.planify"}" "-b"];}
     ];
+    environment = {
+      EDITOR = "hx";
+      NIXOS_OZONE_WL = "1"; # for electron apps
+      QT_QPA_PLATFORM = "wayland";
+    };
     layout = {
+      gaps = 10;
       focus-ring.width = 2;
       always-center-single-column = true;
     };
@@ -41,6 +49,30 @@
         ];
       }
     ];
+    outputs = {
+      DP-3 = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 143.996;
+        };
+        position = {
+          x = 0;
+          y = 0;
+        };
+      };
+      DP-1 = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 59.950;
+        };
+        position = {
+          x = 1920;
+          y = 0;
+        };
+      };
+    };
     input = {
       focus-follows-mouse.enable = true;
       # wrap-mouse-to-focus.enable = true;
@@ -67,9 +99,10 @@
       "Mod+D".action = spawn "fuzzel";
       "Mod+E".action = spawn "firefox";
       "Mod+Return".action = spawn "kitty";
+      "Mod+B".action = spawn "bemoji";
       "Super+Alt+L".action = spawn "swaylock";
-      "Mod+V".action = spawn "kitty" "--class=clipse" "-e" "clipse";
-      "Print".action = sh ''grim -g "$(slurp)" - | swappy -f - -o - | wl-copy'';
+      "Mod+V".action = spawn "kitty" "-o" "font_size=10" "--class=clipse" "-e" "clipse";
+      "Print".action = sh ''grim -g "$(slurp)" - | swappy -f -'';
       "Alt+Print".action = screenshot;
       "Shift+Print".action = screenshot-window;
 
@@ -88,16 +121,16 @@
       "Mod+Up".action = focus-window-up;
       "Mod+Right".action = focus-column-right;
       "Mod+H".action = focus-column-left;
-      "Mod+J".action = focus-window-down;
-      "Mod+K".action = focus-window-up;
+      "Mod+J".action = focus-window-or-workspace-down;
+      "Mod+K".action = focus-window-or-workspace-up;
       "Mod+L".action = focus-column-right;
       "Mod+Ctrl+Left".action = move-column-left;
       "Mod+Ctrl+Down".action = move-window-down;
       "Mod+Ctrl+Up".action = move-window-up;
       "Mod+Ctrl+Right".action = move-column-right;
       "Mod+Ctrl+H".action = move-column-left;
-      "Mod+Ctrl+J".action = move-window-down;
-      "Mod+Ctrl+K".action = move-window-up;
+      "Mod+Ctrl+J".action = move-window-down-or-to-workspace-down;
+      "Mod+Ctrl+K".action = move-window-up-or-to-workspace-up;
       "Mod+Ctrl+L".action = move-column-right;
       "Mod+Home".action = focus-column-first;
       "Mod+End".action = focus-column-last;
