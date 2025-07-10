@@ -23,6 +23,7 @@
           "battery"
           "battery#bat2"
           "clock"
+          "wireplumber"
           "tray"
           "custom/power"
         ];
