@@ -11,11 +11,10 @@
         "spacing" = 4; # Gaps between modules (4px)
         # Choose the order of the modules
         "modules-left" = [
-          "niri/window"
           "niri/workspaces"
         ];
         "modules-center" = [
-          "sway/window"
+          "niri/window"
         ];
         "modules-right" = [
           "network"
@@ -23,7 +22,6 @@
           "memory"
           "temperature"
           "backlight"
-          "sway/language"
           "battery"
           "battery#bat2"
           "clock"
@@ -60,8 +58,8 @@
           # }
         };
         "clock" = {
-          "tooltip-format" = "<big>{=%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          "format" = "{=%Y-%m-%d %H=%M=%S}";
+          "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          "format" = "{:%Y-%m-%d %H:%M:%S}";
           "interval" = 1;
         };
         "cpu" = {
