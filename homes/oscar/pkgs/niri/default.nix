@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     clipse
     bemoji
+    wl-clipboard-rs
 
     # screenshot
     grim
@@ -36,6 +37,12 @@
       focus-ring.width = 2;
       always-center-single-column = true;
     };
+    layer-rules = [
+      {
+        matches = [{namespace = "^notifications$";}];
+        block-out-from = "screencast";
+      }
+    ];
     window-rules = [
       {
         open-floating = true;
