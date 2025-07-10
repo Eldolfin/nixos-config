@@ -1238,21 +1238,14 @@
         ]
       },
       "locked": {
-        "dir": "custom-pkgs/systemswitch",
-        "lastModified": 1751326178,
-        "narHash": "sha256-PiYgAJj2xj72PLvYn4fJZsfVFoFJL/GbkR3TX9wVIg4=",
-        "owner": "eldolfin",
-        "repo": "nixos-config",
-        "rev": "26b34e09fb6130718f35dd39dc483100b1f14aef",
-        "type": "github"
+        "path": "./custom-pkgs/systemswitch",
+        "type": "path"
       },
       "original": {
-        "dir": "custom-pkgs/systemswitch",
-        "owner": "eldolfin",
-        "ref": "main",
-        "repo": "nixos-config",
-        "type": "github"
-      }
+        "path": "./custom-pkgs/systemswitch",
+        "type": "path"
+      },
+      "parent": []
     },
     "tinted-foot": {
       "flake": false,
