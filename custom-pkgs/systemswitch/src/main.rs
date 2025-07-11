@@ -152,6 +152,7 @@ fn main() -> anyhow::Result<()> {
                 eprintln!("{}", "No files changed! Exitting...".bold());
                 return Ok(());
             }
+            cmd!(sh, "git --no-pager diff --staged").maybe_dry_run()?;
             let res = if git_commit_args.is_empty() {
                 cmd!(sh, "ai-commit.sh").maybe_dry_run().or_else(|_err| {
                     eprint!(
