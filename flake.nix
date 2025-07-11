@@ -197,24 +197,6 @@
             ];
           inherit specialArgs;
         };
-
-      "oscar-iso" = let
-        specialArgs =
-          args
-          // {
-            isTour = false;
-          };
-      in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules =
-            nixosModules
-            ++ [
-              ./hosts/iso/configuration.nix
-              {home-manager.extraSpecialArgs = specialArgs;}
-            ];
-          inherit specialArgs;
-        };
     };
 
     homeConfigurations."oscar" = home-manager.lib.homeManagerConfiguration {
