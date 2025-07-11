@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   isTour,
   ...
 }: let
@@ -67,7 +68,7 @@
     layout {
     }
 
-    spawn-at-startup "sh" "-c" "regreet; niri msg action quit --skip-confirmation"
+    spawn-at-startup "sh" "-c" "${lib.getExe pkgs.greetd.regreet}; niri msg action quit --skip-confirmation"
   '';
 in {
   programs.regreet = {
