@@ -1,5 +1,5 @@
 # this file is common between tour and laptop
-{
+{lib, ...}: {
   imports = [
     ./common-server.nix
     ./pkgs/greetd.nix
@@ -7,7 +7,6 @@
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
     ./pkgs/xdg.nix
-    ./pkgs/systemd-boot.nix
     ./pkgs/steam.nix
     ./pkgs/flatpak.nix
     ./pkgs/kdeconnect.nix
@@ -15,7 +14,7 @@
     ./pkgs/niri.nix
   ];
 
-  boot.loader.timeout = 0;
+  boot.loader.timeout = lib.mkDefault 0;
   programs = {
     adb.enable = true;
   };

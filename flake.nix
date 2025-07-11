@@ -299,6 +299,7 @@
             act
             just
             nix-output-monitor
+            nixos-generators
           ])
           ++ self.checks.${system}.pre-commit-check.enabledPackages;
       };

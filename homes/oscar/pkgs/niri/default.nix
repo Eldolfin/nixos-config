@@ -7,7 +7,7 @@
 }: {
   # TODO:
   # - hide bitwarden windows from screensharing
-  # - hide notifications from screensharing
+  # - make binds layout independent
   home.packages = with pkgs; [
     clipse
     bemoji
@@ -104,12 +104,19 @@
       # Programs
       "Mod+D".action = spawn "fuzzel";
       "Mod+E".action = spawn "firefox";
+      "Mod+Shift+E".action = spawn "firefox" "--private-window";
       "Mod+Return".action = spawn "kitty";
       "Mod+B".action = spawn "bemoji";
-      "Super+Alt+L".action = lockAction;
+      "Mod+T".action = spawn "kitty" "-o" "font_size=8" "-e" "btop";
       "Mod+V".action = spawn "kitty" "-o" "font_size=10" "--class=clipse" "-e" "clipse";
-      "Print".action = sh ''grim -g "$(slurp)" - | swappy -f -'';
       "Mod+Shift+B".action = spawn "bluetoothctl" "connect" "88:C9:E8:42:A0:B1";
+      "Mod+Shift+x".action = spawn "${lib.getExe pkgs.rofi-wayland}" "-show" "p" "-modi" "p:'rofi-power-menu'";
+      "Super+Alt+L".action = lockAction;
+      "Mod+N".action = spawn "${lib.getExe' pkgs.planify "io.github.alainm23.planify.quick-add"}";
+      "Mod+Shift+Return".action = spawn "paplay" "/home/oscar/Music/sounds/boom.wav";
+
+      # Screenshots
+      "Print".action = sh ''grim -g "$(slurp)" - | swappy -f -'';
       "Alt+Print".action = screenshot;
       "Shift+Print".action = screenshot-window;
 
@@ -118,6 +125,8 @@
       "XF86AudioLowerVolume".action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- && mpv ~/Music/sounds/audio-volume-change.oga";
       "XF86AudioMute".action = sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && mpv sounds/audio-volume-change.oga";
       "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+      "XF86AudioPlay".action = spawn "${lib.getExe pkgs.playerctl}" "play-pause";
+      "XF86AudioPause".action = spawn "${lib.getExe pkgs.playerctl}" "play-pause";
 
       # Movements
       "Mod+Shift+Colon".action = show-hotkey-overlay;
@@ -228,7 +237,7 @@
       "Mod+Equal".action = set-column-width "+10%";
       "Mod+Shift+ParenRight".action = set-window-height "-10%";
       "Mod+Shift+Equal".action = set-window-height "+10%";
-      "Mod+Shift+E".action = quit;
+      "Mod+Ctrl+E".action = quit;
       "Mod+Shift+P".action = power-off-monitors;
     };
   };

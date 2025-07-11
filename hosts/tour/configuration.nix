@@ -5,6 +5,7 @@
     ../../pkgs/nvidia.nix
     ../../pkgs/incus.nix
     ../../pkgs/actual.nix
+    ../../pkgs/systemd-boot.nix
   ];
 
   eldolfin.services.wol-agent.machine-name = "tour";
