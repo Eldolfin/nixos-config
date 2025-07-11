@@ -13,11 +13,11 @@
     		repeat-delay 250
     		repeat-rate 50
     		xkb {
-    			layout ${
+    			layout "${
       if isTour
       then "fr"
       else "gb"
-    }
+    }"
     		}
     	}
     	touchpad {
