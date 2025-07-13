@@ -49,3 +49,4 @@ watch:
 
 build-laptop-on-tour:
     nixos-rebuild switch --flake '/etc/nixos#oscar-portable' --show-trace --build-host oscar@{{TOUR_IP}} |& nom
+    nh os switch /etc/nixos
