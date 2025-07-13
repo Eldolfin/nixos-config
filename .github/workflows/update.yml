@@ -10,6 +10,9 @@ jobs:
       matrix:
         lock-file-dir: [ "." ]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
