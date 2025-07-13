@@ -26,6 +26,7 @@
     gestures.hot-corners.enable = false;
     spawn-at-startup = [
       {command = ["${lib.getExe' pkgs.planify "io.github.alainm23.planify"}" "-b"];}
+      {command = ["${lib.getExe pkgs.wl-clip-persist}" "--clipboard" "regular"];}
     ];
     environment = {
       EDITOR = "hx";
