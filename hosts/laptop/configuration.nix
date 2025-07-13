@@ -9,7 +9,7 @@
   console.keyMap = "uk";
   services = {
     openssh.enable = false;
-    xserver. xkb.layout = "gb";
+    xserver.xkb.layout = "gb";
     displayManager.autoLogin.enable = false;
     tlp.enable = true;
     touchegg.enable = true;
