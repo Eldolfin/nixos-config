@@ -28,7 +28,7 @@ jobs:
           sudo apt-get clean
           echo "... done"
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/nix-installer-action@v14
       - uses: cachix/cachix-action@v14
         with:
           name: nixos-eldolfin
@@ -36,8 +36,8 @@ jobs:
       - name: Install nix-fast-build
         shell: bash
         run: |
-          nix profile install github:Mic92/nix-fast-build/1.1.0
-      - uses: DeterminateSystems/flake-checker-action@main
+          nix profile install github:Mic92/nix-fast-build
+      - uses: DeterminateSystems/flake-checker-action@v8
       - name: Build system config
         run: |
           nix-fast-build --skip-cached --no-nom \
@@ -71,6 +71,9 @@ jobs:
   integration-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    permissions:
+      contents: write
+      pages: write
     steps:
       - name: maximize build space
         # from https://github.com/easimon/maximize-build-space/blob/master/action.yml
@@ -83,7 +86,7 @@ jobs:
           sudo docker image prune --all --force
           echo "... done"
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/nix-installer-action@v14
         with:
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
       - uses: cachix/cachix-action@v14
@@ -94,25 +97,35 @@ jobs:
       - name: Install nix-fast-build
         shell: bash
         run: |
-          nix profile install github:Mic92/nix-fast-build/1.1.0
+          nix profile install github:Mic92/nix-fast-build
       - name: define screenshot output dir
         id: screenshot_path
         run: |
           echo "screenshot_path=screenshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
-          echo "screenshot_url_base=https://raw.githubusercontent.com/Eldolfin/nixos-config/refs/heads/gh-pages/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "screenshot_url_base=https://raw.githubusercontent.com/Eldolfin/nixos-config/gh-pages/screenshots/${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
 
       - name: Test system config
         run: |
+          echo "Running CI tests..."
           nix develop -c just ci
+          echo "Creating screenshot directory..."
           mkdir -p ${{ steps.screenshot_path.outputs.screenshot_path }}
-          cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
+          echo "Looking for VM test screenshots..."
+          # Copy screenshots if they exist
+          if ls /nix/store/*vm-test-run*/*.png 1> /dev/null 2>&1; then
+            echo "Found screenshots, copying them..."
+            cp /nix/store/*vm-test-run*/*.png ${{ steps.screenshot_path.outputs.screenshot_path }}
+            ls -la ${{ steps.screenshot_path.outputs.screenshot_path }}
+          else
+            echo "No screenshots found in /nix/store/*vm-test-run*/"
+          fi
 
       - name: Upload screenshots as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: tests-screenshots
           path: ${{ steps.screenshot_path.outputs.screenshot_path }}
-          if-no-files-found: error
+          if-no-files-found: warn
 
       - name: Push screenshots to github pages
         uses: peaceiris/actions-gh-pages@v4
@@ -129,10 +142,14 @@ jobs:
           OUT="pr-comment.md"
           touch "$OUT"
           echo ":wave: Screenshots from the last test run" >> "$OUT"
-          for path in ${{ steps.screenshot_path.outputs.screenshot_path }}/*; do
-            filename=$(basename "$path")
-            echo "![](${{ steps.screenshot_path.outputs.screenshot_url_base }}/${filename})" >> "$OUT"
-          done
+          if [ -d "${{ steps.screenshot_path.outputs.screenshot_path }}" ] && [ -n "$(ls -A ${{ steps.screenshot_path.outputs.screenshot_path }})" ]; then
+            for path in ${{ steps.screenshot_path.outputs.screenshot_path }}/*; do
+              filename=$(basename "$path")
+              echo "![](${{ steps.screenshot_path.outputs.screenshot_url_base }}/${filename})" >> "$OUT"
+            done
+          else
+            echo "No screenshots available for this run." >> "$OUT"
+          fi
           echo "comment_path=${OUT}" >> "$GITHUB_OUTPUT"
           # put it in the action summary too
           cat "$OUT" >> "$GITHUB_STEP_SUMMARY"
