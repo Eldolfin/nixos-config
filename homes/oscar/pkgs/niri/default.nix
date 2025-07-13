@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
     clipse
     bemoji
-    wl-clipboard-rs
+    wl-clipboard
 
     # screenshot
     grim
