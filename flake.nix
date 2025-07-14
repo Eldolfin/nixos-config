@@ -279,6 +279,7 @@
         buildInputs =
           (with pkgs; [
             act
+            jq
             just
             nix-output-monitor
             nixos-generators

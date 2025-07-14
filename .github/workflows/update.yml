@@ -10,14 +10,17 @@ jobs:
       matrix:
         lock-file-dir: [ "." ]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: DeterminateSystems/nix-installer-action@v14
       - name: Update flake.lock
         id: update
-        uses: DeterminateSystems/update-flake-lock@main
+        uses: DeterminateSystems/update-flake-lock@v22
         with:
           pr-title: "Update ${{ matrix.lock-file-dir }}/flake.lock"
           commit-msg: "chore(flake-lockfile): Update ${{ matrix.lock-file-dir }}/flake.lock"
