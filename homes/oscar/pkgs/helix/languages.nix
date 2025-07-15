@@ -79,7 +79,12 @@
           command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
           config = {
             checkOnSave = true;
-            cargo.allFeatures = true;
+            cargo = {
+              allFeatures = true;
+              # makes it much more responsive when compiling on save externally, which I always do
+              # by using a different target/ directory
+              targetDir = true;
+            };
           };
         };
 
