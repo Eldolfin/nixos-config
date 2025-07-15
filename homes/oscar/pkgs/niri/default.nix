@@ -83,7 +83,7 @@
       };
     };
     input = {
-      focus-follows-mouse.enable = true;
+      # focus-follows-mouse.enable = true;
       # wrap-mouse-to-focus.enable = true;
       touchpad = {
         click-method = "clickfinger"; # two finger right click
