@@ -97,7 +97,6 @@
           auto-format = true;
           formatter.command = lib.getExe pkgs.shfmt;
           language-servers = [
-            "scls"
             "bashls"
             # "gpt"
           ];
@@ -107,9 +106,9 @@
           auto-format = true;
           formatter.command = "${pkgs.clang-tools}/bin/clang-format";
           language-servers = [
-            "scls"
             "clangd"
             # "gpt"
+            "scls"
           ];
         }
         {
@@ -117,9 +116,9 @@
           auto-format = true;
           formatter.command = "${pkgs.clang-tools}/bin/clang-format";
           language-servers = [
-            "scls"
             "clangd"
             "gpt"
+            "scls"
           ];
         }
         {
@@ -127,10 +126,10 @@
           auto-format = true;
           formatter.command = lib.getExe pkgs.alejandra;
           language-servers = [
-            "scls"
             "nixd"
             # "nil"
             # "gpt"
+            "scls"
           ];
         }
         {
@@ -138,18 +137,18 @@
           auto-format = true;
           formatter.command = lib.getExe pkgs.rustfmt;
           language-servers = [
-            "scls"
             "rust-analyzer"
             # "gpt"
+            "scls"
           ];
         }
         {
           name = "typescript";
           auto-format = true;
           language-servers = [
-            "scls"
             # "gpt"
             "typescript-language-server"
+            "scls"
           ];
           formatter = {
             command = lib.getExe pkgs.deno;
@@ -165,9 +164,9 @@
           name = "tsx";
           auto-format = true;
           language-servers = [
-            "scls"
             # "gpt"
             "typescript-language-server"
+            "scls"
           ];
           formatter = {
             command = lib.getExe pkgs.deno;
@@ -191,10 +190,10 @@
           name = "python";
           auto-format = true;
           language-servers = [
-            "scls"
             # "gpt"
             "pylsp"
             "ruff"
+            "scls"
           ];
           formatter = {
             command = lib.getExe pkgs.black;
@@ -228,9 +227,9 @@
           name = "javascript";
           auto-format = true;
           language-servers = [
-            "scls"
             # "gpt"
             "typescript-language-server"
+            "scls"
           ];
           formatter = {
             command = lib.getExe pkgs.deno;
@@ -247,9 +246,9 @@
           name = "markdown";
           auto-format = true;
           language-servers = [
-            "scls"
             "vscode-markdown-language-server"
             # "gpt"
+            "scls"
           ];
           formatter = {
             command = lib.getExe pkgs.deno;
@@ -266,8 +265,8 @@
           name = "html";
           auto-format = true;
           language-servers = [
-            "scls"
             "vscode-html-language-server"
+            "scls"
           ];
         }
 
