@@ -35,8 +35,8 @@
     c.sleep(1)
 
     user("kitty -o font_size=7 -e hx"+bg)
-    user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
-    c.wait_until_succeeds("pgrep sleep")
+    # user("cool-retro-term -e sh -c 'fortune -a | cowsay -r; sleep infinity'"+bg)
+    # c.wait_until_succeeds("pgrep sleep")
     c.sleep(10)
 
     c.screenshot("${name}")

@@ -17,7 +17,7 @@ in
       enableOCR = true;
       nodes = {
         c = {pkgs, ...}: {
-          imports = commonModules ++ [(test.nodeCfg {inherit pkgs;})];
+          imports = commonModules ++ [(test.nodeCfg {inherit pkgs;}) ../pkgs/systemd-boot.nix];
           virtualisation = {
             memorySize = 4096;
             diskSize = 8192;

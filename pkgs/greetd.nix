@@ -78,7 +78,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "niri -c ${initialNiriConfig}";
+        command = "niri -c ${initialNiriConfig} > /tmp/greetd-niri.log 2>&1";
         user = "greeter";
       };
     };

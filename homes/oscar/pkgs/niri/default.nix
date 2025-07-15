@@ -27,11 +27,13 @@
     spawn-at-startup = [
       {command = ["${lib.getExe' pkgs.planify "io.github.alainm23.planify"}" "-b"];}
       {command = ["${lib.getExe pkgs.wl-clip-persist}" "--clipboard" "regular"];}
+      {command = ["${lib.getExe pkgs.xwayland-satellite}"];}
     ];
     environment = {
       EDITOR = "hx";
       NIXOS_OZONE_WL = "1"; # for electron apps
       QT_QPA_PLATFORM = "wayland";
+      DISPLAY = ":0";
     };
     layout = {
       gaps = 10;
