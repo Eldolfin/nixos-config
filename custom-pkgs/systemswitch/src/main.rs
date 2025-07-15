@@ -131,10 +131,15 @@ fn main() -> anyhow::Result<()> {
         let rest = opt().rest.clone();
         let editor = std::env::var("EDITOR").unwrap();
         let editor = Path::new(&editor);
-        if rest.is_empty() {
-            cmd!(sh, "{editor} .").maybe_dry_run()?;
-        } else {
+        if !rest.is_empty() {
             cmd!(sh, "{editor} {rest...}").maybe_dry_run()?;
+        } else if opt().amend {
+            let modified_files =
+                cmd!(sh, "git diff-tree --no-commit-id --name-only HEAD -r").read()?;
+            let modified_files: Vec<_> = modified_files.lines().collect();
+            cmd!(sh, "{editor} {modified_files...}").maybe_dry_run()?;
+        } else {
+            cmd!(sh, "{editor} .").maybe_dry_run()?;
         }
     }
     if !opt().build && !opt().no_commit {
