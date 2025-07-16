@@ -14,7 +14,10 @@ night-update:
   end
 
   wol wake tour
+  git pull
   while ! ping -c 1 {{TOUR_IP}}; end
+  # TODO: try when autologin works
+  # ssh oscar@192.168.1.167 'NIRI_SOCKET=$(ls /run/user/*/niri.wayland-1.*.sock) niri msg action power-off-monitors'
   just build-laptop-on-tour
   wol shutdown tour
 
