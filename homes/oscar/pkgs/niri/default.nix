@@ -36,7 +36,7 @@
       DISPLAY = ":0";
     };
     layout = {
-      gaps = 10;
+      gaps = 4;
       focus-ring.width = 2;
       always-center-single-column = true;
     };
