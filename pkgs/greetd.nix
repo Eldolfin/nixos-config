@@ -2,6 +2,7 @@
   pkgs,
   lib,
   isTour,
+  config,
   ...
 }: let
   initialNiriConfig = pkgs.writeText "greetd-niri-config" ''
@@ -77,10 +78,23 @@ in {
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "niri -c ${initialNiriConfig} > /tmp/greetd-niri.log 2>&1";
-        user = "greeter";
-      };
+      default_session =
+        if config.services.displayManager.autoLogin.enable
+        then {
+          command = "niri";
+          inherit (config.services.displayManager.autoLogin) user;
+        }
+        else {
+          command = "niri -c ${initialNiriConfig} > /tmp/greetd-niri.log";
+          user = "greeter";
+        };
     };
   };
+  assertions = [
+    {
+      assertion =
+        config.services.displayManager.defaultSession == "niri";
+      message = "niri is hardcoded here...";
+    }
+  ];
 }

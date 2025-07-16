@@ -57,6 +57,7 @@
     displayManager = {
       defaultSession = "niri";
       autoLogin = {
+        enable = lib.mkDefault false;
         user = "oscar";
       };
     };
