@@ -103,7 +103,7 @@
           };
           home-manager.sharedModules = [
             nur.modules.homeManager.default
-            nix-index-database.hmModules.nix-index
+            nix-index-database.homeModules.nix-index
             nixcord.homeModules.nixcord
           ];
           # nvidia, steam, ...
