@@ -6,7 +6,7 @@
   };
   home.packages = with pkgs; [
     libreoffice
-    gimp
+    gimp3
     planify
     # rustdesk-flutter
     # handbrake
