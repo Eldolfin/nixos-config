@@ -10,6 +10,7 @@ clap_complete = "4.5.44"
 colored = "3.0.0"
 image = { version = "0.25.5", default-features = false, optional = true }
 notify-rust = { version = "4.11.4", features = ["image", "images"], optional = true }
+spinners = "4.1.1"
 xshell = "0.2.7"
 
 [features]

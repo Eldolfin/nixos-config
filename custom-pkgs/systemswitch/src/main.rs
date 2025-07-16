@@ -1,7 +1,8 @@
 use clap::{Command, CommandFactory, Parser};
 use clap_complete::{generate, Generator, Shell};
 use colored::Colorize;
-use std::{io, path::Path, sync::OnceLock};
+use spinners::{Spinner, Spinners};
+use std::{io, path::Path, sync::OnceLock, time::Instant};
 use xshell::cmd;
 
 const CONFIG_PATH: &str = "/etc/nixos";
@@ -70,11 +71,23 @@ fn opt() -> &'static Opt {
     OPT.get_or_init(Opt::parse)
 }
 
-trait MaybeDryRun {
+trait XShellExts {
+    fn output_pretty(self) -> xshell::Result<std::process::Output>;
+    fn run_pretty(self) -> xshell::Result<()>;
     fn maybe_dry_run(self) -> xshell::Result<()>;
 }
 
-impl MaybeDryRun for xshell::Cmd<'_> {
+impl XShellExts for xshell::Cmd<'_> {
+    fn output_pretty(self) -> xshell::Result<std::process::Output> {
+        print_cmd(&self.to_string());
+        self.quiet().output()
+    }
+
+    fn run_pretty(self) -> xshell::Result<()> {
+        print_cmd(&self.to_string());
+        self.quiet().run()
+    }
+
     fn maybe_dry_run(self) -> xshell::Result<()> {
         print_cmd(&self.to_string());
         if !opt().dry_run {
@@ -85,12 +98,12 @@ impl MaybeDryRun for xshell::Cmd<'_> {
     }
 }
 
-trait MaybeChangeDir {
-    fn maybe_change_dir(&self, dir: impl AsRef<Path>);
+trait ChangeDirPretty {
+    fn change_dir_pretty(&self, dir: impl AsRef<Path>);
 }
 
-impl MaybeChangeDir for xshell::Shell {
-    fn maybe_change_dir(&self, dir: impl AsRef<Path>) {
+impl ChangeDirPretty for xshell::Shell {
+    fn change_dir_pretty(&self, dir: impl AsRef<Path>) {
         let cmd = format!("cd {}", dir.as_ref().display());
         print_cmd(&cmd);
         // run it regardless of dry_run. Shouldn't change anything right now
@@ -117,7 +130,7 @@ fn main() -> anyhow::Result<()> {
 
     let sh = xshell::Shell::new()?;
 
-    sh.maybe_change_dir(CONFIG_PATH);
+    sh.change_dir_pretty(CONFIG_PATH);
 
     if opt().pull {
         cmd!(sh, "git pull").maybe_dry_run()?;
@@ -189,6 +202,30 @@ fn main() -> anyhow::Result<()> {
         }
     }
     if !opt().no_build {
+        if let Ok(running_nh) = cmd!(sh, "pgrep nh").output_pretty() {
+            let pid = String::from_utf8(running_nh.stdout)
+                .unwrap()
+                .trim()
+                .to_owned();
+            println!(
+                "{}",
+                format!(
+                    "Another {} instance is running. Waiting for pids {}",
+                    "nh".bold(),
+                    pid.bold()
+                )
+                .yellow()
+            );
+            let mut sp = Spinner::with_timer(Spinners::Dots12, "Waiting for nh to finish".into());
+            let start = Instant::now();
+            cmd!(sh, "waitpid {pid}").run_pretty()?;
+            let end = Instant::now();
+            let duration = (end - start).as_secs_f64();
+            sp.stop_and_persist(
+                &"✔".green().to_string(),
+                format!("Waited nh for {:.1?}s!", duration),
+            )
+        }
         cmd!(sh, "nh os switch {CONFIG_PATH}").maybe_dry_run()?;
         #[cfg(feature = "notify")]
         show_notification(&sh)?;
