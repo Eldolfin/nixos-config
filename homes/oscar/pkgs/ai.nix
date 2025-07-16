@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    aichat
-    goose-cli
+    # never used
+    # aichat
+    # goose-cli
   ];
 }
