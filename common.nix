@@ -12,6 +12,7 @@
     ./pkgs/kdeconnect.nix
     ./pkgs/mullvad.nix
     ./pkgs/niri.nix
+    ./pkgs/kmscon.nix
   ];
 
   boot.loader.timeout = lib.mkDefault 0;
