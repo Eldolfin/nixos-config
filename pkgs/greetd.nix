@@ -78,16 +78,17 @@ in {
   services.greetd = {
     enable = true;
     settings = {
-      default_session =
-        if config.services.displayManager.autoLogin.enable
-        then {
+      initial_session =
+        lib.mkIf
+        config.services.displayManager.autoLogin.enable
+        {
           command = "niri";
           inherit (config.services.displayManager.autoLogin) user;
-        }
-        else {
-          command = "niri -c ${initialNiriConfig} > /tmp/greetd-niri.log";
-          user = "greeter";
         };
+      default_session = {
+        command = "niri -c ${initialNiriConfig} > /tmp/greetd-niri.log";
+        user = "greeter";
+      };
     };
   };
   assertions = [
