@@ -18,7 +18,7 @@
     jq.enable = true;
     ripgrep.enable = true;
     skim.enable = true;
-    # zellij.enable = true;
+    zellij.enable = true;
     zoxide.enable = true;
 
     lazygit = {
