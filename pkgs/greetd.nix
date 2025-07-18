@@ -77,6 +77,7 @@ in {
   };
   services.greetd = {
     enable = true;
+    vt = 7;
     settings = {
       initial_session =
         lib.mkIf
