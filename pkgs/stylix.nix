@@ -28,7 +28,10 @@
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };
-      sizes.terminal = 20;
+      sizes = {
+        terminal = 20;
+        popups = 20;
+      };
     };
   };
 }
