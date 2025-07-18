@@ -11,10 +11,10 @@
           "niri/workspaces"
         ];
         "modules-center" = [
-          "privacy"
           "niri/window"
         ];
         "modules-right" = [
+          "privacy"
           "network"
           "custom/bandwidth"
           "disk"
