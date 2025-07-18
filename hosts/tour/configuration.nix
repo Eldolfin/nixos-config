@@ -4,7 +4,7 @@
     ../../pkgs/wol-agent.nix
     ../../pkgs/nvidia.nix
     ../../pkgs/incus.nix
-    ../../pkgs/actual.nix
+    # ../../pkgs/actual.nix
     ../../pkgs/systemd-boot.nix
   ];
 
