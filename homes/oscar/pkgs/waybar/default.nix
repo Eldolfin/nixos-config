@@ -15,6 +15,7 @@
         ];
         "modules-right" = [
           "network"
+          "custom/bandwidth"
           "disk"
           "cpu"
           "memory"
@@ -60,7 +61,7 @@
         };
         "clock" = {
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          "format" = "{:%Y-%m-%d %H:%M:%S}";
+          "format" = "{:%A %Y-%m-%d %H:%M:%S}";
           "interval" = 1;
         };
         "disk" = {
@@ -133,13 +134,16 @@
           "format-disconnected" = "Disconnected ⚠";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
+        "custom/bandwidth" = {
+          "exec" = "python ${./scripts/bandwidth.py}";
+        };
         "custom/power" = {
           "format" = "⏻ ";
           "tooltip" = false;
           "menu" = "on-click";
           "menu-file" = ./power_menu.xml;
           "menu-actions" = {
-            "shutdown" = "shutdown";
+            "shutdown" = "shutdown 0";
             "reboot" = "reboot";
             "suspend" = "systemctl suspend";
             "hibernate" = "systemctl hibernate";
