@@ -16,15 +16,6 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
 window#waybar.termite {
   background-color: #3F3F3F;
 }
@@ -93,6 +84,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#custom-bandwidth,
 #mpd {
   padding: 0 10px;
   color: #ffffff;
@@ -171,7 +163,6 @@ label:focus {
 
 #cpu {
   background-color: #2ecc71;
-  color: #000000;
 }
 
 #memory {
@@ -227,6 +218,10 @@ label:focus {
   background-color: #ffa000;
 }
 
+#custom-bandwidth {
+  background-color: #2ecc71;
+}
+
 #temperature {
   background-color: #f0932b;
 }
@@ -236,7 +231,7 @@ label:focus {
 }
 
 #tray {
-  background-color: #2980b9;
+  padding: 0 20px;
 }
 
 #tray>.passive {
