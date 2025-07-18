@@ -30,7 +30,7 @@
       };
       sizes = {
         terminal = 20;
-        popups = 20;
+        popups = 15;
       };
     };
   };
