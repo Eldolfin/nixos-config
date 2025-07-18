@@ -11,6 +11,7 @@
           "niri/workspaces"
         ];
         "modules-center" = [
+          "privacy"
           "niri/window"
         ];
         "modules-right" = [
