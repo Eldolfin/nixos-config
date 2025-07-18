@@ -83,7 +83,7 @@ in {
         lib.mkIf
         config.services.displayManager.autoLogin.enable
         {
-          command = "niri";
+          command = "niri-session -l";
           inherit (config.services.displayManager.autoLogin) user;
         };
       default_session = {
