@@ -187,6 +187,7 @@
           name = "typst";
           auto-format = true;
           language-servers = [
+            "tinymist"
             "scls"
           ];
           formatter.command = lib.getExe pkgs.typstyle;
