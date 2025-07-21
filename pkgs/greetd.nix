@@ -87,7 +87,7 @@ in {
           inherit (config.services.displayManager.autoLogin) user;
         };
       default_session = {
-        command = "niri -c ${initialNiriConfig} > /tmp/greetd-niri.log";
+        command = "niri -c ${initialNiriConfig}";
         user = "greeter";
       };
     };
