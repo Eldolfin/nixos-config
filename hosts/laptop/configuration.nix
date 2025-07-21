@@ -10,8 +10,7 @@
   services = {
     openssh.enable = false;
     xserver.xkb.layout = "gb";
-    displayManager.autoLogin.enable = false;
-    tlp.enable = true;
-    touchegg.enable = true;
+    # tlp.enable = true;
+    # touchegg.enable = true;
   };
 }
