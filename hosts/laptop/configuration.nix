@@ -1,9 +1,7 @@
 {
   imports = [
-    ../../common.nix
     ../../services/autocpufreq.nix
     ../../pkgs/systemd-boot.nix
-    ../../pkgs/plymouth.nix
   ];
   networking.hostName = "oscar-portable";
   console.keyMap = "uk";
