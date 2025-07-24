@@ -21,6 +21,7 @@
     # misc graphical programs
     noisetorch
     gparted
+    moonlight-qt
 
     man-pages
     man-pages-posix
