@@ -40,6 +40,7 @@
       tokei
       ripgrep-all
       glab
+      vault
     ]
     ++ lib.optional isTour nvtopPackages.nvidia
   );
