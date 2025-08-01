@@ -66,6 +66,12 @@
         vscode-json-language-server = {
           command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
           args = ["--stdio"];
+          config = {
+            json = {
+              validate.enable = true;
+              format.enable = true;
+            };
+          };
         };
         vscode-markdown-language-server = {
           command = "${pkgs.vscode-langservers-extracted}/bin/vscode-markdown-language-server";
@@ -279,7 +285,7 @@
         {
           name = "json";
           auto-format = true;
-          language-servers = ["scls"];
+          language-servers = ["vscode-json-language-server" "scls"];
           formatter = {
             command = lib.getExe pkgs.deno;
             args = [
