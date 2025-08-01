@@ -39,8 +39,11 @@
       sd
       tokei
       ripgrep-all
-      glab
+
+      # epita
       vault
+      opentofu
+      glab
     ]
     ++ lib.optional isTour nvtopPackages.nvidia
   );
