@@ -63,7 +63,6 @@
     };
   };
   services = {
-    speechd.enable = false; # heavy and not used
     # needed for wireguard
     resolved.enable = true;
   };
