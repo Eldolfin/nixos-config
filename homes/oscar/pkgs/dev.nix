@@ -6,6 +6,7 @@
   programs.gh.enable = true;
   home.packages = with pkgs; (
     [
+      deskflow
       # docker
       docker-compose
       dive
