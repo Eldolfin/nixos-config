@@ -10,7 +10,7 @@
     ./pkgs/flatpak.nix
     ./pkgs/kdeconnect.nix
     ./pkgs/mullvad.nix
-    ./pkgs/niri.nix
+    # ./pkgs/niri.nix
     ./pkgs/gnome.nix
     ./pkgs/kmscon.nix
     ./pkgs/gdm.nix

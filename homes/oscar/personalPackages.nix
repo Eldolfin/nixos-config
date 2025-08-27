@@ -3,18 +3,18 @@
     ./pkgs/activitywatch.nix
     ./pkgs/bloat.nix
     ./pkgs/chromium.nix
-    ./pkgs/clipse.nix
-    ./pkgs/fuzzel.nix
+    # ./pkgs/clipse.nix
+    # ./pkgs/fuzzel.nix
     ./pkgs/gaming.nix
     ./pkgs/kitty.nix
-    ./pkgs/mako.nix
+    # ./pkgs/mako.nix
     ./pkgs/media.nix
-    ./pkgs/niri
+    # ./pkgs/niri
     ./pkgs/socials.nix
-    ./pkgs/swaylock.nix
-    ./pkgs/waybar
-    ./pkgs/wlsunset.nix
-    ./pkgs/wpaperd.nix
+    # ./pkgs/swaylock.nix
+    # ./pkgs/waybar
+    # ./pkgs/wlsunset.nix
+    # ./pkgs/wpaperd.nix
   ];
 
   home.packages = with pkgs; [
