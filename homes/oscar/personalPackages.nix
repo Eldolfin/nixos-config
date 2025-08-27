@@ -15,6 +15,7 @@
     # ./pkgs/waybar
     # ./pkgs/wlsunset.nix
     # ./pkgs/wpaperd.nix
+    ./pkgs/gnome.nix
   ];
 
   home.packages = with pkgs; [
