@@ -2,7 +2,6 @@
 {lib, ...}: {
   imports = [
     ./common-server.nix
-    ./pkgs/greetd.nix
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
@@ -14,6 +13,7 @@
     ./pkgs/niri.nix
     ./pkgs/gnome.nix
     ./pkgs/kmscon.nix
+    ./pkgs/gdm.nix
   ];
 
   boot.loader.timeout = lib.mkDefault 0;
@@ -57,7 +57,7 @@
     # prevents freeze which requires a reboot
     earlyoom.enable = true;
     displayManager = {
-      defaultSession = "niri";
+      defaultSession = "gnome";
       autoLogin = {
         enable = lib.mkDefault true;
         user = "oscar";
