@@ -74,6 +74,7 @@
       set -U fish_greeting
       set -U __done_notify_sound 1
       bind \cz 'fg 2>/dev/null; commandline -f repaint'
+      export EDITOR=hx
       export COPILOT_API_KEY="$(cat /run/secrets/apis/COPILOT_API_KEY)"
       # fix colored-man-pages
       # see https://github.com/PatrickF1/colored_man_pages.fish/issues/2
