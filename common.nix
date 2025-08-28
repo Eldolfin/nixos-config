@@ -5,7 +5,7 @@
     ./pkgs/sops.nix
     ./pkgs/sound.nix
     ./pkgs/stylix.nix
-    ./pkgs/xdg.nix
+    # ./pkgs/xdg.nix
     ./pkgs/steam.nix
     ./pkgs/flatpak.nix
     ./pkgs/kdeconnect.nix

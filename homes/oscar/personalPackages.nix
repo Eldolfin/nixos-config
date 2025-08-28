@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./pkgs/activitywatch.nix
+    # ./pkgs/activitywatch.nix
     ./pkgs/bloat.nix
     ./pkgs/chromium.nix
     # ./pkgs/clipse.nix
