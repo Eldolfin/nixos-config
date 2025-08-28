@@ -12,6 +12,7 @@
     ./pkgs/mullvad.nix
     # ./pkgs/niri.nix
     ./pkgs/gnome.nix
+    ./pkgs/kde.nix
     ./pkgs/kmscon.nix
     ./pkgs/gdm.nix
   ];
